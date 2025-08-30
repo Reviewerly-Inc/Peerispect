@@ -166,7 +166,7 @@ class ClaimExtractor:
         
         return claims
     
-    def extract_claims(self, review_text: str, method: str = "auto") -> List[str]:
+    def extract_claims(self, review_text: str, method: str = "auto") -> dict:
         """
         Extract claims from review text using specified method.
         
@@ -175,29 +175,42 @@ class ClaimExtractor:
             method (str): Extraction method ("auto", "fenice", "gemma", "rule_based")
         
         Returns:
-            list: List of extracted claims
+            dict: Dictionary with claims and actual method used
         """
+        original_method = method
+        fallback_chain = []
+        
         if method == "auto":
             # Try methods in order of preference
             if FENICE_AVAILABLE and self.fenice_model is not None:
                 method = "fenice"
+                fallback_chain.append("fenice")
             elif GEMMA_AVAILABLE and self.gemma_pipeline is not None:
                 method = "gemma"
+                fallback_chain.append("gemma")
             else:
                 method = "rule_based"
+                fallback_chain.append("rule_based")
         
         logging.info(f"Extracting claims using method: {method}")
         
         if method == "fenice":
-            return self.extract_claims_fenice(review_text)
+            claims = self.extract_claims_fenice(review_text)
         elif method == "gemma":
-            return self.extract_claims_gemma(review_text)
+            claims = self.extract_claims_gemma(review_text)
         elif method == "rule_based":
-            return self.extract_claims_rule_based(review_text)
+            claims = self.extract_claims_rule_based(review_text)
         else:
             raise ValueError(f"Unknown extraction method: {method}")
+        
+        return {
+            'claims': claims,
+            'actual_method': method,
+            'configured_method': original_method,
+            'fallback_chain': fallback_chain
+        }
     
-    def extract_claims_batch(self, reviews: List[Dict[str, Any]], method: str = "auto") -> List[Dict[str, Any]]:
+    def extract_claims_batch(self, reviews: List[Dict[str, Any]], method: str = "auto") -> dict:
         """
         Extract claims from multiple reviews.
         
@@ -206,9 +219,11 @@ class ClaimExtractor:
             method (str): Extraction method
         
         Returns:
-            list: List of reviews with extracted claims
+            dict: Dictionary with reviews with claims and actual method used
         """
         results = []
+        actual_method = None
+        fallback_chain = []
         
         for review in reviews:
             review_text = review.get('full_review', '')
@@ -223,14 +238,22 @@ class ClaimExtractor:
                     sections.append(f"Weaknesses: {review['weaknesses']}")
                 review_text = '\n\n'.join(sections)
             
-            claims = self.extract_claims(review_text, method)
+            extraction_result = self.extract_claims(review_text, method)
+            claims = extraction_result['claims']
+            actual_method = extraction_result['actual_method']
+            fallback_chain = extraction_result['fallback_chain']
             
             # Add claims to review
             review_with_claims = review.copy()
             review_with_claims['extracted_claims'] = claims
             results.append(review_with_claims)
         
-        return results
+        return {
+            'reviews_with_claims': results,
+            'actual_method': actual_method,
+            'configured_method': method,
+            'fallback_chain': fallback_chain
+        }
     
     def save_claims(self, reviews_with_claims: List[Dict[str, Any]], output_path: str):
         """
@@ -257,7 +280,7 @@ def extract_claims_from_review(review_text, method="auto"):
         method (str): Extraction method
     
     Returns:
-        list: List of extracted claims
+        dict: Dictionary with claims and actual method used
     """
     extractor = ClaimExtractor()
     return extractor.extract_claims(review_text, method)
@@ -271,7 +294,7 @@ def extract_claims_from_reviews(reviews, method="auto"):
         method (str): Extraction method
     
     Returns:
-        list: List of reviews with extracted claims
+        dict: Dictionary with reviews with claims and actual method used
     """
     extractor = ClaimExtractor()
     return extractor.extract_claims_batch(reviews, method)

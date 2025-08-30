@@ -1,0 +1,31 @@
+{
+  "submission_id": "qjnl1QUnFA",
+  "submission_title": "High-Fidelity Audio Compression with Improved RVQGAN",
+  "review_index": 4,
+  "review_id": "VRIhZMXFoC",
+  "reviewer": "Reviewer_d8D3",
+  "invitation": "NeurIPS.cc/2023/Conference/Submission14752/-/Official_Review",
+  "invitations": [
+    "NeurIPS.cc/2023/Conference/Submission14752/-/Official_Review",
+    "NeurIPS.cc/2023/Conference/-/Edit"
+  ],
+  "signatures": [
+    "NeurIPS.cc/2023/Conference/Submission14752/Reviewer_d8D3"
+  ],
+  "rating": "7: Accept: Technically solid paper, with high impact on at least one sub-area, or moderate-to-high impact on more than one areas, with good-to-excellent evaluation, resources, reproducibility, and no unaddressed ethical considerations.",
+  "confidence": "5: You are absolutely certain about your assessment. You are very familiar with the related work and checked the math/other details carefully.",
+  "review_text": "",
+  "summary": "The authors propose a neural audio codec model that demonstrates superior performance compared to previous works, and present experimental results.",
+  "strengths": "- The authors appropriately explain the problem they aim to address.\n- Their method is adequately described.\n- The authors provide a specific implementation, ensuring reproducibility.\n- The claims made are reasonable, and the experiments and results support them.\n- The authors' various ablation studies can be helpful for future work.\n",
+  "weaknesses": "- For a neural audio codec to be utilized like traditional audio codecs, it should not fail in any patterns. Data-driven neural audio codecs have not been proven to be sufficiently stable from this perspective. Although the authors divided the original dataset into a training set and evaluation set, it is necessary to validate whether the proposed audio codec works well on more diverse and completely different audio data. Additionally, finding failure cases of previous works and comparing them can serve as strong evidence supporting the superiority of the authors' proposed method.",
+  "questions": "Based on the MUSHRA scores curves, it appears that higher bitrates yield better scores, and the highest quality that this method can achieve remains unconfirmed. Is there a specific reason for this?",
+  "limitations": "Limitations have been well described.",
+  "soundness": "3 good",
+  "presentation": "3 good",
+  "contribution": "3 good",
+  "flag_for_ethics_review": [
+    "No ethics review needed."
+  ],
+  "details_of_ethics_concerns": "",
+  "combined_review_text": "The authors propose a neural audio codec model that demonstrates superior performance compared to previous works, and present experimental results.\n3 good\n3 good\n3 good\n- The authors appropriately explain the problem they aim to address.\n- Their method is adequately described.\n- The authors provide a specific implementation, ensuring reproducibility.\n- The claims made are reasonable, and the experiments and results support them.\n- The authors' various ablation studies can be helpful for future work.\n\n- For a neural audio codec to be utilized like traditional audio codecs, it should not fail in any patterns. Data-driven neural audio codecs have not been proven to be sufficiently stable from this perspective. Although the authors divided the original dataset into a training set and evaluation set, it is necessary to validate whether the proposed audio codec works well on more diverse and completely different audio data. Additionally, finding failure cases of previous works and comparing them can serve as strong evidence supporting the superiority of the authors' proposed method.\nBased on the MUSHRA scores curves, it appears that higher bitrates yield better scores, and the highest quality that this method can achieve remains unconfirmed. Is there a specific reason for this?\nLimitations have been well described.\n7: Accept: Technically solid paper, with high impact on at least one sub-area, or moderate-to-high impact on more than one areas, with good-to-excellent evaluation, resources, reproducibility, and no unaddressed ethical considerations.\n5: You are absolutely certain about your assessment. You are very familiar with the related work and checked the math/other details carefully.\nYes"
+}

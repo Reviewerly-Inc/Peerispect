@@ -1,0 +1,223 @@
+{
+  "run_id": "run_20250830_153405",
+  "timestamp": "2025-08-30T15:34:05.222678",
+  "url": "https://openreview.net/forum?id=qjnl1QUnFA",
+  "submission_id": "qjnl1QUnFA",
+  "configuration": {
+    "pdf_parser": {
+      "method": "auto",
+      "parser_kwargs": {},
+      "description": "Method used to parse PDF to markdown"
+    },
+    "chunking": {
+      "chunk_size": 512,
+      "description": "Maximum tokens per chunk for text chunking"
+    },
+    "claim_extraction": {
+      "method": "auto",
+      "available_methods": [
+        "fenice",
+        "rule_based",
+        "auto"
+      ],
+      "description": "Method used to extract claims from reviews"
+    },
+    "evidence_retrieval": {
+      "method": "auto",
+      "top_k": 4,
+      "available_methods": [
+        "tfidf",
+        "bm25",
+        "sbert",
+        "auto"
+      ],
+      "description": "Method used to retrieve evidence for claims"
+    },
+    "claim_verification": {
+      "model": "qwen3:8b",
+      "temperature": 0.0,
+      "num_predict": 2048,
+      "top_k": 40,
+      "top_p": 0.9,
+      "repeat_penalty": 1.1,
+      "seed": 42,
+      "description": "LLM model and parameters for claim verification"
+    },
+    "output_directory": "outputs"
+  },
+  "actual_methods_used": {
+    "pdf_parser": {
+      "configured_method": "auto",
+      "actual_method": "docling_standard",
+      "fallback_chain": [
+        "docling_standard"
+      ],
+      "description": "Actual method used after fallback resolution"
+    },
+    "claim_extraction": {
+      "configured_method": "auto",
+      "actual_method": "rule_based",
+      "fallback_chain": [
+        "rule_based"
+      ],
+      "description": "Actual method used after fallback resolution"
+    },
+    "evidence_retrieval": {
+      "configured_method": "auto",
+      "actual_method": "sbert",
+      "fallback_chain": [
+        "sbert"
+      ],
+      "description": "Actual method used after fallback resolution"
+    },
+    "claim_verification": {
+      "configured_model": "qwen3:8b",
+      "actual_model": null,
+      "description": "Actual model used for verification",
+      "actual_method": "qwen3:8b"
+    }
+  },
+  "pipeline_steps": [
+    {
+      "step": 1,
+      "name": "OpenReview Crawling",
+      "method": "crawl_openreview_url",
+      "description": "Crawl OpenReview URL to extract paper and reviews"
+    },
+    {
+      "step": 2,
+      "name": "PDF Parsing",
+      "method": "parse_pdf_to_markdown",
+      "description": "Convert PDF to markdown format"
+    },
+    {
+      "step": 3,
+      "name": "Markdown Cleaning",
+      "method": "clean_markdown",
+      "description": "Clean and preprocess markdown text"
+    },
+    {
+      "step": 4,
+      "name": "Text Chunking",
+      "method": "chunk_markdown",
+      "description": "Split text into manageable chunks"
+    },
+    {
+      "step": 5,
+      "name": "Review Extraction",
+      "method": "extract_reviews_from_metadata",
+      "description": "Extract structured reviews from metadata"
+    },
+    {
+      "step": 6,
+      "name": "Claim Extraction",
+      "method": "extract_claims_from_reviews",
+      "description": "Extract claims from review text"
+    },
+    {
+      "step": 7,
+      "name": "Evidence Retrieval",
+      "method": "EvidenceRetriever.retrieve_evidence",
+      "description": "Retrieve relevant evidence for claims"
+    },
+    {
+      "step": 8,
+      "name": "Claim Verification",
+      "method": "ClaimVerifier.verify_claims_batch",
+      "description": "Verify claims against evidence using LLM"
+    }
+  ],
+  "system_info": {
+    "python_version": "3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]",
+    "platform": "linux",
+    "working_directory": "/home/ali_ghorbanpour/Peeriscope.V2"
+  },
+  "step_results": {
+    "step_1_crawling": {
+      "status": "completed",
+      "submission_id": "qjnl1QUnFA",
+      "pdf_path": "outputs/pdfs/qjnl1QUnFA.pdf",
+      "metadata_keys": [
+        "submission_id",
+        "title",
+        "authors",
+        "abstract",
+        "pdf_url",
+        "pdf_filename",
+        "reviews",
+        "pdf_local_path",
+        "all_reviews_path",
+        "all_reviews_pickle_path",
+        "individual_review_files"
+      ]
+    },
+    "step_2_pdf_parsing": {
+      "status": "completed",
+      "configured_method": "auto",
+      "actual_method": "docling_standard",
+      "fallback_chain": [
+        "docling_standard"
+      ],
+      "parser_kwargs": {},
+      "markdown_path": "outputs/markdown/qjnl1QUnFA.md"
+    },
+    "step_3_markdown_cleaning": {
+      "status": "completed",
+      "cleaned_markdown_path": "outputs/markdown/qjnl1QUnFA_cleaned.md"
+    },
+    "step_4_chunking": {
+      "status": "completed",
+      "chunk_size": 512,
+      "chunks_path": "outputs/chunks/qjnl1QUnFA_chunks.jsonl"
+    },
+    "step_5_review_extraction": {
+      "status": "completed",
+      "reviews_path": "outputs/reviews/qjnl1QUnFA_reviews.json",
+      "num_reviews": 4,
+      "review_ids": [
+        "2GorIEtexk",
+        "YjQqdH8Z78",
+        "3GDoZw7Tv9",
+        "VRIhZMXFoC"
+      ]
+    },
+    "step_6_claim_extraction": {
+      "status": "completed",
+      "configured_method": "auto",
+      "actual_method": "rule_based",
+      "fallback_chain": [
+        "rule_based"
+      ],
+      "claims_path": "outputs/claims/qjnl1QUnFA_claims.json",
+      "num_claims": 40,
+      "claims_per_review": {
+        "2GorIEtexk": 12,
+        "YjQqdH8Z78": 13,
+        "3GDoZw7Tv9": 7,
+        "VRIhZMXFoC": 8
+      }
+    },
+    "step_7_evidence_retrieval": {
+      "status": "completed",
+      "configured_method": "auto",
+      "actual_method": "sbert",
+      "fallback_chain": [
+        "sbert"
+      ],
+      "top_k": 4,
+      "evidence_path": "outputs/evidence/qjnl1QUnFA_evidence.json",
+      "num_chunks": 36,
+      "num_claims_with_evidence": 40
+    },
+    "step_8_claim_verification": {
+      "status": "completed",
+      "configured_model": "qwen3:8b",
+      "actual_model": "qwen3:8b",
+      "temperature": 0.0,
+      "verification_path": "outputs/verification/qjnl1QUnFA_verification.json",
+      "report_path": "outputs/verification/qjnl1QUnFA_report.md",
+      "num_claims_verified": 40
+    }
+  },
+  "completion_timestamp": "2025-08-30T15:36:23.161170"
+}

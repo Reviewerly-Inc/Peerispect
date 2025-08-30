@@ -174,13 +174,17 @@ class PDFParser:
             **kwargs: Additional arguments for specific methods
         
         Returns:
-            str: Path to output markdown file
+            dict: Dictionary with result path and actual method used
         """
+        original_method = method
+        fallback_chain = []
+        
         if method == "auto":
             # Try methods in order of preference
             for preferred_method in ["docling_standard", "nougat", "pypdf2_fallback"]:
                 if preferred_method in self.available_methods:
                     method = preferred_method
+                    fallback_chain.append(preferred_method)
                     break
             else:
                 raise ValueError("No PDF parsing methods available")
@@ -212,7 +216,13 @@ class PDFParser:
             
             elapsed_time = time.time() - start_time
             logging.info(f"PDF parsing completed in {elapsed_time:.2f} seconds")
-            return result
+            
+            return {
+                'output_path': result,
+                'actual_method': method,
+                'configured_method': original_method,
+                'fallback_chain': fallback_chain
+            }
             
         except Exception as e:
             logging.error(f"Error parsing PDF with method {method}: {e}")
@@ -229,7 +239,7 @@ def parse_pdf_to_markdown(pdf_path, output_path, method="auto", **kwargs):
         **kwargs: Additional arguments for specific methods
     
     Returns:
-        str: Path to output markdown file
+        dict: Dictionary with result path and actual method used
     """
     parser = PDFParser()
     return parser.parse_pdf(pdf_path, output_path, method, **kwargs)

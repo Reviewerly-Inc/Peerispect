@@ -244,7 +244,7 @@ class EvidenceRetriever:
             logging.error(f"Error in SBERT retrieval: {e}")
             return []
     
-    def retrieve_evidence(self, query: str, chunks: List[Dict[str, Any]], method: str = "auto", top_k: int = 3) -> List[str]:
+    def retrieve_evidence(self, query: str, chunks: List[Dict[str, Any]], method: str = "auto", top_k: int = 3) -> dict:
         """
         Retrieve evidence for a claim using specified method.
         
@@ -255,13 +255,17 @@ class EvidenceRetriever:
             top_k (int): Number of top chunks to retrieve
         
         Returns:
-            list: List of evidence texts
+            dict: Dictionary with evidence and actual method used
         """
+        original_method = method
+        fallback_chain = []
+        
         if method == "auto":
             # Try methods in order of preference
             for preferred_method in ["sbert", "bm25", "tfidf"]:
                 if preferred_method in self.available_methods:
                     method = preferred_method
+                    fallback_chain.append(preferred_method)
                     break
             else:
                 raise ValueError("No evidence retrieval methods available")
@@ -272,13 +276,20 @@ class EvidenceRetriever:
         logging.info(f"Retrieving evidence using method: {method}")
         
         if method == "tfidf":
-            return self.retrieve_evidence_tfidf(query, chunks, top_k)
+            evidence = self.retrieve_evidence_tfidf(query, chunks, top_k)
         elif method == "bm25":
-            return self.retrieve_evidence_bm25(query, chunks, top_k)
+            evidence = self.retrieve_evidence_bm25(query, chunks, top_k)
         elif method == "sbert":
-            return self.retrieve_evidence_sbert(query, chunks, top_k)
+            evidence = self.retrieve_evidence_sbert(query, chunks, top_k)
         else:
             raise ValueError(f"Unknown method: {method}")
+        
+        return {
+            'evidence': evidence,
+            'actual_method': method,
+            'configured_method': original_method,
+            'fallback_chain': fallback_chain
+        }
     
     def retrieve_evidence_for_claims(self, claims: List[str], chunks: List[Dict[str, Any]], 
                                    method: str = "auto", top_k: int = 3) -> List[Dict[str, Any]]:
@@ -334,7 +345,7 @@ def retrieve_evidence_for_claim(claim, chunks, method="auto", top_k=3):
         top_k (int): Number of top chunks
     
     Returns:
-        list: List of evidence texts
+        dict: Dictionary with evidence and actual method used
     """
     retriever = EvidenceRetriever()
     return retriever.retrieve_evidence(claim, chunks, method, top_k)

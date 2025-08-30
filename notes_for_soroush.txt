@@ -1,0 +1,15 @@
+1. you dont need the outputs in your actual use-case for deployment.
+what you need is the final output report. so, basically, you can update the code to prevent it from storing all these intermediary files and folders in your backend and process them on memory on the fly.
+for final output as well you can pass the result to front without storing a file. make sure to update these before publishing the domain.
+
+2. you can use the files and folders in outputs to debug.
+
+3. check the logs. I have a fallback strategy where each model/method fails, it will go for the next model/method in the list.
+e.g.: lets say for any reason FENICE claim extraction is not available, so it will automatically go for the next model.
+Therefore, there are two specs: 1. configuration 2. actual models used in that particular run
+by checking the req.txt and venv make sure you installed every packages needed to run all possible configs
+
+4. How to run:
+source venv/bin/activate
+python app/main.py "YOUR_OPENREVIEW_URL"
+
