@@ -12,7 +12,9 @@
       "result": "Supported",
       "justification": "The evidence directly supports the claim about Self-Retrieval being an end-to-end IR system driven by a single LLM.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "WoHIlsOUVC",
+    "reviewer": "Reviewer_uLuX"
   },
   {
     "claim_id": 2,
@@ -27,7 +29,9 @@
       "result": "Supported",
       "justification": "The evidence directly supports the claim about Self-Retrieval outperforming methods on NQ and TriviaQA.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "WoHIlsOUVC",
+    "reviewer": "Reviewer_uLuX"
   },
   {
     "claim_id": 3,
@@ -42,7 +46,9 @@
       "result": "Supported",
       "justification": "Evidence shows Self-Retrieval integrates IR functions into a single LLM, enhancing performance and streamlining processes.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "WoHIlsOUVC",
+    "reviewer": "Reviewer_uLuX"
   },
   {
     "claim_id": 4,
@@ -57,7 +63,9 @@
       "result": "Partially Supported",
       "justification": "The evidence explains Self-Retrieval's technical aspects but does not explicitly state it is introduced clearly or made accessible to readers.",
       "confidence": 0.85
-    }
+    },
+    "review_id": "WoHIlsOUVC",
+    "reviewer": "Reviewer_uLuX"
   },
   {
     "claim_id": 5,
@@ -72,7 +80,9 @@
       "result": "Supported",
       "justification": "The evidence shows significant improvements in experimental results over existing retrieval methods.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "WoHIlsOUVC",
+    "reviewer": "Reviewer_uLuX"
   },
   {
     "claim_id": 6,
@@ -87,7 +97,9 @@
       "result": "Partially Supported",
       "justification": "The evidence discusses weaknesses of IR systems but does not directly address the specific claim about 'Weaknesses: 1.'",
       "confidence": 0.75
-    }
+    },
+    "review_id": "WoHIlsOUVC",
+    "reviewer": "Reviewer_uLuX"
   },
   {
     "claim_id": 7,
@@ -102,7 +114,9 @@
       "result": "Partially Supported",
       "justification": "The claim suggests more experimental results on full KILT datasets are needed, but the evidence only provides results on NQ and TriviaQA subsets.",
       "confidence": 0.85
-    }
+    },
+    "review_id": "WoHIlsOUVC",
+    "reviewer": "Reviewer_uLuX"
   },
   {
     "claim_id": 8,
@@ -117,7 +131,9 @@
       "result": "Undetermined",
       "justification": "The evidence does not address the claim about key term consistency affecting readability and professionalism.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "WoHIlsOUVC",
+    "reviewer": "Reviewer_uLuX"
   },
   {
     "claim_id": 9,
@@ -132,7 +148,9 @@
       "result": "Undetermined",
       "justification": "The claim references 'weaknesses' but no specific weaknesses are discussed in the evidence.",
       "confidence": 0.8
-    }
+    },
+    "review_id": "WoHIlsOUVC",
+    "reviewer": "Reviewer_uLuX"
   },
   {
     "claim_id": 10,
@@ -147,7 +165,9 @@
       "result": "Partially Supported",
       "justification": "The evidence shows performance degradation without certain components, but does not directly confirm the claim's specific metrics or context.",
       "confidence": 0.75
-    }
+    },
+    "review_id": "WoHIlsOUVC",
+    "reviewer": "Reviewer_uLuX"
   },
   {
     "claim_id": 11,
@@ -162,7 +182,9 @@
       "result": "Supported",
       "justification": "The evidence directly supports the claim about Self-Retrieval unifying retrieval tasks into a single model.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "7EaZEFRp1Y",
+    "reviewer": "Reviewer_iXLD"
   },
   {
     "claim_id": 12,
@@ -177,7 +199,9 @@
       "result": "Supported",
       "justification": "Evidence shows Self-Retrieval outperforms generative retrievers in MRR@5 and EM scores.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "7EaZEFRp1Y",
+    "reviewer": "Reviewer_iXLD"
   },
   {
     "claim_id": 13,
@@ -192,7 +216,9 @@
       "result": "Undetermined",
       "justification": "The evidence does not directly address the novelty of the concept.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "7EaZEFRp1Y",
+    "reviewer": "Reviewer_iXLD"
   },
   {
     "claim_id": 14,
@@ -207,7 +233,9 @@
       "result": "Supported",
       "justification": "Evidence shows Self-Retrieval outperforms other generative methods in passage retrieval and answer generation.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "7EaZEFRp1Y",
+    "reviewer": "Reviewer_iXLD"
   },
   {
     "claim_id": 15,
@@ -222,7 +250,9 @@
       "result": "Supported",
       "justification": "Evidence shows Self-Retrieval maintains performance degradation comparable to BGE-FT when scaling to 3 million passages.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "7EaZEFRp1Y",
+    "reviewer": "Reviewer_iXLD"
   },
   {
     "claim_id": 16,
@@ -237,7 +267,9 @@
       "result": "Partially Supported",
       "justification": "The evidence discusses weaknesses of IR systems but does not directly address the specific claim about 'Weaknesses: 1.'",
       "confidence": 0.75
-    }
+    },
+    "review_id": "7EaZEFRp1Y",
+    "reviewer": "Reviewer_iXLD"
   },
   {
     "claim_id": 17,
@@ -252,7 +284,9 @@
       "result": "Supported",
       "justification": "The evidence confirms Self-Retrieval includes a reranker while BGE-FT + reader lacks it.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "7EaZEFRp1Y",
+    "reviewer": "Reviewer_iXLD"
   },
   {
     "claim_id": 18,
@@ -267,7 +301,9 @@
       "result": "Supported",
       "justification": "Evidence shows reranking improves RAG results, supporting the claim about unfair comparisons.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "7EaZEFRp1Y",
+    "reviewer": "Reviewer_iXLD"
   },
   {
     "claim_id": 19,
@@ -282,7 +318,9 @@
       "result": "Undetermined",
       "justification": "The evidence discusses Self-Retrieval's performance but does not compare shared vs separate models for the three steps.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "7EaZEFRp1Y",
+    "reviewer": "Reviewer_iXLD"
   },
   {
     "claim_id": 20,
@@ -297,7 +335,9 @@
       "result": "Partially Supported",
       "justification": "The evidence discusses limitations but does not fully confirm the claim's adequacy.",
       "confidence": 0.75
-    }
+    },
+    "review_id": "7EaZEFRp1Y",
+    "reviewer": "Reviewer_iXLD"
   },
   {
     "claim_id": 21,
@@ -312,7 +352,9 @@
       "result": "Undetermined",
       "justification": "The evidence does not directly address the claim's metrics or their scores.",
       "confidence": 0.8
-    }
+    },
+    "review_id": "7EaZEFRp1Y",
+    "reviewer": "Reviewer_iXLD"
   },
   {
     "claim_id": 22,
@@ -327,7 +369,9 @@
       "result": "Supported",
       "justification": "The evidence directly supports the claim about Self-Retrieval's effectiveness and architecture.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "xeR8rdcAPK",
+    "reviewer": "Reviewer_g3kT"
   },
   {
     "claim_id": 23,
@@ -342,7 +386,9 @@
       "result": "Supported",
       "justification": "The evidence shows Self-Retrieval outperforms existing models on NQ and TriviaQA subsets.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "xeR8rdcAPK",
+    "reviewer": "Reviewer_g3kT"
   },
   {
     "claim_id": 24,
@@ -357,7 +403,9 @@
       "result": "Supported",
       "justification": "The evidence confirms the paper describes a self-supervised method for corpus memorization via internalizing data into LLM parameters.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "xeR8rdcAPK",
+    "reviewer": "Reviewer_g3kT"
   },
   {
     "claim_id": 25,
@@ -372,7 +420,9 @@
       "result": "Partially Supported",
       "justification": "Evidence shows Self-Retrieval has quality improvements over some methods, but not all aspects of the claim are explicitly confirmed.",
       "confidence": 0.85
-    }
+    },
+    "review_id": "xeR8rdcAPK",
+    "reviewer": "Reviewer_g3kT"
   },
   {
     "claim_id": 26,
@@ -387,7 +437,9 @@
       "result": "Supported",
       "justification": "The evidence shows Self-Retrieval outperforms generative retrieval models and dual-encoder approaches in passage retrieval.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "xeR8rdcAPK",
+    "reviewer": "Reviewer_g3kT"
   },
   {
     "claim_id": 27,
@@ -402,7 +454,9 @@
       "result": "Partially Supported",
       "justification": "Ablation study shows performance degradation, but no direct evidence of scaling with model size.",
       "confidence": 0.75
-    }
+    },
+    "review_id": "xeR8rdcAPK",
+    "reviewer": "Reviewer_g3kT"
   },
   {
     "claim_id": 28,
@@ -417,7 +471,9 @@
       "result": "Partially Supported",
       "justification": "The evidence discusses scalability but does not directly address dense retrievers plateauing or the new architecture's scaling curve.",
       "confidence": 0.75
-    }
+    },
+    "review_id": "xeR8rdcAPK",
+    "reviewer": "Reviewer_g3kT"
   },
   {
     "claim_id": 29,
@@ -432,7 +488,9 @@
       "result": "Partially Supported",
       "justification": "The claim mentions using Wikipedia-based datasets, which is supported by the evidence, but lacks specific details on dataset limitations.",
       "confidence": 0.85
-    }
+    },
+    "review_id": "xeR8rdcAPK",
+    "reviewer": "Reviewer_g3kT"
   },
   {
     "claim_id": 30,
@@ -447,7 +505,9 @@
       "result": "Partially Supported",
       "justification": "The evidence mentions Wikipedia use in pretraining but does not confirm if the approach ensures sufficient memorization of other datasets.",
       "confidence": 0.75
-    }
+    },
+    "review_id": "xeR8rdcAPK",
+    "reviewer": "Reviewer_g3kT"
   },
   {
     "claim_id": 31,
@@ -462,7 +522,9 @@
       "result": "Partially Supported",
       "justification": "Evidence mentions dense retrieval baselines but not cross-attention reranking specifically.",
       "confidence": 0.85
-    }
+    },
+    "review_id": "xeR8rdcAPK",
+    "reviewer": "Reviewer_g3kT"
   },
   {
     "claim_id": 32,
@@ -477,7 +539,9 @@
       "result": "Partially Supported",
       "justification": "The evidence discusses computational efficiency but does not directly compare reranking costs to a separate cross-attention reranker.",
       "confidence": 0.75
-    }
+    },
+    "review_id": "xeR8rdcAPK",
+    "reviewer": "Reviewer_g3kT"
   },
   {
     "claim_id": 33,
@@ -492,7 +556,9 @@
       "result": "Partially Supported",
       "justification": "The evidence supports retrieval performance but lacks explicit mention of e2e comparisons to specific 2-stage pipelines.",
       "confidence": 0.85
-    }
+    },
+    "review_id": "xeR8rdcAPK",
+    "reviewer": "Reviewer_g3kT"
   },
   {
     "claim_id": 34,
@@ -507,7 +573,9 @@
       "result": "Undetermined",
       "justification": "The evidence does not mention efficiency discussion in the claim.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "xeR8rdcAPK",
+    "reviewer": "Reviewer_g3kT"
   },
   {
     "claim_id": 35,
@@ -522,7 +590,9 @@
       "result": "Partially Supported",
       "justification": "The evidence shows ablation results but does not directly support the specific scores or metrics mentioned in the claim.",
       "confidence": 0.75
-    }
+    },
+    "review_id": "xeR8rdcAPK",
+    "reviewer": "Reviewer_g3kT"
   },
   {
     "claim_id": 36,
@@ -537,7 +607,9 @@
       "result": "Supported",
       "justification": "The evidence directly supports the claim about Self-Retrieval using generation probability for ranking.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "r1WHgXU4Re",
+    "reviewer": "Reviewer_xB99"
   },
   {
     "claim_id": 37,
@@ -552,7 +624,9 @@
       "result": "Partially Supported",
       "justification": "The evidence shows Self-Retrieval performs well but does not directly compare all methods in the claim.",
       "confidence": 0.85
-    }
+    },
+    "review_id": "r1WHgXU4Re",
+    "reviewer": "Reviewer_xB99"
   },
   {
     "claim_id": 38,
@@ -567,7 +641,9 @@
       "result": "Supported",
       "justification": "The claim is supported by evidence showing Self-Retrieval outperforms existing methods, indicating novelty.",
       "confidence": 0.95
-    }
+    },
+    "review_id": "r1WHgXU4Re",
+    "reviewer": "Reviewer_xB99"
   },
   {
     "claim_id": 39,
@@ -582,7 +658,9 @@
       "result": "Partially Supported",
       "justification": "The evidence mentions improved performance on retrieval metrics but does not explicitly state 'very good' or QA improvements.",
       "confidence": 0.85
-    }
+    },
+    "review_id": "r1WHgXU4Re",
+    "reviewer": "Reviewer_xB99"
   },
   {
     "claim_id": 40,
@@ -597,7 +675,9 @@
       "result": "Partially Supported",
       "justification": "The evidence mentions trie usage for constrained decoding but does not directly link it to passage generation weaknesses.",
       "confidence": 0.75
-    }
+    },
+    "review_id": "r1WHgXU4Re",
+    "reviewer": "Reviewer_xB99"
   },
   {
     "claim_id": 41,
@@ -612,7 +692,9 @@
       "result": "Undetermined",
       "justification": "The claim lacks specific details to match evidence about performance or components.",
       "confidence": 0.8
-    }
+    },
+    "review_id": "r1WHgXU4Re",
+    "reviewer": "Reviewer_xB99"
   },
   {
     "claim_id": 42,
@@ -627,6 +709,8 @@
       "result": "Partially Supported",
       "justification": "The evidence shows ablation results but does not directly confirm the claim's specific metrics or ratings.",
       "confidence": 0.75
-    }
+    },
+    "review_id": "r1WHgXU4Re",
+    "reviewer": "Reviewer_xB99"
   }
 ]

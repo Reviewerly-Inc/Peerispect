@@ -189,7 +189,9 @@ Return exactly:
                 'claim_id': claim_data.get('claim_id', i+1),
                 'claim': claim,
                 'evidence': evidence,
-                'verification': verification_result
+                'verification': verification_result,
+                'review_id': claim_data.get('review_id', ''),
+                'reviewer': claim_data.get('reviewer', '')
             }
             results.append(result)
             
@@ -249,12 +251,40 @@ Return exactly:
             f.write(f"- Contradicted: {contradicted} ({contradicted/total_claims*100:.1f}%)\n")
             f.write(f"- Undetermined: {undetermined} ({undetermined/total_claims*100:.1f}%)\n\n")
             
+            # Group claims by reviewer
+            reviewer_stats = {}
+            for result in results:
+                reviewer = result.get('reviewer', 'Unknown')
+                if reviewer not in reviewer_stats:
+                    reviewer_stats[reviewer] = {'total': 0, 'supported': 0, 'partially_supported': 0, 'contradicted': 0, 'undetermined': 0}
+                
+                reviewer_stats[reviewer]['total'] += 1
+                result_type = result['verification']['result']
+                if result_type == 'Supported':
+                    reviewer_stats[reviewer]['supported'] += 1
+                elif result_type == 'Partially Supported':
+                    reviewer_stats[reviewer]['partially_supported'] += 1
+                elif result_type == 'Contradicted':
+                    reviewer_stats[reviewer]['contradicted'] += 1
+                elif result_type == 'Undetermined':
+                    reviewer_stats[reviewer]['undetermined'] += 1
+            
+            f.write("## Claims by Reviewer\n\n")
+            for reviewer, stats in reviewer_stats.items():
+                f.write(f"### {reviewer}\n\n")
+                f.write(f"- Total Claims: {stats['total']}\n")
+                f.write(f"- Supported: {stats['supported']} ({stats['supported']/stats['total']*100:.1f}%)\n")
+                f.write(f"- Partially Supported: {stats['partially_supported']} ({stats['partially_supported']/stats['total']*100:.1f}%)\n")
+                f.write(f"- Contradicted: {stats['contradicted']} ({stats['contradicted']/stats['total']*100:.1f}%)\n")
+                f.write(f"- Undetermined: {stats['undetermined']} ({stats['undetermined']/stats['total']*100:.1f}%)\n\n")
+            
             # Detailed results
             f.write("## Detailed Results\n\n")
             
             for result in results:
                 f.write(f"### Claim {result['claim_id']}\n\n")
                 f.write(f"**Claim:** {result['claim']}\n\n")
+                f.write(f"**Reviewer:** {result.get('reviewer', 'Unknown')} (ID: {result.get('review_id', 'Unknown')})\n\n")
                 f.write(f"**Result:** {result['verification']['result']}\n")
                 f.write(f"**Confidence:** {result['verification']['confidence']:.2f}\n")
                 f.write(f"**Justification:** {result['verification']['justification']}\n\n")

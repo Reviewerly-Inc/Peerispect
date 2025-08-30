@@ -8,11 +8,47 @@
 - Contradicted: 0 (0.0%)
 - Undetermined: 7 (16.7%)
 
+## Claims by Reviewer
+
+### Reviewer_uLuX
+
+- Total Claims: 10
+- Supported: 4 (40.0%)
+- Partially Supported: 4 (40.0%)
+- Contradicted: 0 (0.0%)
+- Undetermined: 2 (20.0%)
+
+### Reviewer_iXLD
+
+- Total Claims: 11
+- Supported: 6 (54.5%)
+- Partially Supported: 2 (18.2%)
+- Contradicted: 0 (0.0%)
+- Undetermined: 3 (27.3%)
+
+### Reviewer_g3kT
+
+- Total Claims: 14
+- Supported: 4 (28.6%)
+- Partially Supported: 9 (64.3%)
+- Contradicted: 0 (0.0%)
+- Undetermined: 1 (7.1%)
+
+### Reviewer_xB99
+
+- Total Claims: 7
+- Supported: 2 (28.6%)
+- Partially Supported: 4 (57.1%)
+- Contradicted: 0 (0.0%)
+- Undetermined: 1 (14.3%)
+
 ## Detailed Results
 
 ### Claim 1
 
 **Claim:** Summary: This paper introduces Self-Retrieval, an end-to-end IR system driven entirely by a single LLM.
+
+**Reviewer:** Reviewer_uLuX (ID: WoHIlsOUVC)
 
 **Result:** Supported
 **Confidence:** 0.95
@@ -30,6 +66,8 @@
 
 **Claim:** The authors provide experimental evidence showing that Self-Retrieval outperforms traditional sparse, dense, and generative retrieval methods on benchmark datasets like NQ and TriviaQA.
 
+**Reviewer:** Reviewer_uLuX (ID: WoHIlsOUVC)
+
 **Result:** Supported
 **Confidence:** 0.95
 **Justification:** The evidence directly supports the claim about Self-Retrieval outperforming methods on NQ and TriviaQA.
@@ -45,6 +83,8 @@
 ### Claim 3
 
 **Claim:** The integration of all IR functions into a single LLM is a novel contribution that leverages the inherent capabilities of LLMs across the full spectrum of IR tasks, offering a streamlined and potentially more effective approach.
+
+**Reviewer:** Reviewer_uLuX (ID: WoHIlsOUVC)
 
 **Result:** Supported
 **Confidence:** 0.95
@@ -66,6 +106,8 @@ Qiaoyu Tang 1 , 2 ∗ , Jiawei Chen 1 , 2 ∗ , Zhuoqun Li 1 , 2 , Bowen Yu 3 , 
 
 **Claim:** The concept of Self-Retrieval is introduced clearly, making it accessible to readers.
 
+**Reviewer:** Reviewer_uLuX (ID: WoHIlsOUVC)
+
 **Result:** Partially Supported
 **Confidence:** 0.85
 **Justification:** The evidence explains Self-Retrieval's technical aspects but does not explicitly state it is introduced clearly or made accessible to readers.
@@ -82,6 +124,8 @@ Qiaoyu Tang 1 , 2 ∗ , Jiawei Chen 1 , 2 ∗ , Zhuoqun Li 1 , 2 , Bowen Yu 3 , 
 
 **Claim:** The paper presents good experimental results that demonstrate significant improvements over existing retrieval methods.
 
+**Reviewer:** Reviewer_uLuX (ID: WoHIlsOUVC)
+
 **Result:** Supported
 **Confidence:** 0.95
 **Justification:** The evidence shows significant improvements in experimental results over existing retrieval methods.
@@ -97,6 +141,8 @@ Qiaoyu Tang 1 , 2 ∗ , Jiawei Chen 1 , 2 ∗ , Zhuoqun Li 1 , 2 , Bowen Yu 3 , 
 ### Claim 6
 
 **Claim:** Weaknesses: 1.
+
+**Reviewer:** Reviewer_uLuX (ID: WoHIlsOUVC)
 
 **Result:** Partially Supported
 **Confidence:** 0.75
@@ -118,6 +164,8 @@ Qiaoyu Tang 1 , 2 ∗ , Jiawei Chen 1 , 2 ∗ , Zhuoqun Li 1 , 2 , Bowen Yu 3 , 
 ### Claim 7
 
 **Claim:** - It is better to include more experimental results on the full KILT datasets as many existing studies for a fair comparison.
+
+**Reviewer:** Reviewer_uLuX (ID: WoHIlsOUVC)
 
 **Result:** Partially Supported
 **Confidence:** 0.85
@@ -146,6 +194,8 @@ Table 6 presents the statistics of the NQ and TriviaQA datasets used in our expe
 
 **Claim:** Ensuring consistent use of key terms throughout the paper would improve its readability and professionalism.
 
+**Reviewer:** Reviewer_uLuX (ID: WoHIlsOUVC)
+
 **Result:** Undetermined
 **Confidence:** 0.95
 **Justification:** The evidence does not address the claim about key term consistency affecting readability and professionalism.
@@ -161,6 +211,8 @@ Table 6 presents the statistics of the NQ and TriviaQA datasets used in our expe
 ### Claim 9
 
 **Claim:** Questions: Please see my concerns in weaknesses.
+
+**Reviewer:** Reviewer_uLuX (ID: WoHIlsOUVC)
 
 **Result:** Undetermined
 **Confidence:** 0.80
@@ -200,6 +252,8 @@ Contribution: 3
 
 Ethics Review Flagged: ['No ethics review needed.']
 
+**Reviewer:** Reviewer_uLuX (ID: WoHIlsOUVC)
+
 **Result:** Partially Supported
 **Confidence:** 0.75
 **Justification:** The evidence shows performance degradation without certain components, but does not directly confirm the claim's specific metrics or context.
@@ -220,6 +274,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 
 **Claim:** Summary: This paper proposes Self-Retrieval, an LM that retrieve, rerank passages, and generate answers using a single model.
 
+**Reviewer:** Reviewer_iXLD (ID: 7EaZEFRp1Y)
+
 **Result:** Supported
 **Confidence:** 0.95
 **Justification:** The evidence directly supports the claim about Self-Retrieval unifying retrieval tasks into a single model.
@@ -235,6 +291,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 ### Claim 12
 
 **Claim:** Evaluation shows that Self-Retrieval outperforms previous dense and generative retrievers in retrieval tasks and achieves better EM scores in answer generation tasks.
+
+**Reviewer:** Reviewer_iXLD (ID: 7EaZEFRp1Y)
 
 **Result:** Supported
 **Confidence:** 0.95
@@ -254,6 +312,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 ### Claim 13
 
 **Claim:** The concept is novel.
+
+**Reviewer:** Reviewer_iXLD (ID: 7EaZEFRp1Y)
 
 **Result:** Undetermined
 **Confidence:** 0.95
@@ -278,6 +338,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 
 **Claim:** Self-Retrieval achieves the best performance for both passage retrieval and answer generation tasks.
 
+**Reviewer:** Reviewer_iXLD (ID: 7EaZEFRp1Y)
+
 **Result:** Supported
 **Confidence:** 0.95
 **Justification:** Evidence shows Self-Retrieval outperforms other generative methods in passage retrieval and answer generation.
@@ -297,6 +359,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 
 **Claim:** Self-Retrieval shows promising results when the corpus size scales to 3 million.
 
+**Reviewer:** Reviewer_iXLD (ID: 7EaZEFRp1Y)
+
 **Result:** Supported
 **Confidence:** 0.95
 **Justification:** Evidence shows Self-Retrieval maintains performance degradation comparable to BGE-FT when scaling to 3 million passages.
@@ -312,6 +376,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 ### Claim 16
 
 **Claim:** Weaknesses: 1.
+
+**Reviewer:** Reviewer_iXLD (ID: 7EaZEFRp1Y)
 
 **Result:** Partially Supported
 **Confidence:** 0.75
@@ -334,6 +400,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 
 **Claim:** The proposed model includes an in-domain fine-tuned reranker, while the baseline BGE-FT + reader does not have a reranking stage.
 
+**Reviewer:** Reviewer_iXLD (ID: 7EaZEFRp1Y)
+
 **Result:** Supported
 **Confidence:** 0.95
 **Justification:** The evidence confirms Self-Retrieval includes a reranker while BGE-FT + reader lacks it.
@@ -349,6 +417,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 ### Claim 18
 
 **Claim:** This may make the comparison unfair since reranking can significantly improve RAG results.
+
+**Reviewer:** Reviewer_iXLD (ID: 7EaZEFRp1Y)
 
 **Result:** Supported
 **Confidence:** 0.95
@@ -371,6 +441,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 
 **Claim:** Compare the efficiency and effectiveness of using shared models versus separate models for the three steps in Self-Retrieval?
 
+**Reviewer:** Reviewer_iXLD (ID: 7EaZEFRp1Y)
+
 **Result:** Undetermined
 **Confidence:** 0.95
 **Justification:** The evidence discusses Self-Retrieval's performance but does not compare shared vs separate models for the three steps.
@@ -390,6 +462,8 @@ Qiaoyu Tang 1 , 2 ∗ , Jiawei Chen 1 , 2 ∗ , Zhuoqun Li 1 , 2 , Bowen Yu 3 , 
 ### Claim 20
 
 **Claim:** Limitations: The limitations are adequately discussed.
+
+**Reviewer:** Reviewer_iXLD (ID: 7EaZEFRp1Y)
 
 **Result:** Partially Supported
 **Confidence:** 0.75
@@ -415,6 +489,8 @@ Contribution: 3
 
 Ethics Review Flagged: ['No ethics review needed.']
 
+**Reviewer:** Reviewer_iXLD (ID: 7EaZEFRp1Y)
+
 **Result:** Undetermined
 **Confidence:** 0.80
 **Justification:** The evidence does not directly address the claim's metrics or their scores.
@@ -438,6 +514,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 
 **Claim:** Summary: This paper introduces Self-Retrieval, a new generative retrieval architecture.
 
+**Reviewer:** Reviewer_g3kT (ID: xeR8rdcAPK)
+
 **Result:** Supported
 **Confidence:** 0.95
 **Justification:** The evidence directly supports the claim about Self-Retrieval's effectiveness and architecture.
@@ -453,6 +531,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 ### Claim 23
 
 **Claim:** On subset of NQ and TriviaQA, this approach significantly outperforms existing dual encoders and generative retrieval models.
+
+**Reviewer:** Reviewer_g3kT (ID: xeR8rdcAPK)
 
 **Result:** Supported
 **Confidence:** 0.95
@@ -473,6 +553,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 
 **Claim:** The paper presents a self-supervise object to help model memorize the corpus.
 
+**Reviewer:** Reviewer_g3kT (ID: xeR8rdcAPK)
+
 **Result:** Supported
 **Confidence:** 0.95
 **Justification:** The evidence confirms the paper describes a self-supervised method for corpus memorization via internalizing data into LLM parameters.
@@ -488,6 +570,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 ### Claim 25
 
 **Claim:** - Strong quality improvements.
+
+**Reviewer:** Reviewer_g3kT (ID: xeR8rdcAPK)
 
 **Result:** Partially Supported
 **Confidence:** 0.85
@@ -507,6 +591,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 
 **Claim:** The paper reports substantial improvements over previous dual-encoder approaches and generative retrieval models.
 
+**Reviewer:** Reviewer_g3kT (ID: xeR8rdcAPK)
+
 **Result:** Supported
 **Confidence:** 0.95
 **Justification:** The evidence shows Self-Retrieval outperforms generative retrieval models and dual-encoder approaches in passage retrieval.
@@ -522,6 +608,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 ### Claim 27
 
 **Claim:** - Ablations shows that the model scales well with model size.
+
+**Reviewer:** Reviewer_g3kT (ID: xeR8rdcAPK)
 
 **Result:** Partially Supported
 **Confidence:** 0.75
@@ -546,6 +634,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 
 **Claim:** Previous dense retrievers often plateau due to the bottleneck layer; the scaling curve of this new architecture is promising.
 
+**Reviewer:** Reviewer_g3kT (ID: xeR8rdcAPK)
+
 **Result:** Partially Supported
 **Confidence:** 0.75
 **Justification:** The evidence discusses scalability but does not directly address dense retrievers plateauing or the new architecture's scaling curve.
@@ -563,6 +653,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 ### Claim 29
 
 **Claim:** Weaknesses: - Experiment only used wikipedia-based datasets.
+
+**Reviewer:** Reviewer_g3kT (ID: xeR8rdcAPK)
 
 **Result:** Partially Supported
 **Confidence:** 0.85
@@ -585,6 +677,8 @@ Table 6 presents the statistics of the NQ and TriviaQA datasets used in our expe
 
 **Claim:** However, wikipedia is heavily used in pretraining, so it is unclear if the proposed approach can let model sufficiently memorize other datasets.
 
+**Reviewer:** Reviewer_g3kT (ID: xeR8rdcAPK)
+
 **Result:** Partially Supported
 **Confidence:** 0.75
 **Justification:** The evidence mentions Wikipedia use in pretraining but does not confirm if the approach ensures sufficient memorization of other datasets.
@@ -600,6 +694,8 @@ Table 6 presents the statistics of the NQ and TriviaQA datasets used in our expe
 ### Claim 31
 
 **Claim:** - Missing dense retrieval + cross-attention reranking baselines.
+
+**Reviewer:** Reviewer_g3kT (ID: xeR8rdcAPK)
 
 **Result:** Partially Supported
 **Confidence:** 0.85
@@ -617,6 +713,8 @@ Table 6 presents the statistics of the NQ and TriviaQA datasets used in our expe
 
 **Claim:** Since the proposed method's reranking stage essentially uses cross attention to judge the query and the retrieved candidate passage, the computational cost of the reranking stage is similar to that of a separate cross-attention reranker.
 
+**Reviewer:** Reviewer_g3kT (ID: xeR8rdcAPK)
+
 **Result:** Partially Supported
 **Confidence:** 0.75
 **Justification:** The evidence discusses computational efficiency but does not directly compare reranking costs to a separate cross-attention reranker.
@@ -632,6 +730,8 @@ Table 6 presents the statistics of the NQ and TriviaQA datasets used in our expe
 ### Claim 33
 
 **Claim:** The ablation in Table 3 seems to show that the proposed method's retrieval-alone performance is stronger than most retrieval baselines, but the paper can be more convincing if having e2e comparison to other 2-stage retrieval pipelines like BGE + BGE reranker or GTR + RankT5.
+
+**Reviewer:** Reviewer_g3kT (ID: xeR8rdcAPK)
 
 **Result:** Partially Supported
 **Confidence:** 0.85
@@ -652,6 +752,8 @@ Table 6 presents the statistics of the NQ and TriviaQA datasets used in our expe
 ### Claim 34
 
 **Claim:** - Lacking efficiency discussion.
+
+**Reviewer:** Reviewer_g3kT (ID: xeR8rdcAPK)
 
 **Result:** Undetermined
 **Confidence:** 0.95
@@ -683,6 +785,8 @@ Contribution: 3
 
 Ethics Review Flagged: ['No ethics review needed.']
 
+**Reviewer:** Reviewer_g3kT (ID: xeR8rdcAPK)
+
 **Result:** Partially Supported
 **Confidence:** 0.75
 **Justification:** The evidence shows ablation results but does not directly support the specific scores or metrics mentioned in the claim.
@@ -703,6 +807,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 
 **Claim:** Summary: The paper proposes an approach of self-retrieval, which uses the probability of generation of the passage as the ranking criterion.
 
+**Reviewer:** Reviewer_xB99 (ID: r1WHgXU4Re)
+
 **Result:** Supported
 **Confidence:** 0.95
 **Justification:** The evidence directly supports the claim about Self-Retrieval using generation probability for ranking.
@@ -718,6 +824,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 ### Claim 37
 
 **Claim:** The proposed method outperforms the others.
+
+**Reviewer:** Reviewer_xB99 (ID: r1WHgXU4Re)
 
 **Result:** Partially Supported
 **Confidence:** 0.85
@@ -744,6 +852,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 
 **Claim:** The proposed method thus has some novelty compared to the literature.
 
+**Reviewer:** Reviewer_xB99 (ID: r1WHgXU4Re)
+
 **Result:** Supported
 **Confidence:** 0.95
 **Justification:** The claim is supported by evidence showing Self-Retrieval outperforms existing methods, indicating novelty.
@@ -767,6 +877,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 
 **Claim:** The experimental results are very good, showing improved performance on document retrieval and QA.
 
+**Reviewer:** Reviewer_xB99 (ID: r1WHgXU4Re)
+
 **Result:** Partially Supported
 **Confidence:** 0.85
 **Justification:** The evidence mentions improved performance on retrieval metrics but does not explicitly state 'very good' or QA improvements.
@@ -782,6 +894,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 ### Claim 40
 
 **Claim:** Weaknesses: A key idea is the use of trie for passage generation.
+
+**Reviewer:** Reviewer_xB99 (ID: r1WHgXU4Re)
 
 **Result:** Partially Supported
 **Confidence:** 0.75
@@ -799,6 +913,8 @@ Ethics Review Flagged: ['No ethics review needed.']
 ### Claim 41
 
 **Claim:** More details should be presented.
+
+**Reviewer:** Reviewer_xB99 (ID: r1WHgXU4Re)
 
 **Result:** Undetermined
 **Confidence:** 0.80
@@ -834,6 +950,8 @@ Presentation: 3
 Contribution: 3
 
 Ethics Review Flagged: ['No ethics review needed.']
+
+**Reviewer:** Reviewer_xB99 (ID: r1WHgXU4Re)
 
 **Result:** Partially Supported
 **Confidence:** 0.75
