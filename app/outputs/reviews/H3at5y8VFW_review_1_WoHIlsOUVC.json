@@ -1,0 +1,31 @@
+{
+  "submission_id": "H3at5y8VFW",
+  "submission_title": "Self-Retrieval: End-to-End Information Retrieval with One Large Language Model",
+  "review_index": 1,
+  "review_id": "WoHIlsOUVC",
+  "reviewer": "Reviewer_uLuX",
+  "invitation": "NeurIPS.cc/2024/Conference/Submission15905/-/Official_Review",
+  "invitations": [
+    "NeurIPS.cc/2024/Conference/Submission15905/-/Official_Review",
+    "NeurIPS.cc/2024/Conference/-/Edit"
+  ],
+  "signatures": [
+    "NeurIPS.cc/2024/Conference/Submission15905/Reviewer_uLuX"
+  ],
+  "rating": 5,
+  "confidence": 4,
+  "review_text": "",
+  "summary": "This paper introduces Self-Retrieval, an end-to-end IR system driven entirely by a single LLM. This model integrates all essential IR functions—indexing, retrieval, and reranking—into the LLM's architecture. By internalizing the retrieval corpus through self-supervised learning, the model transforms the retrieval process into a sequence of passage generation tasks and conducts self-assessment for reranking. The authors provide experimental evidence showing that Self-Retrieval outperforms traditional sparse, dense, and generative retrieval methods on benchmark datasets like NQ and TriviaQA.",
+  "strengths": "1. The integration of all IR functions into a single LLM is a novel contribution that leverages the inherent capabilities of LLMs across the full spectrum of IR tasks, offering a streamlined and potentially more effective approach.\n2. The concept of Self-Retrieval is introduced clearly, making it accessible to readers. The detailed explanation of how the LLM handles indexing, retrieval, and reranking provides a good understanding of the system's operation.\n3. The paper presents good experimental results that demonstrate significant improvements over existing retrieval methods.",
+  "weaknesses": "1. My major concern is that the experimental settings are inconsistent with existing work, making the results unconvincing. Specifically,\n  - Most existing studies conducted experiments on NQ@320k datasets, but the main experiments of this paper are conducted on NQ@40k datasets. It is important to explain the reason of this setting.\n  - According to the statistics in Table 2, each document in the dataset is split into 26~29 passages, which indicates that the passages are quite short. It is known that retrieving short passages are easier for generative retrieval methods. \n  - It is necessary to explain why different models are selected for NQ@40k, TQA@40k, and NQ@320k experiments.\n  - It is better to include more experimental results on the full KILT datasets as many existing studies for a fair comparison.\n2. In Section 3.4, the three tasks are learned in a \"1+2\" manner. Please add more explanations on this design and provide experimental evaluation on other possible strategies (e.g., training the three tasks jointly)\n3. Ensuring consistent use of key terms throughout the paper would improve its readability and professionalism. For example, all \"large language models\" should be written in \"LLMs\".",
+  "questions": "Please see my concerns in weaknesses.",
+  "limitations": "n/a",
+  "soundness": 3,
+  "presentation": 3,
+  "contribution": 3,
+  "flag_for_ethics_review": [
+    "No ethics review needed."
+  ],
+  "details_of_ethics_concerns": "",
+  "combined_review_text": "This paper introduces Self-Retrieval, an end-to-end IR system driven entirely by a single LLM. This model integrates all essential IR functions—indexing, retrieval, and reranking—into the LLM's architecture. By internalizing the retrieval corpus through self-supervised learning, the model transforms the retrieval process into a sequence of passage generation tasks and conducts self-assessment for reranking. The authors provide experimental evidence showing that Self-Retrieval outperforms traditional sparse, dense, and generative retrieval methods on benchmark datasets like NQ and TriviaQA.\n1. The integration of all IR functions into a single LLM is a novel contribution that leverages the inherent capabilities of LLMs across the full spectrum of IR tasks, offering a streamlined and potentially more effective approach.\n2. The concept of Self-Retrieval is introduced clearly, making it accessible to readers. The detailed explanation of how the LLM handles indexing, retrieval, and reranking provides a good understanding of the system's operation.\n3. The paper presents good experimental results that demonstrate significant improvements over existing retrieval methods.\n1. My major concern is that the experimental settings are inconsistent with existing work, making the results unconvincing. Specifically,\n  - Most existing studies conducted experiments on NQ@320k datasets, but the main experiments of this paper are conducted on NQ@40k datasets. It is important to explain the reason of this setting.\n  - According to the statistics in Table 2, each document in the dataset is split into 26~29 passages, which indicates that the passages are quite short. It is known that retrieving short passages are easier for generative retrieval methods. \n  - It is necessary to explain why different models are selected for NQ@40k, TQA@40k, and NQ@320k experiments.\n  - It is better to include more experimental results on the full KILT datasets as many existing studies for a fair comparison.\n2. In Section 3.4, the three tasks are learned in a \"1+2\" manner. Please add more explanations on this design and provide experimental evaluation on other possible strategies (e.g., training the three tasks jointly)\n3. Ensuring consistent use of key terms throughout the paper would improve its readability and professionalism. For example, all \"large language models\" should be written in \"LLMs\".\nPlease see my concerns in weaknesses.\nn/a\nYes"
+}

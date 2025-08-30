@@ -1,0 +1,148 @@
+# Core dependencies
+openreview
+requests
+tiktoken
+tqdm
+
+# PDF processing
+docling
+pdf2image
+Pillow
+PyPDF2
+pypdf
+
+# ML/AI dependencies
+torch
+transformers
+sentence-transformers
+scikit-learn
+numpy
+nltk
+
+# Text processing and retrieval
+rank-bm25
+bm25s
+
+# Ollama for claim verification
+ollama
+
+# Additional installed dependencies (transitive dependencies)
+accelerate
+annotated-types
+anyio
+attrs
+beautifulsoup4
+certifi
+chardet
+charset-normalizer
+click
+Deprecated
+docling-core
+docling-ibm-models
+docling-parse
+easyocr
+et_xmlfile
+filelock
+filetype
+fsspec
+future
+h11
+hf-xet
+httpcore
+httpx
+huggingface-hub
+idna
+imageio
+Jinja2
+joblib
+jsonlines
+jsonref
+jsonschema
+jsonschema-specifications
+latex2mathml
+lazy_loader
+lxml
+markdown-it-py
+marko
+MarkupSafe
+mdurl
+mpmath
+networkx
+ninja
+nvidia-cublas-cu12
+nvidia-cuda-cupti-cu12
+nvidia-cuda-nvrtc-cu12
+nvidia-cuda-runtime-cu12
+nvidia-cudnn-cu12
+nvidia-cufft-cu12
+nvidia-cufile-cu12
+nvidia-curand-cu12
+nvidia-cusolver-cu12
+nvidia-cusparse-cu12
+nvidia-cusparselt-cu12
+nvidia-nccl-cu12
+nvidia-nvjitlink-cu12
+nvidia-nvtx-cu12
+opencv-python-headless
+openpyxl
+openreview-py
+packaging
+pandas
+pluggy
+psutil
+pyclipper
+pycryptodome
+pydantic
+pydantic_core
+pydantic-settings
+Pygments
+PyJWT
+pylatexenc
+pypdfium2
+python-bidi
+python-dateutil
+python-docx
+python-dotenv
+python-pptx
+pytz
+PyYAML
+referencing
+regex
+rich
+rpds-py
+rtree
+safetensors
+scikit-image
+scipy
+setuptools
+shapely
+shellingham
+six
+sniffio
+soupsieve
+sympy
+tabulate
+threadpoolctl
+tifffile
+tld
+tokenizers
+torchvision
+triton
+typer
+typing_extensions
+typing-inspection
+tzdata
+urllib3
+wrapt
+xlsxwriter
+
+# Standard library dependencies (usually included with Python)
+# These are listed for completeness but don't need to be installed:
+# - json, os, sys, time, re, logging, argparse, pathlib, typing, urllib.parse, pickle
+
+# Additional dependencies that might be needed for specific models
+# HuggingFace models will be downloaded automatically when first used:
+# - Babelscape/t5-base-summarization-claim-extractor (FENICE)
+# - facebook/nougat-small (Nougat PDF parsing)
+# - facebook/nougat-base (Nougat PDF parsing)
+# - Various sentence transformer models for SBERT

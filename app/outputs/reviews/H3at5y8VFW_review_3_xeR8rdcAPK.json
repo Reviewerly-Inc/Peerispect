@@ -1,0 +1,31 @@
+{
+  "submission_id": "H3at5y8VFW",
+  "submission_title": "Self-Retrieval: End-to-End Information Retrieval with One Large Language Model",
+  "review_index": 3,
+  "review_id": "xeR8rdcAPK",
+  "reviewer": "Reviewer_g3kT",
+  "invitation": "NeurIPS.cc/2024/Conference/Submission15905/-/Official_Review",
+  "invitations": [
+    "NeurIPS.cc/2024/Conference/Submission15905/-/Official_Review",
+    "NeurIPS.cc/2024/Conference/-/Edit"
+  ],
+  "signatures": [
+    "NeurIPS.cc/2024/Conference/Submission15905/Reviewer_g3kT"
+  ],
+  "rating": 6,
+  "confidence": 5,
+  "review_text": "",
+  "summary": "This paper introduces Self-Retrieval, a new generative retrieval architecture.  Self-Retrieval first memorizes the corpus into LLM's parametric knowledge using self-supervised training. Given a query, it generates the target document with constrained decoding, then re-assess document by decoding if the document can answer the query.  On subset of NQ and TriviaQA, this approach significantly outperforms existing dual encoders and generative retrieval models.",
+  "strengths": "- Intuitive architecture for using LLM for retrieval. The paper presents a self-supervise object to help model memorize the corpus. Then it integrate retrieval and reranking into a single constrained decoding process. The \"reranking\" process can be viewed as self-critique / chain-of-thoughts, and may potentially unlock deeper integration between retrieval and reasoning.\n- Strong quality improvements. The paper reports substantial improvements over previous dual-encoder approaches and generative retrieval models.\n- Ablations shows that the model scales well with model size. Previous dense retrievers often plateau due to the bottleneck layer; the scaling curve of this new architecture is promising.",
+  "weaknesses": "- Experiment only used wikipedia-based datasets. However, wikipedia is heavily used in pretraining, so it is unclear if the proposed approach can let model sufficiently memorize other datasets. \n- More importantly, the method relies on generating the passage title. Unlike wikipedia, many retrieval datasets do not have high-quality, natural language passage titles. It is unclear how the method works on those datasets.  It would be nice to test retrieval benchmarks like MS MARCO or BEIR/MTEB. \n- Missing dense retrieval + cross-attention reranking baselines. Such 2-staged pipeline is standard in IR. Since the proposed method's reranking stage essentially uses cross attention to judge the query and the retrieved candidate passage, the computational cost of the reranking stage is similar to that of a separate cross-attention reranker. It is fair and necessary to compare it with commonly-used rerankers such as MonoT5, RankT5, or BGE reranker.  The ablation in Table 3 seems to show that the proposed method's retrieval-alone performance is stronger than most retrieval baselines, but the paper can be more convincing if having e2e comparison to other 2-stage retrieval pipelines like BGE + BGE reranker or GTR + RankT5.\n- Lacking efficiency discussion.",
+  "questions": "- Can the method scale up to the full NQ/TriviaQA? If so, would be nice to see the performance on these more standard setups. If not, what is the main bottleneck for scaling up? \n- How many candidates were considered in the reranking stage?",
+  "limitations": "NA",
+  "soundness": 3,
+  "presentation": 4,
+  "contribution": 3,
+  "flag_for_ethics_review": [
+    "No ethics review needed."
+  ],
+  "details_of_ethics_concerns": "",
+  "combined_review_text": "This paper introduces Self-Retrieval, a new generative retrieval architecture.  Self-Retrieval first memorizes the corpus into LLM's parametric knowledge using self-supervised training. Given a query, it generates the target document with constrained decoding, then re-assess document by decoding if the document can answer the query.  On subset of NQ and TriviaQA, this approach significantly outperforms existing dual encoders and generative retrieval models.\n- Intuitive architecture for using LLM for retrieval. The paper presents a self-supervise object to help model memorize the corpus. Then it integrate retrieval and reranking into a single constrained decoding process. The \"reranking\" process can be viewed as self-critique / chain-of-thoughts, and may potentially unlock deeper integration between retrieval and reasoning.\n- Strong quality improvements. The paper reports substantial improvements over previous dual-encoder approaches and generative retrieval models.\n- Ablations shows that the model scales well with model size. Previous dense retrievers often plateau due to the bottleneck layer; the scaling curve of this new architecture is promising.\n- Experiment only used wikipedia-based datasets. However, wikipedia is heavily used in pretraining, so it is unclear if the proposed approach can let model sufficiently memorize other datasets. \n- More importantly, the method relies on generating the passage title. Unlike wikipedia, many retrieval datasets do not have high-quality, natural language passage titles. It is unclear how the method works on those datasets.  It would be nice to test retrieval benchmarks like MS MARCO or BEIR/MTEB. \n- Missing dense retrieval + cross-attention reranking baselines. Such 2-staged pipeline is standard in IR. Since the proposed method's reranking stage essentially uses cross attention to judge the query and the retrieved candidate passage, the computational cost of the reranking stage is similar to that of a separate cross-attention reranker. It is fair and necessary to compare it with commonly-used rerankers such as MonoT5, RankT5, or BGE reranker.  The ablation in Table 3 seems to show that the proposed method's retrieval-alone performance is stronger than most retrieval baselines, but the paper can be more convincing if having e2e comparison to other 2-stage retrieval pipelines like BGE + BGE reranker or GTR + RankT5.\n- Lacking efficiency discussion.\n- Can the method scale up to the full NQ/TriviaQA? If so, would be nice to see the performance on these more standard setups. If not, what is the main bottleneck for scaling up? \n- How many candidates were considered in the reranking stage?\nNA\nYes"
+}

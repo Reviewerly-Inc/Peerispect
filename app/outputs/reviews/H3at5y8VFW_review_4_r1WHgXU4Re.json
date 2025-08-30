@@ -1,0 +1,31 @@
+{
+  "submission_id": "H3at5y8VFW",
+  "submission_title": "Self-Retrieval: End-to-End Information Retrieval with One Large Language Model",
+  "review_index": 4,
+  "review_id": "r1WHgXU4Re",
+  "reviewer": "Reviewer_xB99",
+  "invitation": "NeurIPS.cc/2024/Conference/Submission15905/-/Official_Review",
+  "invitations": [
+    "NeurIPS.cc/2024/Conference/Submission15905/-/Official_Review",
+    "NeurIPS.cc/2024/Conference/-/Edit"
+  ],
+  "signatures": [
+    "NeurIPS.cc/2024/Conference/Submission15905/Reviewer_xB99"
+  ],
+  "rating": 6,
+  "confidence": 4,
+  "review_text": "",
+  "summary": "The paper proposes an approach of self-retrieval, which uses the probability of generation of the passage as the ranking criterion. To limit the generation to the existing passages, a trie-structure is used, forcing the generation to produce the existing passages.\nThe experiments compared the method with several existing approaches, including sparse retrieval, dense retrieval and generation-based retrieval. The proposed method outperforms the others.",
+  "strengths": "The idea of relying on the generation of an existing passage for ranking is interesting. The use of trie structure to constrain the generation to the existing documents is also nice. The proposed method thus has some novelty compared to the literature.\nThe experimental results are very good, showing improved performance on document retrieval and QA.",
+  "weaknesses": "A key idea is the use of trie for passage generation. This is described briefly. More details should be presented. If a whole passage should be generated using trie, then the depth of trie structure will be very large (equivalent to the length of the passage). What about the storage cost of trie? What is the time efficiency?",
+  "questions": "Have you evaluated the space and time complexity of the approach, and compare it to the existing methods?\nHow do you deal with long document (in particular for the trie structure)?",
+  "limitations": "yes",
+  "soundness": 3,
+  "presentation": 3,
+  "contribution": 3,
+  "flag_for_ethics_review": [
+    "No ethics review needed."
+  ],
+  "details_of_ethics_concerns": "",
+  "combined_review_text": "The paper proposes an approach of self-retrieval, which uses the probability of generation of the passage as the ranking criterion. To limit the generation to the existing passages, a trie-structure is used, forcing the generation to produce the existing passages.\nThe experiments compared the method with several existing approaches, including sparse retrieval, dense retrieval and generation-based retrieval. The proposed method outperforms the others.\nThe idea of relying on the generation of an existing passage for ranking is interesting. The use of trie structure to constrain the generation to the existing documents is also nice. The proposed method thus has some novelty compared to the literature.\nThe experimental results are very good, showing improved performance on document retrieval and QA.\nA key idea is the use of trie for passage generation. This is described briefly. More details should be presented. If a whole passage should be generated using trie, then the depth of trie structure will be very large (equivalent to the length of the passage). What about the storage cost of trie? What is the time efficiency?\nHave you evaluated the space and time complexity of the approach, and compare it to the existing methods?\nHow do you deal with long document (in particular for the trie structure)?\nyes\nYes"
+}

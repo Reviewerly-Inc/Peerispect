@@ -1,0 +1,31 @@
+{
+  "submission_id": "H3at5y8VFW",
+  "submission_title": "Self-Retrieval: End-to-End Information Retrieval with One Large Language Model",
+  "review_index": 2,
+  "review_id": "7EaZEFRp1Y",
+  "reviewer": "Reviewer_iXLD",
+  "invitation": "NeurIPS.cc/2024/Conference/Submission15905/-/Official_Review",
+  "invitations": [
+    "NeurIPS.cc/2024/Conference/Submission15905/-/Official_Review",
+    "NeurIPS.cc/2024/Conference/-/Edit"
+  ],
+  "signatures": [
+    "NeurIPS.cc/2024/Conference/Submission15905/Reviewer_iXLD"
+  ],
+  "rating": 6,
+  "confidence": 4,
+  "review_text": "",
+  "summary": "This paper proposes Self-Retrieval, an LM that retrieve, rerank passages, and generate answers using a single model. For the retrieval task, it adopts generative retrieval and directly generates passage text. For reranking, it utilizes the generation probability as the relevance score. For answer generation, it generates answers based on the top-1 passage. Evaluation shows that Self-Retrieval outperforms previous dense and generative retrievers in retrieval tasks and achieves better EM scores in answer generation tasks.",
+  "strengths": "1. Self-Retrieval consolidates the multi-step RAG pipeline with a single model. The concept is novel.\n\n2. Self-Retrieval achieves the best performance for both passage retrieval and answer generation tasks.\n\n3. Self-Retrieval shows promising results when the corpus size scales to 3 million.",
+  "weaknesses": "1. Generating passage content is time-consuming. This paper could analyze the latency of Self-Retrieval and compare it to other alternatives, such as generating spans (ref SEAL) or keywords (ref Term-Set Generation).\n\n2. The proposed model includes an in-domain fine-tuned reranker, while the baseline BGE-FT + reader does not have a reranking stage. This may make the comparison unfair since reranking can significantly improve RAG results.\n\n3. The evaluation are all based on Wikipedia. It is unclear whether the model can perform well on a corpus that is not as well-structured as Wikipedia.\n\n4. The different steps in Self-Retrieval are independently optimized, and the `knowledge sharing and deep collaboration` effects of this consolidated model have not been validated.",
+  "questions": "1. Compare the efficiency and effectiveness of using shared models versus separate models for the three steps in Self-Retrieval?",
+  "limitations": "The limitations are adequately discussed.",
+  "soundness": 3,
+  "presentation": 3,
+  "contribution": 3,
+  "flag_for_ethics_review": [
+    "No ethics review needed."
+  ],
+  "details_of_ethics_concerns": "",
+  "combined_review_text": "This paper proposes Self-Retrieval, an LM that retrieve, rerank passages, and generate answers using a single model. For the retrieval task, it adopts generative retrieval and directly generates passage text. For reranking, it utilizes the generation probability as the relevance score. For answer generation, it generates answers based on the top-1 passage. Evaluation shows that Self-Retrieval outperforms previous dense and generative retrievers in retrieval tasks and achieves better EM scores in answer generation tasks.\n1. Self-Retrieval consolidates the multi-step RAG pipeline with a single model. The concept is novel.\n\n2. Self-Retrieval achieves the best performance for both passage retrieval and answer generation tasks.\n\n3. Self-Retrieval shows promising results when the corpus size scales to 3 million.\n1. Generating passage content is time-consuming. This paper could analyze the latency of Self-Retrieval and compare it to other alternatives, such as generating spans (ref SEAL) or keywords (ref Term-Set Generation).\n\n2. The proposed model includes an in-domain fine-tuned reranker, while the baseline BGE-FT + reader does not have a reranking stage. This may make the comparison unfair since reranking can significantly improve RAG results.\n\n3. The evaluation are all based on Wikipedia. It is unclear whether the model can perform well on a corpus that is not as well-structured as Wikipedia.\n\n4. The different steps in Self-Retrieval are independently optimized, and the `knowledge sharing and deep collaboration` effects of this consolidated model have not been validated.\n1. Compare the efficiency and effectiveness of using shared models versus separate models for the three steps in Self-Retrieval?\nThe limitations are adequately discussed.\nYes"
+}
