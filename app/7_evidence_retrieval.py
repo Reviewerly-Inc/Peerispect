@@ -35,6 +35,7 @@ class EvidenceRetriever:
     def __init__(self):
         """Initialize evidence retriever."""
         self.available_methods = []
+        self.sbert_model = None  # Cache for SBERT model
         
         if TFIDF_AVAILABLE:
             self.available_methods.append("tfidf")
@@ -224,12 +225,14 @@ class EvidenceRetriever:
             return []
         
         try:
-            # Load model
-            model = SentenceTransformer('all-MiniLM-L6-v2')
+            # Load model (cache it to avoid re-downloading)
+            if self.sbert_model is None:
+                logging.info("Loading SentenceTransformer model (this will only happen once)...")
+                self.sbert_model = SentenceTransformer('all-MiniLM-L6-v2')
             
             # Encode query and documents
-            query_embedding = model.encode([query])
-            doc_embeddings = model.encode(chunk_texts)
+            query_embedding = self.sbert_model.encode([query])
+            doc_embeddings = self.sbert_model.encode(chunk_texts)
             
             # Calculate similarities
             similarities = cosine_similarity(query_embedding, doc_embeddings)[0]

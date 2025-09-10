@@ -8,8 +8,12 @@ import json
 import logging
 import argparse
 import datetime
+import ssl
 from pathlib import Path
 from typing import Dict, Any, List
+
+# Fix SSL certificate verification issues
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # Import all modules - using the correct module names with numbers
 import importlib.util
