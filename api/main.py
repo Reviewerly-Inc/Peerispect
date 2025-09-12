@@ -13,9 +13,11 @@ from datetime import datetime
 
 from fastapi import FastAPI, HTTPException, BackgroundTasks, Depends
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, HttpUrl
 import uvicorn
+import hashlib
 
 # Import our existing pipeline modules
 import sys
@@ -75,7 +77,10 @@ class ProcessPaperResponse(BaseModel):
     status: str = Field(..., description="Processing status")
     message: str = Field(..., description="Status message")
     processing_time: Optional[float] = Field(None, description="Processing time in seconds")
-    results: Optional[Dict[str, Any]] = Field(None, description="Processing results")
+    results: Optional[List[Dict[str, Any]]] = Field(None, description="Verification results JSON")
+    pdf_url: Optional[str] = Field(None, description="Web URL to access the PDF file")
+    config_used: Optional[Dict[str, Any]] = Field(None, description="Configuration used for processing")
+    cached: bool = Field(False, description="Whether result was served from cache")
 
 class HealthResponse(BaseModel):
     """Health check response"""
@@ -89,6 +94,25 @@ class ConfigResponse(BaseModel):
 
 # Global state for tracking processing jobs
 processing_jobs: Dict[str, Dict[str, Any]] = {}
+
+# Cache directory for API results
+CACHE_DIR = Path("api_cache")
+CACHE_DIR.mkdir(exist_ok=True)
+(CACHE_DIR / "pdfs").mkdir(exist_ok=True)
+(CACHE_DIR / "results").mkdir(exist_ok=True)
+
+def get_cache_key(url: str, config: Dict[str, Any]) -> str:
+    """Generate cache key from URL and config"""
+    config_str = json.dumps(config, sort_keys=True)
+    combined = f"{url}|{config_str}"
+    return hashlib.md5(combined.encode()).hexdigest()
+
+def get_submission_id_from_url(url: str) -> str:
+    """Extract clean submission ID from OpenReview URL"""
+    if "forum?id=" in url:
+        return url.split("forum?id=")[-1]
+    else:
+        return url.split("/")[-1]
 
 @app.get("/", response_model=Dict[str, str])
 async def root():
@@ -119,6 +143,20 @@ async def get_config():
         logger.error(f"Error loading config: {e}")
         raise HTTPException(status_code=500, detail="Failed to load configuration")
 
+@app.get("/pdf/{submission_id}")
+async def serve_pdf(submission_id: str):
+    """Serve PDF file for a submission from cache"""
+    pdf_path = CACHE_DIR / "pdfs" / f"{submission_id}.pdf"
+    
+    if not pdf_path.exists():
+        raise HTTPException(status_code=404, detail="PDF file not found in cache")
+    
+    return FileResponse(
+        path=str(pdf_path),
+        filename=f"{submission_id}.pdf",
+        media_type="application/pdf"
+    )
+
 @app.post("/process", response_model=ProcessPaperResponse)
 async def process_paper(request: ProcessPaperRequest, background_tasks: BackgroundTasks):
     """
@@ -133,7 +171,37 @@ async def process_paper(request: ProcessPaperRequest, background_tasks: Backgrou
     6. Retrieves evidence from paper
     7. Verifies claims against evidence
     """
-    submission_id = str(request.openreview_url).split("/")[-1]
+    submission_id = get_submission_id_from_url(str(request.openreview_url))
+    
+    # Load configuration
+    config = load_config()
+    if request.config_overrides:
+        config.update(request.config_overrides)
+    
+    # Check cache first - look for existing cached results
+    cache_key = get_cache_key(str(request.openreview_url), config)
+    cache_file = CACHE_DIR / "results" / f"{cache_key}.json"
+    
+    if cache_file.exists():
+        logger.info(f"Serving cached result for {submission_id}")
+        with open(cache_file, 'r') as f:
+            cached_data = json.load(f)
+        
+        verification_data = cached_data.get("verification_data", [])
+        # Ensure it's a list if it's not already
+        if not isinstance(verification_data, list):
+            verification_data = [verification_data] if verification_data else []
+            
+        return ProcessPaperResponse(
+            submission_id=submission_id,
+            status="completed",
+            message="Paper processed successfully (cached)",
+            processing_time=0.0,  # Cached results have no processing time
+            results=verification_data,
+            pdf_url=f"/pdf/{submission_id}",
+            config_used=config,
+            cached=True
+        )
     
     # Check if already processing
     if submission_id in processing_jobs:
@@ -154,26 +222,53 @@ async def process_paper(request: ProcessPaperRequest, background_tasks: Backgrou
         # Process the paper
         start_time = datetime.now()
         
-        # Load configuration
-        config = load_config()
-        if request.config_overrides:
-            config.update(request.config_overrides)
-        
         # Create processor and run pipeline
         processor = OpenReviewProcessor(config)
-        results = await asyncio.to_thread(
+        pipeline_results = await asyncio.to_thread(
             processor.process_openreview_url,
             str(request.openreview_url)
         )
         
         processing_time = (datetime.now() - start_time).total_seconds()
         
+        # Load verification results
+        verification_data = []
+        if pipeline_results.get("verification_path") and Path(pipeline_results["verification_path"]).exists():
+            with open(pipeline_results["verification_path"], 'r') as f:
+                verification_data = json.load(f)
+                # Ensure it's a list if it's not already
+                if not isinstance(verification_data, list):
+                    verification_data = [verification_data] if verification_data else []
+        
+        # Copy PDF to cache directory
+        original_pdf_path = Path(pipeline_results.get("pdf_path", ""))
+        if original_pdf_path.exists():
+            cached_pdf_path = CACHE_DIR / "pdfs" / f"{submission_id}.pdf"
+            import shutil
+            shutil.copy2(original_pdf_path, cached_pdf_path)
+            logger.info(f"Copied PDF to cache: {cached_pdf_path}")
+        
+        # Save results to cache
+        cache_data = {
+            "verification_data": verification_data,
+            "submission_id": submission_id,
+            "config_used": config,
+            "cached_at": datetime.now().isoformat(),
+            "processing_time": processing_time,
+            "original_results": pipeline_results
+        }
+        
+        with open(cache_file, 'w') as f:
+            json.dump(cache_data, f, indent=2)
+        
+        logger.info(f"Cached results for {submission_id} at {cache_file}")
+        
         # Update job status
         processing_jobs[submission_id].update({
             "status": "completed",
             "end_time": datetime.now(),
             "processing_time": processing_time,
-            "results": results
+            "results": pipeline_results
         })
         
         return ProcessPaperResponse(
@@ -181,7 +276,10 @@ async def process_paper(request: ProcessPaperRequest, background_tasks: Backgrou
             status="completed",
             message="Paper processed successfully",
             processing_time=processing_time,
-            results=results
+            results=verification_data,
+            pdf_url=f"/pdf/{submission_id}",
+            config_used=config,
+            cached=False
         )
         
     except Exception as e:
@@ -244,6 +342,74 @@ async def clear_all_jobs():
     """Clear all processing jobs from memory"""
     processing_jobs.clear()
     return {"message": "All jobs cleared"}
+
+@app.get("/cache")
+async def get_cache_info():
+    """Get cache information"""
+    results_dir = CACHE_DIR / "results"
+    pdfs_dir = CACHE_DIR / "pdfs"
+    
+    cached_files = list(results_dir.glob("*.json")) if results_dir.exists() else []
+    cached_pdfs = list(pdfs_dir.glob("*.pdf")) if pdfs_dir.exists() else []
+    
+    cached_entries = []
+    for cache_file in cached_files:
+        try:
+            with open(cache_file, 'r') as f:
+                data = json.load(f)
+                cached_entries.append({
+                    "submission_id": data.get("submission_id"),
+                    "cached_at": data.get("cached_at"),
+                    "config": data.get("config_used"),
+                    "cache_file": str(cache_file)
+                })
+        except Exception as e:
+            logger.error(f"Error reading cache file {cache_file}: {e}")
+    
+    return {
+        "cache_size": len(cached_files),
+        "pdf_count": len(cached_pdfs),
+        "cached_entries": cached_entries
+    }
+
+@app.delete("/cache")
+async def clear_cache():
+    """Clear all cached results and PDFs"""
+    import shutil
+    
+    if CACHE_DIR.exists():
+        shutil.rmtree(CACHE_DIR)
+        CACHE_DIR.mkdir(exist_ok=True)
+        (CACHE_DIR / "pdfs").mkdir(exist_ok=True)
+        (CACHE_DIR / "results").mkdir(exist_ok=True)
+    
+    return {"message": "Cache cleared"}
+
+@app.delete("/cache/{submission_id}")
+async def clear_cache_entry(submission_id: str):
+    """Clear cache entry for a specific submission"""
+    removed_count = 0
+    
+    # Remove PDF
+    pdf_path = CACHE_DIR / "pdfs" / f"{submission_id}.pdf"
+    if pdf_path.exists():
+        pdf_path.unlink()
+        removed_count += 1
+    
+    # Remove result files for this submission
+    results_dir = CACHE_DIR / "results"
+    if results_dir.exists():
+        for cache_file in results_dir.glob("*.json"):
+            try:
+                with open(cache_file, 'r') as f:
+                    data = json.load(f)
+                    if data.get("submission_id") == submission_id:
+                        cache_file.unlink()
+                        removed_count += 1
+            except Exception as e:
+                logger.error(f"Error reading cache file {cache_file}: {e}")
+    
+    return {"message": f"Cache entries for {submission_id} cleared", "removed_count": removed_count}
 
 if __name__ == "__main__":
     uvicorn.run(
