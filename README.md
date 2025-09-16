@@ -1,6 +1,6 @@
-# OpenReview Paper Processing App
+# PEERISPECT: Claim Verification in Scientific Peer Reviews
 
-This app processes OpenReview papers and reviews through a comprehensive pipeline that extracts claims from reviews and verifies them against the paper content.
+A modular system that extracts check-worthy claims from peer reviews, retrieves relevant evidence from manuscripts, and verifies claims through natural language inference to assess whether review statements are supported, partially supported, contradicted, or undetermined by the paper content.
 
 ## Features
 
