@@ -11,7 +11,7 @@ A modular system that extracts check-worthy claims from peer reviews, retrieves 
 - **Review Processing**: Extract structured reviews from OpenReview data
 - **Claim Extraction**: Extract claims from reviews using multiple methods (FENICE, rule-based)
 - **Evidence Retrieval**: Find relevant evidence for claims using TF-IDF, BM25, or SBERT
-- **Claim Verification**: Verify claims against evidence using Ollama LLMs
+- **Claim Verification**: Verify claims against evidence using LLMs provided by VLLM
 
 ## Installation
 
@@ -24,13 +24,6 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 2. Install dependencies:
 ```bash
 pip install -r requirements.txt
-```
-
-3. Install Ollama (for claim verification):
-```bash
-# Follow instructions at https://ollama.ai/
-# Then pull a model:
-ollama pull qwen3:14b
 ```
 
 ## Usage
@@ -218,6 +211,3 @@ After processing, you'll get:
 - Verification results with confidence scores
 - Human-readable verification report
 
-## Contributing
-
-The app is modular and extensible. Each step is implemented as a separate module that can be easily modified or extended.
