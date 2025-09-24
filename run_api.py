@@ -19,14 +19,14 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     
     print("🚀 Starting Peeriscope.V2 API Server...")
-    print("📖 API Documentation: http://localhost:8000/docs")
-    print("🔍 Alternative docs: http://localhost:8000/redoc")
-    print("❤️  Health check: http://localhost:8000/health")
+    print("📖 API Documentation: http://localhost:5015/docs")
+    print("🔍 Alternative docs: http://localhost:5015/redoc")
+    print("❤️  Health check: http://localhost:5015/health")
     
     uvicorn.run(
         "api.main:app",
         host="0.0.0.0",
-        port=8000,
+        port=5015,
         reload=True,
         log_level="info"
     )
