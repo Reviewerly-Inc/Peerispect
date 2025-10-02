@@ -1,0 +1,2646 @@
+[
+  {
+    "id": "Finding Semantically Guided Repairs in PDDL Domains Using LLMs_right_0",
+    "type": "column_aware_section",
+    "text": "Finding Semantically Guided Repairs in PDDL Domains Using LLMs",
+    "tokens": 15,
+    "pages": [
+      1
+    ],
+    "positions": [
+      {
+        "page": 1,
+        "column": "right",
+        "bounding_box": {
+          "left": 92.373,
+          "top": 693.015,
+          "right": 519.632,
+          "bottom": 680.118
+        },
+        "char_span": [
+          0,
+          62
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      62
+    ],
+    "element_count": 1,
+    "element_types": [
+      "section_header"
+    ]
+  },
+  {
+    "id": "Nader Karimi Bavandpour, Pascal Bercher_right_1",
+    "type": "column_aware_section",
+    "text": "Nader Karimi Bavandpour, Pascal Bercher\nCollege of Systems & Society, The Australian National University, Australia { Nader.KarimiBavandpour, Pascal.Bercher } @anu.edu.au",
+    "tokens": 42,
+    "pages": [
+      1
+    ],
+    "positions": [
+      {
+        "page": 1,
+        "column": "right",
+        "bounding_box": {
+          "left": 197.675,
+          "top": 661.198,
+          "right": 417.316,
+          "bottom": 650.45
+        },
+        "char_span": [
+          0,
+          39
+        ]
+      },
+      {
+        "page": 1,
+        "column": "right",
+        "bounding_box": {
+          "left": 153.205,
+          "top": 641.974,
+          "right": 458.798,
+          "bottom": 622.463
+        },
+        "char_span": [
+          0,
+          130
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      170
+    ],
+    "element_count": 2,
+    "element_types": [
+      "text",
+      "section_header"
+    ]
+  },
+  {
+    "id": "Abstract_left_2",
+    "type": "column_aware_section",
+    "text": "Abstract\nRepairing Planning Domain Definition Language (PDDL) models is difficult because solutions must ensure correctness while remaining interpretable to human modellers. Existing hitting set methods identify minimal repair sets from whitelist and blacklist traces, but they cannot prefer semantically meaningful fixes and the true repair may not be minimal. We propose combining large language models (LLMs) with the hitting set framework, using semantic cues in PDDL action and predicate names to guide repairs. This hybrid approach provides contrastive, counterfactual explanations of why traces fail and how domains could behave differently.",
+    "tokens": 162,
+    "pages": [
+      1
+    ],
+    "positions": [
+      {
+        "page": 1,
+        "column": "left",
+        "bounding_box": {
+          "left": 154.715,
+          "top": 572.911,
+          "right": 191.786,
+          "bottom": 563.955
+        },
+        "char_span": [
+          0,
+          8
+        ]
+      },
+      {
+        "page": 1,
+        "column": "left",
+        "bounding_box": {
+          "left": 63.963,
+          "top": 554.843,
+          "right": 282.537,
+          "bottom": 447.52
+        },
+        "char_span": [
+          0,
+          639
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      648
+    ],
+    "element_count": 2,
+    "element_types": [
+      "text",
+      "section_header"
+    ]
+  },
+  {
+    "id": "Abstract_right_3",
+    "type": "column_aware_section",
+    "text": "Domain repair in planning is an active research area, recently reviewed by (Bercher, Sreedharan, and Vallati 2025). Lin, Grastien, and Bercher (2023) introduced an efficient hitting set algorithm for domain repair with positive (whitelist) traces. It is also possible to use partially lifted test plans if partial information is available (Bavandpour et al. 2025). Lin et al. (2025) extended the hitting-set approach of Lin, Grastien, and Bercher (2023) to handle both positive and negative traces. In this setting, positive traces must remain or become valid plans, while negative (blacklist) traces must be rendered inapplicable. Although effective, optimizationbased approaches, such as the cited works, are limited: they cannot select the semantically most meaningful repair when multiple minimal-cardinality options exist. Moreover, the true repair set may not even be among the minimalcardinality solutions. The VS Code plugin (Lin, Yousefi, and Bercher 2024) which extends the work by Lin, Grastien, and Bercher (2023) is an effort to address this limitation by allowing the human modeller to reject solutions and request the next solution of the hitting-set. However, this is inconvenient and limits automation. Our core idea is to leverage the fact that PDDL domains contain semantically meaningful names for actions and predicates, which LLMs can interpret to guide the repair process. This enables us to move beyond cardinality-minimality toward repairs that are also semantically plausible to human users.",
+    "tokens": 379,
+    "pages": [
+      1
+    ],
+    "positions": [
+      {
+        "page": 1,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 520.806,
+          "right": 558.005,
+          "bottom": 238.28200000000004
+        },
+        "char_span": [
+          0,
+          1517
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      1517
+    ],
+    "element_count": 1,
+    "element_types": [
+      "text"
+    ]
+  },
+  {
+    "id": "Introduction_left_4",
+    "type": "column_aware_section",
+    "text": "Introduction\nExplainability is a central requirement for AI systems that interact with or support humans in decision making. In AI planning, this requirement is naturally addressed by the explicit representation of actions, states, and goals: planners generate solutions by reasoning over structured models of the world. Compared to black-box machine learning techniques, this explicit reasoning process makes planning inherently transparent and interpretable. However, one of the main challenges to deploying planning in practice lies in constructing the planning models themselves (Tantakoun, Zhu, and Muise 2025).\nThe recent success of Largarge language models (LLMs) has drawn a lot of attention to leverage it in AI planning tasks (Huang, Lipovetzky, and Cohn 2025; Katz et al. 2025; Huang, Cohn, and Lipovetzky 2024; Oswald et al. 2024; Guan et al. 2023). Recent surveys (Tantakoun, Zhu, and Muise 2025) highlight the potential of LLMs to support the construction and refinement of planning models. While verifiable planning modules remain the backbone of reliability, robustness, and explainability, LLMs can act as assistants to reduce the manual burden of defining domain models. We believe that one promising avenue for this is through domain repair , where the goal is to identify a set of modifications to a domain such that a given set of positive traces becomes executable and a set of negative traces becomes inapplicable.\nRepairs can themselves be understood as explanations. Following Miller's account of contrastive explanations in the social sciences (Miller 2019), a repair answers the question of why a given trace fails in the current domain, and provides a counterfactual justification of how the domain could have behaved differently. Each repair is thus not only a technical fix, but also a form of interpretable feedback to the human modeller.",
+    "tokens": 467,
+    "pages": [
+      1
+    ],
+    "positions": [
+      {
+        "page": 1,
+        "column": "left",
+        "bounding_box": {
+          "left": 140.81,
+          "top": 429.943,
+          "right": 205.691,
+          "bottom": 419.195
+        },
+        "char_span": [
+          0,
+          12
+        ]
+      },
+      {
+        "page": 1,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 414.294,
+          "right": 292.505,
+          "bottom": 296.153
+        },
+        "char_span": [
+          0,
+          603
+        ]
+      },
+      {
+        "page": 1,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 293.746,
+          "right": 292.505,
+          "bottom": 142.72900000000004
+        },
+        "char_span": [
+          0,
+          820
+        ]
+      },
+      {
+        "page": 1,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 140.322,
+          "right": 292.505,
+          "bottom": 87.93399999999997
+        },
+        "char_span": [
+          0,
+          299
+        ]
+      },
+      {
+        "page": 1,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 572.523,
+          "right": 558.005,
+          "bottom": 542.054
+        },
+        "char_span": [
+          300,
+          431
+        ]
+      }
+    ],
+    "spans_columns": true,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      1869
+    ],
+    "element_count": 4,
+    "element_types": [
+      "text",
+      "section_header"
+    ]
+  },
+  {
+    "id": "Introduction_right_5",
+    "type": "column_aware_section",
+    "text": "Building on insights from Caglar et al. (2024), who explored LLM applications for model repair but limited their scope to initial state fixes, we propose to combine LLM guidance with the hitting set approach of (Lin et al. 2025). This hybrid aims to exploit semantic knowledge encoded in domain symbols while retaining the optimization guarantees of hitting set solvers. Our experiments evaluate this approach on the same benchmark suite as the baseline paper, allowing for a direct comparison of performance. This paper presents our initial implementation and evaluation of this idea. Extensions and further refinements will be discussed in future work.",
+    "tokens": 163,
+    "pages": [
+      1
+    ],
+    "positions": [
+      {
+        "page": 1,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 217.034,
+          "right": 558.005,
+          "bottom": 87.93399999999997
+        },
+        "char_span": [
+          0,
+          654
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      654
+    ],
+    "element_count": 1,
+    "element_types": [
+      "text"
+    ]
+  },
+  {
+    "id": "Planning Formalism_left_6",
+    "type": "column_aware_section",
+    "text": "Planning Formalism\nSince our focus is on repairing lifted PDDL domains, we introduce the lifted planning formalism. A lifted planning problem is defined as a tuple \u03a0 = ( P , A , \u03b1, O , s I , G ) , where the domain is D = ( P , A , \u03b1 ) and the task is T = ( O , s I , G ) .\nObjects, Types, and Variables. Let O be the set of objects in the planning task. We consider a set of variables V , each acting as a placeholder for an object. The type of a variable v \u2208 V is written as v | t , and the set of objects associated with t is shown by O J t K \u2286 O . We say that t \u2208 T is a subtype of t \u2032 \u2208 T iff O J t K \u2286 O J t \u2032 K .",
+    "tokens": 154,
+    "pages": [
+      2
+    ],
+    "positions": [
+      {
+        "page": 2,
+        "column": "left",
+        "bounding_box": {
+          "left": 121.09,
+          "top": 736.286,
+          "right": 225.411,
+          "bottom": 725.538
+        },
+        "char_span": [
+          0,
+          18
+        ]
+      },
+      {
+        "page": 2,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 718.761,
+          "right": 292.505,
+          "bottom": 666.373
+        },
+        "char_span": [
+          0,
+          253
+        ]
+      },
+      {
+        "page": 2,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 656.562,
+          "right": 292.505,
+          "bottom": 583.336
+        },
+        "char_span": [
+          0,
+          345
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      618
+    ],
+    "element_count": 3,
+    "element_types": [
+      "text",
+      "section_header"
+    ]
+  },
+  {
+    "id": "Planning Formalism_right_7",
+    "type": "column_aware_section",
+    "text": "Solutions. Let \u03b3 = \u27e8 a 1 , . . . , a k \u27e9 be an action sequence. We write s \u2192 \u2217 \u03b3 s \u2032 to denote that s \u2032 results from applying \u03b3 to s via a state trajectory \u27e8 s 0 , . . . , s k \u27e9 where s 0 = s , s k = s \u2032 , and each action is applicable in its preceding state. A solution to a planning problem is an action sequence \u03b3 = \u27e8 a 1 , . . . , a k \u27e9 such that s I \u2192 \u2217 \u03b3 s \u2032 for some s \u2032 with G \u2286 s \u2032 , and each a i is a grounding of some action schema a \u2208 A .",
+    "tokens": 112,
+    "pages": [
+      2
+    ],
+    "positions": [
+      {
+        "page": 2,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 734.911,
+          "right": 558.001,
+          "bottom": 658.13
+        },
+        "char_span": [
+          0,
+          450
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      450
+    ],
+    "element_count": 1,
+    "element_types": [
+      "text"
+    ]
+  },
+  {
+    "id": "The Repair Problem_right_8",
+    "type": "column_aware_section",
+    "text": "The Repair Problem\nWe begin by introducing the notation and syntax used to define possible repair operations for a given planning domain. Next, we describe how a set of such repairs can be applied to produce a modified domain. Based on these concepts, we then formalize the domain repair problem in terms of the defined repair operations and a set of positive and negative plans.\nIn a planning domain D = ( P , A , \u03b1 ) , an atomic repair is a modification denoted by r J a , p , c, op K . Here, a \u2208 A is an action schema, p \u2208 P is an atom compatible with a , c \u2208 { prec + , prec -, eff + , eff -} indicates whether the change concerns a positive/negative precondition or effect, and op \u2208 { + , -} specifies whether the component is added or removed. We write D \u21d2 r D \u2032 to indicate that applying r to D yields D \u2032 = ( P , A , \u03b1 \u2032 ) , where \u03b1 \u2032 is resulted by applying r to \u03b1 .\nA repair set \u03b4 for a domain is a finite collection of one or more atomic repairs. We say that \u03b4 is valid if and only if it contains no two repairs r, r \u2032 \u2208 \u03b4 such that one reverses the effect of the other. Specifically, two repairs r = r J a , p , c, op K and r \u2032 = r \u2032 J a \u2032 , p \u2032 , c \u2032 , op \u2032 K are considered to undo each other if a = a \u2032 , p = p \u2032 , c = c \u2032 , and op = op \u2032 .\n\u0338\nLet D be a domain and \u03b4 a valid repair set for D . Applying the repairs in \u03b4 in any order yields the same modified domain D \u2032 . We use D \u21d2 \u2217 \u03b4 D \u2032 to indicate that D \u2032 is obtained from D by applying the valid repair set \u03b4 .",
+    "tokens": 370,
+    "pages": [
+      2
+    ],
+    "positions": [
+      {
+        "page": 2,
+        "column": "right",
+        "bounding_box": {
+          "left": 386.393,
+          "top": 636.607,
+          "right": 491.109,
+          "bottom": 625.859
+        },
+        "char_span": [
+          0,
+          18
+        ]
+      },
+      {
+        "page": 2,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 611.958,
+          "right": 558.005,
+          "bottom": 537.652
+        },
+        "char_span": [
+          0,
+          360
+        ]
+      },
+      {
+        "page": 2,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 532.584,
+          "right": 558.005,
+          "bottom": 436.042
+        },
+        "char_span": [
+          0,
+          495
+        ]
+      },
+      {
+        "page": 2,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 430.974,
+          "right": 558.004,
+          "bottom": 367.309
+        },
+        "char_span": [
+          0,
+          379
+        ]
+      },
+      {
+        "page": 2,
+        "column": "right",
+        "bounding_box": {
+          "left": 519.356,
+          "top": 376.179,
+          "right": 519.356,
+          "bottom": 367.615
+        },
+        "char_span": [
+          0,
+          1
+        ]
+      },
+      {
+        "page": 2,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 362.241,
+          "right": 558.001,
+          "bottom": 320.494
+        },
+        "char_span": [
+          0,
+          223
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      1481
+    ],
+    "element_count": 6,
+    "element_types": [
+      "text",
+      "section_header"
+    ]
+  },
+  {
+    "id": "The Repair Problem_left_9",
+    "type": "column_aware_section",
+    "text": "Predicates and Atoms A predicate symbol P \u2208 P and a tuple of k \u2208 N 0 typed variables forms an atom p = P ( v 1 | t 1 , . . . , v k | t k ) . We denote by L the set of all atoms in \u03a0 .\nVariable Substitution. A variable substitution function \u03f1 : V \u2192 O maps each typed variable v | t to an object \u03f1 ( v | t ) \u2208 O J t K of the same type t .\nFacts. Given an atom p \u2208 L and a substitution function \u03f1 , a fact is obtained by grounding p , that is, by replacing each parameter ( v 1 , . . . , v k ) with the corresponding objects given by \u03f1 : f = \u03f1 ( p ) = P ( \u03f1 ( v 1 ) , . . . , \u03f1 ( v k )) . The set of all grounded atoms is denoted by F , and any set of facts constitutes a state . s I and G are called the initial state and the goal description, respectively, each of which is a set of facts.\nAction Schemas. Let A denote the set of action schemas. An action schema a = A ( v 1 | t 1 , . . . , v k | t k ) is defined by a unique name A and a tuple of n variables. Each schema is associated with a mapping\nwhose codomain is (2 L ) 4 , representing a tuple of four sets of compatible atoms, as defined below.\nDefinition 1 (Compatible Atoms) . For an action schema a , the set of compatible atoms L a contains all atoms whose set of parameters is a subset of the parameters of a . As an example, P ( v 1 | t 1 ) is a compatible atom for the action schema A ( v 1 | t 1 , v 2 | t 2 ) , but Q ( v 3 | t 3 ) is not.\nActions. Given an action schema a and a substitution function \u03f1 , the corresponding action is obtained by replacing each parameter of a according to \u03f1 , and is denoted a = a [ \u03f1 ] . Actions describe transitions in the state space. An action a is applicable in a state s iff prec + ( a ) \u2286 s and prec -( a ) \u2229 s = \u2205 . Applying an applicable action a in s produces the successor state\nwhich we denote by s \u2192 a s \u2032 .\nThroughout this paper, we use boldface (e.g., p , a ) for atoms and action schemas, and regular typeface (e.g., f , a ) for facts and actions.\nIdea #2\n(Implemented-not\npromising)\nRepair\nBxtract\nRepairs\n'Conflicts\nNeeded?\nProblem\nA feedback function\nuses the traces to list a\nNO",
+    "tokens": 524,
+    "pages": [
+      2,
+      3
+    ],
+    "positions": [
+      {
+        "page": 2,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 583.016,
+          "right": 292.502,
+          "bottom": 541.199
+        },
+        "char_span": [
+          0,
+          183
+        ]
+      },
+      {
+        "page": 2,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 531.388,
+          "right": 292.499,
+          "bottom": 491.039
+        },
+        "char_span": [
+          0,
+          152
+        ]
+      },
+      {
+        "page": 2,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 490.719,
+          "right": 292.505,
+          "bottom": 405.067
+        },
+        "char_span": [
+          0,
+          451
+        ]
+      },
+      {
+        "page": 2,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 395.256,
+          "right": 292.504,
+          "bottom": 353.439
+        },
+        "char_span": [
+          0,
+          211
+        ]
+      },
+      {
+        "page": 2,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 325.598,
+          "right": 292.497,
+          "bottom": 304.195
+        },
+        "char_span": [
+          0,
+          101
+        ]
+      },
+      {
+        "page": 2,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 296.981,
+          "right": 292.502,
+          "bottom": 243.44600000000003
+        },
+        "char_span": [
+          0,
+          302
+        ]
+      },
+      {
+        "page": 2,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 234.394,
+          "right": 292.505,
+          "bottom": 159.70100000000002
+        },
+        "char_span": [
+          0,
+          382
+        ]
+      },
+      {
+        "page": 2,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 131.86,
+          "right": 171.393,
+          "bottom": 120.65599999999995
+        },
+        "char_span": [
+          0,
+          30
+        ]
+      },
+      {
+        "page": 2,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 118.75199999999995,
+          "right": 292.503,
+          "bottom": 87.93399999999997
+        },
+        "char_span": [
+          0,
+          142
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 120.66666666666667,
+          "top": 736.6666666666666,
+          "right": 154.0,
+          "bottom": 726.6666666666666
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 103.33333333333334,
+          "top": 726.6666666666666,
+          "right": 171.33333333333331,
+          "bottom": 716.6666666666666
+        },
+        "char_span": [
+          0,
+          16
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 118.0,
+          "top": 717.3333333333334,
+          "right": 158.0,
+          "bottom": 706.6666666666666
+        },
+        "char_span": [
+          0,
+          10
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 184.33333333333334,
+          "top": 716.6666666666666,
+          "right": 210.66666666666666,
+          "bottom": 707.6666666666666
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 227.66666666666666,
+          "top": 714.3333333333334,
+          "right": 254.33333333333334,
+          "bottom": 709.0
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 274.33333333333337,
+          "top": 713.6666666666666,
+          "right": 296.33333333333337,
+          "bottom": 707.6666666666666
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 222.66666666666666,
+          "top": 708.6666666666666,
+          "right": 258.66666666666663,
+          "bottom": 700.6666666666666
+        },
+        "char_span": [
+          0,
+          10
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 274.33333333333337,
+          "top": 707.6666666666666,
+          "right": 296.33333333333337,
+          "bottom": 703.0
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 183.66666666666666,
+          "top": 707.0,
+          "right": 212.33333333333334,
+          "bottom": 701.0
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 110.66666666666667,
+          "top": 704.6666666666666,
+          "right": 174.0,
+          "bottom": 696.6666666666666
+        },
+        "char_span": [
+          0,
+          19
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 104.0,
+          "top": 696.6666666666666,
+          "right": 178.0,
+          "bottom": 688.6666666666666
+        },
+        "char_span": [
+          0,
+          25
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 287.66666666666663,
+          "top": 690.3333333333334,
+          "right": 296.33333333333337,
+          "bottom": 685.6666666666666
+        },
+        "char_span": [
+          0,
+          2
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": true,
+    "char_span": [
+      0,
+      2097
+    ],
+    "element_count": 21,
+    "element_types": [
+      "text"
+    ]
+  },
+  {
+    "id": "The Repair Problem_right_10",
+    "type": "column_aware_section",
+    "text": "Definition 1 (Domain Repair Problem) . The domain repair problem is defined as a pair R = ( D , T ) , where D denotes a planning domain and T = { T 1 , . . . , T n } for some n \u2208 N . Each element T i is a triple (\u03a0 i , P i , E i ) . Here, \u03a0 i = ( D , T i ) denotes the planning problem; P i is a finite set of positive plans \u03c0 + k for \u03a0 i ; and E i is a finite set of pairs ( \u03c0 -k , b k ) associated with \u03a0 i . Each \u03c0 -k denotes a negative plan (a sequence of actions considered undesirable) for \u03a0 i , and b k is an integer equal or less than the length of \u03c0 -k which specifies the index of the first action in \u03c0 -k which must be inapplicable.\nDefinition 2 (Solution to the Repair Problem) . A solution to R is a valid repair set \u03b4 that transforms the original domain D into a modified domain D \u2032 through the sequence of repair operations D \u21d2 \u2217 \u03b4 D \u2032 . This repair must satisfy the following: for every index i with 1 \u2264 i \u2264 n , all positive plans \u03c0 + \u2208 P i are executable in the updated planning task \u03a0 \u2032 i = ( D \u2032 , T i ) , and each pair ( \u03c0 -k , b k ) \u2208 E i meets the condition that \u03c0 -k is not a valid plan for \u03a0 \u2032 i , with the action at position b k being the first that cannot be applied.\nNO\nMost\nYES\nAccept\nYES\nMAX ITR\nLLM\nPlausible\nAccumulated\nreached?\nRepairs\nRepair\nPlausible\nRepair\nBaseline\nDomain\nLLM\nRepairs\nAlgorithm\nProblem\nRepair\nper\nAction\nFeedback:\nIdea #5\nblock repairs\nLLM Filters the\nBaseline\nRepair\nDonain\nHitting Set\nLLM\nAccept\nRepair\nAlgorithm\nProblen\nSolution\nFigure 1: Different LLM strategies in domain repair to infuse semantic knowledge in search.",
+    "tokens": 393,
+    "pages": [
+      2,
+      3
+    ],
+    "positions": [
+      {
+        "page": 2,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 308.531,
+          "right": 558.004,
+          "bottom": 195.447
+        },
+        "char_span": [
+          0,
+          643
+        ]
+      },
+      {
+        "page": 2,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 185.755,
+          "right": 558.002,
+          "bottom": 88.077
+        },
+        "char_span": [
+          0,
+          549
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 405.0,
+          "top": 730.3333333333334,
+          "right": 414.3333333333333,
+          "bottom": 724.3333333333334
+        },
+        "char_span": [
+          0,
+          2
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 354.3333333333333,
+          "top": 717.6666666666666,
+          "right": 370.3333333333333,
+          "bottom": 712.3333333333334
+        },
+        "char_span": [
+          0,
+          4
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 298.33333333333337,
+          "top": 717.0,
+          "right": 309.0,
+          "bottom": 711.6666666666666
+        },
+        "char_span": [
+          0,
+          3
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 439.6666666666667,
+          "top": 717.0,
+          "right": 460.3333333333333,
+          "bottom": 711.6666666666666
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 416.3333333333333,
+          "top": 716.3333333333334,
+          "right": 427.0,
+          "bottom": 711.6666666666666
+        },
+        "char_span": [
+          0,
+          3
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 393.6666666666667,
+          "top": 713.0,
+          "right": 413.6666666666667,
+          "bottom": 708.3333333333334
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 314.0,
+          "top": 712.6666666666666,
+          "right": 330.6666666666667,
+          "bottom": 704.6666666666666
+        },
+        "char_span": [
+          0,
+          3
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 345.6666666666667,
+          "top": 711.0,
+          "right": 378.3333333333333,
+          "bottom": 705.0
+        },
+        "char_span": [
+          0,
+          9
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 431.6666666666667,
+          "top": 711.0,
+          "right": 468.3333333333333,
+          "bottom": 705.6666666666666
+        },
+        "char_span": [
+          0,
+          11
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 393.0,
+          "top": 707.6666666666666,
+          "right": 414.3333333333333,
+          "bottom": 703.0
+        },
+        "char_span": [
+          0,
+          8
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 437.6666666666667,
+          "top": 704.3333333333334,
+          "right": 462.3333333333333,
+          "bottom": 698.3333333333334
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 351.0,
+          "top": 703.6666666666666,
+          "right": 373.6666666666667,
+          "bottom": 697.6666666666666
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 406.3333333333333,
+          "top": 659.0,
+          "right": 437.0,
+          "bottom": 653.0
+        },
+        "char_span": [
+          0,
+          9
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 333.6666666666667,
+          "top": 658.0,
+          "right": 360.0,
+          "bottom": 648.3333333333333
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 454.0,
+          "top": 657.3333333333333,
+          "right": 486.6666666666667,
+          "bottom": 650.6666666666667
+        },
+        "char_span": [
+          0,
+          8
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 515.6666666666667,
+          "top": 655.6666666666667,
+          "right": 540.3333333333333,
+          "bottom": 649.6666666666667
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 373.0,
+          "top": 653.0,
+          "right": 389.0,
+          "bottom": 646.3333333333333
+        },
+        "char_span": [
+          0,
+          3
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 409.6666666666667,
+          "top": 652.3333333333333,
+          "right": 433.6666666666667,
+          "bottom": 646.3333333333333
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 452.0,
+          "top": 649.3333333333333,
+          "right": 490.0,
+          "bottom": 640.6666666666667
+        },
+        "char_span": [
+          0,
+          9
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 333.0,
+          "top": 648.3333333333333,
+          "right": 361.6666666666667,
+          "bottom": 642.3333333333333
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 515.0,
+          "top": 648.3333333333333,
+          "right": 540.3333333333333,
+          "bottom": 641.6666666666667
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 404.0,
+          "top": 645.6666666666667,
+          "right": 415.6666666666667,
+          "bottom": 639.6666666666667
+        },
+        "char_span": [
+          0,
+          3
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 417.6666666666667,
+          "top": 645.6666666666667,
+          "right": 439.0,
+          "bottom": 640.3333333333333
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 453.3333333333333,
+          "top": 624.6666666666667,
+          "right": 485.3333333333333,
+          "bottom": 619.3333333333334
+        },
+        "char_span": [
+          0,
+          9
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 314.0,
+          "top": 618.6666666666666,
+          "right": 348.0,
+          "bottom": 609.3333333333334
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 445.6666666666667,
+          "top": 618.0,
+          "right": 493.3333333333333,
+          "bottom": 609.6666666666666
+        },
+        "char_span": [
+          0,
+          13
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 304.6666666666667,
+          "top": 602.6666666666666,
+          "right": 354.0,
+          "bottom": 594.6666666666666
+        },
+        "char_span": [
+          0,
+          15
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 402.6666666666667,
+          "top": 597.6666666666666,
+          "right": 436.0,
+          "bottom": 591.0
+        },
+        "char_span": [
+          0,
+          8
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 362.3333333333333,
+          "top": 597.0,
+          "right": 387.0,
+          "bottom": 590.3333333333334
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 457.6666666666667,
+          "top": 596.3333333333334,
+          "right": 482.3333333333333,
+          "bottom": 591.0
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 310.6666666666667,
+          "top": 596.0,
+          "right": 347.3333333333333,
+          "bottom": 585.3333333333334
+        },
+        "char_span": [
+          0,
+          11
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 497.3333333333333,
+          "top": 594.6666666666666,
+          "right": 514.0,
+          "bottom": 586.6666666666666
+        },
+        "char_span": [
+          0,
+          3
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 529.0,
+          "top": 593.0,
+          "right": 554.3333333333333,
+          "bottom": 586.3333333333334
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 456.3333333333333,
+          "top": 590.6666666666666,
+          "right": 482.6666666666667,
+          "bottom": 581.6666666666666
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 401.3333333333333,
+          "top": 590.0,
+          "right": 438.6666666666667,
+          "bottom": 581.3333333333334
+        },
+        "char_span": [
+          0,
+          9
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 360.3333333333333,
+          "top": 589.6666666666666,
+          "right": 389.0,
+          "bottom": 583.6666666666666
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 316.0,
+          "top": 587.3333333333334,
+          "right": 342.6666666666667,
+          "bottom": 579.3333333333334
+        },
+        "char_span": [
+          0,
+          8
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 121.773,
+          "top": 554.758,
+          "right": 490.23,
+          "bottom": 546.206
+        },
+        "char_span": [
+          0,
+          91
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": true,
+    "char_span": [
+      0,
+      1575
+    ],
+    "element_count": 40,
+    "element_types": [
+      "text",
+      "caption"
+    ]
+  },
+  {
+    "id": "The Repair Problem_left_11",
+    "type": "column_aware_section",
+    "text": "set of possible repairs\nIdea #3\nIdea #1\n(Implemented)\nLLM Filters the\nRepair\nDomain\nLLM\nRepairs Before the\nRepair\nProblem\nLLM Repairs\nHitting Set Problem\nIndependently\nIdea #4\nLLM Filters the\nRepair\nBaseline\nDonain\nLLM\nHitting Set\n'Algorithm\nProblem\nRepair\nFilter\nProblem\nthe\nConflicts",
+    "tokens": 71,
+    "pages": [
+      3
+    ],
+    "positions": [
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 106.0,
+          "top": 689.3333333333334,
+          "right": 176.66666666666666,
+          "bottom": 679.6666666666666
+        },
+        "char_span": [
+          0,
+          23
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 268.66666666666663,
+          "top": 672.0,
+          "right": 301.3333333333333,
+          "bottom": 662.0
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 70.33333333333333,
+          "top": 668.0,
+          "right": 102.66666666666666,
+          "bottom": 658.0
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 58.333333333333336,
+          "top": 658.3333333333333,
+          "right": 115.66666666666667,
+          "bottom": 646.3333333333333
+        },
+        "char_span": [
+          0,
+          13
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 260.0,
+          "top": 658.0,
+          "right": 310.0,
+          "bottom": 650.0
+        },
+        "char_span": [
+          0,
+          15
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 130.33333333333331,
+          "top": 657.0,
+          "right": 156.66666666666669,
+          "bottom": 647.6666666666667
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 209.0,
+          "top": 655.6666666666667,
+          "right": 233.0,
+          "bottom": 649.6666666666667
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 174.66666666666666,
+          "top": 653.3333333333333,
+          "right": 191.33333333333334,
+          "bottom": 645.3333333333333
+        },
+        "char_span": [
+          0,
+          3
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 254.0,
+          "top": 650.0,
+          "right": 316.0,
+          "bottom": 641.3333333333333
+        },
+        "char_span": [
+          0,
+          18
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 208.0,
+          "top": 648.6666666666667,
+          "right": 234.0,
+          "bottom": 640.6666666666667
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 130.33333333333331,
+          "top": 647.6666666666667,
+          "right": 158.33333333333331,
+          "bottom": 641.6666666666667
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 66.66666666666667,
+          "top": 644.6666666666667,
+          "right": 106.66666666666666,
+          "bottom": 636.0
+        },
+        "char_span": [
+          0,
+          11
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 254.0,
+          "top": 642.0,
+          "right": 316.0,
+          "bottom": 632.6666666666667
+        },
+        "char_span": [
+          0,
+          19
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 63.0,
+          "top": 637.6666666666667,
+          "right": 109.33333333333333,
+          "bottom": 627.6666666666667
+        },
+        "char_span": [
+          0,
+          13
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 67.66666666666667,
+          "top": 613.3333333333334,
+          "right": 101.33333333333334,
+          "bottom": 602.6666666666666
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 58.666666666666664,
+          "top": 600.0,
+          "right": 108.66666666666667,
+          "bottom": 592.0
+        },
+        "char_span": [
+          0,
+          15
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 116.33333333333333,
+          "top": 599.3333333333334,
+          "right": 142.66666666666669,
+          "bottom": 589.6666666666666
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 157.66666666666669,
+          "top": 599.3333333333334,
+          "right": 192.0,
+          "bottom": 590.6666666666666
+        },
+        "char_span": [
+          0,
+          8
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 265.0,
+          "top": 596.3333333333334,
+          "right": 289.66666666666663,
+          "bottom": 591.0
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 238.33333333333334,
+          "top": 594.3333333333334,
+          "right": 254.33333333333334,
+          "bottom": 587.6666666666666
+        },
+        "char_span": [
+          0,
+          3
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 65.33333333333333,
+          "top": 592.0,
+          "right": 102.0,
+          "bottom": 583.3333333333334
+        },
+        "char_span": [
+          0,
+          11
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 156.0,
+          "top": 590.6666666666666,
+          "right": 194.0,
+          "bottom": 582.0
+        },
+        "char_span": [
+          0,
+          10
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 115.66666666666667,
+          "top": 590.3333333333334,
+          "right": 144.33333333333331,
+          "bottom": 583.6666666666666
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 264.0,
+          "top": 590.0,
+          "right": 290.0,
+          "bottom": 582.0
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 207.66666666666666,
+          "top": 587.6666666666666,
+          "right": 229.66666666666666,
+          "bottom": 582.3333333333334
+        },
+        "char_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 70.33333333333333,
+          "top": 585.3333333333334,
+          "right": 96.66666666666666,
+          "bottom": 576.0
+        },
+        "char_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 213.0,
+          "top": 580.3333333333334,
+          "right": 224.33333333333334,
+          "bottom": 575.0
+        },
+        "char_span": [
+          0,
+          3
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 202.33333333333334,
+          "top": 574.0,
+          "right": 235.0,
+          "bottom": 568.6666666666666
+        },
+        "char_span": [
+          0,
+          9
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      285
+    ],
+    "element_count": 28,
+    "element_types": [
+      "text"
+    ]
+  },
+  {
+    "id": "Solving the Repair Problem_left_12",
+    "type": "column_aware_section",
+    "text": "Solving the Repair Problem\nOur baseline approach (Lin et al. 2025) proposes a sound algorithm based on conditional hitting sets to solve the domain repair problem. They report precision and recall against known ground truth repairs. To obtain ground truth, they perturb IPC domains by randomly adding or removing preconditions and effects, which allows direct computation of these metrics.",
+    "tokens": 97,
+    "pages": [
+      3
+    ],
+    "positions": [
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 102.458,
+          "top": 523.345,
+          "right": 244.043,
+          "bottom": 512.597
+        },
+        "char_span": [
+          0,
+          26
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 507.001,
+          "right": 292.505,
+          "bottom": 432.696
+        },
+        "char_span": [
+          0,
+          362
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      389
+    ],
+    "element_count": 2,
+    "element_types": [
+      "text",
+      "section_header"
+    ]
+  },
+  {
+    "id": "Solving the Repair Problem_right_13",
+    "type": "column_aware_section",
+    "text": "Different conflicts may interact. Some repairs may contradict one another, or jointly re-introduce earlier flaws. The baseline therefore augments the plain collection of conflicts to a more complex object \u0398 that encodes applicability conditions and mutual exclusions, producing a conditional hitting set instance. Note that the details of forming \u0398 is out of scope here. A solver then returns a minimal-cardinality hitting set, called a diagnosis . The algorithm iterates: it (1) extracts flaws from the current domain using the given positive and negative traces, (2) constructs \u0398 , (3) solves for a diagnosis, and (4) applies the corresponding repairs to obtain a modified domain. The process repeats until all positive traces succeed and all negative traces fail at their specified positions.",
+    "tokens": 198,
+    "pages": [
+      3
+    ],
+    "positions": [
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 521.582,
+          "right": 558.005,
+          "bottom": 370.565
+        },
+        "char_span": [
+          0,
+          795
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      795
+    ],
+    "element_count": 1,
+    "element_types": [
+      "text"
+    ]
+  },
+  {
+    "id": "The Baseline Approach_left_14",
+    "type": "column_aware_section",
+    "text": "The Baseline Approach\nHere, we briefly restate their approach at a level sufficient to motivate our LLM-based extensions. The algorithm executes all provided traces. For each positive trace, one of the unsatisfied preconditions (if any) encountered along the run in each trace is recorded as a flaw . For a negative trace ( \u03c0 -k , i k ) , a flaw is recorded if the action at index i k in \u03c0 -k is applicable. If some earlier action at index j < i k is inapplicable, the trace is handled analogously to a positive one: repairs are generated so that the prefix becomes executable and the first inapplicable action occurs exactly at position i k .\nFor each flaw, the algorithm enumerates a finite set of candidate repairs. The set of candidates for a single flaw is called a conflict ; at least one element of the conflict must be selected to eliminate that flaw. Consider a missing positive precondition p m for action a 3 in the sequence \u03b3 = \u27e8 a 1 , a 2 , a 3 \u27e9 , and suppose a 1 has p m in its negative effects. The repair candidates include: (i) remove the missing precondition from a 3 , that is r 1 J a 3 , p m , prec + , -K for some \u03f1 so that a 3 = a 3 [ \u03f1 ] and p m = p m [ \u03f1 ] ; (ii) add p m to the positive effects of a 2 , that is r 2 J a 2 , p m , eff + , + K whenever a matching \u03f1 such that a 2 = a 2 [ \u03f1 ] and p m = p m [ \u03f1 ] ; exists; (iii) remove p m from the negative effects of a 1 , that is r 3 J a 1 , p m , eff -, -K for some \u03f1 so that a 1 = a 1 [ \u03f1 ] and p m = p m [ \u03f1 ] ;. These give a conflict \u03b8 = { r 1 , r 2 , r 3 } .",
+    "tokens": 384,
+    "pages": [
+      3
+    ],
+    "positions": [
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 420.681,
+          "right": 162.633,
+          "bottom": 410.874
+        },
+        "char_span": [
+          0,
+          21
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 405.058,
+          "right": 292.505,
+          "bottom": 297.117
+        },
+        "char_span": [
+          0,
+          621
+        ]
+      },
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 295.258,
+          "right": 292.505,
+          "bottom": 142.18000000000006
+        },
+        "char_span": [
+          0,
+          895
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      1539
+    ],
+    "element_count": 3,
+    "element_types": [
+      "text",
+      "section_header"
+    ]
+  },
+  {
+    "id": "The Baseline Approach_right_15",
+    "type": "column_aware_section",
+    "text": "The baseline does not exploit semantic cues encoded by the modeller in predicate, action, or domain names within the PDDL file. Its hitting-set solver optimizes only the size of the repair set; when multiple diagnoses share the same cardinality, it returns an arbitrary one. Moreover, the ground truth repair need not be cardinality-minimal, so it can be missed under this objective.",
+    "tokens": 95,
+    "pages": [
+      3
+    ],
+    "positions": [
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 367.437,
+          "right": 558.005,
+          "bottom": 293.132
+        },
+        "char_span": [
+          0,
+          383
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      383
+    ],
+    "element_count": 1,
+    "element_types": [
+      "text"
+    ]
+  },
+  {
+    "id": "LLM-Guided Search_right_16",
+    "type": "column_aware_section",
+    "text": "LLM-Guided Search\nWepropose five strategies for using LLMs to steer the search toward human-plausible repairs, as Figure 1 shows. Because a planning domain can admits multiple semantically consistent fixes, precision and recall against the ground truths should be viewed as proxies for alignment with modeller intent rather than definitive correctness. Note that ideas 1 and 2 are implemented, but only Idea 1 is evaluated here. Ideas 3-5 are deferred to follow-up work.\nIdea 1. This simple approach treats the LLM as a knowledge-engineering assistant. We specify the allowed repair operators, show the full domain to preserve global context, and ask the model to summarize the semantics it infers from action and predicate names. It then proposes a small set of repairs with brief rationales. This variant is implemented, and its results are reported in the next section.\nIdea 2. Extract conflicts from action traces as in the base-\nTable 1: Experimental results comparing idea #1 with the baseline algorithm. Summary statistics over 5 runs per domain. Words and Lines count PDDL size; Tasks is the number of planning problems; POS-Sum / NEG-Sum are positive/negative plan counts; POS-Len / NEG-Len are their average lengths; Flaws and Repairs are detected issues and fixes; Prec / Rec denote precision and recall.",
+    "tokens": 328,
+    "pages": [
+      3,
+      4
+    ],
+    "positions": [
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 279.461,
+          "right": 419.013,
+          "bottom": 269.654
+        },
+        "char_span": [
+          0,
+          17
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 262.3109999999999,
+          "right": 558.005,
+          "bottom": 177.04700000000003
+        },
+        "char_span": [
+          0,
+          452
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 174.09799999999996,
+          "right": 558.005,
+          "bottom": 99.61400000000003
+        },
+        "char_span": [
+          0,
+          401
+        ]
+      },
+      {
+        "page": 3,
+        "column": "right",
+        "bounding_box": {
+          "left": 329.463,
+          "top": 96.66499999999996,
+          "right": 558.0,
+          "bottom": 87.93399999999997
+        },
+        "char_span": [
+          0,
+          60
+        ]
+      },
+      {
+        "page": 4,
+        "column": "right",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 585.31,
+          "right": 558.0,
+          "bottom": 543.881
+        },
+        "char_span": [
+          0,
+          381
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": true,
+    "char_span": [
+      0,
+      1315
+    ],
+    "element_count": 5,
+    "element_types": [
+      "text",
+      "caption",
+      "section_header"
+    ]
+  },
+  {
+    "id": "LLM-Guided Search_left_17",
+    "type": "column_aware_section",
+    "text": "For negative traces, conflicts are constructed so that the target action becomes inapplicable at its specified position. For example, one can add a new required precondition q that is false in the corresponding state, or remove earlier effects that would otherwise establish an existing precondition.\nline, take their union, and iteratively ask the LLM to choose the most plausible repair, apply it to the domain, and repeat. Note that by taking union of the conflicts we are creating a long flat set of repairs, each of which fix at least one of the flaws found in the action traces. While we are not ready to report on its performance, preliminary tests suggest that the flat candidate pool can become large, which degrades LLM selection quality and makes this approach less promising.\nIdea 3. Combine LLM proposals with minimality via the hitting-set solver. After exposing the full domain for context, we query the LLM for a list of plausible repairs at the action level. The hitting-set solver then selects a cardinalityminimal subset, ensuring that the final repairs are optimized toward consistency across conflicts. This separation allows the LLM to focus on local, per-action suggestions, avoiding confusion from reasoning over global repair sets, while the optimization stage consolidates them. This could improve the results compared to Idea 1, with the added benefit of shorter and more efficient prompts.\nIdea 4. Asymmetric decomposition to Idea 3 that operates at the level of conflicts rather than actions. For each flaw, the LLM filters or ranks its candidate repairs, and we keep conflict sets separate instead of forming a single union. This yields more focused prompts and allows us to test whether action-centric (Idea 3) or flaw-centric filtering is more natural for LLMs.",
+    "tokens": 448,
+    "pages": [
+      3,
+      4
+    ],
+    "positions": [
+      {
+        "page": 3,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 140.322,
+          "right": 292.505,
+          "bottom": 87.93399999999997
+        },
+        "char_span": [
+          0,
+          300
+        ]
+      },
+      {
+        "page": 4,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 519.258,
+          "right": 292.505,
+          "bottom": 433.993
+        },
+        "char_span": [
+          0,
+          486
+        ]
+      },
+      {
+        "page": 4,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 431.512,
+          "right": 292.505,
+          "bottom": 313.192
+        },
+        "char_span": [
+          0,
+          629
+        ]
+      },
+      {
+        "page": 4,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 310.71,
+          "right": 292.505,
+          "bottom": 236.22500000000002
+        },
+        "char_span": [
+          0,
+          375
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": true,
+    "char_span": [
+      0,
+      1793
+    ],
+    "element_count": 4,
+    "element_types": [
+      "text"
+    ]
+  },
+  {
+    "id": "LLM-Guided Search_right_18",
+    "type": "column_aware_section",
+    "text": "Despite its simplicity, Idea 1 improves both precision and recall in roughly half of the benchmark domains. We also report word and line counts of the PDDL files as a proxy for domain complexity, although no clear correlation with LLM performance emerges. Crucially, Idea 1 does not exploit information from action traces, so we expect that incorporating our other proposed methods will further improve results across all domains. An additional insight concerns the number of repairs returned by the LLM: it is lower than the baseline in some domains and higher in others. When fewer repairs are produced, combining with the baseline is necessary, as any sound repair set necessarily has a cardinality greater than or equal to the minimum-cardinality set. When more repairs are produced, recall does not consistently improve over the baseline, which indicates unexploited information in the action traces. Trace availability and length vary by domain: some domains include 62 traces with an average length of 43 steps, whereas a different domain has a single trace of length 135. Given this sizes, we do not expect the LLM alone to exploit trace information reliably, and we believe integrating the LLM with hitting-set methods that consume traces is therefore essential for consistent gains.",
+    "tokens": 323,
+    "pages": [
+      4
+    ],
+    "positions": [
+      {
+        "page": 4,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 453.18,
+          "right": 558.005,
+          "bottom": 214.49099999999999
+        },
+        "char_span": [
+          0,
+          1292
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      1292
+    ],
+    "element_count": 1,
+    "element_types": [
+      "text"
+    ]
+  },
+  {
+    "id": "LLM-Guided Search_left_19",
+    "type": "column_aware_section",
+    "text": "Idea 5. Use the LLM as a post-hoc judge. The baseline algorithm proposes a minimal repair; the LLM then accepts or vetoes it on semantic grounds and requests alternatives if needed. This mirrors the human-in-the-loop design of the VS Code plugin (Lin, Yousefi, and Bercher 2024) for the predecessor algorithm (Lin, Grastien, and Bercher 2023), with the LLM replacing the human reviewer.",
+    "tokens": 96,
+    "pages": [
+      4
+    ],
+    "positions": [
+      {
+        "page": 4,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 233.74400000000003,
+          "right": 292.505,
+          "bottom": 159.25900000000001
+        },
+        "char_span": [
+          0,
+          386
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      386
+    ],
+    "element_count": 1,
+    "element_types": [
+      "text"
+    ]
+  },
+  {
+    "id": "Conclusion & Future Work_right_20",
+    "type": "column_aware_section",
+    "text": "Conclusion & Future Work\nWe introduced the use of large language models (LLMs) to exploit semantic cues in PDDL domains, guiding repairs toward solutions that are preferable for human modellers. Our approach leverages action and predicate names to improve semantic alignment. Among five proposed strategies, a simple single-shot prompt outperformed the baseline on half the benchmark domains. A limitation is that benchmarks may overlap with LLM training data; future work will test on unpublished domains for a more reliable evaluation.",
+    "tokens": 134,
+    "pages": [
+      4
+    ],
+    "positions": [
+      {
+        "page": 4,
+        "column": "right",
+        "bounding_box": {
+          "left": 368.735,
+          "top": 200.84000000000003,
+          "right": 508.766,
+          "bottom": 190.09199999999998
+        },
+        "char_span": [
+          0,
+          24
+        ]
+      },
+      {
+        "page": 4,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 184.15700000000004,
+          "right": 558.005,
+          "bottom": 87.93399999999997
+        },
+        "char_span": [
+          0,
+          512
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      537
+    ],
+    "element_count": 2,
+    "element_types": [
+      "text",
+      "section_header"
+    ]
+  },
+  {
+    "id": "Experiments_left_21",
+    "type": "column_aware_section",
+    "text": "Experiments\nWe use the same problem set as the baseline paper (Lin et al. 2025) to ensure a direct comparison, and we report the same metrics of precision and recall. Runtime results are omitted for now, as they are negligible (comparable to the latency of a single OpenAI API call) but will be included in future work. The baseline numbers in our tables are taken directly from the published paper; we did not rerun their implementation locally. Our experiments employ the model gpt-4o-2024-08-06 , where the suffix denotes the training cutoff date.",
+    "tokens": 137,
+    "pages": [
+      4
+    ],
+    "positions": [
+      {
+        "page": 4,
+        "column": "left",
+        "bounding_box": {
+          "left": 140.709,
+          "top": 145.83500000000004,
+          "right": 205.793,
+          "bottom": 135.087
+        },
+        "char_span": [
+          0,
+          11
+        ]
+      },
+      {
+        "page": 4,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 129.36300000000006,
+          "right": 292.505,
+          "bottom": 87.93399999999997
+        },
+        "char_span": [
+          0,
+          229
+        ]
+      },
+      {
+        "page": 4,
+        "column": "right",
+        "bounding_box": {
+          "left": 319.5,
+          "top": 519.258,
+          "right": 558.005,
+          "bottom": 455.911
+        },
+        "char_span": [
+          230,
+          538
+        ]
+      }
+    ],
+    "spans_columns": true,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      550
+    ],
+    "element_count": 2,
+    "element_types": [
+      "text",
+      "section_header"
+    ]
+  },
+  {
+    "id": "Acknowledgements_left_22",
+    "type": "column_aware_section",
+    "text": "Acknowledgements\nPascal Bercher is the recipient of an Australian Research Council (ARC) Discovery Early Career Researcher Award (DECRA), project number DE240101245, funded by the Australian Government.",
+    "tokens": 50,
+    "pages": [
+      5
+    ],
+    "positions": [
+      {
+        "page": 5,
+        "column": "left",
+        "bounding_box": {
+          "left": 123.834,
+          "top": 736.286,
+          "right": 222.668,
+          "bottom": 725.538
+        },
+        "char_span": [
+          0,
+          16
+        ]
+      },
+      {
+        "page": 5,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 720.576,
+          "right": 292.505,
+          "bottom": 679.147
+        },
+        "char_span": [
+          0,
+          185
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      202
+    ],
+    "element_count": 2,
+    "element_types": [
+      "text",
+      "section_header"
+    ]
+  },
+  {
+    "id": "References_left_23",
+    "type": "column_aware_section",
+    "text": "References\nBavandpour, N. K.; Lauer, P.; Lin, S.; and Bercher, P. 2025. Repairing Planning Domains Based on Lifted Test Plans. In Proc. of the 28th ECAI .\nBercher, P.; Sreedharan, S.; and Vallati, M. 2025. A Survey on Model Repair in AI Planning. In Proceedings of the 34th International Joint Conference on Artificial Intelligence (IJCAI 2025) .\nCaglar, T.; Belhaj, S.; Chakraborti, T.; Katz, M.; and Sreedharan, S. 2024. Can LLMs Fix Issues with Reasoning Models? Towards More Likely Models for AI Planning. In Proc. of the 38th AAAI , 20061-20069.\nGuan, L.; Valmeekam, K.; Sreedharan, S.; and Kambhampati, S. 2023. Leveraging Pre-trained Large Language Models to Construct and Utilize World Models for Model-based Task Planning. In Proc. of the 37th NeurIPS .\nHuang, S.; Cohn, T.; and Lipovetzky, N. 2024. Chasing Progress, Not Perfection: Revisiting Strategies for End-toEnd LLM Plan Generation. CoRR .\nHuang, S.; Lipovetzky, N.; and Cohn, T. 2025. Planning in the Dark: LLM-Symbolic Planning Pipeline Without Experts. In Proc. of the 39th AAAI , 26542-26550.\nKatz, M.; Kokel, H.; Muise, C.; Sohrabi, S.; and Sreedharan, S. 2025. Make Planning Research Rigorous Again! CoRR , abs/2505.21674.\nLin, S.; Grastien, A.; and Bercher, P. 2023. Towards Automated Modeling Assistance: An Efficient Approach for Repairing Flawed Planning Domains. In Proc. of the 37th AAAI , 12022-12031.\nLin, S.; Grastien, A.; Shome, R.; and Bercher, P. 2025. Told You That Will Not Work: Optimal Corrections to Planning Domains Using Counter-Example Plans. In Proc. of the 39th AAAI , 26596-26604.\nLin, S.; Yousefi, M.; and Bercher, P. 2024. A Visual Studio Code Extension for Automatically Repairing Planning Domains. In Demo at the 34th ICAPS .\nMiller, T. 2019. Explanation in artificial intelligence: Insights from the social sciences. AIJ , 267: 1-38.\nOswald, J. T.; Srinivas, K.; Kokel, H.; Lee, J.; Katz, M.; and Sohrabi, S. 2024. Large Language Models as Planning Domain Generators. In Proc. of the 34th ICAPS , 423-431.",
+    "tokens": 501,
+    "pages": [
+      5
+    ],
+    "positions": [
+      {
+        "page": 5,
+        "column": "left",
+        "bounding_box": {
+          "left": 145.478,
+          "top": 666.548,
+          "right": 201.022,
+          "bottom": 655.8
+        },
+        "char_span": [
+          0,
+          10
+        ]
+      },
+      {
+        "page": 5,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 650.837,
+          "right": 292.505,
+          "bottom": 620.367
+        },
+        "char_span": [
+          0,
+          143
+        ]
+      },
+      {
+        "page": 5,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 615.47,
+          "right": 292.505,
+          "bottom": 574.041
+        },
+        "char_span": [
+          0,
+          191
+        ]
+      },
+      {
+        "page": 5,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 569.144,
+          "right": 292.505,
+          "bottom": 527.715
+        },
+        "char_span": [
+          0,
+          203
+        ]
+      },
+      {
+        "page": 5,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 522.817,
+          "right": 292.505,
+          "bottom": 481.389
+        },
+        "char_span": [
+          0,
+          211
+        ]
+      },
+      {
+        "page": 5,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 476.491,
+          "right": 292.505,
+          "bottom": 446.021
+        },
+        "char_span": [
+          0,
+          143
+        ]
+      },
+      {
+        "page": 5,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 441.124,
+          "right": 292.505,
+          "bottom": 410.654
+        },
+        "char_span": [
+          0,
+          156
+        ]
+      },
+      {
+        "page": 5,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 405.756,
+          "right": 292.505,
+          "bottom": 375.286
+        },
+        "char_span": [
+          0,
+          131
+        ]
+      },
+      {
+        "page": 5,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 370.389,
+          "right": 292.505,
+          "bottom": 328.96
+        },
+        "char_span": [
+          0,
+          185
+        ]
+      },
+      {
+        "page": 5,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 324.063,
+          "right": 292.505,
+          "bottom": 282.634
+        },
+        "char_span": [
+          0,
+          194
+        ]
+      },
+      {
+        "page": 5,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 277.736,
+          "right": 292.505,
+          "bottom": 247.26700000000005
+        },
+        "char_span": [
+          0,
+          148
+        ]
+      },
+      {
+        "page": 5,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 242.36900000000003,
+          "right": 292.505,
+          "bottom": 222.85799999999995
+        },
+        "char_span": [
+          0,
+          108
+        ]
+      },
+      {
+        "page": 5,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 217.961,
+          "right": 292.505,
+          "bottom": 187.49099999999999
+        },
+        "char_span": [
+          0,
+          171
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      2006
+    ],
+    "element_count": 13,
+    "element_types": [
+      "text",
+      "list_item",
+      "section_header"
+    ]
+  },
+  {
+    "id": "References_left_24",
+    "type": "column_aware_section",
+    "text": "Tantakoun, M.; Zhu, X.; and Muise, C. 2025. LLMs as Planning Modelers: A Survey for Leveraging Large Language Models to Construct Automated Planning Models. CoRR .",
+    "tokens": 40,
+    "pages": [
+      5
+    ],
+    "positions": [
+      {
+        "page": 5,
+        "column": "left",
+        "bounding_box": {
+          "left": 54.0,
+          "top": 182.59299999999996,
+          "right": 292.505,
+          "bottom": 152.12300000000005
+        },
+        "char_span": [
+          0,
+          163
+        ]
+      }
+    ],
+    "spans_columns": false,
+    "spans_pages": false,
+    "char_span": [
+      0,
+      163
+    ],
+    "element_count": 1,
+    "element_types": [
+      "text"
+    ]
+  }
+]
