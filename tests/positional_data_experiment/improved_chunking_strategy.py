@@ -326,7 +326,7 @@ class ImprovedPositionalChunker:
 
 
 if __name__ == "__main__":
-    pdf_file = Path("../../outputs/pdfs/lQgm3UvGNY.pdf")
-    output_folder = Path("improved_chunking_output")
+    pdf_file = Path("../../outputs/pdfs/Zj8UqVxClT.pdf")
+    output_folder = Path("improved_chunking_output_zj8uqvxclt")
     chunker = ImprovedPositionalChunker(pdf_file, output_folder)
     chunker.run_improved_chunking()
