@@ -1,0 +1,1184 @@
+{
+  "metadata": {
+    "total_chunks": 43,
+    "chunk_types": [
+      "hybrid_element",
+      "section"
+    ],
+    "total_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "chunks": [
+    {
+      "id": "section_0",
+      "text": "## SYNERGISTIC INFORMATION RETRIEVAL: INTERPLAY BETWEEN SEARCH AND LARGE LANGUAGE MODELS\nAnonymous authors Paper under double-blind review",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 108.43,
+          "top": 709.759,
+          "right": 504.436,
+          "bottom": 675.771,
+          "char_span": [
+            0,
+            138
+          ]
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "section_header": "## SYNERGISTIC INFORMATION RETRIEVAL: INTERPLAY BETWEEN SEARCH AND LARGE LANGUAGE MODELS",
+        "element_count": 1,
+        "text_length": 138,
+        "line_count": 2
+      }
+    },
+    {
+      "id": "section_1",
+      "text": "## ABSTRACT\nInformation retrieval (IR) plays a crucial role in locating relevant resources from vast amounts of data, and its applications have evolved from traditional knowledge bases to modern retrieval models (RMs). The emergence of large language models (LLMs) has further revolutionized the IR field by enabling users to interact with search systems in natural languages. In this paper, we explore the advantages and disadvantages of LLMs and RMs, highlighting their respective strengths in understanding user-issued queries and retrieving up-to-date information. To leverage the benefits of both paradigms while circumventing their limitations, we propose InteR , a novel framework that facilitates information refinement through synergy between RMs and LLMs. InteR allows RMs to expand knowledge in queries using LLM-generated knowledge collections and enables LLMs to enhance prompt formulation using retrieved documents. This iterative refinement process augments the inputs of RMs and LLMs, leading to more accurate retrieval. Experiments on large-scale retrieval benchmarks involving web search and low-resource retrieval tasks demonstrate that InteR achieves overall superior zero-shot retrieval performance compared to state-of-the-art methods, even those using relevance judgment.",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 278.288,
+          "top": 603.166,
+          "right": 333.722,
+          "bottom": 592.904,
+          "char_span": [
+            0,
+            1294
+          ]
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "section_header": "## ABSTRACT",
+        "element_count": 1,
+        "text_length": 1294,
+        "line_count": 2
+      }
+    },
+    {
+      "id": "hybrid_section_2_0",
+      "text": "1 INTRODUCTION",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 108.299,
+          "top": 355.333,
+          "right": 205.989,
+          "bottom": 345.071,
+          "char_span": [
+            0,
+            14
+          ]
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "parent_section": "## 1 INTRODUCTION",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 14
+      }
+    },
+    {
+      "id": "hybrid_section_3_0",
+      "text": "1 INTRODUCTION",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 108.299,
+          "top": 355.333,
+          "right": 205.989,
+          "bottom": 345.071,
+          "char_span": [
+            0,
+            14
+          ]
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "parent_section": "## 1 INTRODUCTION",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 14
+      }
+    },
+    {
+      "id": "hybrid_section_4_0",
+      "text": "1 INTRODUCTION",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 108.299,
+          "top": 355.333,
+          "right": 205.989,
+          "bottom": 345.071,
+          "char_span": [
+            0,
+            14
+          ]
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "parent_section": "## 1 INTRODUCTION",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 14
+      }
+    },
+    {
+      "id": "hybrid_section_5_0",
+      "text": "1 INTRODUCTION",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 108.299,
+          "top": 355.333,
+          "right": 205.989,
+          "bottom": 345.071,
+          "char_span": [
+            0,
+            14
+          ]
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "parent_section": "## 1 INTRODUCTION",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 14
+      }
+    },
+    {
+      "id": "section_6",
+      "text": "- Evaluation results on zero-shot retrieval demonstrate that InteR can overall conduct more accurate retrieval than state-of-the-art approaches and even outperform baselines that leverage relevance judgment for supervised learning.",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 108.299,
+          "top": 355.333,
+          "right": 205.989,
+          "bottom": 345.071,
+          "char_span": [
+            0,
+            231
+          ]
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "section_header": "## 1 INTRODUCTION",
+        "element_count": 1,
+        "text_length": 231,
+        "line_count": 1
+      }
+    },
+    {
+      "id": "hybrid_section_7_0",
+      "text": "2 RELATED WORK",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 108.299,
+          "top": 234.49800000000005,
+          "right": 211.196,
+          "bottom": 224.236,
+          "char_span": [
+            0,
+            14
+          ]
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "parent_section": "## 2 RELATED WORK",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 14
+      }
+    },
+    {
+      "id": "hybrid_section_8_0",
+      "text": "2 RELATED WORK",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 108.299,
+          "top": 234.49800000000005,
+          "right": 211.196,
+          "bottom": 224.236,
+          "char_span": [
+            0,
+            14
+          ]
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "parent_section": "## 2 RELATED WORK",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 14
+      }
+    },
+    {
+      "id": "hybrid_section_9_0",
+      "text": "2 RELATED WORK",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 108.299,
+          "top": 234.49800000000005,
+          "right": 211.196,
+          "bottom": 224.236,
+          "char_span": [
+            0,
+            14
+          ]
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "parent_section": "## 2 RELATED WORK",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 14
+      }
+    },
+    {
+      "id": "section_10",
+      "text": "Enhance LMs Through Retrieval On the contrary, retrieval-enhanced LMs have also received significant attention. Some approaches enhance the accuracy of predicting the distribution of the next word during training (Borgeaud et al., 2022) or inference (Khandelwal et al., 2020) through retrieving the k-most similar training contexts. Alternative methods utilize retrieved documents to provide supplementary context in generation tasks (Joshi et al., 2020; Guu et al., 2020; Lewis et al., 2020). WebGPT (Nakano et al., 2021) further adopts imitation learning and uses human feedback in a text-based web-browsing environment to enhance the LMs. LLM-Augmentor (Peng et al., 2023) improves large language models with external knowledge and automated feedback. REPLUG (Shi et al., 2023) prepends retrieved documents to the input for the frozen LM and treats the LM as a black box. Demonstrate-Search-Predict (DSP) (Khattab et al., 2022) obtains performance gains by relying on passing natural language texts in sophisticated pipelines between a language model and a retrieval model, which is most closely related to our approach. However, they rely on composing two parts with in-context learning and target on multi-hop question answering. While we aim at conducting information refinement via multiple interactions between RMs and LLMs for large-scale retrieval.",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 108.299,
+          "top": 234.49800000000005,
+          "right": 211.196,
+          "bottom": 224.236,
+          "char_span": [
+            0,
+            1358
+          ]
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "section_header": "## 2 RELATED WORK",
+        "element_count": 1,
+        "text_length": 1358,
+        "line_count": 1
+      }
+    },
+    {
+      "id": "hybrid_section_11_0",
+      "text": "3 PRELIMINARY",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 3,
+          "left": 108.299,
+          "top": 268.92599999999993,
+          "right": 198.479,
+          "bottom": 258.664,
+          "char_span": [
+            0,
+            13
+          ]
+        }
+      ],
+      "page_numbers": [
+        3
+      ],
+      "metadata": {
+        "parent_section": "## 3 PRELIMINARY",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 13
+      }
+    },
+    {
+      "id": "section_12",
+      "text": "Generative Retrieval: the LLM Part Generative search is a new paradigm of IR that employs neural generative models as search indices (Tay et al., 2022; Bevilacqua et al., 2022; Lee et al., 2022). Recent studies propose that LLMs further trained to follow instructions could zero-shot generalize to diverse unseen instructions (Ouyang et al., 2022; Sanh et al., 2022; Min et al., 2022; Wei et al., 2022). Therefore, we prepare textual prompts p that include instructions for the desired behavior to q and obtain a refined query q ′ . Then the LLMs G such as ChatGPT (OpenAI, 2022) take in q ′ and generate related knowledge passage s . This process can be illustrated as follows:\n$$s = G ( q ^ { \\prime } ) = G ( q \\oplus p )$$\nwhere ⊕ is the prompt formulation operation for q and p . For each q ′ , if we sample h examples via LLM G , we will obtain a knowledge collection S = { s 1 , s 2 , ..., s h } .",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 3,
+          "left": 108.299,
+          "top": 268.92599999999993,
+          "right": 198.479,
+          "bottom": 258.664,
+          "char_span": [
+            0,
+            904
+          ]
+        }
+      ],
+      "page_numbers": [
+        3
+      ],
+      "metadata": {
+        "section_header": "## 3 PRELIMINARY",
+        "element_count": 1,
+        "text_length": 904,
+        "line_count": 3
+      }
+    },
+    {
+      "id": "section_13",
+      "text": "## 4 INTER\nOn top of the preliminaries, we introduce InteR , a novel IR framework that iteratively performs information refinement through synergy between RMs and LLMs. The overview is shown in Figure 1. During each iteration, the RM part and LLM part refine their information in the query through interplay with knowledge collection (via LLMs) or retrieved documents (via RMs) from previous iteration. Specifically, in RM part, InteR refines the information stored in query q with knowledge collection S generated by LLM for better document retrieval. While in LLM part, InteR refines the information in original query q with retrieved document ¯ D from RM for better invoking LLM to generate most relevant knowledge. This two-step procedure can be repeated multiple times in an iterative refinement style.",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 108.299,
+          "top": 273.60300000000007,
+          "right": 159.741,
+          "bottom": 263.341,
+          "char_span": [
+            0,
+            807
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "section_header": "## 4 INTER",
+        "element_count": 1,
+        "text_length": 807,
+        "line_count": 2
+      }
+    },
+    {
+      "id": "section_14",
+      "text": "## 4.1 RM STEP: REFINING INFORMATION IN RM VIA LLM\nWhen people use search systems, the natural way is to first type in a search query q whose genre can be a question, a keyword, or a combination of both. The RMs in search systems then process the search query q and retrieve several documents ¯ D based on their relevance ϕ ( q, d ) to the search query q . Ideally, ¯ D contains the necessary information related to the user-issued query q . However, it may include irrelevant information to query as the candidate documents for retrieval are chunked and\nfixed (Yu et al., 2023). Moreover, it may also miss some required knowledge since the query is often fairly condensed and short (e.g., 'best sushi in San Francisco' ).\nTo this end, we additionally involve the generated knowledge collection S from LLM in previous iteration and enrich the information included in q with S . Specifically, we consider expanding the query q by concatenating each s i ∈ S multiple times 2 to q and obtaining the similarity of document d with:\n$$\\phi ( q , d ; S ) & = \\phi ( [ q ; s _ { 1 } ; q ; s _ { 2 } ; \\dots ; q ; s _ { h } ] , d ) \\\\ & = \\langle E _ { Q } ( [ q ; s _ { 1 } ; q ; s _ { 2 } ; \\dots , q ; s _ { h } ] ) , E _ { D } ( d ) \\rangle$$\nwhere [ · ; · ] is a concatenating operation for query expansion. Now the query is knowledge-intensive equipping with S from LLM part that may be supplement to q . We hope the knowledge collection S can provide directly relevant information to the input query q and help the RMs focus on the domain or topic in user query q .",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 108.249,
+          "top": 133.58000000000004,
+          "right": 358.139,
+          "bottom": 125.02800000000002,
+          "char_span": [
+            0,
+            1563
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "section_header": "## 4.1 RM STEP: REFINING INFORMATION IN RM VIA LLM",
+        "element_count": 1,
+        "text_length": 1563,
+        "line_count": 6
+      }
+    },
+    {
+      "id": "section_15",
+      "text": "## 4.2 LLM STEP: REFINING INFORMATION IN LLM VIA RM\nAs aforementioned, we can invoke LLMs to conditionally generate knowledge collection S by preparing a prompt p that adapts the LLM to a specific function (Eq. 2). Despite the remarkable text generation capability, they are also prone to hallucination and still struggle to represent the complete long tail of knowledge contained within their training corpus (Shi et al., 2023). To mitigate the aforementioned issues, we argue that ¯ D , the documents retrieved by RMs, may provide rich information about the original query q and can potentially help the LLMs make a better prediction.\nSpecifically, we include the knowledge in ¯ D into p by designing a new prompt as:\n```\n{{query} and its possible answering passages {passages}\n```\nGive a question {query} Please write a correct answering passage:\nwhere '{query}' and '{passages}' are the placeholders for q and ¯ D respectively from last RM step:\n$$s = G ( q ^ { \\prime } ) = G ( q \\oplus p \\oplus \\bar { D } )$$\nNow the query q ′ is refined and contains more plentiful information about q through retrieved documents ¯ D as demonstrations. Here we simply concatenate ¯ D for placeholder '{passages}' , which contains k retrieved documents from RM part for input of LLM G .",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 108.249,
+          "top": 543.541,
+          "right": 364.167,
+          "bottom": 534.989,
+          "char_span": [
+            0,
+            1276
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "section_header": "## 4.2 LLM STEP: REFINING INFORMATION IN LLM VIA RM",
+        "element_count": 1,
+        "text_length": 1276,
+        "line_count": 10
+      }
+    },
+    {
+      "id": "section_16",
+      "text": "## 4.3 ITERATIVE INTERPLAY BETWEEN RM AND LLM\nIn this section, we explain how iterative refinement can be used to improve both RM and LLM parts. This iterative procedure can be interpreted as exploiting the current query q and previous-generated knowledge collection S to retrieve another document set ¯ D with RM part for the subsequent stage of LLM step. Then, the LLM part leverages the retrieved documents ¯ D from previous stage of RM and synthesizes the knowledge collection S for next RM step. A critical point is that we take LLM as the starting point and use only q and let ¯ D be empty as the initial RM input. Therefore, the prompt of first LLM step is formulated as:\n```\nPlease write a passage to answer the question.\nQuestion: {query}\nPassage:\n```\nWe propose using an iterative IR pipeline, with each iteration consisting of the four steps listed below:\n1. Invoke LLM to conditionally generate knowledge collection S with prompt q ′ on Eq. 4. The retrieved document set ¯ D is derived from previous RM step and set as empty in the beginning.\n2 In our preliminary study, we observed that concatenating each s i ∈ S multiple times to q can lead to improved performance, as the query is the most crucial component in IR.\n2. Construct the updated input for RM with knowledge collection S and query q to compute the similarity of each document d .\n3. Invoke RM to retrieve the topk most 'relevant' documents as ¯ D on Eq. 3.\n4. Formulate a new prompt q ′ by combining the retrieved document set ¯ D with query q .\nThe iterative nature of this multi-step process enables the refinement of information through the synergy between the RMs and the LLMs, which can be executed repeatedly M times to further enhance the quality of results.",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 108.249,
+          "top": 300.68,
+          "right": 339.07,
+          "bottom": 292.128,
+          "char_span": [
+            0,
+            1741
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "section_header": "## 4.3 ITERATIVE INTERPLAY BETWEEN RM AND LLM",
+        "element_count": 1,
+        "text_length": 1741,
+        "line_count": 14
+      }
+    },
+    {
+      "id": "section_17",
+      "text": "## 5 EXPERIMENTS",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 108.299,
+          "top": 592.438,
+          "right": 200.083,
+          "bottom": 582.176,
+          "char_span": [
+            0,
+            16
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "section_header": "## 5 EXPERIMENTS",
+        "element_count": 1,
+        "text_length": 16,
+        "line_count": 1
+      }
+    },
+    {
+      "id": "section_18",
+      "text": "## 5.1 DATASETS AND METRICS\nFollowing (Gao et al., 2023), we adopt widely-used web search query sets TREC Deep Learning 2019 (DL'19) (Craswell et al., 2020) and TREC Deep Learning 2020 (DL'20) (Craswell et al., 2021) which are based on the MS-MARCO (Bajaj et al., 2016). Besides, we also use six diverse low-resource retrieval datasets from the BEIR benchmark (Thakur et al., 2021) consistent with (Gao et al., 2023) including SciFact (fact-checking), ArguAna (argument retrieval), TREC-COVID (bio-medical IR), FiQA (financial question-answering), DBPedia (entity retrieval), and TREC-NEWS (news retrieval). It is worth pointing out that we do not employ any training query-document pairs, as we conduct retrieval in a zero-shot setting and directly evaluate our proposed method on these test sets. Consistent with prior works, we report MAP, nDCG@10, and Recall@1000 (R@1k) for TREC DL'19 and DL'20 data, and nDCG@10 is employed for all datasets in the BEIR benchmark.",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 108.249,
+          "top": 566.932,
+          "right": 239.271,
+          "bottom": 558.38,
+          "char_span": [
+            0,
+            969
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "section_header": "## 5.1 DATASETS AND METRICS",
+        "element_count": 1,
+        "text_length": 969,
+        "line_count": 2
+      }
+    },
+    {
+      "id": "section_19",
+      "text": "## 5.2 BASELINES\nMethods without relevance judgment We consider several zero-shot retrieval models as our main baselines, because we do not involve any query-document relevance scores (denoted as w/o relevance judgment ) in our setting. Particularly, we choose heuristic-based lexical retriever BM25 (Robertson &amp; Zaragoza, 2009), BERT-based term weighting framework DeepCT (Dai &amp; Callan, 2019), and Contriever (Izacard et al., 2022) that is trained using unsupervised contrastive learning. We also compare our model with the state-of-the-art LLM-based retrieval model HyDE (Gao et al., 2023) which shares the exact same embedding spaces with Contriever but builds query vectors with LLMs.\nMethods with relevance judgment Moreover, we also incorporate several systems that utilize fine-tuning on extensive query-document relevance data, such as MS-MARCO, as references (denoted as w/ relevance judgment ). This group encompasses some commonly used fully-supervised retrieval methods, including DPR (Karpukhin et al., 2020), ANCE (Xiong et al., 2021), and the fine-tuned Contriever (Izacard et al., 2022) (denoted as Contriever FT ).",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 108.249,
+          "top": 421.494,
+          "right": 180.064,
+          "bottom": 412.942,
+          "char_span": [
+            0,
+            1139
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "section_header": "## 5.2 BASELINES",
+        "element_count": 1,
+        "text_length": 1139,
+        "line_count": 3
+      }
+    },
+    {
+      "id": "hybrid_section_20_0",
+      "text": "5.3 IMPLEMENTATION DETAILS",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 108.249,
+          "top": 240.52300000000002,
+          "right": 248.721,
+          "bottom": 231.971,
+          "char_span": [
+            0,
+            26
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "parent_section": "## 5.3 IMPLEMENTATION DETAILS",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 26
+      }
+    },
+    {
+      "id": "hybrid_section_21_0",
+      "text": "5.3 IMPLEMENTATION DETAILS",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 108.249,
+          "top": 240.52300000000002,
+          "right": 248.721,
+          "bottom": 231.971,
+          "char_span": [
+            0,
+            26
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "parent_section": "## 5.3 IMPLEMENTATION DETAILS",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 26
+      }
+    },
+    {
+      "id": "section_22",
+      "text": "| HyDE (Gao et al., 2023)              | 69.1      | 46.6      | 59.3         | 27.3   | 36.8      | 44.0        |\n| InteR (Vicuna-13B-v1.5 from LLaMa-2) | 69.3      | 42.7      | 70.1         | 23.6   | 39.6      | 51.9        |\n| InteR (Vicuna-33B-v1.3 from LLaMa-1) | 70.3      | 39.9      | 67.4         | 26.0   | 40.1      | 51.4        |\n| InteR (gpt-3.5-turbo)                | 71.7      | 40.9      | 69.7         | 26.0   | 42.1      | 52.8        |\n| w/ relevance judgment                |           |           |              |        |           |             |\n| DPR (Karpukhin et al., 2020)         | 31.8      | 17.5      | 33.2         | 29.5   | 26.3      | 16.1        |\n| ANCE (Xiong et al., 2021)            | 50.7      | 41.5      | 65.4 ¶       | 30.0   | 28.1      | 38.2        |\n| Contriever FT (Izacard et al., 2022) | 67.7 ¶    | 44.6 ¶    | 59.6         | 32.9 ¶ | 41.3 ¶    | 42.8 ¶      |\npassage/document to 256 tokens and set the maximum number of tokens for each LLM-generated knowledge example to 256 for efficiency. Source codes are uploaded for reproducibility.",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 108.249,
+          "top": 240.52300000000002,
+          "right": 248.721,
+          "bottom": 231.971,
+          "char_span": [
+            0,
+            1098
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "section_header": "## 5.3 IMPLEMENTATION DETAILS",
+        "element_count": 1,
+        "text_length": 1098,
+        "line_count": 9
+      }
+    },
+    {
+      "id": "hybrid_section_23_0",
+      "text": "5.4 MAIN RESULTS",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 7,
+          "left": 108.249,
+          "top": 277.174,
+          "right": 197.737,
+          "bottom": 268.62200000000007,
+          "char_span": [
+            0,
+            16
+          ]
+        }
+      ],
+      "page_numbers": [
+        7
+      ],
+      "metadata": {
+        "parent_section": "## 5.4 MAIN RESULTS",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 16
+      }
+    },
+    {
+      "id": "section_24",
+      "text": "|-------------------|---------|---------|---------|---------|---------|---------|\n|                   | MAP     | nDCG@10 | R@1k    | MAP     | nDCG@10 | R@1k    |\n| InteR ( M = 0 )   | 30.1    | 50.6    | 75.0    | 28.6    | 48.0    | 78.6    |\n| InteR ( M = 1 )   | 45.8    | 65.3    | 89.3    | 42.6    | 61.0    | 88.7    |\n| InteR ( M = 2 ) ∗ | 50.0    | 68.3    | 89.3    | 46.8    | 63.5    | 88.8    |\n| InteR ( M = 3 )   | 49.1    | 68.2    | 88.0    | 42.8    | 59.3    | 85.6    |\nTable 4: Performance of InteR with gpt-3.5-turbo across different retrieval strategies for constructing ¯ D on Eq. 4 on TREC DL'19 and DL'20. The default setting is marked with ∗ and the best results are marked in bold .\n| Methods         | DL'19   | DL'19   | DL'19   | DL'20   | DL'20   | DL'20   |\n|-----------------|---------|---------|---------|---------|---------|---------|\n| Methods         | MAP     | nDCG@10 | R@1k    | MAP     | nDCG@10 | R@1k    |\n| InteR (Sparse)  | 46.9    | 66.6    | 89.4    | 42.3    | 60.4    | 85.4    |\n| InteR (Dense) ∗ | 50.0    | 68.3    | 89.3    | 46.8    | 63.5    | 88.8    |\n| InteR (Hybrid)  | 48.3    | 67.6    | 89.1    | 45.1    | 62.5    | 85.2    |",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 7,
+          "left": 108.249,
+          "top": 277.174,
+          "right": 197.737,
+          "bottom": 268.62200000000007,
+          "char_span": [
+            0,
+            1192
+          ]
+        }
+      ],
+      "page_numbers": [
+        7
+      ],
+      "metadata": {
+        "section_header": "## 5.4 MAIN RESULTS",
+        "element_count": 1,
+        "text_length": 1192,
+        "line_count": 13
+      }
+    },
+    {
+      "id": "hybrid_section_25_0",
+      "text": "5.5 DISCUSSIONS",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 108.249,
+          "top": 303.404,
+          "right": 189.886,
+          "bottom": 294.852,
+          "char_span": [
+            0,
+            15
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "parent_section": "## 5.5 DISCUSSIONS",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 15
+      }
+    },
+    {
+      "id": "hybrid_section_26_0",
+      "text": "5.5 DISCUSSIONS",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 108.249,
+          "top": 303.404,
+          "right": 189.886,
+          "bottom": 294.852,
+          "char_span": [
+            0,
+            15
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "parent_section": "## 5.5 DISCUSSIONS",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 15
+      }
+    },
+    {
+      "id": "hybrid_section_27_0",
+      "text": "5.5 DISCUSSIONS",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 108.249,
+          "top": 303.404,
+          "right": 189.886,
+          "bottom": 294.852,
+          "char_span": [
+            0,
+            15
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "parent_section": "## 5.5 DISCUSSIONS",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 15
+      }
+    },
+    {
+      "id": "section_28",
+      "text": "LLM outputs of M = 2 : Thailand's daily life is influenced by its diverse geography and cultural influences from India, China, Cambodia, and the rest of Southeast Asia. The country's national religion, Theravada Buddhism, is central to modern Thai identity. Social occasions in Thailand often revolve around food, which is ordered and eaten in a communal style. Thai food presentation is among the most exquisite in the world, developed primarily in the palace to please the King of Siam. Thai people love to have fun together and often ask each other if they had a good time. The population of Thailand is approximately 67.5 million people, including ethnic groups such as Chinese, Malay, Lao, Burma, Cambodia, and Indians. Unemployment rate in Thailand is relatively low, standing at 0.84% according to Thailand's National Economic and Social Development Board (NESDB). Thai time is divided into five sections, with different names for each section of the day. The country's primary religion is Theravada Buddhism, and important holidays include Thai New Year, or Songkran. Overall, the daily life of Thai people is diverse, vibrant and deeply rooted in their rich cultural heritage.",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 108.249,
+          "top": 303.404,
+          "right": 189.886,
+          "bottom": 294.852,
+          "char_span": [
+            0,
+            1185
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "section_header": "## 5.5 DISCUSSIONS",
+        "element_count": 1,
+        "text_length": 1185,
+        "line_count": 1
+      }
+    },
+    {
+      "id": "section_29",
+      "text": "## 6 CONCLUSION\nIn this work, we present InteR , a novel framework that harnesses the strengths of both large language models (LLMs) and retrieval models (RMs) to enhance information retrieval. By facilitating information refinement through synergy between LLMs and RMs, InteR achieves overall superior zero-shot retrieval performance compared to state-of-the-art methods, and even those using relevance judgment, on large-scale retrieval benchmarks involving web search and low-resource retrieval tasks. With its ability to leverage the benefits of both paradigms, InteR may present a potential direction for advancing information retrieval systems.\nLimitations While InteR demonstrates improved zero-shot retrieval performance, it should be noted that its effectiveness heavily relies on the quality of the used large language models (LLMs). If these underlying components contain biases, inaccuracies, or limitations in their training data, it could impact the reliability and generalizability of the retrieval results. In that case, one may need to design a more sophisticated method of information refinement, especially the prompt formulation part. We leave this exploration for future work.",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 9,
+          "left": 108.299,
+          "top": 236.03099999999995,
+          "right": 195.377,
+          "bottom": 225.769,
+          "char_span": [
+            0,
+            1197
+          ]
+        }
+      ],
+      "page_numbers": [
+        9
+      ],
+      "metadata": {
+        "section_header": "## 6 CONCLUSION",
+        "element_count": 1,
+        "text_length": 1197,
+        "line_count": 3
+      }
+    },
+    {
+      "id": "hybrid_section_30_0",
+      "text": "REFERENCES",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.299,
+          "top": 707.959,
+          "right": 175.26,
+          "bottom": 697.697,
+          "char_span": [
+            0,
+            10
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "parent_section": "## REFERENCES",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 10
+      }
+    },
+    {
+      "id": "hybrid_section_31_0",
+      "text": "REFERENCES",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.299,
+          "top": 707.959,
+          "right": 175.26,
+          "bottom": 697.697,
+          "char_span": [
+            0,
+            10
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "parent_section": "## REFERENCES",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 10
+      }
+    },
+    {
+      "id": "hybrid_section_32_0",
+      "text": "REFERENCES",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.299,
+          "top": 707.959,
+          "right": 175.26,
+          "bottom": 697.697,
+          "char_span": [
+            0,
+            10
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "parent_section": "## REFERENCES",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 10
+      }
+    },
+    {
+      "id": "hybrid_section_33_0",
+      "text": "REFERENCES",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.299,
+          "top": 707.959,
+          "right": 175.26,
+          "bottom": 697.697,
+          "char_span": [
+            0,
+            10
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "parent_section": "## REFERENCES",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 10
+      }
+    },
+    {
+      "id": "hybrid_section_34_0",
+      "text": "REFERENCES",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.299,
+          "top": 707.959,
+          "right": 175.26,
+          "bottom": 697.697,
+          "char_span": [
+            0,
+            10
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "parent_section": "## REFERENCES",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 10
+      }
+    },
+    {
+      "id": "hybrid_section_35_0",
+      "text": "REFERENCES",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.299,
+          "top": 707.959,
+          "right": 175.26,
+          "bottom": 697.697,
+          "char_span": [
+            0,
+            10
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "parent_section": "## REFERENCES",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 10
+      }
+    },
+    {
+      "id": "hybrid_section_36_0",
+      "text": "REFERENCES",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.299,
+          "top": 707.959,
+          "right": 175.26,
+          "bottom": 697.697,
+          "char_span": [
+            0,
+            10
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "parent_section": "## REFERENCES",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 10
+      }
+    },
+    {
+      "id": "hybrid_section_37_0",
+      "text": "REFERENCES",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.299,
+          "top": 707.959,
+          "right": 175.26,
+          "bottom": 697.697,
+          "char_span": [
+            0,
+            10
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "parent_section": "## REFERENCES",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 10
+      }
+    },
+    {
+      "id": "hybrid_section_38_0",
+      "text": "REFERENCES",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.299,
+          "top": 707.959,
+          "right": 175.26,
+          "bottom": 697.697,
+          "char_span": [
+            0,
+            10
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "parent_section": "## REFERENCES",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 10
+      }
+    },
+    {
+      "id": "hybrid_section_39_0",
+      "text": "REFERENCES",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.299,
+          "top": 707.959,
+          "right": 175.26,
+          "bottom": 697.697,
+          "char_span": [
+            0,
+            10
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "parent_section": "## REFERENCES",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 10
+      }
+    },
+    {
+      "id": "hybrid_section_40_0",
+      "text": "REFERENCES",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.299,
+          "top": 707.959,
+          "right": 175.26,
+          "bottom": 697.697,
+          "char_span": [
+            0,
+            10
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "parent_section": "## REFERENCES",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 10
+      }
+    },
+    {
+      "id": "hybrid_section_41_0",
+      "text": "REFERENCES",
+      "chunk_type": "hybrid_element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.299,
+          "top": 707.959,
+          "right": 175.26,
+          "bottom": 697.697,
+          "char_span": [
+            0,
+            10
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "parent_section": "## REFERENCES",
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 10
+      }
+    },
+    {
+      "id": "section_42",
+      "text": "- Muru Zhang, Ofir Press, William Merrill, Alisa Liu, and Noah A Smith. How language model hallucinations can snowball. arXiv preprint arXiv:2305.13534, 2023a.\n- Yue Zhang, Yafu Li, Leyang Cui, Deng Cai, Lemao Liu, Tingchen Fu, Xinting Huang, Enbo Zhao, Yu Zhang, Yulong Chen, et al. Siren's song in the ai ocean: A survey on hallucination in large language models. arXiv preprint arXiv:2309.01219, 2023b.\n- Jiawei Zhou, Xiaoguang Li, Lifeng Shang, Lan Luo, Ke Zhan, Enrui Hu, Xinyu Zhang, Hao Jiang, Zhao Cao, Fan Yu, Xin Jiang, Qun Liu, and Lei Chen. Hyperlink-induced pre-training for passage retrieval in open-domain question answering. In Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 7135-7146, Dublin, Ireland, May 2022. Association for Computational Linguistics. doi: 10.18653/v1/2022.acl-long. 493. URL https://aclanthology.org/2022.acl-long.493 .",
+      "chunk_type": "section",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.299,
+          "top": 707.959,
+          "right": 175.26,
+          "bottom": 697.697,
+          "char_span": [
+            0,
+            927
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "section_header": "## REFERENCES",
+        "element_count": 1,
+        "text_length": 927,
+        "line_count": 3
+      }
+    }
+  ]
+}

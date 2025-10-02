@@ -1,0 +1,3565 @@
+{
+  "metadata": {
+    "total_chunks": 24,
+    "chunk_types": [
+      "semantic_group"
+    ],
+    "total_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "coordinate_system": "BOTTOMLEFT",
+    "units": "PDF_points"
+  },
+  "chunks": [
+    {
+      "id": "semantic_000",
+      "text": "Under review as a conference paper at ICLR 2024\nSYNERGISTIC INFORMATION RETRIEVAL: INTERPLAY BETWEEN SEARCH AND LARGE LANGUAGE MODELS\nAnonymous authors Paper under double-blind review\nABSTRACT\nInformation retrieval (IR) plays a crucial role in locating relevant resources from vast amounts of data, and its applications have evolved from traditional knowledge bases to modern retrieval models (RMs). The emergence of large language models (LLMs) has further revolutionized the IR field by enabling users to interact with search systems in natural languages. In this paper, we explore the advantages and disadvantages of LLMs and RMs, highlighting their respective strengths in understanding user-issued queries and retrieving up-to-date information. To leverage the benefits of both paradigms while circumventing their limitations, we propose InteR , a novel framework that facilitates information refinement through synergy between RMs and LLMs. InteR allows RMs to expand knowledge in queries using LLM-generated knowledge collections and enables LLMs to enhance prompt formulation using retrieved documents. This iterative refinement process augments the inputs of RMs and LLMs, leading to more accurate retrieval. Experiments on large-scale retrieval benchmarks involving web search and low-resource retrieval tasks demonstrate that InteR achieves overall superior zero-shot retrieval performance compared to state-of-the-art methods, even those using relevance judgment.\n1 INTRODUCTION\nInformation retrieval (IR) is an indispensable technique for locating relevant resources in a vast sea of data given ad-hoc queries (Mogotsi, 2010). It is a core component in knowledge-intensive tasks such as question answering (Karpukhin et al., 2020), entity linking (Gillick et al., 2019) and fact verification (Thorne et al., 2018). Over the years, the techniques of information retrieval have evolved significantly: from the traditional knowledge base (KB) (Lan et al., 2021; Gaur et al., 2022) to modern search engines (SEs) based on neural representation learning (Karpukhin et al., 2020; Yates et al., 2021), information retrieval has become increasingly important in our digital world. More recently, the emergence of cutting-edge large language models (LLMs; e.g., ChatGPT (OpenAI, 2022), GPT-4 (OpenAI, 2023), Bard (Google, 2023), LLaMA (Touvron et al., 2023a;b)) has further revolutionized the NLP community and given intriguing insights into IR applications as users can now interact with search systems in natural languages.\nOver the decades, search engines like Google or Bing have become a staple for people looking to retrieve information on a variety of topics, allowing users to quickly sift through millions of documents to find the information they need by providing keywords or a query. Spurred by advancements in scale, LLMs have now exhibited the ability to undertake a variety of NLP tasks in a zero-shot scenario (Qin et al., 2023) by following instructions (Ouyang et al., 2022; Sanh et al., 2022; Min et al., 2022; Wei et al., 2022). Therefore, they could serve as an alternative option for people to obtain information directly by posing a question or query in natural languages (OpenAI, 2022), instead of relying on specific keywords. For example, suppose a student is looking to write a research paper on the history of jazz music . They could type in keywords such as 'history of jazz' or 'jazz pioneers' to retrieve relevant articles and sources. However, with LLMs, this student could pose a question like 'Who were the key pioneers of jazz music, and how did they influence the genre?' The LLMs could then generate a summary of the relevant information and sources, potentially saving time and effort in sifting through search results.\n1",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ],
+          "width": 199.79000000000002,
+          "height": 8.551999999999907
+        },
+        {
+          "page": 1,
+          "left": 108.43,
+          "top": 709.759,
+          "right": 504.436,
+          "bottom": 675.771,
+          "char_span": [
+            0,
+            85
+          ],
+          "width": 396.006,
+          "height": 33.988000000000056
+        },
+        {
+          "page": 1,
+          "left": 113.978,
+          "top": 654.462,
+          "right": 244.199,
+          "bottom": 634.563,
+          "char_span": [
+            0,
+            49
+          ],
+          "width": 130.221,
+          "height": 19.899
+        },
+        {
+          "page": 1,
+          "left": 278.288,
+          "top": 603.166,
+          "right": 333.722,
+          "bottom": 592.904,
+          "char_span": [
+            0,
+            8
+          ],
+          "width": 55.43399999999997,
+          "height": 10.262000000000057
+        },
+        {
+          "page": 1,
+          "left": 143.537,
+          "top": 573.578,
+          "right": 469.786,
+          "bottom": 389.684,
+          "char_span": [
+            0,
+            1282
+          ],
+          "width": 326.249,
+          "height": 183.89399999999995
+        },
+        {
+          "page": 1,
+          "left": 108.299,
+          "top": 355.333,
+          "right": 205.989,
+          "bottom": 345.071,
+          "char_span": [
+            0,
+            14
+          ],
+          "width": 97.69,
+          "height": 10.262
+        },
+        {
+          "page": 1,
+          "left": 107.422,
+          "top": 326.657,
+          "right": 505.746,
+          "bottom": 208.51599999999996,
+          "char_span": [
+            0,
+            1038
+          ],
+          "width": 398.32399999999996,
+          "height": 118.14100000000002
+        },
+        {
+          "page": 1,
+          "left": 108.0,
+          "top": 200.13099999999997,
+          "right": 505.241,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            1231
+          ],
+          "width": 397.241,
+          "height": 140.05899999999997
+        },
+        {
+          "page": 1,
+          "left": 303.136,
+          "top": 38.73599999999999,
+          "right": 308.117,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.9809999999999945,
+          "height": 8.552000000000021
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "element_count": 9,
+        "text_length": 3763,
+        "element_types": [
+          "page_footer",
+          "page_header",
+          "text",
+          "section_header"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "id": "semantic_001",
+      "text": "Under review as a conference paper at ICLR 2024\nAs with most things in life, there are two sides to every coin. Both IR technologies come with their own unique set of advantages and disadvantages. LLMs excel in understanding the context and meaning behind user-issued textual queries (Mao et al., 2023), allowing for more precise retrieval of information, while RMs expect well-designed precise keywords to deliver relevant results. Moreover, LLMs have the capacity to directly generate specific answers to questions (Ouyang et al., 2022), rather than merely present a list of relevant documents, setting them apart from RMs. However, it is important to note that RMs still have significant advantages over LLMs. For instance, RMs can index a vast number of up-to-date documents (Nakano et al., 2021), whereas LLMs can only generate information that falls within the time-scope of the data they were trained on, potentially leading to hallucinated results (Shuster et al., 2021; Ji et al., 2023; Zhang et al., 2023a;b). Additionally, RMs can conduct quick and efficient searches through a vast amount of information on the internet, making them an ideal choice for finding a wide range of data. Ultimately, both paradigms have their own unique set of irreplaceable advantages, making them useful in their respective areas of application.\nTo enhance IR by leveraging the benefits of RMs and LLMs while circumventing their limitations, we consider bridging these two domains. Fortunately, we observe that textual information refinement can be performed between two counterparts and boost each other. On the one hand, RMs can gather potential documents with valuable information, serving as demonstrations for LLMs. On the other hand, LLMs generate concise summaries using well-crafted prompts, expanding the initial query and improving search accuracy. To this end, we introduce InteR , a novel framework that facilitates information refinement through synergy between RMs and LLMs. Precisely, the RM part of InteR receives the knowledge collection from the LLM part to refine and expand the information in the query. While the LLM part involves the retrieved documents from the RM part as demonstrations to enrich the information in prompt formulation. This two-step refinement procedure can be seamlessly repeated to augment the inputs of RM and LLM. Implicitly, we assume that the outputs of both components supplement each other, leading to more accurate retrieval.\nWe evaluate InteR on public large-scale retrieval benchmarks involving web search and low-resource retrieval tasks following prior work (Gao et al., 2023). The experimental results show that InteR can conduct zero-shot retrieval with overall better performance than state-of-the-art methods, even those using relevance judgment 1 , and achieves new state-of-the-art zero-shot retrieval performance.\nOverall, our main contributions can be summarized as follows:\nWe introduce InteR, a novel IR framework bridging two cutting-edge IR products, search systems and large language models, while enjoying their strengths and circumventing their limitations.\nWe propose iterative information refinement via synergy between retrieval models and large language models, resulting in improved retrieval quality.\nEvaluation results on zero-shot retrieval demonstrate that InteR can overall conduct more accurate retrieval than state-of-the-art approaches and even outperform baselines that leverage relevance judgment for supervised learning.\n2 RELATED WORK\nDense Retrieval Document retrieval has been an important component for several knowledgeintensive tasks (V oorhees et al., 1999; Karpukhin et al., 2020). Traditional techniques such as TF-IDF and BM25 depend on term matching and create sparse vectors (Robertson, 2009; Yang et al., 2017; Chen et al., 2017) to ensure efficient retrieval. After the emergence of pre-trained language models (Devlin et al., 2019; Liu et al., 2019), dense retrieval which encodes both queries and documents into low-dimension vectors and then calculates their relevance scores (Lee et al., 2019; Karpukhin et al., 2020), has recently undergone substantial research. Relevant studies include improving training approach (Karpukhin et al., 2020; Xiong et al., 2021; Qu et al., 2021), distillation (Lin et al., 2021; Hofstätter et al., 2021) and task-specific pre-training (Izacard et al., 2022; Gao & Callan, 2021; Lu et al., 2021; Gao & Callan, 2022; Xiao et al., 2022) of dense retrieval models which significantly outperform sparse approaches.\n1 In IR tasks, the relevance judgment illustrates the label of relevance between each pair of query and document, which is mainly used for supervised learning of an IR model.\n2",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ],
+          "width": 199.79000000000002,
+          "height": 8.551999999999907
+        },
+        {
+          "page": 2,
+          "left": 107.641,
+          "top": 706.662,
+          "right": 505.247,
+          "bottom": 566.603,
+          "char_span": [
+            0,
+            1289
+          ],
+          "width": 397.606,
+          "height": 140.05900000000008
+        },
+        {
+          "page": 2,
+          "left": 107.641,
+          "top": 558.218,
+          "right": 505.248,
+          "bottom": 429.118,
+          "char_span": [
+            0,
+            1129
+          ],
+          "width": 397.60699999999997,
+          "height": 129.09999999999997
+        },
+        {
+          "page": 2,
+          "left": 107.532,
+          "top": 420.734,
+          "right": 504.003,
+          "bottom": 379.305,
+          "char_span": [
+            0,
+            398
+          ],
+          "width": 396.471,
+          "height": 41.428999999999974
+        },
+        {
+          "page": 2,
+          "left": 108.0,
+          "top": 370.921,
+          "right": 358.37,
+          "bottom": 362.369,
+          "char_span": [
+            0,
+            61
+          ],
+          "width": 250.37,
+          "height": 8.551999999999964
+        },
+        {
+          "page": 2,
+          "left": 135.397,
+          "top": 349.554,
+          "right": 504.17,
+          "bottom": 319.085,
+          "char_span": [
+            0,
+            191
+          ],
+          "width": 368.773,
+          "height": 30.468999999999994
+        },
+        {
+          "page": 2,
+          "left": 135.397,
+          "top": 311.803,
+          "right": 504.004,
+          "bottom": 292.292,
+          "char_span": [
+            0,
+            150
+          ],
+          "width": 368.607,
+          "height": 19.511000000000024
+        },
+        {
+          "page": 2,
+          "left": 135.397,
+          "top": 285.011,
+          "right": 505.656,
+          "bottom": 254.54099999999994,
+          "char_span": [
+            0,
+            231
+          ],
+          "width": 370.259,
+          "height": 30.470000000000084
+        },
+        {
+          "page": 2,
+          "left": 108.299,
+          "top": 234.49800000000005,
+          "right": 211.196,
+          "bottom": 224.236,
+          "char_span": [
+            0,
+            14
+          ],
+          "width": 102.89699999999999,
+          "height": 10.262000000000057
+        },
+        {
+          "page": 2,
+          "left": 108.0,
+          "top": 209.32799999999997,
+          "right": 505.654,
+          "bottom": 90.79899999999998,
+          "char_span": [
+            0,
+            1024
+          ],
+          "width": 397.654,
+          "height": 118.529
+        },
+        {
+          "page": 2,
+          "left": 108.0,
+          "top": 79.80100000000004,
+          "right": 503.998,
+          "bottom": 60.27800000000002,
+          "char_span": [
+            0,
+            174
+          ],
+          "width": 395.998,
+          "height": 19.523000000000025
+        },
+        {
+          "page": 2,
+          "left": 303.509,
+          "top": 38.73599999999999,
+          "right": 308.49,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.9809999999999945,
+          "height": 8.552000000000021
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "element_count": 12,
+        "text_length": 4714,
+        "element_types": [
+          "text",
+          "section_header",
+          "page_footer",
+          "page_header",
+          "list_item",
+          "footnote"
+        ],
+        "page": 2
+      }
+    },
+    {
+      "id": "semantic_002",
+      "text": "Under review as a conference paper at ICLR 2024\nZero-shot Dense Retrieval Many prior works consider training dense retrieval models on highresource passage retrieval datasets like Natural Questions (NQ) (Kwiatkowski et al., 2019) (133k training examples) or MS-MARCO (Bajaj et al., 2016) (533k training examples) and then evaluating on queries from new tasks. These systems (Wang et al., 2022; Yu et al., 2022) are utilized in a transfer learning configuration (Thakur et al., 2021). However, on the one hand, it is time-consuming and expensive to collect such a vast training corpus. On the other hand, even MS-MARCO has limitations on commercial use and cannot be used in a wide range of real-world applications. To this end, recent work (Gao et al., 2023) proposes building zero-shot dense retrieval systems that require no relevance supervision (i.e., relevance label between a pair of query and document), which is considered 'unsupervised' as the only supervision resides in the LLM where learning to follow instructions is conducted in earlier times (Sachan et al., 2022). In this work, we follow this zero-shot unsupervised setting and conduct information refinement through synergy between RMs and LLMs without any relevance supervision to handle the aforementioned issues.\nEnhance Retrieval Through LMs Recent works have investigated using auto-regressive language models to generate intermediate targets for better retrieval (Cao et al., 2021; Bevilacqua et al., 2022) while identifier strings still need to be created. Other works consider 'retrieving' the knowledge stored in the parameters of pre-trained language models by directly generating text (Petroni et al., 2019; Roberts et al., 2020). Some researchers (Mao et al., 2021; Anantha et al., 2021; Wang et al., 2023) utilize LM to expand the query and incorporate these pseudo-queries for enhanced retrieval while others choose to expand the document (Nogueira et al., 2019). Besides, LMs can also be exploited to provide references for retrieval targets. For instance, GENREAD (Yu et al., 2023) directly generates contextual documents for given questions.\nEnhance LMs Through Retrieval On the contrary, retrieval-enhanced LMs have also received significant attention. Some approaches enhance the accuracy of predicting the distribution of the next word during training (Borgeaud et al., 2022) or inference (Khandelwal et al., 2020) through retrieving the k-most similar training contexts. Alternative methods utilize retrieved documents to provide supplementary context in generation tasks (Joshi et al., 2020; Guu et al., 2020; Lewis et al., 2020). WebGPT (Nakano et al., 2021) further adopts imitation learning and uses human feedback in a text-based web-browsing environment to enhance the LMs. LLM-Augmentor (Peng et al., 2023) improves large language models with external knowledge and automated feedback. REPLUG (Shi et al., 2023) prepends retrieved documents to the input for the frozen LM and treats the LM as a black box. Demonstrate-Search-Predict (DSP) (Khattab et al., 2022) obtains performance gains by relying on passing natural language texts in sophisticated pipelines between a language model and a retrieval model, which is most closely related to our approach. However, they rely on composing two parts with in-context learning and target on multi-hop question answering. While we aim at conducting information refinement via multiple interactions between RMs and LLMs for large-scale retrieval.\n3 PRELIMINARY\nDocument Retrieval: the RM Part Zero-shot document retrieval is a crucial component of search systems. Given the user query q and the document set D = { d 1 , ..., d n } where n is the number of document candidates, the goal of a retrieval model (RM) is to retrieve documents that are relevant to satisfy the user's real search intent of the current query q . To accomplish such document retrieval, prior works can be categorized into two groups: sparse retrieval and dense retrieval. Both lines of research elaborate on devising the similarity function ϕ ( q, d ) for each query-document pair.\nThe sparse retrieval, e.g., TF-IDF and BM25, depends on lexicon overlap between query q and document d . This line of RMs (Zhou et al., 2022; Thakur et al., 2021) ranks documents D based on their relevance to a given query q by integrating term frequency and inverse document frequency. Another works (Qu et al., 2021; Ni et al., 2022; Karpukhin et al., 2020) focus on dense retrieval that uses two encoding modules to map an input query q and a document d into a pair of vectors ⟨ v q , v d ⟩ , whose inner product is leveraged as a similarity function ϕ :\n\\phi ( q , d ) = \\langle E _ { Q } ( q ) , E _ { D } ( d ) \\rangle = \\langle v _ { q } , v _ { d } \\rangle\nThen the topk documents, denoted as ¯ D that have the highest similarity scores when compared with the query q , are retrieved efficiently by RMs regardless of whether the retrieval is sparse or dense.\n3",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 3,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ],
+          "width": 199.79000000000002,
+          "height": 8.551999999999907
+        },
+        {
+          "page": 3,
+          "left": 107.641,
+          "top": 707.05,
+          "right": 505.65,
+          "bottom": 566.603,
+          "char_span": [
+            0,
+            1234
+          ],
+          "width": 398.00899999999996,
+          "height": 140.447
+        },
+        {
+          "page": 3,
+          "left": 107.641,
+          "top": 551.49,
+          "right": 505.249,
+          "bottom": 454.879,
+          "char_span": [
+            0,
+            842
+          ],
+          "width": 397.608,
+          "height": 96.61099999999999
+        },
+        {
+          "page": 3,
+          "left": 107.641,
+          "top": 439.766,
+          "right": 505.241,
+          "bottom": 288.36,
+          "char_span": [
+            0,
+            1358
+          ],
+          "width": 397.59999999999997,
+          "height": 151.406
+        },
+        {
+          "page": 3,
+          "left": 108.299,
+          "top": 268.92599999999993,
+          "right": 198.479,
+          "bottom": 258.664,
+          "char_span": [
+            0,
+            13
+          ],
+          "width": 90.18,
+          "height": 10.261999999999944
+        },
+        {
+          "page": 3,
+          "left": 108.0,
+          "top": 244.12099999999998,
+          "right": 505.241,
+          "bottom": 180.38599999999997,
+          "char_span": [
+            0,
+            594
+          ],
+          "width": 397.241,
+          "height": 63.735000000000014
+        },
+        {
+          "page": 3,
+          "left": 107.641,
+          "top": 172.31999999999994,
+          "right": 505.746,
+          "bottom": 108.65499999999997,
+          "char_span": [
+            0,
+            557
+          ],
+          "width": 398.10499999999996,
+          "height": 63.664999999999964
+        },
+        {
+          "page": 3,
+          "left": 227.961,
+          "top": 99.27499999999998,
+          "right": 504.667,
+          "bottom": 89.60900000000004,
+          "char_span": [
+            0,
+            58
+          ],
+          "width": 276.70599999999996,
+          "height": 9.66599999999994
+        },
+        {
+          "page": 3,
+          "left": 107.691,
+          "top": 82.41899999999998,
+          "right": 505.741,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            201
+          ],
+          "width": 398.04999999999995,
+          "height": 22.34699999999998
+        },
+        {
+          "page": 3,
+          "left": 303.509,
+          "top": 38.73599999999999,
+          "right": 308.49,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.9809999999999945,
+          "height": 8.552000000000021
+        }
+      ],
+      "page_numbers": [
+        3
+      ],
+      "metadata": {
+        "element_count": 10,
+        "text_length": 4962,
+        "element_types": [
+          "text",
+          "section_header",
+          "page_footer",
+          "page_header",
+          "formula"
+        ],
+        "page": 3
+      }
+    },
+    {
+      "id": "semantic_003",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ],
+          "width": 199.79000000000002,
+          "height": 8.551999999999907
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_count": 1,
+        "text_length": 47,
+        "element_types": [
+          "page_header"
+        ],
+        "page": 4
+      }
+    },
+    {
+      "id": "semantic_004",
+      "text": "Retrieval\nRetrieval",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 242.386,
+          "top": 698.455,
+          "right": 270.881,
+          "bottom": 692.115,
+          "char_span": [
+            0,
+            9
+          ],
+          "width": 28.494999999999976,
+          "height": 6.340000000000032
+        },
+        {
+          "page": 4,
+          "left": 358.482,
+          "top": 698.455,
+          "right": 386.978,
+          "bottom": 692.115,
+          "char_span": [
+            0,
+            9
+          ],
+          "width": 28.49599999999998,
+          "height": 6.340000000000032
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_count": 2,
+        "text_length": 19,
+        "element_types": [
+          "text"
+        ],
+        "page": 4
+      }
+    },
+    {
+      "id": "semantic_005",
+      "text": "Query\nQuery\nQuery\nQuery\nQuery expansion\nGenerate\nGenerate\nPrompt formulation\nRM\nLLM\nRM outputs\nLLM outputs\nFigure 1: Overall architecture of InteR.\nNoting that as for dense retrieval, following existing methods (Gao et al., 2023), we pre-compute each document's vector v d for efficient retrieval and build the FAISS index (Johnson et al., 2019) over these vectors, and use Contriever (Izacard et al., 2022) as the backbone of query encoder E Q and document encoder E D .\nGenerative Retrieval: the LLM Part Generative search is a new paradigm of IR that employs neural generative models as search indices (Tay et al., 2022; Bevilacqua et al., 2022; Lee et al., 2022). Recent studies propose that LLMs further trained to follow instructions could zero-shot generalize to diverse unseen instructions (Ouyang et al., 2022; Sanh et al., 2022; Min et al., 2022; Wei et al., 2022). Therefore, we prepare textual prompts p that include instructions for the desired behavior to q and obtain a refined query q ′ . Then the LLMs G such as ChatGPT (OpenAI, 2022) take in q ′ and generate related knowledge passage s . This process can be illustrated as follows:\ns = G ( q ^ { \\prime } ) = G ( q \\oplus p )\nwhere ⊕ is the prompt formulation operation for q and p . For each q ′ , if we sample h examples via LLM G , we will obtain a knowledge collection S = { s 1 , s 2 , ..., s h } .\n4 INTER\nOn top of the preliminaries, we introduce InteR , a novel IR framework that iteratively performs information refinement through synergy between RMs and LLMs. The overview is shown in Figure 1. During each iteration, the RM part and LLM part refine their information in the query through interplay with knowledge collection (via LLMs) or retrieved documents (via RMs) from previous iteration. Specifically, in RM part, InteR refines the information stored in query q with knowledge collection S generated by LLM for better document retrieval. While in LLM part, InteR refines the information in original query q with retrieved document ¯ D from RM for better invoking LLM to generate most relevant knowledge. This two-step procedure can be repeated multiple times in an iterative refinement style.\n4.1 RM STEP: REFINING INFORMATION IN RM VIA LLM\nWhen people use search systems, the natural way is to first type in a search query q whose genre can be a question, a keyword, or a combination of both. The RMs in search systems then process the search query q and retrieve several documents ¯ D based on their relevance ϕ ( q, d ) to the search query q . Ideally, ¯ D contains the necessary information related to the user-issued query q . However, it may include irrelevant information to query as the candidate documents for retrieval are chunked and\n4",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 367.914,
+          "top": 625.771,
+          "right": 388.891,
+          "bottom": 619.432,
+          "char_span": [
+            0,
+            5
+          ],
+          "width": 20.977000000000032,
+          "height": 6.338999999999942
+        },
+        {
+          "page": 4,
+          "left": 252.12,
+          "top": 625.676,
+          "right": 273.096,
+          "bottom": 619.336,
+          "char_span": [
+            0,
+            5
+          ],
+          "width": 20.976,
+          "height": 6.340000000000032
+        },
+        {
+          "page": 4,
+          "left": 310.794,
+          "top": 625.676,
+          "right": 331.771,
+          "bottom": 619.336,
+          "char_span": [
+            0,
+            5
+          ],
+          "width": 20.977000000000032,
+          "height": 6.340000000000032
+        },
+        {
+          "page": 4,
+          "left": 160.406,
+          "top": 619.442,
+          "right": 183.686,
+          "bottom": 612.398,
+          "char_span": [
+            0,
+            5
+          ],
+          "width": 23.28,
+          "height": 7.043999999999983
+        },
+        {
+          "page": 4,
+          "left": 394.056,
+          "top": 585.562,
+          "right": 448.012,
+          "bottom": 579.222,
+          "char_span": [
+            0,
+            15
+          ],
+          "width": 53.95600000000002,
+          "height": 6.340000000000032
+        },
+        {
+          "page": 4,
+          "left": 188.642,
+          "top": 581.455,
+          "right": 218.9,
+          "bottom": 575.115,
+          "char_span": [
+            0,
+            8
+          ],
+          "width": 30.25800000000001,
+          "height": 6.340000000000032
+        },
+        {
+          "page": 4,
+          "left": 306.043,
+          "top": 581.455,
+          "right": 336.301,
+          "bottom": 575.115,
+          "char_span": [
+            0,
+            8
+          ],
+          "width": 30.25799999999998,
+          "height": 6.340000000000032
+        },
+        {
+          "page": 4,
+          "left": 393.879,
+          "top": 568.847,
+          "right": 456.651,
+          "bottom": 562.507,
+          "char_span": [
+            0,
+            18
+          ],
+          "width": 62.77199999999999,
+          "height": 6.340000000000032
+        },
+        {
+          "page": 4,
+          "left": 191.415,
+          "top": 538.666,
+          "right": 203.895,
+          "bottom": 532.326,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 12.480000000000018,
+          "height": 6.340000000000032
+        },
+        {
+          "page": 4,
+          "left": 236.765,
+          "top": 538.666,
+          "right": 251.782,
+          "bottom": 532.326,
+          "char_span": [
+            0,
+            3
+          ],
+          "width": 15.017000000000024,
+          "height": 6.340000000000032
+        },
+        {
+          "page": 4,
+          "left": 287.45,
+          "top": 538.666,
+          "right": 325.49,
+          "bottom": 532.326,
+          "char_span": [
+            0,
+            10
+          ],
+          "width": 38.04000000000002,
+          "height": 6.340000000000032
+        },
+        {
+          "page": 4,
+          "left": 358.79,
+          "top": 538.666,
+          "right": 399.361,
+          "bottom": 532.326,
+          "char_span": [
+            0,
+            11
+          ],
+          "width": 40.57099999999997,
+          "height": 6.340000000000032
+        },
+        {
+          "page": 4,
+          "left": 227.754,
+          "top": 509.32,
+          "right": 384.247,
+          "bottom": 500.768,
+          "char_span": [
+            0,
+            40
+          ],
+          "width": 156.49300000000002,
+          "height": 8.552000000000021
+        },
+        {
+          "page": 4,
+          "left": 108.0,
+          "top": 475.949,
+          "right": 504.67,
+          "bottom": 433.761,
+          "char_span": [
+            0,
+            323
+          ],
+          "width": 396.67,
+          "height": 42.18799999999999
+        },
+        {
+          "page": 4,
+          "left": 108.0,
+          "top": 418.308,
+          "right": 505.739,
+          "bottom": 343.614,
+          "char_span": [
+            0,
+            678
+          ],
+          "width": 397.739,
+          "height": 74.69400000000002
+        },
+        {
+          "page": 4,
+          "left": 260.003,
+          "top": 335.298,
+          "right": 504.667,
+          "bottom": 324.355,
+          "char_span": [
+            0,
+            31
+          ],
+          "width": 244.664,
+          "height": 10.942999999999984
+        },
+        {
+          "page": 4,
+          "left": 107.641,
+          "top": 315.54,
+          "right": 503.995,
+          "bottom": 293.378,
+          "char_span": [
+            0,
+            177
+          ],
+          "width": 396.354,
+          "height": 22.162000000000035
+        },
+        {
+          "page": 4,
+          "left": 108.299,
+          "top": 273.60300000000007,
+          "right": 159.741,
+          "bottom": 263.341,
+          "char_span": [
+            0,
+            7
+          ],
+          "width": 51.44200000000001,
+          "height": 10.262000000000057
+        },
+        {
+          "page": 4,
+          "left": 108.0,
+          "top": 248.13699999999994,
+          "right": 505.739,
+          "bottom": 151.52600000000007,
+          "char_span": [
+            0,
+            796
+          ],
+          "width": 397.739,
+          "height": 96.61099999999988
+        },
+        {
+          "page": 4,
+          "left": 108.249,
+          "top": 133.58000000000004,
+          "right": 358.139,
+          "bottom": 125.02800000000002,
+          "char_span": [
+            0,
+            47
+          ],
+          "width": 249.89000000000001,
+          "height": 8.552000000000021
+        },
+        {
+          "page": 4,
+          "left": 107.532,
+          "top": 112.77800000000002,
+          "right": 504.002,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            503
+          ],
+          "width": 396.47,
+          "height": 52.70600000000002
+        },
+        {
+          "page": 4,
+          "left": 303.335,
+          "top": 38.73599999999999,
+          "right": 308.316,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.9809999999999945,
+          "height": 8.552000000000021
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_count": 22,
+        "text_length": 2731,
+        "element_types": [
+          "text",
+          "section_header",
+          "page_footer",
+          "caption",
+          "formula"
+        ],
+        "page": 4
+      }
+    },
+    {
+      "id": "semantic_006",
+      "text": "Under review as a conference paper at ICLR 2024\nfixed (Yu et al., 2023). Moreover, it may also miss some required knowledge since the query is often fairly condensed and short (e.g., 'best sushi in San Francisco' ).\nTo this end, we additionally involve the generated knowledge collection S from LLM in previous iteration and enrich the information included in q with S . Specifically, we consider expanding the query q by concatenating each s i ∈ S multiple times 2 to q and obtaining the similarity of document d with:\n\\phi ( q , d ; S ) & = \\phi ( [ q ; s _ { 1 } ; q ; s _ { 2 } ; \\dots ; q ; s _ { h } ] , d ) \\\\ & = \\langle E _ { Q } ( [ q ; s _ { 1 } ; q ; s _ { 2 } ; \\dots , q ; s _ { h } ] ) , E _ { D } ( d ) \\rangle\nwhere [ · ; · ] is a concatenating operation for query expansion. Now the query is knowledge-intensive equipping with S from LLM part that may be supplement to q . We hope the knowledge collection S can provide directly relevant information to the input query q and help the RMs focus on the domain or topic in user query q .\n4.2 LLM STEP: REFINING INFORMATION IN LLM VIA RM\nAs aforementioned, we can invoke LLMs to conditionally generate knowledge collection S by preparing a prompt p that adapts the LLM to a specific function (Eq. 2). Despite the remarkable text generation capability, they are also prone to hallucination and still struggle to represent the complete long tail of knowledge contained within their training corpus (Shi et al., 2023). To mitigate the aforementioned issues, we argue that ¯ D , the documents retrieved by RMs, may provide rich information about the original query q and can potentially help the LLMs make a better prediction.\nSpecifically, we include the knowledge in ¯ D into p by designing a new prompt as:\n{{query} and its possible answering passages {passages}\nGive a question {query} Please write a correct answering passage:\nwhere '{query}' and '{passages}' are the placeholders for q and ¯ D respectively from last RM step:\ns = G ( q ^ { \\prime } ) = G ( q \\oplus p \\oplus \\bar { D } )\nNow the query q ′ is refined and contains more plentiful information about q through retrieved documents ¯ D as demonstrations. Here we simply concatenate ¯ D for placeholder '{passages}' , which contains k retrieved documents from RM part for input of LLM G .\n4.3 ITERATIVE INTERPLAY BETWEEN RM AND LLM\nIn this section, we explain how iterative refinement can be used to improve both RM and LLM parts. This iterative procedure can be interpreted as exploiting the current query q and previous-generated knowledge collection S to retrieve another document set ¯ D with RM part for the subsequent stage of LLM step. Then, the LLM part leverages the retrieved documents ¯ D from previous stage of RM and synthesizes the knowledge collection S for next RM step. A critical point is that we take LLM as the starting point and use only q and let ¯ D be empty as the initial RM input. Therefore, the prompt of first LLM step is formulated as:\nPlease write a passage to answer the question.\n    Question: {query}\n    Passage:\nWe propose using an iterative IR pipeline, with each iteration consisting of the four steps listed below:\nInvoke LLM to conditionally generate knowledge collection S with prompt q ′ on Eq. 4. The retrieved document set ¯ D is derived from previous RM step and set as empty in the beginning.\n2 In our preliminary study, we observed that concatenating each s i ∈ S multiple times to q can lead to improved performance, as the query is the most crucial component in IR.\n5",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ],
+          "width": 199.79000000000002,
+          "height": 8.551999999999907
+        },
+        {
+          "page": 5,
+          "left": 108.0,
+          "top": 706.662,
+          "right": 503.996,
+          "bottom": 687.151,
+          "char_span": [
+            0,
+            167
+          ],
+          "width": 395.996,
+          "height": 19.51100000000008
+        },
+        {
+          "page": 5,
+          "left": 107.691,
+          "top": 679.084,
+          "right": 504.003,
+          "bottom": 637.337,
+          "char_span": [
+            0,
+            303
+          ],
+          "width": 396.312,
+          "height": 41.74699999999996
+        },
+        {
+          "page": 5,
+          "left": 207.503,
+          "top": 635.255,
+          "right": 504.667,
+          "bottom": 611.678,
+          "char_span": [
+            0,
+            127
+          ],
+          "width": 297.164,
+          "height": 23.576999999999998
+        },
+        {
+          "page": 5,
+          "left": 107.641,
+          "top": 603.381,
+          "right": 503.996,
+          "bottom": 561.634,
+          "char_span": [
+            0,
+            325
+          ],
+          "width": 396.35499999999996,
+          "height": 41.74699999999996
+        },
+        {
+          "page": 5,
+          "left": 108.249,
+          "top": 543.541,
+          "right": 364.167,
+          "bottom": 534.989,
+          "char_span": [
+            0,
+            48
+          ],
+          "width": 255.91799999999998,
+          "height": 8.552000000000021
+        },
+        {
+          "page": 5,
+          "left": 107.641,
+          "top": 522.68,
+          "right": 504.349,
+          "bottom": 459.016,
+          "char_span": [
+            0,
+            584
+          ],
+          "width": 396.70799999999997,
+          "height": 63.66399999999993
+        },
+        {
+          "page": 5,
+          "left": 108.0,
+          "top": 453.467,
+          "right": 434.462,
+          "bottom": 442.079,
+          "char_span": [
+            0,
+            82
+          ],
+          "width": 326.462,
+          "height": 11.387999999999977
+        },
+        {
+          "page": 5,
+          "left": 250.747,
+          "top": 426.421,
+          "right": 479.887,
+          "bottom": 418.485,
+          "char_span": [
+            0,
+            46
+          ],
+          "width": 229.14,
+          "height": 7.935999999999979
+        },
+        {
+          "page": 5,
+          "left": 131.196,
+          "top": 426.421,
+          "right": 335.429,
+          "bottom": 407.526,
+          "char_span": [
+            0,
+            65
+          ],
+          "width": 204.23299999999998,
+          "height": 18.894999999999982
+        },
+        {
+          "page": 5,
+          "left": 107.641,
+          "top": 393.312,
+          "right": 503.995,
+          "bottom": 370.965,
+          "char_span": [
+            0,
+            99
+          ],
+          "width": 396.354,
+          "height": 22.347000000000037
+        },
+        {
+          "page": 5,
+          "left": 249.652,
+          "top": 369.209,
+          "right": 504.667,
+          "bottom": 357.82,
+          "char_span": [
+            0,
+            37
+          ],
+          "width": 255.015,
+          "height": 11.38900000000001
+        },
+        {
+          "page": 5,
+          "left": 107.641,
+          "top": 351.135,
+          "right": 505.245,
+          "bottom": 318.773,
+          "char_span": [
+            0,
+            260
+          ],
+          "width": 397.604,
+          "height": 32.361999999999966
+        },
+        {
+          "page": 5,
+          "left": 108.249,
+          "top": 300.68,
+          "right": 339.07,
+          "bottom": 292.128,
+          "char_span": [
+            0,
+            42
+          ],
+          "width": 230.821,
+          "height": 8.552000000000021
+        },
+        {
+          "page": 5,
+          "left": 107.691,
+          "top": 279.501,
+          "right": 505.741,
+          "bottom": 205.19600000000003,
+          "char_span": [
+            0,
+            632
+          ],
+          "width": 398.04999999999995,
+          "height": 74.30499999999995
+        },
+        {
+          "page": 5,
+          "left": 131.196,
+          "top": 189.538,
+          "right": 360.336,
+          "bottom": 159.68399999999997,
+          "char_span": [
+            0,
+            73
+          ],
+          "width": 229.14000000000001,
+          "height": 29.854000000000042
+        },
+        {
+          "page": 5,
+          "left": 107.532,
+          "top": 144.05399999999997,
+          "right": 505.388,
+          "bottom": 135.50199999999995,
+          "char_span": [
+            0,
+            105
+          ],
+          "width": 397.856,
+          "height": 8.552000000000021
+        },
+        {
+          "page": 5,
+          "left": 131.412,
+          "top": 124.29600000000005,
+          "right": 505.748,
+          "bottom": 91.93399999999997,
+          "char_span": [
+            0,
+            187
+          ],
+          "width": 374.336,
+          "height": 32.36200000000008
+        },
+        {
+          "page": 5,
+          "left": 108.0,
+          "top": 79.80100000000004,
+          "right": 503.997,
+          "bottom": 60.27800000000002,
+          "char_span": [
+            0,
+            175
+          ],
+          "width": 395.997,
+          "height": 19.523000000000025
+        },
+        {
+          "page": 5,
+          "left": 303.509,
+          "top": 38.73599999999999,
+          "right": 308.49,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.9809999999999945,
+          "height": 8.552000000000021
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_count": 20,
+        "text_length": 3541,
+        "element_types": [
+          "text",
+          "code",
+          "section_header",
+          "page_footer",
+          "page_header",
+          "list_item",
+          "formula",
+          "footnote"
+        ],
+        "page": 5
+      }
+    },
+    {
+      "id": "semantic_007",
+      "text": "Under review as a conference paper at ICLR 2024\nConstruct the updated input for RM with knowledge collection S and query q to compute the similarity of each document d .\nInvoke RM to retrieve the topk most 'relevant' documents as ¯ D on Eq. 3.\nFormulate a new prompt q ′ by combining the retrieved document set ¯ D with query q .\nThe iterative nature of this multi-step process enables the refinement of information through the synergy between the RMs and the LLMs, which can be executed repeatedly M times to further enhance the quality of results.\n5 EXPERIMENTS\n5.1 DATASETS AND METRICS\nFollowing (Gao et al., 2023), we adopt widely-used web search query sets TREC Deep Learning 2019 (DL'19) (Craswell et al., 2020) and TREC Deep Learning 2020 (DL'20) (Craswell et al., 2021) which are based on the MS-MARCO (Bajaj et al., 2016). Besides, we also use six diverse low-resource retrieval datasets from the BEIR benchmark (Thakur et al., 2021) consistent with (Gao et al., 2023) including SciFact (fact-checking), ArguAna (argument retrieval), TREC-COVID (bio-medical IR), FiQA (financial question-answering), DBPedia (entity retrieval), and TREC-NEWS (news retrieval). It is worth pointing out that we do not employ any training query-document pairs, as we conduct retrieval in a zero-shot setting and directly evaluate our proposed method on these test sets. Consistent with prior works, we report MAP, nDCG@10, and Recall@1000 (R@1k) for TREC DL'19 and DL'20 data, and nDCG@10 is employed for all datasets in the BEIR benchmark.\n5.2 BASELINES\nMethods without relevance judgment We consider several zero-shot retrieval models as our main baselines, because we do not involve any query-document relevance scores (denoted as w/o relevance judgment ) in our setting. Particularly, we choose heuristic-based lexical retriever BM25 (Robertson & Zaragoza, 2009), BERT-based term weighting framework DeepCT (Dai & Callan, 2019), and Contriever (Izacard et al., 2022) that is trained using unsupervised contrastive learning. We also compare our model with the state-of-the-art LLM-based retrieval model HyDE (Gao et al., 2023) which shares the exact same embedding spaces with Contriever but builds query vectors with LLMs.\nMethods with relevance judgment Moreover, we also incorporate several systems that utilize fine-tuning on extensive query-document relevance data, such as MS-MARCO, as references (denoted as w/ relevance judgment ). This group encompasses some commonly used fully-supervised retrieval methods, including DPR (Karpukhin et al., 2020), ANCE (Xiong et al., 2021), and the fine-tuned Contriever (Izacard et al., 2022) (denoted as Contriever FT ).\n5.3 IMPLEMENTATION DETAILS\nAs for the LLM part, we evaluate our proposed method on two options: closed-source models and open-source models. In the case of closed-source models, we employ the gpt-3.5-turbo , as it is popular and accessible to the general public 3 . As for the open-source models, our choice fell upon the Vicuna models (Chiang et al., 2023) derived from instruction tuning with LLaMa-1/2 (Touvron et al., 2023a;b). Specifically, we assessed the most promising 13B version of Vicuna from LLaMa-2, namely, Vicuna-13B-v1.5 . Additionally, we evaluated the current best-performing 33B version of Vicuna derived from LLaMa-1, which is Vicuna-33B-v1.3 . As for the RM part, we consider BM25 for retrieval since it is much faster. For each q ′ , we sample h = 10 knowledge examples via LLM. After hyper-parameter search on validation sets, we set k as 15 for gpt-3.5-turbo , and 5 for Vicuna-13B-v1.5 and Vicuna-33B-v1.3 . We also set M as 2 by default. 4 We use a temperature of 1 for LLM part in generation and a frequency penalty of zero. We also truncate each RM-retrieved\n3 We utilize the March 1, 2023 version of the gpt-3.5-turbo to avoid any interference caused by upgrading.\n4 For ArguAna data in BEIR benchmark, we set M to 1 for gpt-3.5-turbo as it achieves the best performance.\n6",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ],
+          "width": 199.79000000000002,
+          "height": 8.551999999999907
+        },
+        {
+          "page": 6,
+          "left": 131.412,
+          "top": 706.98,
+          "right": 503.997,
+          "bottom": 687.151,
+          "char_span": [
+            0,
+            124
+          ],
+          "width": 372.58500000000004,
+          "height": 19.829000000000065
+        },
+        {
+          "page": 6,
+          "left": 131.412,
+          "top": 682.783,
+          "right": 441.016,
+          "bottom": 671.395,
+          "char_span": [
+            0,
+            76
+          ],
+          "width": 309.60400000000004,
+          "height": 11.388000000000034
+        },
+        {
+          "page": 6,
+          "left": 131.412,
+          "top": 667.028,
+          "right": 483.039,
+          "bottom": 655.639,
+          "char_span": [
+            0,
+            88
+          ],
+          "width": 351.62699999999995,
+          "height": 11.38900000000001
+        },
+        {
+          "page": 6,
+          "left": 107.691,
+          "top": 642.864,
+          "right": 504.172,
+          "bottom": 612.394,
+          "char_span": [
+            0,
+            219
+          ],
+          "width": 396.481,
+          "height": 30.470000000000027
+        },
+        {
+          "page": 6,
+          "left": 108.299,
+          "top": 592.438,
+          "right": 200.083,
+          "bottom": 582.176,
+          "char_span": [
+            0,
+            13
+          ],
+          "width": 91.78399999999999,
+          "height": 10.261999999999944
+        },
+        {
+          "page": 6,
+          "left": 108.249,
+          "top": 566.932,
+          "right": 239.271,
+          "bottom": 558.38,
+          "char_span": [
+            0,
+            24
+          ],
+          "width": 131.022,
+          "height": 8.552000000000021
+        },
+        {
+          "page": 6,
+          "left": 107.641,
+          "top": 546.044,
+          "right": 505.743,
+          "bottom": 438.862,
+          "char_span": [
+            0,
+            941
+          ],
+          "width": 398.102,
+          "height": 107.18199999999996
+        },
+        {
+          "page": 6,
+          "left": 108.249,
+          "top": 421.494,
+          "right": 180.064,
+          "bottom": 412.942,
+          "char_span": [
+            0,
+            13
+          ],
+          "width": 71.815,
+          "height": 8.552000000000021
+        },
+        {
+          "page": 6,
+          "left": 107.611,
+          "top": 400.994,
+          "right": 505.645,
+          "bottom": 326.301,
+          "char_span": [
+            0,
+            671
+          ],
+          "width": 398.034,
+          "height": 74.69300000000004
+        },
+        {
+          "page": 6,
+          "left": 108.0,
+          "top": 310.666,
+          "right": 504.001,
+          "bottom": 257.8910000000001,
+          "char_span": [
+            0,
+            442
+          ],
+          "width": 396.001,
+          "height": 52.77499999999992
+        },
+        {
+          "page": 6,
+          "left": 108.249,
+          "top": 240.52300000000002,
+          "right": 248.721,
+          "bottom": 231.971,
+          "char_span": [
+            0,
+            26
+          ],
+          "width": 140.472,
+          "height": 8.552000000000021
+        },
+        {
+          "page": 6,
+          "left": 107.253,
+          "top": 219.635,
+          "right": 505.244,
+          "bottom": 101.49400000000003,
+          "char_span": [
+            0,
+            1059
+          ],
+          "width": 397.99100000000004,
+          "height": 118.14099999999996
+        },
+        {
+          "page": 6,
+          "left": 120.653,
+          "top": 90.65099999999995,
+          "right": 503.974,
+          "bottom": 81.09100000000001,
+          "char_span": [
+            0,
+            106
+          ],
+          "width": 383.32099999999997,
+          "height": 9.559999999999945
+        },
+        {
+          "page": 6,
+          "left": 108.0,
+          "top": 79.80100000000004,
+          "right": 505.491,
+          "bottom": 60.27800000000002,
+          "char_span": [
+            0,
+            106
+          ],
+          "width": 397.491,
+          "height": 19.523000000000025
+        },
+        {
+          "page": 6,
+          "left": 303.509,
+          "top": 38.73599999999999,
+          "right": 308.49,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.9809999999999945,
+          "height": 8.552000000000021
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_count": 16,
+        "text_length": 3962,
+        "element_types": [
+          "text",
+          "section_header",
+          "page_footer",
+          "page_header",
+          "list_item",
+          "footnote"
+        ],
+        "page": 6
+      }
+    },
+    {
+      "id": "semantic_008",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 7,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ],
+          "width": 199.79000000000002,
+          "height": 8.551999999999907
+        }
+      ],
+      "page_numbers": [
+        7
+      ],
+      "metadata": {
+        "element_count": 1,
+        "text_length": 47,
+        "element_types": [
+          "page_header"
+        ],
+        "page": 7
+      }
+    },
+    {
+      "id": "semantic_009",
+      "text": "Table 1: Experimental results on TREC Deep Learning 2019 (DL'19) and TREC Deep Learning 2020 (DL'20) datasets (%). The best results are marked in bold and the best performing w/ relevance judgment are marked with ¶ . The improvement is statistically significant compared with the baselines w/o relevance judgment (t-test with p -value < 0 . 05 )",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 7,
+          "left": 107.641,
+          "top": 699.907,
+          "right": 504.004,
+          "bottom": 658.478,
+          "char_span": [
+            0,
+            345
+          ],
+          "width": 396.363,
+          "height": 41.42900000000009
+        }
+      ],
+      "page_numbers": [
+        7
+      ],
+      "metadata": {
+        "element_count": 1,
+        "text_length": 345,
+        "element_types": [
+          "caption"
+        ],
+        "page": 7
+      }
+    },
+    {
+      "id": "semantic_010",
+      "text": "Table 2: Experimental results (nDCG@10) on low-resource tasks from BEIR (%). The best results are marked in bold and the best performing w/ relevance judgment are marked with ¶ .",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 7,
+          "left": 107.691,
+          "top": 480.536,
+          "right": 504.0,
+          "bottom": 461.009,
+          "char_span": [
+            0,
+            178
+          ],
+          "width": 396.30899999999997,
+          "height": 19.526999999999987
+        }
+      ],
+      "page_numbers": [
+        7
+      ],
+      "metadata": {
+        "element_count": 1,
+        "text_length": 178,
+        "element_types": [
+          "caption"
+        ],
+        "page": 7
+      }
+    },
+    {
+      "id": "semantic_011",
+      "text": "passage/document to 256 tokens and set the maximum number of tokens for each LLM-generated knowledge example to 256 for efficiency. Source codes are uploaded for reproducibility.\n5.4 MAIN RESULTS\nWeb Search In Table 1, we show zero-shot retrieval results on TREC DL'19 and TREC DL'20 with baselines. We can find that InteR with selected LLMs can outperform state-of-the-art zero-shot baseline HyDE with significant improvement on most metrics. Specifically, InteR with gpt-3.5-turbo has an > 8% absolute MAP gain and > 5% absolute nDCG@10 gain on both web search benchmarks. Moreover, InteR is also superior to models with relevance judgment on most metrics, which verifies the generalization ability of InteR on large-scale retrieval. Note that our approach does not involve any training process and merely leverages off-the-shelf RMs and LLMs, which is simpler in practice but shown to be more effective.\nLow-Resource Retrieval In Table 2, we also present the zero-shot retrieval results on six diverse low-resource retrieval tasks from BEIR benchmarks. Firstly, we find that InteR is especially competent on TREC-COVID and TREC-NEWS and even significantly outperforms baselines with relevance judgment. Secondly, InteR also brings considerable improvements to baselines on SciFact and DBPedia, which shows our performance advantages on fact-checking and entity retrieval. Finally, it can be observed that the performance of FiQA and ArguAna falls short when compared to the baseline models. This could potentially be attributed to the LLM's limited financial knowledge of FiQA and the RM's marginal qualification to effectively handle relatively longer queries for ArguAna (Thakur et al., 2021).\n7",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 7,
+          "left": 108.0,
+          "top": 313.122,
+          "right": 504.002,
+          "bottom": 293.611,
+          "char_span": [
+            0,
+            178
+          ],
+          "width": 396.002,
+          "height": 19.511000000000024
+        },
+        {
+          "page": 7,
+          "left": 108.249,
+          "top": 277.174,
+          "right": 197.737,
+          "bottom": 268.62200000000007,
+          "char_span": [
+            0,
+            16
+          ],
+          "width": 89.488,
+          "height": 8.551999999999907
+        },
+        {
+          "page": 7,
+          "left": 108.0,
+          "top": 257.039,
+          "right": 505.745,
+          "bottom": 171.38699999999994,
+          "char_span": [
+            0,
+            710
+          ],
+          "width": 397.745,
+          "height": 85.65200000000004
+        },
+        {
+          "page": 7,
+          "left": 108.0,
+          "top": 156.683,
+          "right": 504.166,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            791
+          ],
+          "width": 396.166,
+          "height": 96.61099999999999
+        },
+        {
+          "page": 7,
+          "left": 303.385,
+          "top": 38.73599999999999,
+          "right": 308.366,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.9809999999999945,
+          "height": 8.552000000000021
+        }
+      ],
+      "page_numbers": [
+        7
+      ],
+      "metadata": {
+        "element_count": 5,
+        "text_length": 1700,
+        "element_types": [
+          "page_footer",
+          "text",
+          "section_header"
+        ],
+        "page": 7
+      }
+    },
+    {
+      "id": "semantic_012",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ],
+          "width": 199.79000000000002,
+          "height": 8.551999999999907
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_count": 1,
+        "text_length": 47,
+        "element_types": [
+          "page_header"
+        ],
+        "page": 8
+      }
+    },
+    {
+      "id": "semantic_013",
+      "text": "68\n50\n66\nnDCG@10\n48\nMAP\n64\n46\n62\nTREC'19\nTREC'19\nTREC'20\nTREC'20\n44\n60\n2\n4\n6\n8\n10\n12\n2\n4\n6\n8\n10\n12\nh\nh\nFigure 2: Performance of InteR with gpt-3.5-turbo across different size of knowledge collection ( h ) on TREC DL'19 and DL'20.\nTable 3: Performance of InteR with gpt-3.5-turbo across different number of knowledge refinement iterations ( M ) on TREC DL'19 and DL'20. The default setting is marked with ∗ and the best results are marked in bold .",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 319.797,
+          "top": 693.993,
+          "right": 328.183,
+          "bottom": 687.33,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 8.385999999999967,
+          "height": 6.663000000000011
+        },
+        {
+          "page": 8,
+          "left": 153.752,
+          "top": 690.939,
+          "right": 162.148,
+          "bottom": 684.268,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 8.395999999999987,
+          "height": 6.670999999999935
+        },
+        {
+          "page": 8,
+          "left": 319.797,
+          "top": 671.694,
+          "right": 328.183,
+          "bottom": 665.03,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 8.385999999999967,
+          "height": 6.663999999999987
+        },
+        {
+          "page": 8,
+          "left": 311.303,
+          "top": 670.762,
+          "right": 317.967,
+          "bottom": 633.77,
+          "char_span": [
+            0,
+            7
+          ],
+          "width": 6.663999999999987,
+          "height": 36.99199999999996
+        },
+        {
+          "page": 8,
+          "left": 153.752,
+          "top": 662.234,
+          "right": 162.148,
+          "bottom": 655.562,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 8.395999999999987,
+          "height": 6.6720000000000255
+        },
+        {
+          "page": 8,
+          "left": 145.337,
+          "top": 660.533,
+          "right": 152.008,
+          "bottom": 644.17,
+          "char_span": [
+            0,
+            3
+          ],
+          "width": 6.671000000000021,
+          "height": 16.363000000000056
+        },
+        {
+          "page": 8,
+          "left": 319.797,
+          "top": 649.394,
+          "right": 328.183,
+          "bottom": 642.731,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 8.385999999999967,
+          "height": 6.663000000000011
+        },
+        {
+          "page": 8,
+          "left": 153.752,
+          "top": 633.528,
+          "right": 162.148,
+          "bottom": 626.856,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 8.395999999999987,
+          "height": 6.6720000000000255
+        },
+        {
+          "page": 8,
+          "left": 319.797,
+          "top": 627.095,
+          "right": 328.183,
+          "bottom": 620.431,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 8.385999999999967,
+          "height": 6.663999999999987
+        },
+        {
+          "page": 8,
+          "left": 270.735,
+          "top": 618.394,
+          "right": 295.809,
+          "bottom": 612.89,
+          "char_span": [
+            0,
+            7
+          ],
+          "width": 25.074000000000012,
+          "height": 5.504000000000019
+        },
+        {
+          "page": 8,
+          "left": 436.637,
+          "top": 618.35,
+          "right": 461.681,
+          "bottom": 612.853,
+          "char_span": [
+            0,
+            7
+          ],
+          "width": 25.043999999999983,
+          "height": 5.497000000000071
+        },
+        {
+          "page": 8,
+          "left": 270.735,
+          "top": 610.344,
+          "right": 295.809,
+          "bottom": 604.84,
+          "char_span": [
+            0,
+            7
+          ],
+          "width": 25.074000000000012,
+          "height": 5.504000000000019
+        },
+        {
+          "page": 8,
+          "left": 436.637,
+          "top": 610.31,
+          "right": 461.681,
+          "bottom": 604.813,
+          "char_span": [
+            0,
+            7
+          ],
+          "width": 25.043999999999983,
+          "height": 5.496999999999957
+        },
+        {
+          "page": 8,
+          "left": 153.752,
+          "top": 604.822,
+          "right": 162.148,
+          "bottom": 598.15,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 8.395999999999987,
+          "height": 6.6720000000000255
+        },
+        {
+          "page": 8,
+          "left": 319.797,
+          "top": 604.795,
+          "right": 328.183,
+          "bottom": 598.131,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 8.385999999999967,
+          "height": 6.663999999999987
+        },
+        {
+          "page": 8,
+          "left": 167.502,
+          "top": 600.799,
+          "right": 171.7,
+          "bottom": 594.127,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.197999999999979,
+          "height": 6.6720000000000255
+        },
+        {
+          "page": 8,
+          "left": 192.017,
+          "top": 600.799,
+          "right": 196.215,
+          "bottom": 594.127,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.1980000000000075,
+          "height": 6.6720000000000255
+        },
+        {
+          "page": 8,
+          "left": 216.531,
+          "top": 600.799,
+          "right": 220.73,
+          "bottom": 594.127,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.198999999999984,
+          "height": 6.6720000000000255
+        },
+        {
+          "page": 8,
+          "left": 241.046,
+          "top": 600.799,
+          "right": 245.244,
+          "bottom": 594.127,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.1980000000000075,
+          "height": 6.6720000000000255
+        },
+        {
+          "page": 8,
+          "left": 263.461,
+          "top": 600.799,
+          "right": 271.857,
+          "bottom": 594.127,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 8.396000000000015,
+          "height": 6.6720000000000255
+        },
+        {
+          "page": 8,
+          "left": 287.975,
+          "top": 600.799,
+          "right": 296.372,
+          "bottom": 594.127,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 8.396999999999991,
+          "height": 6.6720000000000255
+        },
+        {
+          "page": 8,
+          "left": 333.53,
+          "top": 600.777,
+          "right": 337.724,
+          "bottom": 594.113,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.194000000000017,
+          "height": 6.663999999999987
+        },
+        {
+          "page": 8,
+          "left": 358.015,
+          "top": 600.777,
+          "right": 362.208,
+          "bottom": 594.113,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.1930000000000405,
+          "height": 6.663999999999987
+        },
+        {
+          "page": 8,
+          "left": 382.5,
+          "top": 600.777,
+          "right": 386.693,
+          "bottom": 594.113,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.192999999999984,
+          "height": 6.663999999999987
+        },
+        {
+          "page": 8,
+          "left": 406.985,
+          "top": 600.777,
+          "right": 411.178,
+          "bottom": 594.113,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.192999999999984,
+          "height": 6.663999999999987
+        },
+        {
+          "page": 8,
+          "left": 429.372,
+          "top": 600.777,
+          "right": 437.758,
+          "bottom": 594.113,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 8.385999999999967,
+          "height": 6.663999999999987
+        },
+        {
+          "page": 8,
+          "left": 453.857,
+          "top": 600.777,
+          "right": 462.243,
+          "bottom": 594.113,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 8.385999999999967,
+          "height": 6.663999999999987
+        },
+        {
+          "page": 8,
+          "left": 228.435,
+          "top": 594.296,
+          "right": 233.222,
+          "bottom": 585.499,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.787000000000006,
+          "height": 8.797000000000025
+        },
+        {
+          "page": 8,
+          "left": 394.389,
+          "top": 594.281,
+          "right": 399.17,
+          "bottom": 585.495,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.781000000000006,
+          "height": 8.785999999999945
+        },
+        {
+          "page": 8,
+          "left": 107.671,
+          "top": 580.728,
+          "right": 503.995,
+          "bottom": 561.217,
+          "char_span": [
+            0,
+            126
+          ],
+          "width": 396.324,
+          "height": 19.510999999999967
+        },
+        {
+          "page": 8,
+          "left": 107.691,
+          "top": 549.707,
+          "right": 504.003,
+          "bottom": 519.221,
+          "char_span": [
+            0,
+            217
+          ],
+          "width": 396.312,
+          "height": 30.48599999999999
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_count": 31,
+        "text_length": 447,
+        "element_types": [
+          "caption",
+          "text"
+        ],
+        "page": 8
+      }
+    },
+    {
+      "id": "semantic_014",
+      "text": "Table 4: Performance of InteR with gpt-3.5-turbo across different retrieval strategies for constructing ¯ D on Eq. 4 on TREC DL'19 and DL'20. The default setting is marked with ∗ and the best results are marked in bold .",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 107.691,
+          "top": 428.578,
+          "right": 505.652,
+          "bottom": 398.092,
+          "char_span": [
+            0,
+            220
+          ],
+          "width": 397.961,
+          "height": 30.48599999999999
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_count": 1,
+        "text_length": 220,
+        "element_types": [
+          "caption"
+        ],
+        "page": 8
+      }
+    },
+    {
+      "id": "semantic_015",
+      "text": "5.5 DISCUSSIONS\nThe impact of the size of knowledge collection ( h ) We conducted additional research to examine the impact of the size of knowledge collection (i.e., h ) on the performance of InteR. Figure 2 illustrates the changes in MAP and nDCG@10 curves of InteR with gpt-3.5-turbo on TREC DL'19 and DL'20, with respect to varying numbers of knowledge examples. Our observations reveal a consistent pattern in both benchmarks: as the number of generated knowledge increases, the performance metrics demonstrate a gradual improvement until reaching 10 knowledge examples. Subsequently, the performance metrics stabilize, indicating that additional knowledge examples do not significantly enhance the results. This phenomenon could be attributed to the presence of redundant knowledge within the surplus examples generated by LLMs.\nThe impact of the number of information refinement iterations ( M ) We also investigated the effect of different numbers of information refinement iterations ( M ) on the performance of InteR. The results of InteR with gpt-3.5-turbo presented in Table 3 indicate a notable enhancement in retrieval capacity as M increases from 0 to 2, which verifies the effectiveness of multiple iterative information refinement between RMs and LLMs. However, if we further increase M , the performance may not improve, possibly due to a decrease in the diversity of retrieved documents from RMs. Here if we set M to 0, InteR will degenerate into BM25.\nDense retrieval v.s. sparse retrieval Furthermore, we delve into the impact of the retrieval strategy for constructing ¯ D on Eq. 4 on the performance of InteR. Table 4 shows the experimental results of\n8",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 108.249,
+          "top": 303.404,
+          "right": 189.886,
+          "bottom": 294.852,
+          "char_span": [
+            0,
+            15
+          ],
+          "width": 81.637,
+          "height": 8.552000000000021
+        },
+        {
+          "page": 8,
+          "left": 107.641,
+          "top": 282.844,
+          "right": 505.244,
+          "bottom": 186.23299999999995,
+          "char_span": [
+            0,
+            818
+          ],
+          "width": 397.603,
+          "height": 96.61100000000005
+        },
+        {
+          "page": 8,
+          "left": 108.0,
+          "top": 170.44900000000007,
+          "right": 504.004,
+          "bottom": 95.755,
+          "char_span": [
+            0,
+            636
+          ],
+          "width": 396.004,
+          "height": 74.69400000000007
+        },
+        {
+          "page": 8,
+          "left": 108.0,
+          "top": 79.971,
+          "right": 504.346,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            202
+          ],
+          "width": 396.346,
+          "height": 19.899
+        },
+        {
+          "page": 8,
+          "left": 303.509,
+          "top": 38.73599999999999,
+          "right": 308.49,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.9809999999999945,
+          "height": 8.552000000000021
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_count": 5,
+        "text_length": 1676,
+        "element_types": [
+          "page_footer",
+          "text",
+          "section_header"
+        ],
+        "page": 8
+      }
+    },
+    {
+      "id": "semantic_016",
+      "text": "Under review as a conference paper at ICLR 2024\nInteR with gpt-3.5-turbo , where we initiate the RM with an unsupervised sparse retrieval model (i.e., BM25) or an unsupervised dense retrieval model (i.e., Contriever). Additionally, we introduce a hybrid retrieval paradigm that combines half of the documents from the sparse retrieval model with the other half from the dense retrieval model. These components are then merged to generate the output of the hybrid retrieval model, namely InteR (Hybrid). We can observe that the dense model is the best strategy for InteR and even outperforms the hybrid counterpart, which is consistent with the observations from prior works (Karpukhin et al., 2020). Therefore, we use a dense retrieval model to construct ¯ D as default. It is noteworthy that we only use a dense retrieval model for constructing ¯ D during information refinement and leave the final retrieval model as a sparse BM25 for efficiency.\nCase Study on LLM Outputs To better illustrate how RMs enrich the outputs of LLMs, we selected an example from TREC DL'19 and compared those outputs of gpt-3.5-turbo after the first and second iterations. Due to the limited space, we only show the first LLM-generated knowledge (i.e., s 1 ). In the initial iteration ( M = 1 ), the LLM demonstrated its capacity to generate paragraphs by leveraging its commonsense encoded within its parameters. After taking the search results of RM (documents about ' Thailand ') in the prompt, LLM outputs in the second iteration M = 2 became more informative. Specifically, the text highlighted in yellow elaborated on Thailand's population and unemployment rate , which was absent in the first iteration, and facilitated the next RM step.\nCase : query_id : 1112341, query : 'what is the daily life of thai people'\nLLMoutputs of M = 1 : The daily life of Thai people is heavily influenced by their culture and traditions. The majority of the population practices Buddhism, and daily prayer and meditation are common. Family is also extremely important, and many Thai people live with extended family members. In terms of food, Thai cuisine is known for its spicy and savory flavors, and meals often revolve around rice and noodles. Street food is also a big part of daily life, with vendors selling snacks and meals on every corner. Work is an important aspect of daily life as well, and many Thai people work long hours in industries such as agriculture, tourism, and manufacturing. Despite the demands of work, there is a strong emphasis on taking breaks throughout the day to socialize and interact with others. Overall, the daily life of Thai people is a harmonious blend of religious practice, family values, flavorful cuisine, and hard work.\nLLM outputs of M = 2 : Thailand's daily life is influenced by its diverse geography and cultural influences from India, China, Cambodia, and the rest of Southeast Asia. The country's national religion, Theravada Buddhism, is central to modern Thai identity. Social occasions in Thailand often revolve around food, which is ordered and eaten in a communal style. Thai food presentation is among the most exquisite in the world, developed primarily in the palace to please the King of Siam. Thai people love to have fun together and often ask each other if they had a good time. The population of Thailand is approximately 67.5 million people, including ethnic groups such as Chinese, Malay, Lao, Burma, Cambodia, and Indians. Unemployment rate in Thailand is relatively low, standing at 0.84% according to Thailand's National Economic and Social Development Board (NESDB). Thai time is divided into five sections, with different names for each section of the day. The country's primary religion is Theravada Buddhism, and important holidays include Thai New Year, or Songkran. Overall, the daily life of Thai people is diverse, vibrant and deeply rooted in their rich cultural heritage.\n6 CONCLUSION\nIn this work, we present InteR , a novel framework that harnesses the strengths of both large language models (LLMs) and retrieval models (RMs) to enhance information retrieval. By facilitating information refinement through synergy between LLMs and RMs, InteR achieves overall superior zero-shot retrieval performance compared to state-of-the-art methods, and even those using relevance judgment, on large-scale retrieval benchmarks involving web search and low-resource retrieval tasks. With its ability to leverage the benefits of both paradigms, InteR may present a potential direction for advancing information retrieval systems.\nLimitations While InteR demonstrates improved zero-shot retrieval performance, it should be noted that its effectiveness heavily relies on the quality of the used large language models (LLMs). If these underlying components contain biases, inaccuracies, or limitations in their training data, it could impact the reliability and generalizability of the retrieval results. In that case, one may need to design a more sophisticated method of information refinement, especially the prompt formulation part. We leave this exploration for future work.\n9",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 9,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ],
+          "width": 199.79000000000002,
+          "height": 8.551999999999907
+        },
+        {
+          "page": 9,
+          "left": 107.671,
+          "top": 706.662,
+          "right": 504.005,
+          "bottom": 610.438,
+          "char_span": [
+            0,
+            900
+          ],
+          "width": 396.334,
+          "height": 96.22400000000005
+        },
+        {
+          "page": 9,
+          "left": 107.671,
+          "top": 596.598,
+          "right": 504.003,
+          "bottom": 510.945,
+          "char_span": [
+            0,
+            776
+          ],
+          "width": 396.332,
+          "height": 85.65299999999996
+        },
+        {
+          "page": 9,
+          "left": 113.325,
+          "top": 498.928,
+          "right": 368.696,
+          "bottom": 490.867,
+          "char_span": [
+            0,
+            74
+          ],
+          "width": 255.37100000000004,
+          "height": 8.060999999999979
+        },
+        {
+          "page": 9,
+          "left": 113.047,
+          "top": 479.003,
+          "right": 500.247,
+          "bottom": 391.255,
+          "char_span": [
+            0,
+            932
+          ],
+          "width": 387.20000000000005,
+          "height": 87.74799999999999
+        },
+        {
+          "page": 9,
+          "left": 112.805,
+          "top": 379.376,
+          "right": 499.794,
+          "bottom": 258.37799999999993,
+          "char_span": [
+            0,
+            1185
+          ],
+          "width": 386.989,
+          "height": 120.99800000000005
+        },
+        {
+          "page": 9,
+          "left": 108.299,
+          "top": 236.03099999999995,
+          "right": 195.377,
+          "bottom": 225.769,
+          "char_span": [
+            0,
+            12
+          ],
+          "width": 87.078,
+          "height": 10.261999999999944
+        },
+        {
+          "page": 9,
+          "left": 107.532,
+          "top": 212.341,
+          "right": 505.748,
+          "bottom": 137.64800000000002,
+          "char_span": [
+            0,
+            634
+          ],
+          "width": 398.216,
+          "height": 74.69299999999998
+        },
+        {
+          "page": 9,
+          "left": 108.0,
+          "top": 123.80700000000002,
+          "right": 505.74,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            546
+          ],
+          "width": 397.74,
+          "height": 63.735000000000014
+        },
+        {
+          "page": 9,
+          "left": 303.509,
+          "top": 38.73599999999999,
+          "right": 308.49,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ],
+          "width": 4.9809999999999945,
+          "height": 8.552000000000021
+        }
+      ],
+      "page_numbers": [
+        9
+      ],
+      "metadata": {
+        "element_count": 10,
+        "text_length": 5116,
+        "element_types": [
+          "page_footer",
+          "page_header",
+          "text",
+          "section_header"
+        ],
+        "page": 9
+      }
+    },
+    {
+      "id": "semantic_017",
+      "text": "Under review as a conference paper at ICLR 2024\nREFERENCES\nRaviteja Anantha, Svitlana Vakulenko, Zhucheng Tu, Shayne Longpre, Stephen Pulman, and Srinivas Chappidi. Open-domain question answering goes conversational via question rewriting. In Kristina Toutanova, Anna Rumshisky, Luke Zettlemoyer, Dilek Hakkani-Tur, Iz Beltagy, Steven Bethard, Ryan Cotterell, Tanmoy Chakraborty, and Yichao Zhou (eds.), Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, pp. 520-534, Online, June 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.naacl-main.44. URL https://aclanthology.org/2021. naacl-main.44 .\nPayal Bajaj, Daniel Campos, Nick Craswell, Li Deng, Jianfeng Gao, Xiaodong Liu, Rangan Majumder, Andrew McNamara, Bhaskar Mitra, Tri Nguyen, et al. Ms marco: A human generated machine reading comprehension dataset. arXiv preprint arXiv:1611.09268, 2016.\nMichele Bevilacqua, Giuseppe Ottaviano, Patrick Lewis, Scott Yih, Sebastian Riedel, and Fabio Petroni. Autoregressive search engines: Generating substrings as document identifiers. Advances in Neural Information Processing Systems, 35:31668-31683, 2022.\nSebastian Borgeaud, Arthur Mensch, Jordan Hoffmann, Trevor Cai, Eliza Rutherford, Katie Millican, George Bm Van Den Driessche, Jean-Baptiste Lespiau, Bogdan Damoc, Aidan Clark, et al. Improving language models by retrieving from trillions of tokens. In International conference on machine learning, pp. 2206-2240. PMLR, 2022.\nNicola De Cao, Gautier Izacard, Sebastian Riedel, and Fabio Petroni. Autoregressive entity retrieval. In International Conference on Learning Representations, 2021. URL https://openreview. net/forum?id=5k8F6UU39V .\nDanqi Chen, Adam Fisch, Jason Weston, and Antoine Bordes. Reading Wikipedia to answer open-domain questions. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 1870-1879, Vancouver, Canada, July 2017. Association for Computational Linguistics. doi: 10.18653/v1/P17-1171. URL https://aclanthology.org/P17-1171 .\nWei-Lin Chiang, Zhuohan Li, Zi Lin, Ying Sheng, Zhanghao Wu, Hao Zhang, Lianmin Zheng, Siyuan Zhuang, Yonghao Zhuang, Joseph E. Gonzalez, Ion Stoica, and Eric P. Xing. Vicuna: An open-source chatbot impressing gpt-4 with 90%* chatgpt quality, March 2023. URL https: //lmsys.org/blog/2023-03-30-vicuna/ .\nNick Craswell, Bhaskar Mitra, Emine Yilmaz, Daniel Campos, and Ellen M Voorhees. Overview of the trec 2019 deep learning track. arXiv preprint arXiv:2003.07820, 2020.\nNick Craswell, Bhaskar Mitra, Emine Yilmaz, and Daniel Campos. Overview of the trec 2020 deep learning track. arXiv preprint arXiv:2102.07662, 2021.\nZhuyun Dai and Jamie Callan. Context-aware sentence/passage term importance estimation for first stage retrieval. arXiv preprint arXiv:1910.10687, 2019.\nJacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. BERT: Pre-training of deep bidirectional transformers for language understanding. In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers), pp. 4171-4186, Minneapolis, Minnesota, June 2019. Association for Computational Linguistics. doi: 10.18653/v1/N19-1423. URL https: //aclanthology.org/N19-1423 .\nLuyu Gao and Jamie Callan. Condenser: a pre-training architecture for dense retrieval. In Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing, pp. 981-993, Online and Punta Cana, Dominican Republic, November 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.emnlp-main.75. URL https://aclanthology.org/2021. emnlp-main.75 .\n10",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ],
+          "width": 199.79000000000002,
+          "height": 8.551999999999907
+        },
+        {
+          "page": 10,
+          "left": 108.299,
+          "top": 707.959,
+          "right": 175.26,
+          "bottom": 697.697,
+          "char_span": [
+            0,
+            10
+          ],
+          "width": 66.96099999999998,
+          "height": 10.261999999999944
+        },
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 688.127,
+          "right": 507.486,
+          "bottom": 602.863,
+          "char_span": [
+            0,
+            651
+          ],
+          "width": 399.486,
+          "height": 85.2639999999999
+        },
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 589.966,
+          "right": 505.654,
+          "bottom": 559.496,
+          "char_span": [
+            0,
+            253
+          ],
+          "width": 397.654,
+          "height": 30.470000000000027
+        },
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 546.599,
+          "right": 504.0,
+          "bottom": 516.129,
+          "char_span": [
+            0,
+            253
+          ],
+          "width": 396.0,
+          "height": 30.470000000000027
+        },
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 503.232,
+          "right": 505.739,
+          "bottom": 461.803,
+          "char_span": [
+            0,
+            325
+          ],
+          "width": 397.739,
+          "height": 41.42900000000003
+        },
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 448.906,
+          "right": 507.487,
+          "bottom": 418.436,
+          "char_span": [
+            0,
+            214
+          ],
+          "width": 399.487,
+          "height": 30.470000000000027
+        },
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 405.539,
+          "right": 505.24,
+          "bottom": 353.151,
+          "char_span": [
+            0,
+            379
+          ],
+          "width": 397.24,
+          "height": 52.38799999999998
+        },
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 340.254,
+          "right": 506.491,
+          "bottom": 298.825,
+          "char_span": [
+            0,
+            303
+          ],
+          "width": 398.491,
+          "height": 41.42900000000003
+        },
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 285.928,
+          "right": 503.996,
+          "bottom": 266.4169999999999,
+          "char_span": [
+            0,
+            166
+          ],
+          "width": 395.996,
+          "height": 19.51100000000008
+        },
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 253.51999999999998,
+          "right": 503.997,
+          "bottom": 234.00900000000001,
+          "char_span": [
+            0,
+            148
+          ],
+          "width": 395.997,
+          "height": 19.510999999999967
+        },
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 221.11199999999997,
+          "right": 503.996,
+          "bottom": 201.601,
+          "char_span": [
+            0,
+            152
+          ],
+          "width": 395.996,
+          "height": 19.510999999999967
+        },
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 188.70399999999995,
+          "right": 506.491,
+          "bottom": 125.35699999999997,
+          "char_span": [
+            0,
+            489
+          ],
+          "width": 398.491,
+          "height": 63.34699999999998
+        },
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 112.46000000000004,
+          "right": 507.486,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            379
+          ],
+          "width": 399.486,
+          "height": 52.388000000000034
+        },
+        {
+          "page": 10,
+          "left": 300.645,
+          "top": 38.73599999999999,
+          "right": 310.608,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 9.963000000000022,
+          "height": 8.552000000000021
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "element_count": 15,
+        "text_length": 3785,
+        "element_types": [
+          "page_footer",
+          "page_header",
+          "list_item",
+          "section_header"
+        ],
+        "page": 10
+      }
+    },
+    {
+      "id": "semantic_018",
+      "text": "Under review as a conference paper at ICLR 2024\nLuyu Gao and Jamie Callan. Unsupervised corpus aware language model pre-training for dense passage retrieval. In Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 2843-2853, Dublin, Ireland, May 2022. Association for Computational Linguistics. doi: 10.18653/v1/2022.acl-long.203. URL https://aclanthology. org/2022.acl-long.203 .\nLuyu Gao, Xueguang Ma, Jimmy Lin, and Jamie Callan. Precise zero-shot dense retrieval without relevance labels. In Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 1762-1777, Toronto, Canada, July 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.acl-long.99. URL https://aclanthology. org/2023.acl-long.99 .\nManas Gaur, Kalpa Gunaratna, Vijay Srinivasan, and Hongxia Jin. Iseeq: Information seeking question generation using dynamic meta-information retrieval and knowledge graphs. In Proceedings of the AAAI Conference on Artificial Intelligence, volume 36, pp. 10672-10680, 2022.\nDaniel Gillick, Sayali Kulkarni, Larry Lansing, Alessandro Presta, Jason Baldridge, Eugene Ie, and Diego Garcia-Olano. Learning dense representations for entity retrieval. In Proceedings of the 23rd Conference on Computational Natural Language Learning (CoNLL), pp. 528-537, Hong Kong, China, November 2019. Association for Computational Linguistics. doi: 10.18653/v1/K19-1049. URL https://aclanthology.org/K19-1049 .\nGoogle. Google bard. https://bard.google.com/, 2023. URL https://bard.google.com/ .\nKelvin Guu, Kenton Lee, Zora Tung, Panupong Pasupat, and Mingwei Chang. Retrieval augmented language model pre-training. In International conference on machine learning, pp. 3929-3938. PMLR, 2020.\nSebastian Hofstätter, Sheng-Chieh Lin, Jheng-Hong Yang, Jimmy Lin, and Allan Hanbury. Efficiently teaching an effective dense retriever with balanced topic aware sampling. In Proceedings of the 44th International ACM SIGIR Conference on Research and Development in Information Retrieval, pp. 113-122, 2021.\nGautier Izacard, Mathilde Caron, Lucas Hosseini, Sebastian Riedel, Piotr Bojanowski, Armand Joulin, and Edouard Grave. Unsupervised dense information retrieval with contrastive learning. Transactions on Machine Learning Research, 2022. ISSN 2835-8856. URL https: //openreview.net/forum?id=jKN1pXi7b0 .\nZiwei Ji, Nayeon Lee, Rita Frieske, Tiezheng Yu, Dan Su, Yan Xu, Etsuko Ishii, Ye Jin Bang, Andrea Madotto, and Pascale Fung. Survey of hallucination in natural language generation. ACM Computing Surveys, 55(12):1-38, 2023.\nJeff Johnson, Matthijs Douze, and Hervé Jégou. Billion-scale similarity search with gpus. IEEE Transactions on Big Data, 7(3):535-547, 2019.\nMandar Joshi, Kenton Lee, Yi Luan, and Kristina Toutanova. Contextualized representations using textual encyclopedic knowledge. arXiv preprint arXiv:2004.12006, 2020.\nVladimir Karpukhin, Barlas Oguz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, and Wen-tau Yih. Dense passage retrieval for open-domain question answering. In Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP), pp. 6769-6781, Online, November 2020. Association for Computational Linguistics. doi: 10.18653/v1/2020.emnlp-main.550. URL https://aclanthology.org/2020.emnlp-main. 550 .\nUrvashi Khandelwal, Omer Levy, Dan Jurafsky, Luke Zettlemoyer, and Mike Lewis. Generalization through memorization: Nearest neighbor language models. In International Conference on Learning Representations, 2020. URL https://openreview.net/forum?id=HklBjCEKvH .\nOmar Khattab, Keshav Santhanam, Xiang Lisa Li, David Hall, Percy Liang, Christopher Potts, and Matei Zaharia. Demonstrate-search-predict: Composing retrieval and language models for knowledge-intensive nlp. arXiv preprint arXiv:2212.14024, 2022.\n11",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ],
+          "width": 199.79000000000002,
+          "height": 8.551999999999907
+        },
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 706.662,
+          "right": 507.486,
+          "bottom": 654.274,
+          "char_span": [
+            0,
+            396
+          ],
+          "width": 399.486,
+          "height": 52.388000000000034
+        },
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 643.251,
+          "right": 507.486,
+          "bottom": 590.863,
+          "char_span": [
+            0,
+            397
+          ],
+          "width": 399.486,
+          "height": 52.38799999999992
+        },
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 579.84,
+          "right": 505.658,
+          "bottom": 549.37,
+          "char_span": [
+            0,
+            273
+          ],
+          "width": 397.658,
+          "height": 30.470000000000027
+        },
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 538.347,
+          "right": 505.747,
+          "bottom": 485.96,
+          "char_span": [
+            0,
+            417
+          ],
+          "width": 397.747,
+          "height": 52.387
+        },
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 474.937,
+          "right": 471.864,
+          "bottom": 466.385,
+          "char_span": [
+            0,
+            83
+          ],
+          "width": 363.864,
+          "height": 8.552000000000021
+        },
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 455.362,
+          "right": 505.743,
+          "bottom": 424.892,
+          "char_span": [
+            0,
+            196
+          ],
+          "width": 397.743,
+          "height": 30.470000000000027
+        },
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 413.869,
+          "right": 504.353,
+          "bottom": 372.44,
+          "char_span": [
+            0,
+            306
+          ],
+          "width": 396.353,
+          "height": 41.42900000000003
+        },
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 361.417,
+          "right": 506.491,
+          "bottom": 319.988,
+          "char_span": [
+            0,
+            301
+          ],
+          "width": 398.491,
+          "height": 41.428999999999974
+        },
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 308.965,
+          "right": 505.247,
+          "bottom": 278.495,
+          "char_span": [
+            0,
+            223
+          ],
+          "width": 397.247,
+          "height": 30.46999999999997
+        },
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 267.472,
+          "right": 504.0,
+          "bottom": 247.962,
+          "char_span": [
+            0,
+            140
+          ],
+          "width": 396.0,
+          "height": 19.50999999999999
+        },
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 236.938,
+          "right": 504.004,
+          "bottom": 217.428,
+          "char_span": [
+            0,
+            166
+          ],
+          "width": 396.004,
+          "height": 19.50999999999999
+        },
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 206.404,
+          "right": 507.486,
+          "bottom": 143.058,
+          "char_span": [
+            0,
+            443
+          ],
+          "width": 399.486,
+          "height": 63.346000000000004
+        },
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 132.03499999999997,
+          "right": 505.654,
+          "bottom": 101.56500000000005,
+          "char_span": [
+            0,
+            261
+          ],
+          "width": 397.654,
+          "height": 30.469999999999914
+        },
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 90.54200000000003,
+          "right": 505.247,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            245
+          ],
+          "width": 397.247,
+          "height": 30.470000000000027
+        },
+        {
+          "page": 11,
+          "left": 300.645,
+          "top": 38.73599999999999,
+          "right": 310.608,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 9.963000000000022,
+          "height": 8.552000000000021
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_count": 16,
+        "text_length": 3911,
+        "element_types": [
+          "page_footer",
+          "page_header",
+          "list_item"
+        ],
+        "page": 11
+      }
+    },
+    {
+      "id": "semantic_019",
+      "text": "Under review as a conference paper at ICLR 2024\nTom Kwiatkowski, Jennimaria Palomaki, Olivia Redfield, Michael Collins, Ankur Parikh, Chris Alberti, Danielle Epstein, Illia Polosukhin, Jacob Devlin, Kenton Lee, Kristina Toutanova, Llion Jones, Matthew Kelcey, Ming-Wei Chang, Andrew M. Dai, Jakob Uszkoreit, Quoc Le, and Slav Petrov. Natural questions: A benchmark for question answering research. Transactions of the Association for Computational Linguistics, 7:452-466, 2019. doi: 10.1162/tacl_a_00276. URL https://aclanthology.org/Q19-1026 .\nYunshi Lan, Gaole He, Jinhao Jiang, Jing Jiang, Wayne Xin Zhao, and Ji-Rong Wen. A survey on complex knowledge base question answering: Methods, challenges and solutions. In Zhi-Hua Zhou (ed.), Proceedings of the Thirtieth International Joint Conference on Artificial Intelligence, IJCAI-21, pp. 4483-4491. International Joint Conferences on Artificial Intelligence Organization, 8 2021. doi: 10.24963/ijcai.2021/611. URL https://doi.org/10.24963/ijcai.2021/611 . Survey Track.\nHyunji Lee, Sohee Yang, Hanseok Oh, and Minjoon Seo. Generative multi-hop retrieval. In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing, pp. 1417-1436, Abu Dhabi, United Arab Emirates, December 2022. Association for Computational Linguistics. URL https://aclanthology.org/2022.emnlp-main.92 .\nKenton Lee, Ming-Wei Chang, and Kristina Toutanova. Latent retrieval for weakly supervised open domain question answering. In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, pp. 6086-6096, Florence, Italy, July 2019. Association for Computational Linguistics. doi: 10.18653/v1/P19-1612. URL https://aclanthology.org/P19-1612 .\nPatrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, et al. Retrieval-augmented generation for knowledge-intensive nlp tasks. Advances in Neural Information Processing Systems, 33: 9459-9474, 2020.\nSheng-Chieh Lin, Jheng-Hong Yang, and Jimmy Lin. In-batch negatives for knowledge distillation with tightly-coupled teachers for dense retrieval. In Proceedings of the 6th Workshop on Representation Learning for NLP (RepL4NLP-2021), pp. 163-173, Online, August 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.repl4nlp-1.17. URL https: //aclanthology.org/2021.repl4nlp-1.17 .\nYinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov. Roberta: A robustly optimized BERT pretraining approach. CoRR, abs/1907.11692, 2019. URL http://arxiv.org/abs/1907.11692 .\nShuqi Lu, Di He, Chenyan Xiong, Guolin Ke, Waleed Malik, Zhicheng Dou, Paul Bennett, Tie-Yan Liu, and Arnold Overwijk. Less is more: Pretrain a strong Siamese encoder for dense text retrieval using a weak decoder. In Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing, pp. 2780-2791, Online and Punta Cana, Dominican Republic, November 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.emnlp-main.220. URL https://aclanthology.org/2021.emnlp-main.220 .\nKelong Mao, Zhicheng Dou, Haonan Chen, Fengran Mo, and Hongjin Qian. Large language models know your contextual search intent: A prompting framework for conversational search. arXiv preprint arXiv:2303.06573, 2023.\nYuning Mao, Pengcheng He, Xiaodong Liu, Yelong Shen, Jianfeng Gao, Jiawei Han, and Weizhu Chen. Generation-augmented retrieval for open-domain question answering. In Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers), pp. 4089-4100, Online, August 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.acl-long. 316. URL https://aclanthology.org/2021.acl-long.316 .\nSewon Min, Mike Lewis, Luke Zettlemoyer, and Hannaneh Hajishirzi. MetaICL: Learning to learn in context. In Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, pp. 2791-2809, Seattle, United States, July 2022. Association for Computational Linguistics. doi: 10.18653/v1/2022.naacl-main. 201. URL https://aclanthology.org/2022.naacl-main.201 .\n12",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ],
+          "width": 199.79000000000002,
+          "height": 8.551999999999907
+        },
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 706.662,
+          "right": 504.489,
+          "bottom": 643.315,
+          "char_span": [
+            0,
+            496
+          ],
+          "width": 396.489,
+          "height": 63.34699999999998
+        },
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 632.995,
+          "right": 505.743,
+          "bottom": 569.648,
+          "char_span": [
+            0,
+            477
+          ],
+          "width": 397.743,
+          "height": 63.34699999999998
+        },
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 559.328,
+          "right": 505.747,
+          "bottom": 517.899,
+          "char_span": [
+            0,
+            331
+          ],
+          "width": 397.747,
+          "height": 41.428999999999974
+        },
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 507.579,
+          "right": 505.656,
+          "bottom": 466.15,
+          "char_span": [
+            0,
+            367
+          ],
+          "width": 397.656,
+          "height": 41.42900000000003
+        },
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 455.83,
+          "right": 505.657,
+          "bottom": 414.401,
+          "char_span": [
+            0,
+            299
+          ],
+          "width": 397.657,
+          "height": 41.428999999999974
+        },
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 404.081,
+          "right": 506.491,
+          "bottom": 351.694,
+          "char_span": [
+            0,
+            397
+          ],
+          "width": 398.491,
+          "height": 52.387
+        },
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 341.373,
+          "right": 504.003,
+          "bottom": 310.904,
+          "char_span": [
+            0,
+            258
+          ],
+          "width": 396.003,
+          "height": 30.468999999999994
+        },
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 300.583,
+          "right": 504.492,
+          "bottom": 237.23699999999997,
+          "char_span": [
+            0,
+            509
+          ],
+          "width": 396.492,
+          "height": 63.34600000000006
+        },
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 226.91700000000003,
+          "right": 504.249,
+          "bottom": 196.447,
+          "char_span": [
+            0,
+            214
+          ],
+          "width": 396.249,
+          "height": 30.470000000000027
+        },
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 186.12699999999995,
+          "right": 505.74,
+          "bottom": 122.77999999999997,
+          "char_span": [
+            0,
+            518
+          ],
+          "width": 397.74,
+          "height": 63.34699999999998
+        },
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 112.46000000000004,
+          "right": 505.741,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            434
+          ],
+          "width": 397.741,
+          "height": 52.388000000000034
+        },
+        {
+          "page": 12,
+          "left": 300.645,
+          "top": 38.73599999999999,
+          "right": 310.608,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 9.963000000000022,
+          "height": 8.552000000000021
+        }
+      ],
+      "page_numbers": [
+        12
+      ],
+      "metadata": {
+        "element_count": 13,
+        "text_length": 4361,
+        "element_types": [
+          "page_footer",
+          "page_header",
+          "list_item"
+        ],
+        "page": 12
+      }
+    },
+    {
+      "id": "semantic_020",
+      "text": "Under review as a conference paper at ICLR 2024\nIC Mogotsi. Christopher d. manning, prabhakar raghavan, and hinrich schütze: Introduction to information retrieval. Information Retrieval, 13(2):192-195, 2010.\nReiichiro Nakano, Jacob Hilton, Suchir Balaji, Jeff Wu, Long Ouyang, Christina Kim, Christopher Hesse, Shantanu Jain, Vineet Kosaraju, William Saunders, et al. Webgpt: Browser-assisted question-answering with human feedback. arXiv preprint arXiv:2112.09332, 2021.\nJianmo Ni, Chen Qu, Jing Lu, Zhuyun Dai, Gustavo Hernandez Abrego, Ji Ma, Vincent Zhao, Yi Luan, Keith Hall, Ming-Wei Chang, and Yinfei Yang. Large dual encoders are generalizable retrievers. In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing, pp. 9844-9855, Abu Dhabi, United Arab Emirates, December 2022. Association for Computational Linguistics. URL https://aclanthology.org/2022.emnlp-main.669 .\nRodrigo Nogueira, Wei Yang, Jimmy Lin, and Kyunghyun Cho. Document expansion by query prediction. arXiv preprint arXiv:1904.08375, 2019.\nOpenAI. Chatgpt: Optimizing language models for dialogue. https://openai.com/blog/chatgpt/, 2022. URL https://openai.com/blog/chatgpt/ .\nOpenAI. Gpt-4 technical report. ArXiv, abs/2303.08774, 2023.\nLong Ouyang, Jeffrey Wu, Xu Jiang, Diogo Almeida, Carroll Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et al. Training language models to follow instructions with human feedback. Advances in Neural Information Processing Systems, 35: 27730-27744, 2022.\nBaolin Peng, Michel Galley, Pengcheng He, Hao Cheng, Yujia Xie, Yu Hu, Qiuyuan Huang, Lars Liden, Zhou Yu, Weizhu Chen, et al. Check your facts and try again: Improving large language models with external knowledge and automated feedback. arXiv preprint arXiv:2302.12813, 2023.\nFabio Petroni, Tim Rocktäschel, Sebastian Riedel, Patrick Lewis, Anton Bakhtin, Yuxiang Wu, and Alexander Miller. Language models as knowledge bases? In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP), pp. 2463-2473, Hong Kong, China, November 2019. Association for Computational Linguistics. doi: 10.18653/v1/D19-1250. URL https://aclanthology.org/D19-1250 .\nChengwei Qin, Aston Zhang, Zhuosheng Zhang, Jiaao Chen, Michihiro Yasunaga, and Diyi Yang. Is chatgpt a general-purpose natural language processing task solver? arXiv preprint arXiv:2302.06476, 2023.\nYingqi Qu, Yuchen Ding, Jing Liu, Kai Liu, Ruiyang Ren, Wayne Xin Zhao, Daxiang Dong, Hua Wu, and Haifeng Wang. RocketQA: An optimized training approach to dense passage retrieval for open-domain question answering. In Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, pp. 5835-5847, Online, June 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.naacl-main.466. URL https://aclanthology.org/2021.naacl-main.466 .\nAdam Roberts, Colin Raffel, and Noam Shazeer. How much knowledge can you pack into the parameters of a language model? In Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP), pp. 5418-5426, Online, November 2020. Association for Computational Linguistics. doi: 10.18653/v1/2020.emnlp-main.437. URL https://aclanthology.org/2020.emnlp-main.437 .\nStephen E. Robertson and Hugo Zaragoza. The probabilistic relevance framework: BM25 and beyond. Found. Trends Inf. Retr., 3(4):333-389, 2009. doi: 10.1561/1500000019. URL https: //doi.org/10.1561/1500000019 .\nZaragoza Robertson. Robertson s., zaragoza h. The probabilistic relevance framework: Bm25 and beyond, Found. Trends Inf. Retr, 3(4):333-389, 2009.\n13",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ],
+          "width": 199.79000000000002,
+          "height": 8.551999999999907
+        },
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 706.662,
+          "right": 503.997,
+          "bottom": 687.151,
+          "char_span": [
+            0,
+            159
+          ],
+          "width": 395.997,
+          "height": 19.51100000000008
+        },
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 674.442,
+          "right": 504.169,
+          "bottom": 643.972,
+          "char_span": [
+            0,
+            263
+          ],
+          "width": 396.169,
+          "height": 30.470000000000027
+        },
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 631.263,
+          "right": 505.247,
+          "bottom": 578.875,
+          "char_span": [
+            0,
+            439
+          ],
+          "width": 397.247,
+          "height": 52.388000000000034
+        },
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 566.166,
+          "right": 504.353,
+          "bottom": 546.655,
+          "char_span": [
+            0,
+            136
+          ],
+          "width": 396.353,
+          "height": 19.51100000000008
+        },
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 533.946,
+          "right": 505.742,
+          "bottom": 514.435,
+          "char_span": [
+            0,
+            136
+          ],
+          "width": 397.742,
+          "height": 19.51100000000008
+        },
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 501.726,
+          "right": 361.179,
+          "bottom": 493.174,
+          "char_span": [
+            0,
+            60
+          ],
+          "width": 253.17899999999997,
+          "height": 8.552000000000021
+        },
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 480.465,
+          "right": 505.387,
+          "bottom": 439.037,
+          "char_span": [
+            0,
+            292
+          ],
+          "width": 397.387,
+          "height": 41.428
+        },
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 426.327,
+          "right": 505.74,
+          "bottom": 395.858,
+          "char_span": [
+            0,
+            277
+          ],
+          "width": 397.74,
+          "height": 30.468999999999994
+        },
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 383.149,
+          "right": 505.747,
+          "bottom": 319.802,
+          "char_span": [
+            0,
+            487
+          ],
+          "width": 397.747,
+          "height": 63.34699999999998
+        },
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 307.093,
+          "right": 504.001,
+          "bottom": 276.62300000000005,
+          "char_span": [
+            0,
+            199
+          ],
+          "width": 396.001,
+          "height": 30.46999999999997
+        },
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 263.914,
+          "right": 505.381,
+          "bottom": 200.56799999999998,
+          "char_span": [
+            0,
+            528
+          ],
+          "width": 397.381,
+          "height": 63.346000000000004
+        },
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 187.85900000000004,
+          "right": 505.744,
+          "bottom": 135.471,
+          "char_span": [
+            0,
+            387
+          ],
+          "width": 397.744,
+          "height": 52.388000000000034
+        },
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 122.76199999999994,
+          "right": 506.491,
+          "bottom": 92.29200000000003,
+          "char_span": [
+            0,
+            208
+          ],
+          "width": 398.491,
+          "height": 30.469999999999914
+        },
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 79.58299999999997,
+          "right": 504.0,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            146
+          ],
+          "width": 396.0,
+          "height": 19.510999999999967
+        },
+        {
+          "page": 13,
+          "left": 300.645,
+          "top": 38.73599999999999,
+          "right": 310.608,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 9.963000000000022,
+          "height": 8.552000000000021
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_count": 16,
+        "text_length": 3781,
+        "element_types": [
+          "page_footer",
+          "page_header",
+          "list_item"
+        ],
+        "page": 13
+      }
+    },
+    {
+      "id": "semantic_021",
+      "text": "Under review as a conference paper at ICLR 2024\nDevendra Sachan, Mike Lewis, Mandar Joshi, Armen Aghajanyan, Wen-tau Yih, Joelle Pineau, and Luke Zettlemoyer. Improving passage retrieval with zero-shot question generation. In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing, pp. 3781-3797, Abu Dhabi, United Arab Emirates, December 2022. Association for Computational Linguistics. URL https://aclanthology.org/2022.emnlp-main.249 .\nVictor Sanh, Albert Webson, Colin Raffel, Stephen Bach, Lintang Sutawika, Zaid Alyafeai, Antoine Chaffin, Arnaud Stiegler, Arun Raja, Manan Dey, et al. Multitask prompted training enables zero-shot task generalization. In International Conference on Learning Representations, 2022.\nWeijia Shi, Sewon Min, Michihiro Yasunaga, Minjoon Seo, Rich James, Mike Lewis, Luke Zettlemoyer, and Wen-tau Yih. Replug: Retrieval-augmented black-box language models. arXiv preprint arXiv:2301.12652, 2023.\nKurt Shuster, Spencer Poff, Moya Chen, Douwe Kiela, and Jason Weston. Retrieval augmentation reduces hallucination in conversation. In Findings of the Association for Computational Linguistics: EMNLP 2021, pp. 3784-3803, Punta Cana, Dominican Republic, November 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.findings-emnlp.320. URL https://aclanthology.org/2021.findings-emnlp.320 .\nYi Tay, Vinh Tran, Mostafa Dehghani, Jianmo Ni, Dara Bahri, Harsh Mehta, Zhen Qin, Kai Hui, Zhe Zhao, Jai Gupta, et al. Transformer memory as a differentiable search index. Advances in Neural Information Processing Systems, 35:21831-21843, 2022.\nNandan Thakur, Nils Reimers, Andreas Rücklé, Abhishek Srivastava, and Iryna Gurevych. BEIR: A heterogenous benchmark for zero-shot evaluation of information retrieval models. CoRR, abs/2104.08663, 2021. URL https://arxiv.org/abs/2104.08663 .\nJames Thorne, Andreas Vlachos, Oana Cocarascu, Christos Christodoulopoulos, and Arpit Mittal. The fact extraction and VERification (FEVER) shared task. In Proceedings of the First Workshop on Fact Extraction and VERification (FEVER), pp. 1-9, Brussels, Belgium, November 2018. Association for Computational Linguistics. doi: 10.18653/v1/W18-5501. URL https://aclanthology.org/W18-5501 .\nHugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, et al. Llama: Open and efficient foundation language models. arXiv preprint arXiv:2302.13971, 2023a.\nHugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, et al. Llama 2: Open foundation and fine-tuned chat models. arXiv preprint arXiv:2307.09288, 2023b.\nEllen M Voorhees et al. The trec-8 question answering track report. In Trec, volume 99, pp. 77-82, 1999.\nKexin Wang, Nandan Thakur, Nils Reimers, and Iryna Gurevych. GPL: Generative pseudo labeling for unsupervised domain adaptation of dense retrieval. In Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, pp. 2345-2360, Seattle, United States, July 2022. Association for Computational Linguistics. doi: 10.18653/v1/2022.naacl-main.168. URL https://aclanthology.org/2022. naacl-main.168 .\nLiang Wang, Nan Yang, and Furu Wei. Query2doc: Query expansion with large language models. arXiv preprint arXiv:2303.07678, 2023.\nJason Wei, Maarten Bosma, Vincent Zhao, Kelvin Guu, Adams Wei Yu, Brian Lester, Nan Du, Andrew M. Dai, and Quoc V Le. Finetuned language models are zero-shot learners. In International Conference on Learning Representations, 2022. URL https://openreview.net/forum?id= gEZrGCozdqR .\nShitao Xiao, Zheng Liu, Yingxia Shao, and Zhao Cao. RetroMAE: Pre-training retrieval-oriented language models via masked auto-encoder. In Proceedings of the 2022 Conference on Empirical\n14",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ],
+          "width": 199.79000000000002,
+          "height": 8.551999999999907
+        },
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 706.662,
+          "right": 505.746,
+          "bottom": 654.274,
+          "char_span": [
+            0,
+            422
+          ],
+          "width": 397.746,
+          "height": 52.388000000000034
+        },
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 643.251,
+          "right": 504.002,
+          "bottom": 612.781,
+          "char_span": [
+            0,
+            281
+          ],
+          "width": 396.002,
+          "height": 30.470000000000027
+        },
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 601.758,
+          "right": 505.656,
+          "bottom": 571.288,
+          "char_span": [
+            0,
+            208
+          ],
+          "width": 397.656,
+          "height": 30.470000000000027
+        },
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 560.265,
+          "right": 505.74,
+          "bottom": 507.878,
+          "char_span": [
+            0,
+            407
+          ],
+          "width": 397.74,
+          "height": 52.387
+        },
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 496.855,
+          "right": 504.0,
+          "bottom": 466.385,
+          "char_span": [
+            0,
+            245
+          ],
+          "width": 396.0,
+          "height": 30.470000000000027
+        },
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 455.362,
+          "right": 505.379,
+          "bottom": 424.892,
+          "char_span": [
+            0,
+            241
+          ],
+          "width": 397.379,
+          "height": 30.470000000000027
+        },
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 413.869,
+          "right": 505.654,
+          "bottom": 361.481,
+          "char_span": [
+            0,
+            386
+          ],
+          "width": 397.654,
+          "height": 52.388000000000034
+        },
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 350.458,
+          "right": 504.002,
+          "bottom": 319.988,
+          "char_span": [
+            0,
+            260
+          ],
+          "width": 396.002,
+          "height": 30.470000000000027
+        },
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 308.965,
+          "right": 504.353,
+          "bottom": 278.495,
+          "char_span": [
+            0,
+            255
+          ],
+          "width": 396.353,
+          "height": 30.46999999999997
+        },
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 267.472,
+          "right": 505.247,
+          "bottom": 247.962,
+          "char_span": [
+            0,
+            104
+          ],
+          "width": 397.247,
+          "height": 19.50999999999999
+        },
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 236.938,
+          "right": 507.486,
+          "bottom": 173.59199999999998,
+          "char_span": [
+            0,
+            477
+          ],
+          "width": 399.486,
+          "height": 63.346000000000004
+        },
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 162.56899999999996,
+          "right": 505.741,
+          "bottom": 143.058,
+          "char_span": [
+            0,
+            129
+          ],
+          "width": 397.741,
+          "height": 19.510999999999967
+        },
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 132.03499999999997,
+          "right": 505.247,
+          "bottom": 90.606,
+          "char_span": [
+            0,
+            281
+          ],
+          "width": 397.247,
+          "height": 41.428999999999974
+        },
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 79.58299999999997,
+          "right": 504.0,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            185
+          ],
+          "width": 396.0,
+          "height": 19.510999999999967
+        },
+        {
+          "page": 14,
+          "left": 300.645,
+          "top": 38.73599999999999,
+          "right": 310.608,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 9.963000000000022,
+          "height": 8.552000000000021
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_count": 16,
+        "text_length": 3945,
+        "element_types": [
+          "page_footer",
+          "page_header",
+          "list_item"
+        ],
+        "page": 14
+      }
+    },
+    {
+      "id": "semantic_022",
+      "text": "Under review as a conference paper at ICLR 2024\nMethods in Natural Language Processing, pp. 538-548, Abu Dhabi, United Arab Emirates, December 2022. Association for Computational Linguistics. URL https://aclanthology.org/ 2022.emnlp-main.35 .\nLee Xiong, Chenyan Xiong, Ye Li, Kwok-Fung Tang, Jialin Liu, Paul N. Bennett, Junaid Ahmed, and Arnold Overwijk. Approximate nearest neighbor negative contrastive learning for dense text retrieval. In International Conference on Learning Representations, 2021. URL https: //openreview.net/forum?id=zeFrfgyZln .\nPeilin Yang, Hui Fang, and Jimmy Lin. Anserini: Enabling the use of lucene for information retrieval research. In Noriko Kando, Tetsuya Sakai, Hideo Joho, Hang Li, Arjen P. de Vries, and Ryen W. White (eds.), Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval, Shinjuku, Tokyo, Japan, August 7-11, 2017, pp. 1253-1256. ACM, 2017. doi: 10.1145/3077136.3080721. URL https://doi.org/10.1145/ 3077136.3080721 .\nAndrew Yates, Rodrigo Nogueira, and Jimmy Lin. Pretrained transformers for text ranking: BERT and beyond. In Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies: Tutorials, pp. 1-4, Online, June 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.naacl-tutorials.1. URL https://aclanthology.org/2021.naacl-tutorials.1 .\nWenhao Yu, Dan Iter, Shuohang Wang, Yichong Xu, Mingxuan Ju, Soumya Sanyal, Chenguang Zhu, Michael Zeng, and Meng Jiang. Generate rather than retrieve: Large language models are strong context generators. In The Eleventh International Conference on Learning Representations, 2023. URL https://openreview.net/forum?id=fB0hRu9GZUS .\nYue Yu, Chenyan Xiong, Si Sun, Chao Zhang, and Arnold Overwijk. COCO-DR: Combating the distribution shift in zero-shot dense retrieval with contrastive and distributionally robust learning. In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing, pp. 1462-1479, Abu Dhabi, United Arab Emirates, December 2022. Association for Computational Linguistics. URL https://aclanthology.org/2022.emnlp-main.95 .\nMuru Zhang, Ofir Press, William Merrill, Alisa Liu, and Noah A Smith. How language model hallucinations can snowball. arXiv preprint arXiv:2305.13534, 2023a.\nYue Zhang, Yafu Li, Leyang Cui, Deng Cai, Lemao Liu, Tingchen Fu, Xinting Huang, Enbo Zhao, Yu Zhang, Yulong Chen, et al. Siren's song in the ai ocean: A survey on hallucination in large language models. arXiv preprint arXiv:2309.01219, 2023b.\nJiawei Zhou, Xiaoguang Li, Lifeng Shang, Lan Luo, Ke Zhan, Enrui Hu, Xinyu Zhang, Hao Jiang, Zhao Cao, Fan Yu, Xin Jiang, Qun Liu, and Lei Chen. Hyperlink-induced pre-training for passage retrieval in open-domain question answering. In Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 7135-7146, Dublin, Ireland, May 2022. Association for Computational Linguistics. doi: 10.18653/v1/2022.acl-long. 493. URL https://aclanthology.org/2022.acl-long.493 .",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ],
+          "width": 199.79000000000002,
+          "height": 8.551999999999907
+        },
+        {
+          "page": 15,
+          "left": 117.963,
+          "top": 706.662,
+          "right": 505.657,
+          "bottom": 676.192,
+          "char_span": [
+            0,
+            194
+          ],
+          "width": 387.69399999999996,
+          "height": 30.470000000000027
+        },
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 665.815,
+          "right": 506.491,
+          "bottom": 624.386,
+          "char_span": [
+            0,
+            310
+          ],
+          "width": 398.491,
+          "height": 41.42900000000009
+        },
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 614.009,
+          "right": 505.245,
+          "bottom": 550.663,
+          "char_span": [
+            0,
+            467
+          ],
+          "width": 397.245,
+          "height": 63.346000000000004
+        },
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 540.286,
+          "right": 504.482,
+          "bottom": 487.898,
+          "char_span": [
+            0,
+            429
+          ],
+          "width": 396.482,
+          "height": 52.38799999999992
+        },
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 477.521,
+          "right": 505.748,
+          "bottom": 436.092,
+          "char_span": [
+            0,
+            330
+          ],
+          "width": 397.748,
+          "height": 41.42900000000003
+        },
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 425.715,
+          "right": 505.744,
+          "bottom": 373.328,
+          "char_span": [
+            0,
+            436
+          ],
+          "width": 397.744,
+          "height": 52.387
+        },
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 362.951,
+          "right": 503.997,
+          "bottom": 343.44,
+          "char_span": [
+            0,
+            157
+          ],
+          "width": 395.997,
+          "height": 19.511000000000024
+        },
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 333.063,
+          "right": 505.247,
+          "bottom": 302.593,
+          "char_span": [
+            0,
+            243
+          ],
+          "width": 397.247,
+          "height": 30.46999999999997
+        },
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 292.216,
+          "right": 505.741,
+          "bottom": 228.86900000000003,
+          "char_span": [
+            0,
+            519
+          ],
+          "width": 397.741,
+          "height": 63.34699999999998
+        }
+      ],
+      "page_numbers": [
+        15
+      ],
+      "metadata": {
+        "element_count": 10,
+        "text_length": 3141,
+        "element_types": [
+          "page_header",
+          "text",
+          "list_item"
+        ],
+        "page": 15
+      }
+    },
+    {
+      "id": "semantic_023",
+      "text": "15",
+      "chunk_type": "semantic_group",
+      "bounding_boxes": [
+        {
+          "page": 15,
+          "left": 300.645,
+          "top": 38.73599999999999,
+          "right": 310.608,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            2
+          ],
+          "width": 9.963000000000022,
+          "height": 8.552000000000021
+        }
+      ],
+      "page_numbers": [
+        15
+      ],
+      "metadata": {
+        "element_count": 1,
+        "text_length": 2,
+        "element_types": [
+          "page_footer"
+        ],
+        "page": 15
+      }
+    }
+  ]
+}

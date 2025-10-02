@@ -1,0 +1,6372 @@
+{
+  "metadata": {
+    "total_chunks": 235,
+    "chunk_types": [
+      "element"
+    ],
+    "total_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  "chunks": [
+    {
+      "id": "element_page_header_0",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ]
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "element_label": "page_header",
+        "content_layer": "furniture",
+        "text_length": 47,
+        "group_type": "page_header"
+      }
+    },
+    {
+      "id": "element_page_header_1",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ]
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "element_label": "page_header",
+        "content_layer": "furniture",
+        "text_length": 47,
+        "group_type": "page_header"
+      }
+    },
+    {
+      "id": "element_page_header_2",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 3,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ]
+        }
+      ],
+      "page_numbers": [
+        3
+      ],
+      "metadata": {
+        "element_label": "page_header",
+        "content_layer": "furniture",
+        "text_length": 47,
+        "group_type": "page_header"
+      }
+    },
+    {
+      "id": "element_page_header_3",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "page_header",
+        "content_layer": "furniture",
+        "text_length": 47,
+        "group_type": "page_header"
+      }
+    },
+    {
+      "id": "element_page_header_4",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "page_header",
+        "content_layer": "furniture",
+        "text_length": 47,
+        "group_type": "page_header"
+      }
+    },
+    {
+      "id": "element_page_header_5",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_label": "page_header",
+        "content_layer": "furniture",
+        "text_length": 47,
+        "group_type": "page_header"
+      }
+    },
+    {
+      "id": "element_page_header_6",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 7,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ]
+        }
+      ],
+      "page_numbers": [
+        7
+      ],
+      "metadata": {
+        "element_label": "page_header",
+        "content_layer": "furniture",
+        "text_length": 47,
+        "group_type": "page_header"
+      }
+    },
+    {
+      "id": "element_page_header_7",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "page_header",
+        "content_layer": "furniture",
+        "text_length": 47,
+        "group_type": "page_header"
+      }
+    },
+    {
+      "id": "element_page_header_8",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 9,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ]
+        }
+      ],
+      "page_numbers": [
+        9
+      ],
+      "metadata": {
+        "element_label": "page_header",
+        "content_layer": "furniture",
+        "text_length": 47,
+        "group_type": "page_header"
+      }
+    },
+    {
+      "id": "element_page_header_9",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "element_label": "page_header",
+        "content_layer": "furniture",
+        "text_length": 47,
+        "group_type": "page_header"
+      }
+    },
+    {
+      "id": "element_page_header_10",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ]
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_label": "page_header",
+        "content_layer": "furniture",
+        "text_length": 47,
+        "group_type": "page_header"
+      }
+    },
+    {
+      "id": "element_page_header_11",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ]
+        }
+      ],
+      "page_numbers": [
+        12
+      ],
+      "metadata": {
+        "element_label": "page_header",
+        "content_layer": "furniture",
+        "text_length": 47,
+        "group_type": "page_header"
+      }
+    },
+    {
+      "id": "element_page_header_12",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ]
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_label": "page_header",
+        "content_layer": "furniture",
+        "text_length": 47,
+        "group_type": "page_header"
+      }
+    },
+    {
+      "id": "element_page_header_13",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ]
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_label": "page_header",
+        "content_layer": "furniture",
+        "text_length": 47,
+        "group_type": "page_header"
+      }
+    },
+    {
+      "id": "element_page_header_14",
+      "text": "Under review as a conference paper at ICLR 2024",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 763.117,
+          "right": 307.79,
+          "bottom": 754.565,
+          "char_span": [
+            0,
+            47
+          ]
+        }
+      ],
+      "page_numbers": [
+        15
+      ],
+      "metadata": {
+        "element_label": "page_header",
+        "content_layer": "furniture",
+        "text_length": 47,
+        "group_type": "page_header"
+      }
+    },
+    {
+      "id": "element_section_header_0",
+      "text": "SYNERGISTIC INFORMATION RETRIEVAL: INTERPLAY BETWEEN SEARCH AND LARGE LANGUAGE MODELS",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 108.43,
+          "top": 709.759,
+          "right": 504.436,
+          "bottom": 675.771,
+          "char_span": [
+            0,
+            85
+          ]
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 85,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_section_header_1",
+      "text": "ABSTRACT",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 278.288,
+          "top": 603.166,
+          "right": 333.722,
+          "bottom": 592.904,
+          "char_span": [
+            0,
+            8
+          ]
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 8,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_section_header_2",
+      "text": "1 INTRODUCTION",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 108.299,
+          "top": 355.333,
+          "right": 205.989,
+          "bottom": 345.071,
+          "char_span": [
+            0,
+            14
+          ]
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 14,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_section_header_3",
+      "text": "2 RELATED WORK",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 108.299,
+          "top": 234.49800000000005,
+          "right": 211.196,
+          "bottom": 224.236,
+          "char_span": [
+            0,
+            14
+          ]
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 14,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_section_header_4",
+      "text": "3 PRELIMINARY",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 3,
+          "left": 108.299,
+          "top": 268.92599999999993,
+          "right": 198.479,
+          "bottom": 258.664,
+          "char_span": [
+            0,
+            13
+          ]
+        }
+      ],
+      "page_numbers": [
+        3
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 13,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_section_header_5",
+      "text": "4 INTER",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 108.299,
+          "top": 273.60300000000007,
+          "right": 159.741,
+          "bottom": 263.341,
+          "char_span": [
+            0,
+            7
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 7,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_section_header_6",
+      "text": "4.1 RM STEP: REFINING INFORMATION IN RM VIA LLM",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 108.249,
+          "top": 133.58000000000004,
+          "right": 358.139,
+          "bottom": 125.02800000000002,
+          "char_span": [
+            0,
+            47
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 47,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_section_header_7",
+      "text": "4.2 LLM STEP: REFINING INFORMATION IN LLM VIA RM",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 108.249,
+          "top": 543.541,
+          "right": 364.167,
+          "bottom": 534.989,
+          "char_span": [
+            0,
+            48
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 48,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_section_header_8",
+      "text": "4.3 ITERATIVE INTERPLAY BETWEEN RM AND LLM",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 108.249,
+          "top": 300.68,
+          "right": 339.07,
+          "bottom": 292.128,
+          "char_span": [
+            0,
+            42
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 42,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_section_header_9",
+      "text": "5 EXPERIMENTS",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 108.299,
+          "top": 592.438,
+          "right": 200.083,
+          "bottom": 582.176,
+          "char_span": [
+            0,
+            13
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 13,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_section_header_10",
+      "text": "5.1 DATASETS AND METRICS",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 108.249,
+          "top": 566.932,
+          "right": 239.271,
+          "bottom": 558.38,
+          "char_span": [
+            0,
+            24
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 24,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_section_header_11",
+      "text": "5.2 BASELINES",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 108.249,
+          "top": 421.494,
+          "right": 180.064,
+          "bottom": 412.942,
+          "char_span": [
+            0,
+            13
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 13,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_section_header_12",
+      "text": "5.3 IMPLEMENTATION DETAILS",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 108.249,
+          "top": 240.52300000000002,
+          "right": 248.721,
+          "bottom": 231.971,
+          "char_span": [
+            0,
+            26
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 26,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_section_header_13",
+      "text": "5.4 MAIN RESULTS",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 7,
+          "left": 108.249,
+          "top": 277.174,
+          "right": 197.737,
+          "bottom": 268.62200000000007,
+          "char_span": [
+            0,
+            16
+          ]
+        }
+      ],
+      "page_numbers": [
+        7
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 16,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_section_header_14",
+      "text": "5.5 DISCUSSIONS",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 108.249,
+          "top": 303.404,
+          "right": 189.886,
+          "bottom": 294.852,
+          "char_span": [
+            0,
+            15
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 15,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_section_header_15",
+      "text": "6 CONCLUSION",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 9,
+          "left": 108.299,
+          "top": 236.03099999999995,
+          "right": 195.377,
+          "bottom": 225.769,
+          "char_span": [
+            0,
+            12
+          ]
+        }
+      ],
+      "page_numbers": [
+        9
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 12,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_section_header_16",
+      "text": "REFERENCES",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.299,
+          "top": 707.959,
+          "right": 175.26,
+          "bottom": 697.697,
+          "char_span": [
+            0,
+            10
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "element_label": "section_header",
+        "content_layer": "body",
+        "text_length": 10,
+        "group_type": "section_header"
+      }
+    },
+    {
+      "id": "element_text_0",
+      "text": "Anonymous authors Paper under double-blind review",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 113.978,
+          "top": 654.462,
+          "right": 244.199,
+          "bottom": 634.563,
+          "char_span": [
+            0,
+            49
+          ]
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 49,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_1",
+      "text": "Information retrieval (IR) plays a crucial role in locating relevant resources from vast amounts of data, and its applications have evolved from traditional knowledge bases to modern retrieval models (RMs). The emergence of large language models (LLMs) has further revolutionized the IR field by enabling users to interact with search systems in natural languages. In this paper, we explore the advantages and disadvantages of LLMs and RMs, highlighting their respective strengths in understanding user-issued queries and retrieving up-to-date information. To leverage the benefits of both paradigms while circumventing their limitations, we propose InteR , a novel framework that facilitates information refinement through synergy between RMs and LLMs. InteR allows RMs to expand knowledge in queries using LLM-generated knowledge collections and enables LLMs to enhance prompt formulation using retrieved documents. This iterative refinement process augments the inputs of RMs and LLMs, leading to more accurate retrieval. Experiments on large-scale retrieval benchmarks involving web search and low-resource retrieval tasks demonstrate that InteR achieves overall superior zero-shot retrieval performance compared to state-of-the-art methods, even those using relevance judgment.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 143.537,
+          "top": 573.578,
+          "right": 469.786,
+          "bottom": 389.684,
+          "char_span": [
+            0,
+            1282
+          ]
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1282,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_2",
+      "text": "Information retrieval (IR) is an indispensable technique for locating relevant resources in a vast sea of data given ad-hoc queries (Mogotsi, 2010). It is a core component in knowledge-intensive tasks such as question answering (Karpukhin et al., 2020), entity linking (Gillick et al., 2019) and fact verification (Thorne et al., 2018). Over the years, the techniques of information retrieval have evolved significantly: from the traditional knowledge base (KB) (Lan et al., 2021; Gaur et al., 2022) to modern search engines (SEs) based on neural representation learning (Karpukhin et al., 2020; Yates et al., 2021), information retrieval has become increasingly important in our digital world. More recently, the emergence of cutting-edge large language models (LLMs; e.g., ChatGPT (OpenAI, 2022), GPT-4 (OpenAI, 2023), Bard (Google, 2023), LLaMA (Touvron et al., 2023a;b)) has further revolutionized the NLP community and given intriguing insights into IR applications as users can now interact with search systems in natural languages.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 107.422,
+          "top": 326.657,
+          "right": 505.746,
+          "bottom": 208.51599999999996,
+          "char_span": [
+            0,
+            1038
+          ]
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1038,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_3",
+      "text": "Over the decades, search engines like Google or Bing have become a staple for people looking to retrieve information on a variety of topics, allowing users to quickly sift through millions of documents to find the information they need by providing keywords or a query. Spurred by advancements in scale, LLMs have now exhibited the ability to undertake a variety of NLP tasks in a zero-shot scenario (Qin et al., 2023) by following instructions (Ouyang et al., 2022; Sanh et al., 2022; Min et al., 2022; Wei et al., 2022). Therefore, they could serve as an alternative option for people to obtain information directly by posing a question or query in natural languages (OpenAI, 2022), instead of relying on specific keywords. For example, suppose a student is looking to write a research paper on the history of jazz music . They could type in keywords such as 'history of jazz' or 'jazz pioneers' to retrieve relevant articles and sources. However, with LLMs, this student could pose a question like 'Who were the key pioneers of jazz music, and how did they influence the genre?' The LLMs could then generate a summary of the relevant information and sources, potentially saving time and effort in sifting through search results.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 108.0,
+          "top": 200.13099999999997,
+          "right": 505.241,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            1231
+          ]
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1231,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_4",
+      "text": "As with most things in life, there are two sides to every coin. Both IR technologies come with their own unique set of advantages and disadvantages. LLMs excel in understanding the context and meaning behind user-issued textual queries (Mao et al., 2023), allowing for more precise retrieval of information, while RMs expect well-designed precise keywords to deliver relevant results. Moreover, LLMs have the capacity to directly generate specific answers to questions (Ouyang et al., 2022), rather than merely present a list of relevant documents, setting them apart from RMs. However, it is important to note that RMs still have significant advantages over LLMs. For instance, RMs can index a vast number of up-to-date documents (Nakano et al., 2021), whereas LLMs can only generate information that falls within the time-scope of the data they were trained on, potentially leading to hallucinated results (Shuster et al., 2021; Ji et al., 2023; Zhang et al., 2023a;b). Additionally, RMs can conduct quick and efficient searches through a vast amount of information on the internet, making them an ideal choice for finding a wide range of data. Ultimately, both paradigms have their own unique set of irreplaceable advantages, making them useful in their respective areas of application.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 107.641,
+          "top": 706.662,
+          "right": 505.247,
+          "bottom": 566.603,
+          "char_span": [
+            0,
+            1289
+          ]
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1289,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_5",
+      "text": "To enhance IR by leveraging the benefits of RMs and LLMs while circumventing their limitations, we consider bridging these two domains. Fortunately, we observe that textual information refinement can be performed between two counterparts and boost each other. On the one hand, RMs can gather potential documents with valuable information, serving as demonstrations for LLMs. On the other hand, LLMs generate concise summaries using well-crafted prompts, expanding the initial query and improving search accuracy. To this end, we introduce InteR , a novel framework that facilitates information refinement through synergy between RMs and LLMs. Precisely, the RM part of InteR receives the knowledge collection from the LLM part to refine and expand the information in the query. While the LLM part involves the retrieved documents from the RM part as demonstrations to enrich the information in prompt formulation. This two-step refinement procedure can be seamlessly repeated to augment the inputs of RM and LLM. Implicitly, we assume that the outputs of both components supplement each other, leading to more accurate retrieval.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 107.641,
+          "top": 558.218,
+          "right": 505.248,
+          "bottom": 429.118,
+          "char_span": [
+            0,
+            1129
+          ]
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1129,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_6",
+      "text": "We evaluate InteR on public large-scale retrieval benchmarks involving web search and low-resource retrieval tasks following prior work (Gao et al., 2023). The experimental results show that InteR can conduct zero-shot retrieval with overall better performance than state-of-the-art methods, even those using relevance judgment 1 , and achieves new state-of-the-art zero-shot retrieval performance.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 107.532,
+          "top": 420.734,
+          "right": 504.003,
+          "bottom": 379.305,
+          "char_span": [
+            0,
+            398
+          ]
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 398,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_7",
+      "text": "Overall, our main contributions can be summarized as follows:",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 108.0,
+          "top": 370.921,
+          "right": 358.37,
+          "bottom": 362.369,
+          "char_span": [
+            0,
+            61
+          ]
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 61,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_8",
+      "text": "Dense Retrieval Document retrieval has been an important component for several knowledgeintensive tasks (V oorhees et al., 1999; Karpukhin et al., 2020). Traditional techniques such as TF-IDF and BM25 depend on term matching and create sparse vectors (Robertson, 2009; Yang et al., 2017; Chen et al., 2017) to ensure efficient retrieval. After the emergence of pre-trained language models (Devlin et al., 2019; Liu et al., 2019), dense retrieval which encodes both queries and documents into low-dimension vectors and then calculates their relevance scores (Lee et al., 2019; Karpukhin et al., 2020), has recently undergone substantial research. Relevant studies include improving training approach (Karpukhin et al., 2020; Xiong et al., 2021; Qu et al., 2021), distillation (Lin et al., 2021; Hofstätter et al., 2021) and task-specific pre-training (Izacard et al., 2022; Gao & Callan, 2021; Lu et al., 2021; Gao & Callan, 2022; Xiao et al., 2022) of dense retrieval models which significantly outperform sparse approaches.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 108.0,
+          "top": 209.32799999999997,
+          "right": 505.654,
+          "bottom": 90.79899999999998,
+          "char_span": [
+            0,
+            1024
+          ]
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1024,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_9",
+      "text": "Zero-shot Dense Retrieval Many prior works consider training dense retrieval models on highresource passage retrieval datasets like Natural Questions (NQ) (Kwiatkowski et al., 2019) (133k training examples) or MS-MARCO (Bajaj et al., 2016) (533k training examples) and then evaluating on queries from new tasks. These systems (Wang et al., 2022; Yu et al., 2022) are utilized in a transfer learning configuration (Thakur et al., 2021). However, on the one hand, it is time-consuming and expensive to collect such a vast training corpus. On the other hand, even MS-MARCO has limitations on commercial use and cannot be used in a wide range of real-world applications. To this end, recent work (Gao et al., 2023) proposes building zero-shot dense retrieval systems that require no relevance supervision (i.e., relevance label between a pair of query and document), which is considered 'unsupervised' as the only supervision resides in the LLM where learning to follow instructions is conducted in earlier times (Sachan et al., 2022). In this work, we follow this zero-shot unsupervised setting and conduct information refinement through synergy between RMs and LLMs without any relevance supervision to handle the aforementioned issues.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 3,
+          "left": 107.641,
+          "top": 707.05,
+          "right": 505.65,
+          "bottom": 566.603,
+          "char_span": [
+            0,
+            1234
+          ]
+        }
+      ],
+      "page_numbers": [
+        3
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1234,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_10",
+      "text": "Enhance Retrieval Through LMs Recent works have investigated using auto-regressive language models to generate intermediate targets for better retrieval (Cao et al., 2021; Bevilacqua et al., 2022) while identifier strings still need to be created. Other works consider 'retrieving' the knowledge stored in the parameters of pre-trained language models by directly generating text (Petroni et al., 2019; Roberts et al., 2020). Some researchers (Mao et al., 2021; Anantha et al., 2021; Wang et al., 2023) utilize LM to expand the query and incorporate these pseudo-queries for enhanced retrieval while others choose to expand the document (Nogueira et al., 2019). Besides, LMs can also be exploited to provide references for retrieval targets. For instance, GENREAD (Yu et al., 2023) directly generates contextual documents for given questions.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 3,
+          "left": 107.641,
+          "top": 551.49,
+          "right": 505.249,
+          "bottom": 454.879,
+          "char_span": [
+            0,
+            842
+          ]
+        }
+      ],
+      "page_numbers": [
+        3
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 842,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_11",
+      "text": "Enhance LMs Through Retrieval On the contrary, retrieval-enhanced LMs have also received significant attention. Some approaches enhance the accuracy of predicting the distribution of the next word during training (Borgeaud et al., 2022) or inference (Khandelwal et al., 2020) through retrieving the k-most similar training contexts. Alternative methods utilize retrieved documents to provide supplementary context in generation tasks (Joshi et al., 2020; Guu et al., 2020; Lewis et al., 2020). WebGPT (Nakano et al., 2021) further adopts imitation learning and uses human feedback in a text-based web-browsing environment to enhance the LMs. LLM-Augmentor (Peng et al., 2023) improves large language models with external knowledge and automated feedback. REPLUG (Shi et al., 2023) prepends retrieved documents to the input for the frozen LM and treats the LM as a black box. Demonstrate-Search-Predict (DSP) (Khattab et al., 2022) obtains performance gains by relying on passing natural language texts in sophisticated pipelines between a language model and a retrieval model, which is most closely related to our approach. However, they rely on composing two parts with in-context learning and target on multi-hop question answering. While we aim at conducting information refinement via multiple interactions between RMs and LLMs for large-scale retrieval.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 3,
+          "left": 107.641,
+          "top": 439.766,
+          "right": 505.241,
+          "bottom": 288.36,
+          "char_span": [
+            0,
+            1358
+          ]
+        }
+      ],
+      "page_numbers": [
+        3
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1358,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_12",
+      "text": "Document Retrieval: the RM Part Zero-shot document retrieval is a crucial component of search systems. Given the user query q and the document set D = { d 1 , ..., d n } where n is the number of document candidates, the goal of a retrieval model (RM) is to retrieve documents that are relevant to satisfy the user's real search intent of the current query q . To accomplish such document retrieval, prior works can be categorized into two groups: sparse retrieval and dense retrieval. Both lines of research elaborate on devising the similarity function ϕ ( q, d ) for each query-document pair.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 3,
+          "left": 108.0,
+          "top": 244.12099999999998,
+          "right": 505.241,
+          "bottom": 180.38599999999997,
+          "char_span": [
+            0,
+            594
+          ]
+        }
+      ],
+      "page_numbers": [
+        3
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 594,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_13",
+      "text": "The sparse retrieval, e.g., TF-IDF and BM25, depends on lexicon overlap between query q and document d . This line of RMs (Zhou et al., 2022; Thakur et al., 2021) ranks documents D based on their relevance to a given query q by integrating term frequency and inverse document frequency. Another works (Qu et al., 2021; Ni et al., 2022; Karpukhin et al., 2020) focus on dense retrieval that uses two encoding modules to map an input query q and a document d into a pair of vectors ⟨ v q , v d ⟩ , whose inner product is leveraged as a similarity function ϕ :",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 3,
+          "left": 107.641,
+          "top": 172.31999999999994,
+          "right": 505.746,
+          "bottom": 108.65499999999997,
+          "char_span": [
+            0,
+            557
+          ]
+        }
+      ],
+      "page_numbers": [
+        3
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 557,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_14",
+      "text": "Then the topk documents, denoted as ¯ D that have the highest similarity scores when compared with the query q , are retrieved efficiently by RMs regardless of whether the retrieval is sparse or dense.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 3,
+          "left": 107.691,
+          "top": 82.41899999999998,
+          "right": 505.741,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            201
+          ]
+        }
+      ],
+      "page_numbers": [
+        3
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 201,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_15",
+      "text": "Query",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 160.406,
+          "top": 619.442,
+          "right": 183.686,
+          "bottom": 612.398,
+          "char_span": [
+            0,
+            5
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 5,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_16",
+      "text": "Retrieval",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 242.386,
+          "top": 698.455,
+          "right": 270.881,
+          "bottom": 692.115,
+          "char_span": [
+            0,
+            9
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 9,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_17",
+      "text": "Retrieval",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 358.482,
+          "top": 698.455,
+          "right": 386.978,
+          "bottom": 692.115,
+          "char_span": [
+            0,
+            9
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 9,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_18",
+      "text": "Generate",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 188.642,
+          "top": 581.455,
+          "right": 218.9,
+          "bottom": 575.115,
+          "char_span": [
+            0,
+            8
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 8,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_19",
+      "text": "Generate",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 306.043,
+          "top": 581.455,
+          "right": 336.301,
+          "bottom": 575.115,
+          "char_span": [
+            0,
+            8
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 8,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_20",
+      "text": "Query expansion",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 394.056,
+          "top": 585.562,
+          "right": 448.012,
+          "bottom": 579.222,
+          "char_span": [
+            0,
+            15
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 15,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_21",
+      "text": "Prompt formulation",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 393.879,
+          "top": 568.847,
+          "right": 456.651,
+          "bottom": 562.507,
+          "char_span": [
+            0,
+            18
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 18,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_22",
+      "text": "Query",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 252.12,
+          "top": 625.676,
+          "right": 273.096,
+          "bottom": 619.336,
+          "char_span": [
+            0,
+            5
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 5,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_23",
+      "text": "Query",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 310.794,
+          "top": 625.676,
+          "right": 331.771,
+          "bottom": 619.336,
+          "char_span": [
+            0,
+            5
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 5,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_24",
+      "text": "Query",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 367.914,
+          "top": 625.771,
+          "right": 388.891,
+          "bottom": 619.432,
+          "char_span": [
+            0,
+            5
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 5,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_25",
+      "text": "RM",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 191.415,
+          "top": 538.666,
+          "right": 203.895,
+          "bottom": 532.326,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 2,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_26",
+      "text": "LLM",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 236.765,
+          "top": 538.666,
+          "right": 251.782,
+          "bottom": 532.326,
+          "char_span": [
+            0,
+            3
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 3,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_27",
+      "text": "RM outputs",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 287.45,
+          "top": 538.666,
+          "right": 325.49,
+          "bottom": 532.326,
+          "char_span": [
+            0,
+            10
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 10,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_28",
+      "text": "LLM outputs",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 358.79,
+          "top": 538.666,
+          "right": 399.361,
+          "bottom": 532.326,
+          "char_span": [
+            0,
+            11
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 11,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_29",
+      "text": "Noting that as for dense retrieval, following existing methods (Gao et al., 2023), we pre-compute each document's vector v d for efficient retrieval and build the FAISS index (Johnson et al., 2019) over these vectors, and use Contriever (Izacard et al., 2022) as the backbone of query encoder E Q and document encoder E D .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 108.0,
+          "top": 475.949,
+          "right": 504.67,
+          "bottom": 433.761,
+          "char_span": [
+            0,
+            323
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 323,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_30",
+      "text": "Generative Retrieval: the LLM Part Generative search is a new paradigm of IR that employs neural generative models as search indices (Tay et al., 2022; Bevilacqua et al., 2022; Lee et al., 2022). Recent studies propose that LLMs further trained to follow instructions could zero-shot generalize to diverse unseen instructions (Ouyang et al., 2022; Sanh et al., 2022; Min et al., 2022; Wei et al., 2022). Therefore, we prepare textual prompts p that include instructions for the desired behavior to q and obtain a refined query q ′ . Then the LLMs G such as ChatGPT (OpenAI, 2022) take in q ′ and generate related knowledge passage s . This process can be illustrated as follows:",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 108.0,
+          "top": 418.308,
+          "right": 505.739,
+          "bottom": 343.614,
+          "char_span": [
+            0,
+            678
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 678,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_31",
+      "text": "where ⊕ is the prompt formulation operation for q and p . For each q ′ , if we sample h examples via LLM G , we will obtain a knowledge collection S = { s 1 , s 2 , ..., s h } .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 107.641,
+          "top": 315.54,
+          "right": 503.995,
+          "bottom": 293.378,
+          "char_span": [
+            0,
+            177
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 177,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_32",
+      "text": "On top of the preliminaries, we introduce InteR , a novel IR framework that iteratively performs information refinement through synergy between RMs and LLMs. The overview is shown in Figure 1. During each iteration, the RM part and LLM part refine their information in the query through interplay with knowledge collection (via LLMs) or retrieved documents (via RMs) from previous iteration. Specifically, in RM part, InteR refines the information stored in query q with knowledge collection S generated by LLM for better document retrieval. While in LLM part, InteR refines the information in original query q with retrieved document ¯ D from RM for better invoking LLM to generate most relevant knowledge. This two-step procedure can be repeated multiple times in an iterative refinement style.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 108.0,
+          "top": 248.13699999999994,
+          "right": 505.739,
+          "bottom": 151.52600000000007,
+          "char_span": [
+            0,
+            796
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 796,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_33",
+      "text": "When people use search systems, the natural way is to first type in a search query q whose genre can be a question, a keyword, or a combination of both. The RMs in search systems then process the search query q and retrieve several documents ¯ D based on their relevance ϕ ( q, d ) to the search query q . Ideally, ¯ D contains the necessary information related to the user-issued query q . However, it may include irrelevant information to query as the candidate documents for retrieval are chunked and",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 107.532,
+          "top": 112.77800000000002,
+          "right": 504.002,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            503
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 503,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_34",
+      "text": "fixed (Yu et al., 2023). Moreover, it may also miss some required knowledge since the query is often fairly condensed and short (e.g., 'best sushi in San Francisco' ).",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 108.0,
+          "top": 706.662,
+          "right": 503.996,
+          "bottom": 687.151,
+          "char_span": [
+            0,
+            167
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 167,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_35",
+      "text": "To this end, we additionally involve the generated knowledge collection S from LLM in previous iteration and enrich the information included in q with S . Specifically, we consider expanding the query q by concatenating each s i ∈ S multiple times 2 to q and obtaining the similarity of document d with:",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 107.691,
+          "top": 679.084,
+          "right": 504.003,
+          "bottom": 637.337,
+          "char_span": [
+            0,
+            303
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 303,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_36",
+      "text": "where [ · ; · ] is a concatenating operation for query expansion. Now the query is knowledge-intensive equipping with S from LLM part that may be supplement to q . We hope the knowledge collection S can provide directly relevant information to the input query q and help the RMs focus on the domain or topic in user query q .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 107.641,
+          "top": 603.381,
+          "right": 503.996,
+          "bottom": 561.634,
+          "char_span": [
+            0,
+            325
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 325,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_37",
+      "text": "As aforementioned, we can invoke LLMs to conditionally generate knowledge collection S by preparing a prompt p that adapts the LLM to a specific function (Eq. 2). Despite the remarkable text generation capability, they are also prone to hallucination and still struggle to represent the complete long tail of knowledge contained within their training corpus (Shi et al., 2023). To mitigate the aforementioned issues, we argue that ¯ D , the documents retrieved by RMs, may provide rich information about the original query q and can potentially help the LLMs make a better prediction.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 107.641,
+          "top": 522.68,
+          "right": 504.349,
+          "bottom": 459.016,
+          "char_span": [
+            0,
+            584
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 584,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_38",
+      "text": "Specifically, we include the knowledge in ¯ D into p by designing a new prompt as:",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 108.0,
+          "top": 453.467,
+          "right": 434.462,
+          "bottom": 442.079,
+          "char_span": [
+            0,
+            82
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 82,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_39",
+      "text": "Give a question {query} Please write a correct answering passage:",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 131.196,
+          "top": 426.421,
+          "right": 335.429,
+          "bottom": 407.526,
+          "char_span": [
+            0,
+            65
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 65,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_40",
+      "text": "where '{query}' and '{passages}' are the placeholders for q and ¯ D respectively from last RM step:",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 107.641,
+          "top": 393.312,
+          "right": 503.995,
+          "bottom": 370.965,
+          "char_span": [
+            0,
+            99
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 99,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_41",
+      "text": "Now the query q ′ is refined and contains more plentiful information about q through retrieved documents ¯ D as demonstrations. Here we simply concatenate ¯ D for placeholder '{passages}' , which contains k retrieved documents from RM part for input of LLM G .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 107.641,
+          "top": 351.135,
+          "right": 505.245,
+          "bottom": 318.773,
+          "char_span": [
+            0,
+            260
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 260,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_42",
+      "text": "In this section, we explain how iterative refinement can be used to improve both RM and LLM parts. This iterative procedure can be interpreted as exploiting the current query q and previous-generated knowledge collection S to retrieve another document set ¯ D with RM part for the subsequent stage of LLM step. Then, the LLM part leverages the retrieved documents ¯ D from previous stage of RM and synthesizes the knowledge collection S for next RM step. A critical point is that we take LLM as the starting point and use only q and let ¯ D be empty as the initial RM input. Therefore, the prompt of first LLM step is formulated as:",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 107.691,
+          "top": 279.501,
+          "right": 505.741,
+          "bottom": 205.19600000000003,
+          "char_span": [
+            0,
+            632
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 632,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_43",
+      "text": "We propose using an iterative IR pipeline, with each iteration consisting of the four steps listed below:",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 107.532,
+          "top": 144.05399999999997,
+          "right": 505.388,
+          "bottom": 135.50199999999995,
+          "char_span": [
+            0,
+            105
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 105,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_44",
+      "text": "The iterative nature of this multi-step process enables the refinement of information through the synergy between the RMs and the LLMs, which can be executed repeatedly M times to further enhance the quality of results.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 107.691,
+          "top": 642.864,
+          "right": 504.172,
+          "bottom": 612.394,
+          "char_span": [
+            0,
+            219
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 219,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_45",
+      "text": "Following (Gao et al., 2023), we adopt widely-used web search query sets TREC Deep Learning 2019 (DL'19) (Craswell et al., 2020) and TREC Deep Learning 2020 (DL'20) (Craswell et al., 2021) which are based on the MS-MARCO (Bajaj et al., 2016). Besides, we also use six diverse low-resource retrieval datasets from the BEIR benchmark (Thakur et al., 2021) consistent with (Gao et al., 2023) including SciFact (fact-checking), ArguAna (argument retrieval), TREC-COVID (bio-medical IR), FiQA (financial question-answering), DBPedia (entity retrieval), and TREC-NEWS (news retrieval). It is worth pointing out that we do not employ any training query-document pairs, as we conduct retrieval in a zero-shot setting and directly evaluate our proposed method on these test sets. Consistent with prior works, we report MAP, nDCG@10, and Recall@1000 (R@1k) for TREC DL'19 and DL'20 data, and nDCG@10 is employed for all datasets in the BEIR benchmark.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 107.641,
+          "top": 546.044,
+          "right": 505.743,
+          "bottom": 438.862,
+          "char_span": [
+            0,
+            941
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 941,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_46",
+      "text": "Methods without relevance judgment We consider several zero-shot retrieval models as our main baselines, because we do not involve any query-document relevance scores (denoted as w/o relevance judgment ) in our setting. Particularly, we choose heuristic-based lexical retriever BM25 (Robertson & Zaragoza, 2009), BERT-based term weighting framework DeepCT (Dai & Callan, 2019), and Contriever (Izacard et al., 2022) that is trained using unsupervised contrastive learning. We also compare our model with the state-of-the-art LLM-based retrieval model HyDE (Gao et al., 2023) which shares the exact same embedding spaces with Contriever but builds query vectors with LLMs.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 107.611,
+          "top": 400.994,
+          "right": 505.645,
+          "bottom": 326.301,
+          "char_span": [
+            0,
+            671
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 671,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_47",
+      "text": "Methods with relevance judgment Moreover, we also incorporate several systems that utilize fine-tuning on extensive query-document relevance data, such as MS-MARCO, as references (denoted as w/ relevance judgment ). This group encompasses some commonly used fully-supervised retrieval methods, including DPR (Karpukhin et al., 2020), ANCE (Xiong et al., 2021), and the fine-tuned Contriever (Izacard et al., 2022) (denoted as Contriever FT ).",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 108.0,
+          "top": 310.666,
+          "right": 504.001,
+          "bottom": 257.8910000000001,
+          "char_span": [
+            0,
+            442
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 442,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_48",
+      "text": "As for the LLM part, we evaluate our proposed method on two options: closed-source models and open-source models. In the case of closed-source models, we employ the gpt-3.5-turbo , as it is popular and accessible to the general public 3 . As for the open-source models, our choice fell upon the Vicuna models (Chiang et al., 2023) derived from instruction tuning with LLaMa-1/2 (Touvron et al., 2023a;b). Specifically, we assessed the most promising 13B version of Vicuna from LLaMa-2, namely, Vicuna-13B-v1.5 . Additionally, we evaluated the current best-performing 33B version of Vicuna derived from LLaMa-1, which is Vicuna-33B-v1.3 . As for the RM part, we consider BM25 for retrieval since it is much faster. For each q ′ , we sample h = 10 knowledge examples via LLM. After hyper-parameter search on validation sets, we set k as 15 for gpt-3.5-turbo , and 5 for Vicuna-13B-v1.5 and Vicuna-33B-v1.3 . We also set M as 2 by default. 4 We use a temperature of 1 for LLM part in generation and a frequency penalty of zero. We also truncate each RM-retrieved",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 107.253,
+          "top": 219.635,
+          "right": 505.244,
+          "bottom": 101.49400000000003,
+          "char_span": [
+            0,
+            1059
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1059,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_49",
+      "text": "passage/document to 256 tokens and set the maximum number of tokens for each LLM-generated knowledge example to 256 for efficiency. Source codes are uploaded for reproducibility.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 7,
+          "left": 108.0,
+          "top": 313.122,
+          "right": 504.002,
+          "bottom": 293.611,
+          "char_span": [
+            0,
+            178
+          ]
+        }
+      ],
+      "page_numbers": [
+        7
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 178,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_50",
+      "text": "Web Search In Table 1, we show zero-shot retrieval results on TREC DL'19 and TREC DL'20 with baselines. We can find that InteR with selected LLMs can outperform state-of-the-art zero-shot baseline HyDE with significant improvement on most metrics. Specifically, InteR with gpt-3.5-turbo has an > 8% absolute MAP gain and > 5% absolute nDCG@10 gain on both web search benchmarks. Moreover, InteR is also superior to models with relevance judgment on most metrics, which verifies the generalization ability of InteR on large-scale retrieval. Note that our approach does not involve any training process and merely leverages off-the-shelf RMs and LLMs, which is simpler in practice but shown to be more effective.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 7,
+          "left": 108.0,
+          "top": 257.039,
+          "right": 505.745,
+          "bottom": 171.38699999999994,
+          "char_span": [
+            0,
+            710
+          ]
+        }
+      ],
+      "page_numbers": [
+        7
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 710,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_51",
+      "text": "Low-Resource Retrieval In Table 2, we also present the zero-shot retrieval results on six diverse low-resource retrieval tasks from BEIR benchmarks. Firstly, we find that InteR is especially competent on TREC-COVID and TREC-NEWS and even significantly outperforms baselines with relevance judgment. Secondly, InteR also brings considerable improvements to baselines on SciFact and DBPedia, which shows our performance advantages on fact-checking and entity retrieval. Finally, it can be observed that the performance of FiQA and ArguAna falls short when compared to the baseline models. This could potentially be attributed to the LLM's limited financial knowledge of FiQA and the RM's marginal qualification to effectively handle relatively longer queries for ArguAna (Thakur et al., 2021).",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 7,
+          "left": 108.0,
+          "top": 156.683,
+          "right": 504.166,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            791
+          ]
+        }
+      ],
+      "page_numbers": [
+        7
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 791,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_52",
+      "text": "2",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 167.502,
+          "top": 600.799,
+          "right": 171.7,
+          "bottom": 594.127,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_53",
+      "text": "4",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 192.017,
+          "top": 600.799,
+          "right": 196.215,
+          "bottom": 594.127,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_54",
+      "text": "6",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 216.531,
+          "top": 600.799,
+          "right": 220.73,
+          "bottom": 594.127,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_55",
+      "text": "8",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 241.046,
+          "top": 600.799,
+          "right": 245.244,
+          "bottom": 594.127,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_56",
+      "text": "10",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 263.461,
+          "top": 600.799,
+          "right": 271.857,
+          "bottom": 594.127,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 2,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_57",
+      "text": "12",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 287.975,
+          "top": 600.799,
+          "right": 296.372,
+          "bottom": 594.127,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 2,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_58",
+      "text": "h",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 228.435,
+          "top": 594.296,
+          "right": 233.222,
+          "bottom": 585.499,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_59",
+      "text": "44",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 153.752,
+          "top": 604.822,
+          "right": 162.148,
+          "bottom": 598.15,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 2,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_60",
+      "text": "46",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 153.752,
+          "top": 633.528,
+          "right": 162.148,
+          "bottom": 626.856,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 2,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_61",
+      "text": "48",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 153.752,
+          "top": 662.234,
+          "right": 162.148,
+          "bottom": 655.562,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 2,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_62",
+      "text": "50",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 153.752,
+          "top": 690.939,
+          "right": 162.148,
+          "bottom": 684.268,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 2,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_63",
+      "text": "MAP",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 145.337,
+          "top": 660.533,
+          "right": 152.008,
+          "bottom": 644.17,
+          "char_span": [
+            0,
+            3
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 3,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_64",
+      "text": "TREC'19",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 270.735,
+          "top": 618.394,
+          "right": 295.809,
+          "bottom": 612.89,
+          "char_span": [
+            0,
+            7
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 7,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_65",
+      "text": "TREC'20",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 270.735,
+          "top": 610.344,
+          "right": 295.809,
+          "bottom": 604.84,
+          "char_span": [
+            0,
+            7
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 7,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_66",
+      "text": "2",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 333.53,
+          "top": 600.777,
+          "right": 337.724,
+          "bottom": 594.113,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_67",
+      "text": "4",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 358.015,
+          "top": 600.777,
+          "right": 362.208,
+          "bottom": 594.113,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_68",
+      "text": "6",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 382.5,
+          "top": 600.777,
+          "right": 386.693,
+          "bottom": 594.113,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_69",
+      "text": "8",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 406.985,
+          "top": 600.777,
+          "right": 411.178,
+          "bottom": 594.113,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_70",
+      "text": "10",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 429.372,
+          "top": 600.777,
+          "right": 437.758,
+          "bottom": 594.113,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 2,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_71",
+      "text": "12",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 453.857,
+          "top": 600.777,
+          "right": 462.243,
+          "bottom": 594.113,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 2,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_72",
+      "text": "h",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 394.389,
+          "top": 594.281,
+          "right": 399.17,
+          "bottom": 585.495,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_73",
+      "text": "60",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 319.797,
+          "top": 604.795,
+          "right": 328.183,
+          "bottom": 598.131,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 2,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_74",
+      "text": "62",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 319.797,
+          "top": 627.095,
+          "right": 328.183,
+          "bottom": 620.431,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 2,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_75",
+      "text": "64",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 319.797,
+          "top": 649.394,
+          "right": 328.183,
+          "bottom": 642.731,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 2,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_76",
+      "text": "66",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 319.797,
+          "top": 671.694,
+          "right": 328.183,
+          "bottom": 665.03,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 2,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_77",
+      "text": "68",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 319.797,
+          "top": 693.993,
+          "right": 328.183,
+          "bottom": 687.33,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 2,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_78",
+      "text": "nDCG@10",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 311.303,
+          "top": 670.762,
+          "right": 317.967,
+          "bottom": 633.77,
+          "char_span": [
+            0,
+            7
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 7,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_79",
+      "text": "TREC'19",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 436.637,
+          "top": 618.35,
+          "right": 461.681,
+          "bottom": 612.853,
+          "char_span": [
+            0,
+            7
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 7,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_80",
+      "text": "TREC'20",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 436.637,
+          "top": 610.31,
+          "right": 461.681,
+          "bottom": 604.813,
+          "char_span": [
+            0,
+            7
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 7,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_81",
+      "text": "The impact of the size of knowledge collection ( h ) We conducted additional research to examine the impact of the size of knowledge collection (i.e., h ) on the performance of InteR. Figure 2 illustrates the changes in MAP and nDCG@10 curves of InteR with gpt-3.5-turbo on TREC DL'19 and DL'20, with respect to varying numbers of knowledge examples. Our observations reveal a consistent pattern in both benchmarks: as the number of generated knowledge increases, the performance metrics demonstrate a gradual improvement until reaching 10 knowledge examples. Subsequently, the performance metrics stabilize, indicating that additional knowledge examples do not significantly enhance the results. This phenomenon could be attributed to the presence of redundant knowledge within the surplus examples generated by LLMs.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 107.641,
+          "top": 282.844,
+          "right": 505.244,
+          "bottom": 186.23299999999995,
+          "char_span": [
+            0,
+            818
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 818,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_82",
+      "text": "The impact of the number of information refinement iterations ( M ) We also investigated the effect of different numbers of information refinement iterations ( M ) on the performance of InteR. The results of InteR with gpt-3.5-turbo presented in Table 3 indicate a notable enhancement in retrieval capacity as M increases from 0 to 2, which verifies the effectiveness of multiple iterative information refinement between RMs and LLMs. However, if we further increase M , the performance may not improve, possibly due to a decrease in the diversity of retrieved documents from RMs. Here if we set M to 0, InteR will degenerate into BM25.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 108.0,
+          "top": 170.44900000000007,
+          "right": 504.004,
+          "bottom": 95.755,
+          "char_span": [
+            0,
+            636
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 636,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_83",
+      "text": "Dense retrieval v.s. sparse retrieval Furthermore, we delve into the impact of the retrieval strategy for constructing ¯ D on Eq. 4 on the performance of InteR. Table 4 shows the experimental results of",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 108.0,
+          "top": 79.971,
+          "right": 504.346,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            202
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 202,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_84",
+      "text": "InteR with gpt-3.5-turbo , where we initiate the RM with an unsupervised sparse retrieval model (i.e., BM25) or an unsupervised dense retrieval model (i.e., Contriever). Additionally, we introduce a hybrid retrieval paradigm that combines half of the documents from the sparse retrieval model with the other half from the dense retrieval model. These components are then merged to generate the output of the hybrid retrieval model, namely InteR (Hybrid). We can observe that the dense model is the best strategy for InteR and even outperforms the hybrid counterpart, which is consistent with the observations from prior works (Karpukhin et al., 2020). Therefore, we use a dense retrieval model to construct ¯ D as default. It is noteworthy that we only use a dense retrieval model for constructing ¯ D during information refinement and leave the final retrieval model as a sparse BM25 for efficiency.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 9,
+          "left": 107.671,
+          "top": 706.662,
+          "right": 504.005,
+          "bottom": 610.438,
+          "char_span": [
+            0,
+            900
+          ]
+        }
+      ],
+      "page_numbers": [
+        9
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 900,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_85",
+      "text": "Case Study on LLM Outputs To better illustrate how RMs enrich the outputs of LLMs, we selected an example from TREC DL'19 and compared those outputs of gpt-3.5-turbo after the first and second iterations. Due to the limited space, we only show the first LLM-generated knowledge (i.e., s 1 ). In the initial iteration ( M = 1 ), the LLM demonstrated its capacity to generate paragraphs by leveraging its commonsense encoded within its parameters. After taking the search results of RM (documents about ' Thailand ') in the prompt, LLM outputs in the second iteration M = 2 became more informative. Specifically, the text highlighted in yellow elaborated on Thailand's population and unemployment rate , which was absent in the first iteration, and facilitated the next RM step.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 9,
+          "left": 107.671,
+          "top": 596.598,
+          "right": 504.003,
+          "bottom": 510.945,
+          "char_span": [
+            0,
+            776
+          ]
+        }
+      ],
+      "page_numbers": [
+        9
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 776,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_86",
+      "text": "Case : query_id : 1112341, query : 'what is the daily life of thai people'",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 9,
+          "left": 113.325,
+          "top": 498.928,
+          "right": 368.696,
+          "bottom": 490.867,
+          "char_span": [
+            0,
+            74
+          ]
+        }
+      ],
+      "page_numbers": [
+        9
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 74,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_87",
+      "text": "LLMoutputs of M = 1 : The daily life of Thai people is heavily influenced by their culture and traditions. The majority of the population practices Buddhism, and daily prayer and meditation are common. Family is also extremely important, and many Thai people live with extended family members. In terms of food, Thai cuisine is known for its spicy and savory flavors, and meals often revolve around rice and noodles. Street food is also a big part of daily life, with vendors selling snacks and meals on every corner. Work is an important aspect of daily life as well, and many Thai people work long hours in industries such as agriculture, tourism, and manufacturing. Despite the demands of work, there is a strong emphasis on taking breaks throughout the day to socialize and interact with others. Overall, the daily life of Thai people is a harmonious blend of religious practice, family values, flavorful cuisine, and hard work.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 9,
+          "left": 113.047,
+          "top": 479.003,
+          "right": 500.247,
+          "bottom": 391.255,
+          "char_span": [
+            0,
+            932
+          ]
+        }
+      ],
+      "page_numbers": [
+        9
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 932,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_88",
+      "text": "LLM outputs of M = 2 : Thailand's daily life is influenced by its diverse geography and cultural influences from India, China, Cambodia, and the rest of Southeast Asia. The country's national religion, Theravada Buddhism, is central to modern Thai identity. Social occasions in Thailand often revolve around food, which is ordered and eaten in a communal style. Thai food presentation is among the most exquisite in the world, developed primarily in the palace to please the King of Siam. Thai people love to have fun together and often ask each other if they had a good time. The population of Thailand is approximately 67.5 million people, including ethnic groups such as Chinese, Malay, Lao, Burma, Cambodia, and Indians. Unemployment rate in Thailand is relatively low, standing at 0.84% according to Thailand's National Economic and Social Development Board (NESDB). Thai time is divided into five sections, with different names for each section of the day. The country's primary religion is Theravada Buddhism, and important holidays include Thai New Year, or Songkran. Overall, the daily life of Thai people is diverse, vibrant and deeply rooted in their rich cultural heritage.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 9,
+          "left": 112.805,
+          "top": 379.376,
+          "right": 499.794,
+          "bottom": 258.37799999999993,
+          "char_span": [
+            0,
+            1185
+          ]
+        }
+      ],
+      "page_numbers": [
+        9
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 1185,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_89",
+      "text": "In this work, we present InteR , a novel framework that harnesses the strengths of both large language models (LLMs) and retrieval models (RMs) to enhance information retrieval. By facilitating information refinement through synergy between LLMs and RMs, InteR achieves overall superior zero-shot retrieval performance compared to state-of-the-art methods, and even those using relevance judgment, on large-scale retrieval benchmarks involving web search and low-resource retrieval tasks. With its ability to leverage the benefits of both paradigms, InteR may present a potential direction for advancing information retrieval systems.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 9,
+          "left": 107.532,
+          "top": 212.341,
+          "right": 505.748,
+          "bottom": 137.64800000000002,
+          "char_span": [
+            0,
+            634
+          ]
+        }
+      ],
+      "page_numbers": [
+        9
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 634,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_90",
+      "text": "Limitations While InteR demonstrates improved zero-shot retrieval performance, it should be noted that its effectiveness heavily relies on the quality of the used large language models (LLMs). If these underlying components contain biases, inaccuracies, or limitations in their training data, it could impact the reliability and generalizability of the retrieval results. In that case, one may need to design a more sophisticated method of information refinement, especially the prompt formulation part. We leave this exploration for future work.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 9,
+          "left": 108.0,
+          "top": 123.80700000000002,
+          "right": 505.74,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            546
+          ]
+        }
+      ],
+      "page_numbers": [
+        9
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 546,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_text_91",
+      "text": "Methods in Natural Language Processing, pp. 538-548, Abu Dhabi, United Arab Emirates, December 2022. Association for Computational Linguistics. URL https://aclanthology.org/ 2022.emnlp-main.35 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 15,
+          "left": 117.963,
+          "top": 706.662,
+          "right": 505.657,
+          "bottom": 676.192,
+          "char_span": [
+            0,
+            194
+          ]
+        }
+      ],
+      "page_numbers": [
+        15
+      ],
+      "metadata": {
+        "element_label": "text",
+        "content_layer": "body",
+        "text_length": 194,
+        "group_type": "text"
+      }
+    },
+    {
+      "id": "element_page_footer_0",
+      "text": "1",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 1,
+          "left": 303.136,
+          "top": 38.73599999999999,
+          "right": 308.117,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        1
+      ],
+      "metadata": {
+        "element_label": "page_footer",
+        "content_layer": "furniture",
+        "text_length": 1,
+        "group_type": "page_footer"
+      }
+    },
+    {
+      "id": "element_page_footer_1",
+      "text": "2",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 303.509,
+          "top": 38.73599999999999,
+          "right": 308.49,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "element_label": "page_footer",
+        "content_layer": "furniture",
+        "text_length": 1,
+        "group_type": "page_footer"
+      }
+    },
+    {
+      "id": "element_page_footer_2",
+      "text": "3",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 3,
+          "left": 303.509,
+          "top": 38.73599999999999,
+          "right": 308.49,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        3
+      ],
+      "metadata": {
+        "element_label": "page_footer",
+        "content_layer": "furniture",
+        "text_length": 1,
+        "group_type": "page_footer"
+      }
+    },
+    {
+      "id": "element_page_footer_3",
+      "text": "4",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 303.335,
+          "top": 38.73599999999999,
+          "right": 308.316,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "page_footer",
+        "content_layer": "furniture",
+        "text_length": 1,
+        "group_type": "page_footer"
+      }
+    },
+    {
+      "id": "element_page_footer_4",
+      "text": "5",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 303.509,
+          "top": 38.73599999999999,
+          "right": 308.49,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "page_footer",
+        "content_layer": "furniture",
+        "text_length": 1,
+        "group_type": "page_footer"
+      }
+    },
+    {
+      "id": "element_page_footer_5",
+      "text": "6",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 303.509,
+          "top": 38.73599999999999,
+          "right": 308.49,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_label": "page_footer",
+        "content_layer": "furniture",
+        "text_length": 1,
+        "group_type": "page_footer"
+      }
+    },
+    {
+      "id": "element_page_footer_6",
+      "text": "7",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 7,
+          "left": 303.385,
+          "top": 38.73599999999999,
+          "right": 308.366,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        7
+      ],
+      "metadata": {
+        "element_label": "page_footer",
+        "content_layer": "furniture",
+        "text_length": 1,
+        "group_type": "page_footer"
+      }
+    },
+    {
+      "id": "element_page_footer_7",
+      "text": "8",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 303.509,
+          "top": 38.73599999999999,
+          "right": 308.49,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "page_footer",
+        "content_layer": "furniture",
+        "text_length": 1,
+        "group_type": "page_footer"
+      }
+    },
+    {
+      "id": "element_page_footer_8",
+      "text": "9",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 9,
+          "left": 303.509,
+          "top": 38.73599999999999,
+          "right": 308.49,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            1
+          ]
+        }
+      ],
+      "page_numbers": [
+        9
+      ],
+      "metadata": {
+        "element_label": "page_footer",
+        "content_layer": "furniture",
+        "text_length": 1,
+        "group_type": "page_footer"
+      }
+    },
+    {
+      "id": "element_page_footer_9",
+      "text": "10",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 300.645,
+          "top": 38.73599999999999,
+          "right": 310.608,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "element_label": "page_footer",
+        "content_layer": "furniture",
+        "text_length": 2,
+        "group_type": "page_footer"
+      }
+    },
+    {
+      "id": "element_page_footer_10",
+      "text": "11",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 300.645,
+          "top": 38.73599999999999,
+          "right": 310.608,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_label": "page_footer",
+        "content_layer": "furniture",
+        "text_length": 2,
+        "group_type": "page_footer"
+      }
+    },
+    {
+      "id": "element_page_footer_11",
+      "text": "12",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 12,
+          "left": 300.645,
+          "top": 38.73599999999999,
+          "right": 310.608,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        12
+      ],
+      "metadata": {
+        "element_label": "page_footer",
+        "content_layer": "furniture",
+        "text_length": 2,
+        "group_type": "page_footer"
+      }
+    },
+    {
+      "id": "element_page_footer_12",
+      "text": "13",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 300.645,
+          "top": 38.73599999999999,
+          "right": 310.608,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_label": "page_footer",
+        "content_layer": "furniture",
+        "text_length": 2,
+        "group_type": "page_footer"
+      }
+    },
+    {
+      "id": "element_page_footer_13",
+      "text": "14",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 300.645,
+          "top": 38.73599999999999,
+          "right": 310.608,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_label": "page_footer",
+        "content_layer": "furniture",
+        "text_length": 2,
+        "group_type": "page_footer"
+      }
+    },
+    {
+      "id": "element_page_footer_14",
+      "text": "15",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 15,
+          "left": 300.645,
+          "top": 38.73599999999999,
+          "right": 310.608,
+          "bottom": 30.18399999999997,
+          "char_span": [
+            0,
+            2
+          ]
+        }
+      ],
+      "page_numbers": [
+        15
+      ],
+      "metadata": {
+        "element_label": "page_footer",
+        "content_layer": "furniture",
+        "text_length": 2,
+        "group_type": "page_footer"
+      }
+    },
+    {
+      "id": "element_list_item_0",
+      "text": "We introduce InteR, a novel IR framework bridging two cutting-edge IR products, search systems and large language models, while enjoying their strengths and circumventing their limitations.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 135.397,
+          "top": 349.554,
+          "right": 504.17,
+          "bottom": 319.085,
+          "char_span": [
+            0,
+            191
+          ]
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 189,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_1",
+      "text": "We propose iterative information refinement via synergy between retrieval models and large language models, resulting in improved retrieval quality.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 135.397,
+          "top": 311.803,
+          "right": 504.004,
+          "bottom": 292.292,
+          "char_span": [
+            0,
+            150
+          ]
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 148,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_2",
+      "text": "Evaluation results on zero-shot retrieval demonstrate that InteR can overall conduct more accurate retrieval than state-of-the-art approaches and even outperform baselines that leverage relevance judgment for supervised learning.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 135.397,
+          "top": 285.011,
+          "right": 505.656,
+          "bottom": 254.54099999999994,
+          "char_span": [
+            0,
+            231
+          ]
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 229,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_3",
+      "text": "Invoke LLM to conditionally generate knowledge collection S with prompt q ′ on Eq. 4. The retrieved document set ¯ D is derived from previous RM step and set as empty in the beginning.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 131.412,
+          "top": 124.29600000000005,
+          "right": 505.748,
+          "bottom": 91.93399999999997,
+          "char_span": [
+            0,
+            187
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 184,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_4",
+      "text": "Construct the updated input for RM with knowledge collection S and query q to compute the similarity of each document d .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 131.412,
+          "top": 706.98,
+          "right": 503.997,
+          "bottom": 687.151,
+          "char_span": [
+            0,
+            124
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 121,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_5",
+      "text": "Invoke RM to retrieve the topk most 'relevant' documents as ¯ D on Eq. 3.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 131.412,
+          "top": 682.783,
+          "right": 441.016,
+          "bottom": 671.395,
+          "char_span": [
+            0,
+            76
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 73,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_6",
+      "text": "Formulate a new prompt q ′ by combining the retrieved document set ¯ D with query q .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 131.412,
+          "top": 667.028,
+          "right": 483.039,
+          "bottom": 655.639,
+          "char_span": [
+            0,
+            88
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 85,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_7",
+      "text": "Raviteja Anantha, Svitlana Vakulenko, Zhucheng Tu, Shayne Longpre, Stephen Pulman, and Srinivas Chappidi. Open-domain question answering goes conversational via question rewriting. In Kristina Toutanova, Anna Rumshisky, Luke Zettlemoyer, Dilek Hakkani-Tur, Iz Beltagy, Steven Bethard, Ryan Cotterell, Tanmoy Chakraborty, and Yichao Zhou (eds.), Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, pp. 520-534, Online, June 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.naacl-main.44. URL https://aclanthology.org/2021. naacl-main.44 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 688.127,
+          "right": 507.486,
+          "bottom": 602.863,
+          "char_span": [
+            0,
+            651
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 651,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_8",
+      "text": "Payal Bajaj, Daniel Campos, Nick Craswell, Li Deng, Jianfeng Gao, Xiaodong Liu, Rangan Majumder, Andrew McNamara, Bhaskar Mitra, Tri Nguyen, et al. Ms marco: A human generated machine reading comprehension dataset. arXiv preprint arXiv:1611.09268, 2016.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 589.966,
+          "right": 505.654,
+          "bottom": 559.496,
+          "char_span": [
+            0,
+            253
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 253,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_9",
+      "text": "Michele Bevilacqua, Giuseppe Ottaviano, Patrick Lewis, Scott Yih, Sebastian Riedel, and Fabio Petroni. Autoregressive search engines: Generating substrings as document identifiers. Advances in Neural Information Processing Systems, 35:31668-31683, 2022.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 546.599,
+          "right": 504.0,
+          "bottom": 516.129,
+          "char_span": [
+            0,
+            253
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 253,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_10",
+      "text": "Sebastian Borgeaud, Arthur Mensch, Jordan Hoffmann, Trevor Cai, Eliza Rutherford, Katie Millican, George Bm Van Den Driessche, Jean-Baptiste Lespiau, Bogdan Damoc, Aidan Clark, et al. Improving language models by retrieving from trillions of tokens. In International conference on machine learning, pp. 2206-2240. PMLR, 2022.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 503.232,
+          "right": 505.739,
+          "bottom": 461.803,
+          "char_span": [
+            0,
+            325
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 325,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_11",
+      "text": "Nicola De Cao, Gautier Izacard, Sebastian Riedel, and Fabio Petroni. Autoregressive entity retrieval. In International Conference on Learning Representations, 2021. URL https://openreview. net/forum?id=5k8F6UU39V .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 448.906,
+          "right": 507.487,
+          "bottom": 418.436,
+          "char_span": [
+            0,
+            214
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 214,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_12",
+      "text": "Danqi Chen, Adam Fisch, Jason Weston, and Antoine Bordes. Reading Wikipedia to answer open-domain questions. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 1870-1879, Vancouver, Canada, July 2017. Association for Computational Linguistics. doi: 10.18653/v1/P17-1171. URL https://aclanthology.org/P17-1171 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 405.539,
+          "right": 505.24,
+          "bottom": 353.151,
+          "char_span": [
+            0,
+            379
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 379,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_13",
+      "text": "Wei-Lin Chiang, Zhuohan Li, Zi Lin, Ying Sheng, Zhanghao Wu, Hao Zhang, Lianmin Zheng, Siyuan Zhuang, Yonghao Zhuang, Joseph E. Gonzalez, Ion Stoica, and Eric P. Xing. Vicuna: An open-source chatbot impressing gpt-4 with 90%* chatgpt quality, March 2023. URL https: //lmsys.org/blog/2023-03-30-vicuna/ .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 340.254,
+          "right": 506.491,
+          "bottom": 298.825,
+          "char_span": [
+            0,
+            303
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 303,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_14",
+      "text": "Nick Craswell, Bhaskar Mitra, Emine Yilmaz, Daniel Campos, and Ellen M Voorhees. Overview of the trec 2019 deep learning track. arXiv preprint arXiv:2003.07820, 2020.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 285.928,
+          "right": 503.996,
+          "bottom": 266.4169999999999,
+          "char_span": [
+            0,
+            166
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 166,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_15",
+      "text": "Nick Craswell, Bhaskar Mitra, Emine Yilmaz, and Daniel Campos. Overview of the trec 2020 deep learning track. arXiv preprint arXiv:2102.07662, 2021.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 253.51999999999998,
+          "right": 503.997,
+          "bottom": 234.00900000000001,
+          "char_span": [
+            0,
+            148
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 148,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_16",
+      "text": "Zhuyun Dai and Jamie Callan. Context-aware sentence/passage term importance estimation for first stage retrieval. arXiv preprint arXiv:1910.10687, 2019.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 221.11199999999997,
+          "right": 503.996,
+          "bottom": 201.601,
+          "char_span": [
+            0,
+            152
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 152,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_17",
+      "text": "Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. BERT: Pre-training of deep bidirectional transformers for language understanding. In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers), pp. 4171-4186, Minneapolis, Minnesota, June 2019. Association for Computational Linguistics. doi: 10.18653/v1/N19-1423. URL https: //aclanthology.org/N19-1423 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 188.70399999999995,
+          "right": 506.491,
+          "bottom": 125.35699999999997,
+          "char_span": [
+            0,
+            489
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 489,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_18",
+      "text": "Luyu Gao and Jamie Callan. Condenser: a pre-training architecture for dense retrieval. In Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing, pp. 981-993, Online and Punta Cana, Dominican Republic, November 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.emnlp-main.75. URL https://aclanthology.org/2021. emnlp-main.75 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 10,
+          "left": 108.0,
+          "top": 112.46000000000004,
+          "right": 507.486,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            379
+          ]
+        }
+      ],
+      "page_numbers": [
+        10
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 379,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_19",
+      "text": "Luyu Gao and Jamie Callan. Unsupervised corpus aware language model pre-training for dense passage retrieval. In Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 2843-2853, Dublin, Ireland, May 2022. Association for Computational Linguistics. doi: 10.18653/v1/2022.acl-long.203. URL https://aclanthology. org/2022.acl-long.203 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 706.662,
+          "right": 507.486,
+          "bottom": 654.274,
+          "char_span": [
+            0,
+            396
+          ]
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 396,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_20",
+      "text": "Luyu Gao, Xueguang Ma, Jimmy Lin, and Jamie Callan. Precise zero-shot dense retrieval without relevance labels. In Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 1762-1777, Toronto, Canada, July 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.acl-long.99. URL https://aclanthology. org/2023.acl-long.99 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 643.251,
+          "right": 507.486,
+          "bottom": 590.863,
+          "char_span": [
+            0,
+            397
+          ]
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 397,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_21",
+      "text": "Manas Gaur, Kalpa Gunaratna, Vijay Srinivasan, and Hongxia Jin. Iseeq: Information seeking question generation using dynamic meta-information retrieval and knowledge graphs. In Proceedings of the AAAI Conference on Artificial Intelligence, volume 36, pp. 10672-10680, 2022.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 579.84,
+          "right": 505.658,
+          "bottom": 549.37,
+          "char_span": [
+            0,
+            273
+          ]
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 273,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_22",
+      "text": "Daniel Gillick, Sayali Kulkarni, Larry Lansing, Alessandro Presta, Jason Baldridge, Eugene Ie, and Diego Garcia-Olano. Learning dense representations for entity retrieval. In Proceedings of the 23rd Conference on Computational Natural Language Learning (CoNLL), pp. 528-537, Hong Kong, China, November 2019. Association for Computational Linguistics. doi: 10.18653/v1/K19-1049. URL https://aclanthology.org/K19-1049 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 538.347,
+          "right": 505.747,
+          "bottom": 485.96,
+          "char_span": [
+            0,
+            417
+          ]
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 417,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_23",
+      "text": "Google. Google bard. https://bard.google.com/, 2023. URL https://bard.google.com/ .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 474.937,
+          "right": 471.864,
+          "bottom": 466.385,
+          "char_span": [
+            0,
+            83
+          ]
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 83,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_24",
+      "text": "Kelvin Guu, Kenton Lee, Zora Tung, Panupong Pasupat, and Mingwei Chang. Retrieval augmented language model pre-training. In International conference on machine learning, pp. 3929-3938. PMLR, 2020.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 455.362,
+          "right": 505.743,
+          "bottom": 424.892,
+          "char_span": [
+            0,
+            196
+          ]
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 196,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_25",
+      "text": "Sebastian Hofstätter, Sheng-Chieh Lin, Jheng-Hong Yang, Jimmy Lin, and Allan Hanbury. Efficiently teaching an effective dense retriever with balanced topic aware sampling. In Proceedings of the 44th International ACM SIGIR Conference on Research and Development in Information Retrieval, pp. 113-122, 2021.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 413.869,
+          "right": 504.353,
+          "bottom": 372.44,
+          "char_span": [
+            0,
+            306
+          ]
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 306,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_26",
+      "text": "Gautier Izacard, Mathilde Caron, Lucas Hosseini, Sebastian Riedel, Piotr Bojanowski, Armand Joulin, and Edouard Grave. Unsupervised dense information retrieval with contrastive learning. Transactions on Machine Learning Research, 2022. ISSN 2835-8856. URL https: //openreview.net/forum?id=jKN1pXi7b0 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 361.417,
+          "right": 506.491,
+          "bottom": 319.988,
+          "char_span": [
+            0,
+            301
+          ]
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 301,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_27",
+      "text": "Ziwei Ji, Nayeon Lee, Rita Frieske, Tiezheng Yu, Dan Su, Yan Xu, Etsuko Ishii, Ye Jin Bang, Andrea Madotto, and Pascale Fung. Survey of hallucination in natural language generation. ACM Computing Surveys, 55(12):1-38, 2023.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 308.965,
+          "right": 505.247,
+          "bottom": 278.495,
+          "char_span": [
+            0,
+            223
+          ]
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 223,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_28",
+      "text": "Jeff Johnson, Matthijs Douze, and Hervé Jégou. Billion-scale similarity search with gpus. IEEE Transactions on Big Data, 7(3):535-547, 2019.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 267.472,
+          "right": 504.0,
+          "bottom": 247.962,
+          "char_span": [
+            0,
+            140
+          ]
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 140,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_29",
+      "text": "Mandar Joshi, Kenton Lee, Yi Luan, and Kristina Toutanova. Contextualized representations using textual encyclopedic knowledge. arXiv preprint arXiv:2004.12006, 2020.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 236.938,
+          "right": 504.004,
+          "bottom": 217.428,
+          "char_span": [
+            0,
+            166
+          ]
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 166,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_30",
+      "text": "Vladimir Karpukhin, Barlas Oguz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, and Wen-tau Yih. Dense passage retrieval for open-domain question answering. In Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP), pp. 6769-6781, Online, November 2020. Association for Computational Linguistics. doi: 10.18653/v1/2020.emnlp-main.550. URL https://aclanthology.org/2020.emnlp-main. 550 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 206.404,
+          "right": 507.486,
+          "bottom": 143.058,
+          "char_span": [
+            0,
+            443
+          ]
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 443,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_31",
+      "text": "Urvashi Khandelwal, Omer Levy, Dan Jurafsky, Luke Zettlemoyer, and Mike Lewis. Generalization through memorization: Nearest neighbor language models. In International Conference on Learning Representations, 2020. URL https://openreview.net/forum?id=HklBjCEKvH .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 132.03499999999997,
+          "right": 505.654,
+          "bottom": 101.56500000000005,
+          "char_span": [
+            0,
+            261
+          ]
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 261,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_32",
+      "text": "Omar Khattab, Keshav Santhanam, Xiang Lisa Li, David Hall, Percy Liang, Christopher Potts, and Matei Zaharia. Demonstrate-search-predict: Composing retrieval and language models for knowledge-intensive nlp. arXiv preprint arXiv:2212.14024, 2022.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 11,
+          "left": 108.0,
+          "top": 90.54200000000003,
+          "right": 505.247,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            245
+          ]
+        }
+      ],
+      "page_numbers": [
+        11
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 245,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_33",
+      "text": "Tom Kwiatkowski, Jennimaria Palomaki, Olivia Redfield, Michael Collins, Ankur Parikh, Chris Alberti, Danielle Epstein, Illia Polosukhin, Jacob Devlin, Kenton Lee, Kristina Toutanova, Llion Jones, Matthew Kelcey, Ming-Wei Chang, Andrew M. Dai, Jakob Uszkoreit, Quoc Le, and Slav Petrov. Natural questions: A benchmark for question answering research. Transactions of the Association for Computational Linguistics, 7:452-466, 2019. doi: 10.1162/tacl_a_00276. URL https://aclanthology.org/Q19-1026 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 706.662,
+          "right": 504.489,
+          "bottom": 643.315,
+          "char_span": [
+            0,
+            496
+          ]
+        }
+      ],
+      "page_numbers": [
+        12
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 496,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_34",
+      "text": "Yunshi Lan, Gaole He, Jinhao Jiang, Jing Jiang, Wayne Xin Zhao, and Ji-Rong Wen. A survey on complex knowledge base question answering: Methods, challenges and solutions. In Zhi-Hua Zhou (ed.), Proceedings of the Thirtieth International Joint Conference on Artificial Intelligence, IJCAI-21, pp. 4483-4491. International Joint Conferences on Artificial Intelligence Organization, 8 2021. doi: 10.24963/ijcai.2021/611. URL https://doi.org/10.24963/ijcai.2021/611 . Survey Track.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 632.995,
+          "right": 505.743,
+          "bottom": 569.648,
+          "char_span": [
+            0,
+            477
+          ]
+        }
+      ],
+      "page_numbers": [
+        12
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 477,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_35",
+      "text": "Hyunji Lee, Sohee Yang, Hanseok Oh, and Minjoon Seo. Generative multi-hop retrieval. In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing, pp. 1417-1436, Abu Dhabi, United Arab Emirates, December 2022. Association for Computational Linguistics. URL https://aclanthology.org/2022.emnlp-main.92 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 559.328,
+          "right": 505.747,
+          "bottom": 517.899,
+          "char_span": [
+            0,
+            331
+          ]
+        }
+      ],
+      "page_numbers": [
+        12
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 331,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_36",
+      "text": "Kenton Lee, Ming-Wei Chang, and Kristina Toutanova. Latent retrieval for weakly supervised open domain question answering. In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, pp. 6086-6096, Florence, Italy, July 2019. Association for Computational Linguistics. doi: 10.18653/v1/P19-1612. URL https://aclanthology.org/P19-1612 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 507.579,
+          "right": 505.656,
+          "bottom": 466.15,
+          "char_span": [
+            0,
+            367
+          ]
+        }
+      ],
+      "page_numbers": [
+        12
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 367,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_37",
+      "text": "Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, et al. Retrieval-augmented generation for knowledge-intensive nlp tasks. Advances in Neural Information Processing Systems, 33: 9459-9474, 2020.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 455.83,
+          "right": 505.657,
+          "bottom": 414.401,
+          "char_span": [
+            0,
+            299
+          ]
+        }
+      ],
+      "page_numbers": [
+        12
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 299,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_38",
+      "text": "Sheng-Chieh Lin, Jheng-Hong Yang, and Jimmy Lin. In-batch negatives for knowledge distillation with tightly-coupled teachers for dense retrieval. In Proceedings of the 6th Workshop on Representation Learning for NLP (RepL4NLP-2021), pp. 163-173, Online, August 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.repl4nlp-1.17. URL https: //aclanthology.org/2021.repl4nlp-1.17 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 404.081,
+          "right": 506.491,
+          "bottom": 351.694,
+          "char_span": [
+            0,
+            397
+          ]
+        }
+      ],
+      "page_numbers": [
+        12
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 397,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_39",
+      "text": "Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov. Roberta: A robustly optimized BERT pretraining approach. CoRR, abs/1907.11692, 2019. URL http://arxiv.org/abs/1907.11692 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 341.373,
+          "right": 504.003,
+          "bottom": 310.904,
+          "char_span": [
+            0,
+            258
+          ]
+        }
+      ],
+      "page_numbers": [
+        12
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 258,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_40",
+      "text": "Shuqi Lu, Di He, Chenyan Xiong, Guolin Ke, Waleed Malik, Zhicheng Dou, Paul Bennett, Tie-Yan Liu, and Arnold Overwijk. Less is more: Pretrain a strong Siamese encoder for dense text retrieval using a weak decoder. In Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing, pp. 2780-2791, Online and Punta Cana, Dominican Republic, November 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.emnlp-main.220. URL https://aclanthology.org/2021.emnlp-main.220 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 300.583,
+          "right": 504.492,
+          "bottom": 237.23699999999997,
+          "char_span": [
+            0,
+            509
+          ]
+        }
+      ],
+      "page_numbers": [
+        12
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 509,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_41",
+      "text": "Kelong Mao, Zhicheng Dou, Haonan Chen, Fengran Mo, and Hongjin Qian. Large language models know your contextual search intent: A prompting framework for conversational search. arXiv preprint arXiv:2303.06573, 2023.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 226.91700000000003,
+          "right": 504.249,
+          "bottom": 196.447,
+          "char_span": [
+            0,
+            214
+          ]
+        }
+      ],
+      "page_numbers": [
+        12
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 214,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_42",
+      "text": "Yuning Mao, Pengcheng He, Xiaodong Liu, Yelong Shen, Jianfeng Gao, Jiawei Han, and Weizhu Chen. Generation-augmented retrieval for open-domain question answering. In Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers), pp. 4089-4100, Online, August 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.acl-long. 316. URL https://aclanthology.org/2021.acl-long.316 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 186.12699999999995,
+          "right": 505.74,
+          "bottom": 122.77999999999997,
+          "char_span": [
+            0,
+            518
+          ]
+        }
+      ],
+      "page_numbers": [
+        12
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 518,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_43",
+      "text": "Sewon Min, Mike Lewis, Luke Zettlemoyer, and Hannaneh Hajishirzi. MetaICL: Learning to learn in context. In Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, pp. 2791-2809, Seattle, United States, July 2022. Association for Computational Linguistics. doi: 10.18653/v1/2022.naacl-main. 201. URL https://aclanthology.org/2022.naacl-main.201 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 12,
+          "left": 108.0,
+          "top": 112.46000000000004,
+          "right": 505.741,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            434
+          ]
+        }
+      ],
+      "page_numbers": [
+        12
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 434,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_44",
+      "text": "IC Mogotsi. Christopher d. manning, prabhakar raghavan, and hinrich schütze: Introduction to information retrieval. Information Retrieval, 13(2):192-195, 2010.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 706.662,
+          "right": 503.997,
+          "bottom": 687.151,
+          "char_span": [
+            0,
+            159
+          ]
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 159,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_45",
+      "text": "Reiichiro Nakano, Jacob Hilton, Suchir Balaji, Jeff Wu, Long Ouyang, Christina Kim, Christopher Hesse, Shantanu Jain, Vineet Kosaraju, William Saunders, et al. Webgpt: Browser-assisted question-answering with human feedback. arXiv preprint arXiv:2112.09332, 2021.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 674.442,
+          "right": 504.169,
+          "bottom": 643.972,
+          "char_span": [
+            0,
+            263
+          ]
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 263,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_46",
+      "text": "Jianmo Ni, Chen Qu, Jing Lu, Zhuyun Dai, Gustavo Hernandez Abrego, Ji Ma, Vincent Zhao, Yi Luan, Keith Hall, Ming-Wei Chang, and Yinfei Yang. Large dual encoders are generalizable retrievers. In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing, pp. 9844-9855, Abu Dhabi, United Arab Emirates, December 2022. Association for Computational Linguistics. URL https://aclanthology.org/2022.emnlp-main.669 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 631.263,
+          "right": 505.247,
+          "bottom": 578.875,
+          "char_span": [
+            0,
+            439
+          ]
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 439,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_47",
+      "text": "Rodrigo Nogueira, Wei Yang, Jimmy Lin, and Kyunghyun Cho. Document expansion by query prediction. arXiv preprint arXiv:1904.08375, 2019.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 566.166,
+          "right": 504.353,
+          "bottom": 546.655,
+          "char_span": [
+            0,
+            136
+          ]
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 136,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_48",
+      "text": "OpenAI. Chatgpt: Optimizing language models for dialogue. https://openai.com/blog/chatgpt/, 2022. URL https://openai.com/blog/chatgpt/ .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 533.946,
+          "right": 505.742,
+          "bottom": 514.435,
+          "char_span": [
+            0,
+            136
+          ]
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 136,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_49",
+      "text": "OpenAI. Gpt-4 technical report. ArXiv, abs/2303.08774, 2023.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 501.726,
+          "right": 361.179,
+          "bottom": 493.174,
+          "char_span": [
+            0,
+            60
+          ]
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 60,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_50",
+      "text": "Long Ouyang, Jeffrey Wu, Xu Jiang, Diogo Almeida, Carroll Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et al. Training language models to follow instructions with human feedback. Advances in Neural Information Processing Systems, 35: 27730-27744, 2022.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 480.465,
+          "right": 505.387,
+          "bottom": 439.037,
+          "char_span": [
+            0,
+            292
+          ]
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 292,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_51",
+      "text": "Baolin Peng, Michel Galley, Pengcheng He, Hao Cheng, Yujia Xie, Yu Hu, Qiuyuan Huang, Lars Liden, Zhou Yu, Weizhu Chen, et al. Check your facts and try again: Improving large language models with external knowledge and automated feedback. arXiv preprint arXiv:2302.12813, 2023.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 426.327,
+          "right": 505.74,
+          "bottom": 395.858,
+          "char_span": [
+            0,
+            277
+          ]
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 277,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_52",
+      "text": "Fabio Petroni, Tim Rocktäschel, Sebastian Riedel, Patrick Lewis, Anton Bakhtin, Yuxiang Wu, and Alexander Miller. Language models as knowledge bases? In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP), pp. 2463-2473, Hong Kong, China, November 2019. Association for Computational Linguistics. doi: 10.18653/v1/D19-1250. URL https://aclanthology.org/D19-1250 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 383.149,
+          "right": 505.747,
+          "bottom": 319.802,
+          "char_span": [
+            0,
+            487
+          ]
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 487,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_53",
+      "text": "Chengwei Qin, Aston Zhang, Zhuosheng Zhang, Jiaao Chen, Michihiro Yasunaga, and Diyi Yang. Is chatgpt a general-purpose natural language processing task solver? arXiv preprint arXiv:2302.06476, 2023.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 307.093,
+          "right": 504.001,
+          "bottom": 276.62300000000005,
+          "char_span": [
+            0,
+            199
+          ]
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 199,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_54",
+      "text": "Yingqi Qu, Yuchen Ding, Jing Liu, Kai Liu, Ruiyang Ren, Wayne Xin Zhao, Daxiang Dong, Hua Wu, and Haifeng Wang. RocketQA: An optimized training approach to dense passage retrieval for open-domain question answering. In Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, pp. 5835-5847, Online, June 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.naacl-main.466. URL https://aclanthology.org/2021.naacl-main.466 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 263.914,
+          "right": 505.381,
+          "bottom": 200.56799999999998,
+          "char_span": [
+            0,
+            528
+          ]
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 528,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_55",
+      "text": "Adam Roberts, Colin Raffel, and Noam Shazeer. How much knowledge can you pack into the parameters of a language model? In Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP), pp. 5418-5426, Online, November 2020. Association for Computational Linguistics. doi: 10.18653/v1/2020.emnlp-main.437. URL https://aclanthology.org/2020.emnlp-main.437 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 187.85900000000004,
+          "right": 505.744,
+          "bottom": 135.471,
+          "char_span": [
+            0,
+            387
+          ]
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 387,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_56",
+      "text": "Stephen E. Robertson and Hugo Zaragoza. The probabilistic relevance framework: BM25 and beyond. Found. Trends Inf. Retr., 3(4):333-389, 2009. doi: 10.1561/1500000019. URL https: //doi.org/10.1561/1500000019 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 122.76199999999994,
+          "right": 506.491,
+          "bottom": 92.29200000000003,
+          "char_span": [
+            0,
+            208
+          ]
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 208,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_57",
+      "text": "Zaragoza Robertson. Robertson s., zaragoza h. The probabilistic relevance framework: Bm25 and beyond, Found. Trends Inf. Retr, 3(4):333-389, 2009.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 13,
+          "left": 108.0,
+          "top": 79.58299999999997,
+          "right": 504.0,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            146
+          ]
+        }
+      ],
+      "page_numbers": [
+        13
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 146,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_58",
+      "text": "Devendra Sachan, Mike Lewis, Mandar Joshi, Armen Aghajanyan, Wen-tau Yih, Joelle Pineau, and Luke Zettlemoyer. Improving passage retrieval with zero-shot question generation. In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing, pp. 3781-3797, Abu Dhabi, United Arab Emirates, December 2022. Association for Computational Linguistics. URL https://aclanthology.org/2022.emnlp-main.249 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 706.662,
+          "right": 505.746,
+          "bottom": 654.274,
+          "char_span": [
+            0,
+            422
+          ]
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 422,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_59",
+      "text": "Victor Sanh, Albert Webson, Colin Raffel, Stephen Bach, Lintang Sutawika, Zaid Alyafeai, Antoine Chaffin, Arnaud Stiegler, Arun Raja, Manan Dey, et al. Multitask prompted training enables zero-shot task generalization. In International Conference on Learning Representations, 2022.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 643.251,
+          "right": 504.002,
+          "bottom": 612.781,
+          "char_span": [
+            0,
+            281
+          ]
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 281,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_60",
+      "text": "Weijia Shi, Sewon Min, Michihiro Yasunaga, Minjoon Seo, Rich James, Mike Lewis, Luke Zettlemoyer, and Wen-tau Yih. Replug: Retrieval-augmented black-box language models. arXiv preprint arXiv:2301.12652, 2023.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 601.758,
+          "right": 505.656,
+          "bottom": 571.288,
+          "char_span": [
+            0,
+            208
+          ]
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 208,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_61",
+      "text": "Kurt Shuster, Spencer Poff, Moya Chen, Douwe Kiela, and Jason Weston. Retrieval augmentation reduces hallucination in conversation. In Findings of the Association for Computational Linguistics: EMNLP 2021, pp. 3784-3803, Punta Cana, Dominican Republic, November 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.findings-emnlp.320. URL https://aclanthology.org/2021.findings-emnlp.320 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 560.265,
+          "right": 505.74,
+          "bottom": 507.878,
+          "char_span": [
+            0,
+            407
+          ]
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 407,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_62",
+      "text": "Yi Tay, Vinh Tran, Mostafa Dehghani, Jianmo Ni, Dara Bahri, Harsh Mehta, Zhen Qin, Kai Hui, Zhe Zhao, Jai Gupta, et al. Transformer memory as a differentiable search index. Advances in Neural Information Processing Systems, 35:21831-21843, 2022.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 496.855,
+          "right": 504.0,
+          "bottom": 466.385,
+          "char_span": [
+            0,
+            245
+          ]
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 245,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_63",
+      "text": "Nandan Thakur, Nils Reimers, Andreas Rücklé, Abhishek Srivastava, and Iryna Gurevych. BEIR: A heterogenous benchmark for zero-shot evaluation of information retrieval models. CoRR, abs/2104.08663, 2021. URL https://arxiv.org/abs/2104.08663 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 455.362,
+          "right": 505.379,
+          "bottom": 424.892,
+          "char_span": [
+            0,
+            241
+          ]
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 241,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_64",
+      "text": "James Thorne, Andreas Vlachos, Oana Cocarascu, Christos Christodoulopoulos, and Arpit Mittal. The fact extraction and VERification (FEVER) shared task. In Proceedings of the First Workshop on Fact Extraction and VERification (FEVER), pp. 1-9, Brussels, Belgium, November 2018. Association for Computational Linguistics. doi: 10.18653/v1/W18-5501. URL https://aclanthology.org/W18-5501 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 413.869,
+          "right": 505.654,
+          "bottom": 361.481,
+          "char_span": [
+            0,
+            386
+          ]
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 386,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_65",
+      "text": "Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, et al. Llama: Open and efficient foundation language models. arXiv preprint arXiv:2302.13971, 2023a.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 350.458,
+          "right": 504.002,
+          "bottom": 319.988,
+          "char_span": [
+            0,
+            260
+          ]
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 260,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_66",
+      "text": "Hugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, et al. Llama 2: Open foundation and fine-tuned chat models. arXiv preprint arXiv:2307.09288, 2023b.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 308.965,
+          "right": 504.353,
+          "bottom": 278.495,
+          "char_span": [
+            0,
+            255
+          ]
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 255,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_67",
+      "text": "Ellen M Voorhees et al. The trec-8 question answering track report. In Trec, volume 99, pp. 77-82, 1999.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 267.472,
+          "right": 505.247,
+          "bottom": 247.962,
+          "char_span": [
+            0,
+            104
+          ]
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 104,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_68",
+      "text": "Kexin Wang, Nandan Thakur, Nils Reimers, and Iryna Gurevych. GPL: Generative pseudo labeling for unsupervised domain adaptation of dense retrieval. In Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, pp. 2345-2360, Seattle, United States, July 2022. Association for Computational Linguistics. doi: 10.18653/v1/2022.naacl-main.168. URL https://aclanthology.org/2022. naacl-main.168 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 236.938,
+          "right": 507.486,
+          "bottom": 173.59199999999998,
+          "char_span": [
+            0,
+            477
+          ]
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 477,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_69",
+      "text": "Liang Wang, Nan Yang, and Furu Wei. Query2doc: Query expansion with large language models. arXiv preprint arXiv:2303.07678, 2023.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 162.56899999999996,
+          "right": 505.741,
+          "bottom": 143.058,
+          "char_span": [
+            0,
+            129
+          ]
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 129,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_70",
+      "text": "Jason Wei, Maarten Bosma, Vincent Zhao, Kelvin Guu, Adams Wei Yu, Brian Lester, Nan Du, Andrew M. Dai, and Quoc V Le. Finetuned language models are zero-shot learners. In International Conference on Learning Representations, 2022. URL https://openreview.net/forum?id= gEZrGCozdqR .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 132.03499999999997,
+          "right": 505.247,
+          "bottom": 90.606,
+          "char_span": [
+            0,
+            281
+          ]
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 281,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_71",
+      "text": "Shitao Xiao, Zheng Liu, Yingxia Shao, and Zhao Cao. RetroMAE: Pre-training retrieval-oriented language models via masked auto-encoder. In Proceedings of the 2022 Conference on Empirical",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 14,
+          "left": 108.0,
+          "top": 79.58299999999997,
+          "right": 504.0,
+          "bottom": 60.072,
+          "char_span": [
+            0,
+            185
+          ]
+        }
+      ],
+      "page_numbers": [
+        14
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 185,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_72",
+      "text": "Lee Xiong, Chenyan Xiong, Ye Li, Kwok-Fung Tang, Jialin Liu, Paul N. Bennett, Junaid Ahmed, and Arnold Overwijk. Approximate nearest neighbor negative contrastive learning for dense text retrieval. In International Conference on Learning Representations, 2021. URL https: //openreview.net/forum?id=zeFrfgyZln .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 665.815,
+          "right": 506.491,
+          "bottom": 624.386,
+          "char_span": [
+            0,
+            310
+          ]
+        }
+      ],
+      "page_numbers": [
+        15
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 310,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_73",
+      "text": "Peilin Yang, Hui Fang, and Jimmy Lin. Anserini: Enabling the use of lucene for information retrieval research. In Noriko Kando, Tetsuya Sakai, Hideo Joho, Hang Li, Arjen P. de Vries, and Ryen W. White (eds.), Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval, Shinjuku, Tokyo, Japan, August 7-11, 2017, pp. 1253-1256. ACM, 2017. doi: 10.1145/3077136.3080721. URL https://doi.org/10.1145/ 3077136.3080721 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 614.009,
+          "right": 505.245,
+          "bottom": 550.663,
+          "char_span": [
+            0,
+            467
+          ]
+        }
+      ],
+      "page_numbers": [
+        15
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 467,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_74",
+      "text": "Andrew Yates, Rodrigo Nogueira, and Jimmy Lin. Pretrained transformers for text ranking: BERT and beyond. In Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies: Tutorials, pp. 1-4, Online, June 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.naacl-tutorials.1. URL https://aclanthology.org/2021.naacl-tutorials.1 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 540.286,
+          "right": 504.482,
+          "bottom": 487.898,
+          "char_span": [
+            0,
+            429
+          ]
+        }
+      ],
+      "page_numbers": [
+        15
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 429,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_75",
+      "text": "Wenhao Yu, Dan Iter, Shuohang Wang, Yichong Xu, Mingxuan Ju, Soumya Sanyal, Chenguang Zhu, Michael Zeng, and Meng Jiang. Generate rather than retrieve: Large language models are strong context generators. In The Eleventh International Conference on Learning Representations, 2023. URL https://openreview.net/forum?id=fB0hRu9GZUS .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 477.521,
+          "right": 505.748,
+          "bottom": 436.092,
+          "char_span": [
+            0,
+            330
+          ]
+        }
+      ],
+      "page_numbers": [
+        15
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 330,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_76",
+      "text": "Yue Yu, Chenyan Xiong, Si Sun, Chao Zhang, and Arnold Overwijk. COCO-DR: Combating the distribution shift in zero-shot dense retrieval with contrastive and distributionally robust learning. In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing, pp. 1462-1479, Abu Dhabi, United Arab Emirates, December 2022. Association for Computational Linguistics. URL https://aclanthology.org/2022.emnlp-main.95 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 425.715,
+          "right": 505.744,
+          "bottom": 373.328,
+          "char_span": [
+            0,
+            436
+          ]
+        }
+      ],
+      "page_numbers": [
+        15
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 436,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_77",
+      "text": "Muru Zhang, Ofir Press, William Merrill, Alisa Liu, and Noah A Smith. How language model hallucinations can snowball. arXiv preprint arXiv:2305.13534, 2023a.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 362.951,
+          "right": 503.997,
+          "bottom": 343.44,
+          "char_span": [
+            0,
+            157
+          ]
+        }
+      ],
+      "page_numbers": [
+        15
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 157,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_78",
+      "text": "Yue Zhang, Yafu Li, Leyang Cui, Deng Cai, Lemao Liu, Tingchen Fu, Xinting Huang, Enbo Zhao, Yu Zhang, Yulong Chen, et al. Siren's song in the ai ocean: A survey on hallucination in large language models. arXiv preprint arXiv:2309.01219, 2023b.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 333.063,
+          "right": 505.247,
+          "bottom": 302.593,
+          "char_span": [
+            0,
+            243
+          ]
+        }
+      ],
+      "page_numbers": [
+        15
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 243,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_list_item_79",
+      "text": "Jiawei Zhou, Xiaoguang Li, Lifeng Shang, Lan Luo, Ke Zhan, Enrui Hu, Xinyu Zhang, Hao Jiang, Zhao Cao, Fan Yu, Xin Jiang, Qun Liu, and Lei Chen. Hyperlink-induced pre-training for passage retrieval in open-domain question answering. In Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 7135-7146, Dublin, Ireland, May 2022. Association for Computational Linguistics. doi: 10.18653/v1/2022.acl-long. 493. URL https://aclanthology.org/2022.acl-long.493 .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 15,
+          "left": 108.0,
+          "top": 292.216,
+          "right": 505.741,
+          "bottom": 228.86900000000003,
+          "char_span": [
+            0,
+            519
+          ]
+        }
+      ],
+      "page_numbers": [
+        15
+      ],
+      "metadata": {
+        "element_label": "list_item",
+        "content_layer": "body",
+        "text_length": 519,
+        "group_type": "list_item"
+      }
+    },
+    {
+      "id": "element_footnote_0",
+      "text": "1 In IR tasks, the relevance judgment illustrates the label of relevance between each pair of query and document, which is mainly used for supervised learning of an IR model.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 2,
+          "left": 108.0,
+          "top": 79.80100000000004,
+          "right": 503.998,
+          "bottom": 60.27800000000002,
+          "char_span": [
+            0,
+            174
+          ]
+        }
+      ],
+      "page_numbers": [
+        2
+      ],
+      "metadata": {
+        "element_label": "footnote",
+        "content_layer": "body",
+        "text_length": 174,
+        "group_type": "footnote"
+      }
+    },
+    {
+      "id": "element_footnote_1",
+      "text": "2 In our preliminary study, we observed that concatenating each s i ∈ S multiple times to q can lead to improved performance, as the query is the most crucial component in IR.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 108.0,
+          "top": 79.80100000000004,
+          "right": 503.997,
+          "bottom": 60.27800000000002,
+          "char_span": [
+            0,
+            175
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "footnote",
+        "content_layer": "body",
+        "text_length": 175,
+        "group_type": "footnote"
+      }
+    },
+    {
+      "id": "element_footnote_2",
+      "text": "3 We utilize the March 1, 2023 version of the gpt-3.5-turbo to avoid any interference caused by upgrading.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 120.653,
+          "top": 90.65099999999995,
+          "right": 503.974,
+          "bottom": 81.09100000000001,
+          "char_span": [
+            0,
+            106
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_label": "footnote",
+        "content_layer": "body",
+        "text_length": 106,
+        "group_type": "footnote"
+      }
+    },
+    {
+      "id": "element_footnote_3",
+      "text": "4 For ArguAna data in BEIR benchmark, we set M to 1 for gpt-3.5-turbo as it achieves the best performance.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 6,
+          "left": 108.0,
+          "top": 79.80100000000004,
+          "right": 505.491,
+          "bottom": 60.27800000000002,
+          "char_span": [
+            0,
+            106
+          ]
+        }
+      ],
+      "page_numbers": [
+        6
+      ],
+      "metadata": {
+        "element_label": "footnote",
+        "content_layer": "body",
+        "text_length": 106,
+        "group_type": "footnote"
+      }
+    },
+    {
+      "id": "element_formula_0",
+      "text": "\\phi ( q , d ) = \\langle E _ { Q } ( q ) , E _ { D } ( d ) \\rangle = \\langle v _ { q } , v _ { d } \\rangle",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 3,
+          "left": 227.961,
+          "top": 99.27499999999998,
+          "right": 504.667,
+          "bottom": 89.60900000000004,
+          "char_span": [
+            0,
+            58
+          ]
+        }
+      ],
+      "page_numbers": [
+        3
+      ],
+      "metadata": {
+        "element_label": "formula",
+        "content_layer": "body",
+        "text_length": 106,
+        "group_type": "formula"
+      }
+    },
+    {
+      "id": "element_formula_1",
+      "text": "s = G ( q ^ { \\prime } ) = G ( q \\oplus p )",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 260.003,
+          "top": 335.298,
+          "right": 504.667,
+          "bottom": 324.355,
+          "char_span": [
+            0,
+            31
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "formula",
+        "content_layer": "body",
+        "text_length": 43,
+        "group_type": "formula"
+      }
+    },
+    {
+      "id": "element_formula_2",
+      "text": "\\phi ( q , d ; S ) & = \\phi ( [ q ; s _ { 1 } ; q ; s _ { 2 } ; \\dots ; q ; s _ { h } ] , d ) \\\\ & = \\langle E _ { Q } ( [ q ; s _ { 1 } ; q ; s _ { 2 } ; \\dots , q ; s _ { h } ] ) , E _ { D } ( d ) \\rangle",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 207.503,
+          "top": 635.255,
+          "right": 504.667,
+          "bottom": 611.678,
+          "char_span": [
+            0,
+            127
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "formula",
+        "content_layer": "body",
+        "text_length": 206,
+        "group_type": "formula"
+      }
+    },
+    {
+      "id": "element_formula_3",
+      "text": "s = G ( q ^ { \\prime } ) = G ( q \\oplus p \\oplus \\bar { D } )",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 249.652,
+          "top": 369.209,
+          "right": 504.667,
+          "bottom": 357.82,
+          "char_span": [
+            0,
+            37
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "formula",
+        "content_layer": "body",
+        "text_length": 61,
+        "group_type": "formula"
+      }
+    },
+    {
+      "id": "element_caption_0",
+      "text": "Figure 1: Overall architecture of InteR.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 4,
+          "left": 227.754,
+          "top": 509.32,
+          "right": 384.247,
+          "bottom": 500.768,
+          "char_span": [
+            0,
+            40
+          ]
+        }
+      ],
+      "page_numbers": [
+        4
+      ],
+      "metadata": {
+        "element_label": "caption",
+        "content_layer": "body",
+        "text_length": 40,
+        "group_type": "caption"
+      }
+    },
+    {
+      "id": "element_caption_1",
+      "text": "Table 1: Experimental results on TREC Deep Learning 2019 (DL'19) and TREC Deep Learning 2020 (DL'20) datasets (%). The best results are marked in bold and the best performing w/ relevance judgment are marked with ¶ . The improvement is statistically significant compared with the baselines w/o relevance judgment (t-test with p -value < 0 . 05 )",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 7,
+          "left": 107.641,
+          "top": 699.907,
+          "right": 504.004,
+          "bottom": 658.478,
+          "char_span": [
+            0,
+            345
+          ]
+        }
+      ],
+      "page_numbers": [
+        7
+      ],
+      "metadata": {
+        "element_label": "caption",
+        "content_layer": "body",
+        "text_length": 345,
+        "group_type": "caption"
+      }
+    },
+    {
+      "id": "element_caption_2",
+      "text": "Table 2: Experimental results (nDCG@10) on low-resource tasks from BEIR (%). The best results are marked in bold and the best performing w/ relevance judgment are marked with ¶ .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 7,
+          "left": 107.691,
+          "top": 480.536,
+          "right": 504.0,
+          "bottom": 461.009,
+          "char_span": [
+            0,
+            178
+          ]
+        }
+      ],
+      "page_numbers": [
+        7
+      ],
+      "metadata": {
+        "element_label": "caption",
+        "content_layer": "body",
+        "text_length": 178,
+        "group_type": "caption"
+      }
+    },
+    {
+      "id": "element_caption_3",
+      "text": "Figure 2: Performance of InteR with gpt-3.5-turbo across different size of knowledge collection ( h ) on TREC DL'19 and DL'20.",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 107.671,
+          "top": 580.728,
+          "right": 503.995,
+          "bottom": 561.217,
+          "char_span": [
+            0,
+            126
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "caption",
+        "content_layer": "body",
+        "text_length": 126,
+        "group_type": "caption"
+      }
+    },
+    {
+      "id": "element_caption_4",
+      "text": "Table 3: Performance of InteR with gpt-3.5-turbo across different number of knowledge refinement iterations ( M ) on TREC DL'19 and DL'20. The default setting is marked with ∗ and the best results are marked in bold .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 107.691,
+          "top": 549.707,
+          "right": 504.003,
+          "bottom": 519.221,
+          "char_span": [
+            0,
+            217
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "caption",
+        "content_layer": "body",
+        "text_length": 217,
+        "group_type": "caption"
+      }
+    },
+    {
+      "id": "element_caption_5",
+      "text": "Table 4: Performance of InteR with gpt-3.5-turbo across different retrieval strategies for constructing ¯ D on Eq. 4 on TREC DL'19 and DL'20. The default setting is marked with ∗ and the best results are marked in bold .",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 8,
+          "left": 107.691,
+          "top": 428.578,
+          "right": 505.652,
+          "bottom": 398.092,
+          "char_span": [
+            0,
+            220
+          ]
+        }
+      ],
+      "page_numbers": [
+        8
+      ],
+      "metadata": {
+        "element_label": "caption",
+        "content_layer": "body",
+        "text_length": 220,
+        "group_type": "caption"
+      }
+    },
+    {
+      "id": "element_code_0",
+      "text": "{{query} and its possible answering passages {passages}",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 250.747,
+          "top": 426.421,
+          "right": 479.887,
+          "bottom": 418.485,
+          "char_span": [
+            0,
+            46
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "code",
+        "content_layer": "body",
+        "text_length": 55,
+        "group_type": "code"
+      }
+    },
+    {
+      "id": "element_code_1",
+      "text": "Please write a passage to answer the question.\n    Question: {query}\n    Passage:",
+      "chunk_type": "element",
+      "bounding_boxes": [
+        {
+          "page": 5,
+          "left": 131.196,
+          "top": 189.538,
+          "right": 360.336,
+          "bottom": 159.68399999999997,
+          "char_span": [
+            0,
+            73
+          ]
+        }
+      ],
+      "page_numbers": [
+        5
+      ],
+      "metadata": {
+        "element_label": "code",
+        "content_layer": "body",
+        "text_length": 81,
+        "group_type": "code"
+      }
+    }
+  ]
+}
