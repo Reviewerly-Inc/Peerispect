@@ -34,6 +34,7 @@ crawl_openreview_url = load_module("app/1_crawl_openreview.py", "crawl_openrevie
 parse_pdf_to_markdown = load_module("app/2_parse_pdf.py", "parse_pdf_to_markdown")
 clean_markdown = load_module("app/3_clean_markdown.py", "clean_markdown")
 chunk_markdown = load_module("app/4_chunk_markdown.py", "chunk_markdown")
+chunk_positional = load_module("app/4a_chunk_positional.py", "chunk_positional")
 extract_reviews_from_metadata = load_module("app/5_extract_structured_reviews.py", "extract_reviews_from_metadata")
 extract_claims_from_reviews = load_module("app/6_claim_extraction.py", "extract_claims_from_reviews")
 EvidenceRetriever = load_module("app/7_evidence_retrieval.py", class_name="EvidenceRetriever")
@@ -282,6 +283,7 @@ class OpenReviewProcessor:
         (self.output_dir / "claims").mkdir(exist_ok=True)
         (self.output_dir / "evidence").mkdir(exist_ok=True)
         (self.output_dir / "verification").mkdir(exist_ok=True)
+        (self.output_dir / "positional").mkdir(exist_ok=True)
         
         logging.info(f"Initialized processor with output directory: {self.output_dir}")
     
@@ -384,21 +386,46 @@ class OpenReviewProcessor:
                 'cleaned_markdown_path': str(cleaned_md_path)
             }
             
-            # Step 4: Chunk Markdown
-            logging.info("Step 4: Chunking Markdown")
-            chunks_path = self.output_dir / "chunks" / f"{results['submission_id']}_chunks.jsonl"
-            chunk_markdown(
-                str(cleaned_md_path),
-                str(chunks_path),
-                max_tokens=self.config.get("chunk_size", 512)
-            )
-            results['chunks_path'] = str(chunks_path)
-            
-            step_results['step_4_chunking'] = {
-                'status': 'completed',
-                'chunk_size': self.config.get("chunk_size", 512),
-                'chunks_path': str(chunks_path)
-            }
+            # Step 4: Chunking
+            positional_enabled = bool(self.config.get("positional_chunking", False))
+            if positional_enabled:
+                logging.info("Step 4: Positional chunking (V5 column-aware)")
+                pos_dir = self.output_dir / "positional" / results['submission_id']
+                pos_dir.mkdir(parents=True, exist_ok=True)
+                pos_result = chunk_positional(
+                    results['pdf_path'],
+                    str(pos_dir),
+                    max_tokens=self.config.get("chunk_size", 512),
+                    column_split_x=self.config.get("column_split_x", 300.0)
+                )
+                results['chunks_path'] = pos_result['chunks_path']
+                results['positional_dir'] = str(pos_dir)
+                results['docling_dict_path'] = pos_result['docling_dict_path']
+                results['docling_markdown_path'] = pos_result['docling_markdown_path']
+
+                step_results['step_4_chunking'] = {
+                    'status': 'completed',
+                    'mode': 'positional_v5',
+                    'chunk_size': self.config.get("chunk_size", 512),
+                    'column_split_x': self.config.get("column_split_x", 300.0),
+                    'chunks_path': pos_result['chunks_path']
+                }
+            else:
+                logging.info("Step 4: Chunking Markdown (simple)")
+                chunks_path = self.output_dir / "chunks" / f"{results['submission_id']}_chunks.jsonl"
+                chunk_markdown(
+                    str(cleaned_md_path),
+                    str(chunks_path),
+                    max_tokens=self.config.get("chunk_size", 512)
+                )
+                results['chunks_path'] = str(chunks_path)
+
+                step_results['step_4_chunking'] = {
+                    'status': 'completed',
+                    'mode': 'markdown_simple',
+                    'chunk_size': self.config.get("chunk_size", 512),
+                    'chunks_path': str(chunks_path)
+                }
             
             # Step 5: Extract Structured Reviews
             logging.info("Step 5: Extracting Structured Reviews")
@@ -542,9 +569,22 @@ class OpenReviewProcessor:
             logging.info("Step 7: Retrieving Evidence for Claims")
             evidence_path = self.output_dir / "evidence" / f"{results['submission_id']}_evidence.json"
             
-            # Load chunks
+            # Load chunks - handle both positional and markdown chunking modes
             retriever = EvidenceRetriever()
-            chunks = retriever.load_chunks_from_jsonl(str(chunks_path))
+            if positional_enabled:
+                # Load positional chunks
+                with open(results['chunks_path'], 'r', encoding='utf-8') as f:
+                    positional_chunks = json.load(f)
+                # Convert positional chunks to the format expected by EvidenceRetriever
+                chunks = []
+                for i, chunk in enumerate(positional_chunks):
+                    chunks.append({
+                        'idx': i + 1,
+                        'text': chunk['text']
+                    })
+            else:
+                # Load markdown chunks
+                chunks = retriever.load_chunks_from_jsonl(str(results['chunks_path']))
             
             # Retrieve evidence for each claim
             claims_with_evidence = []
@@ -676,6 +716,8 @@ def main():
             "pdf_parser": "auto",
             "parser_kwargs": {},
             "chunk_size": 512,
+            "positional_chunking": True,
+            "column_split_x": 300.0,
             "claim_extraction": "auto",
             "evidence_retrieval": "auto",
             "verification_model": "qwen3:8b",
@@ -695,6 +737,8 @@ def main():
         print(f"📝 Markdown: {results['markdown_path']}")
         print(f"🧹 Cleaned Markdown: {results['cleaned_markdown_path']}")
         print(f"📦 Chunks: {results['chunks_path']}")
+        if results.get('positional_dir'):
+            print(f"📐 Positional artifacts: {results['positional_dir']}")
         print(f"📋 Reviews: {results['reviews_path']}")
         print(f"🎯 Claims: {results['claims_path']}")
         print(f"🔍 Evidence: {results['evidence_path']}")
@@ -704,6 +748,9 @@ def main():
         # Display configuration summary
         print(f"\n🔧 Configuration Summary:")
         print(f"   • PDF Parser: {config.get('pdf_parser', 'auto')}")
+        print(f"   • Positional Chunking: {config.get('positional_chunking', False)}")
+        if config.get('positional_chunking', False):
+            print(f"   • Column Split X: {config.get('column_split_x', 300.0)}")
         print(f"   • Claim Extraction: {config.get('claim_extraction', 'auto')}")
         print(f"   • Evidence Retrieval: {config.get('evidence_retrieval', 'auto')}")
         print(f"   • Verification Model: {config.get('verification_model', 'qwen3:8b')}")
