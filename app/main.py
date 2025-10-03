@@ -572,16 +572,9 @@ class OpenReviewProcessor:
             # Load chunks - handle both positional and markdown chunking modes
             retriever = EvidenceRetriever()
             if positional_enabled:
-                # Load positional chunks
+                # Load positional chunks directly (no conversion needed)
                 with open(results['chunks_path'], 'r', encoding='utf-8') as f:
-                    positional_chunks = json.load(f)
-                # Convert positional chunks to the format expected by EvidenceRetriever
-                chunks = []
-                for i, chunk in enumerate(positional_chunks):
-                    chunks.append({
-                        'idx': i + 1,
-                        'text': chunk['text']
-                    })
+                    chunks = json.load(f)
             else:
                 # Load markdown chunks
                 chunks = retriever.load_chunks_from_jsonl(str(results['chunks_path']))

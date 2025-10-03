@@ -180,9 +180,19 @@ Return exactly:
             claim = claim_data.get('claim', '')
             evidence = claim_data.get('evidence', [])
             
+            # Extract text from evidence (handle both string and dict formats)
+            evidence_texts = []
+            for item in evidence:
+                if isinstance(item, str):
+                    evidence_texts.append(item)
+                elif isinstance(item, dict) and 'text' in item:
+                    evidence_texts.append(item['text'])
+                else:
+                    logging.warning(f"Unexpected evidence format: {type(item)}")
+            
             logging.info(f"Verifying claim {i+1}/{len(claims_with_evidence)}")
             
-            verification_result = self.verify_claim_with_ollama(claim, evidence, model)
+            verification_result = self.verify_claim_with_ollama(claim, evidence_texts, model)
             
             # Combine claim data with verification result
             result = {
@@ -291,7 +301,15 @@ Return exactly:
                 
                 f.write("**Evidence:**\n")
                 for i, evidence in enumerate(result['evidence'], 1):
-                    f.write(f"{i}. {evidence[:200]}...\n")
+                    # Handle both string and dict evidence formats
+                    if isinstance(evidence, str):
+                        evidence_text = evidence
+                    elif isinstance(evidence, dict) and 'text' in evidence:
+                        evidence_text = evidence['text']
+                    else:
+                        evidence_text = str(evidence)
+                    
+                    f.write(f"{i}. {evidence_text[:200]}...\n")
                 f.write("\n" + "-"*50 + "\n\n")
         
         logging.info(f"Generated verification report: {output_path}")

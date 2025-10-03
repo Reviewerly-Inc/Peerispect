@@ -21,9 +21,9 @@ import hashlib
 
 # Import our existing pipeline modules
 import sys
-sys.path.append(str(Path(__file__).parent.parent / "app"))
+sys.path.append(str(Path(__file__).parent.parent))
 
-from main import OpenReviewProcessor
+from app.main import OpenReviewProcessor
 
 def load_config(config_path: str = "app/config.json") -> Dict[str, Any]:
     """Load configuration from JSON file with fallback to defaults"""
@@ -36,6 +36,8 @@ def load_config(config_path: str = "app/config.json") -> Dict[str, Any]:
             "pdf_parser": "auto",
             "parser_kwargs": {},
             "chunk_size": 512,
+            "positional_chunking": True,
+            "column_split_x": 300.0,
             "claim_extraction": "auto",
             "evidence_retrieval": "auto",
             "verification_model": "qwen3:8b",
@@ -81,6 +83,7 @@ class ProcessPaperResponse(BaseModel):
     pdf_url: Optional[str] = Field(None, description="Web URL to access the PDF file")
     config_used: Optional[Dict[str, Any]] = Field(None, description="Configuration used for processing")
     cached: bool = Field(False, description="Whether result was served from cache")
+    highlighting_map: Optional[Dict[str, Any]] = Field(None, description="Efficient mapping from claims to evidence positions for highlighting")
 
 class HealthResponse(BaseModel):
     """Health check response"""
@@ -113,6 +116,163 @@ def get_submission_id_from_url(url: str) -> str:
         return url.split("forum?id=")[-1]
     else:
         return url.split("/")[-1]
+
+def load_positional_data(pipeline_results: Dict[str, Any], submission_id: str) -> Dict[str, Any]:
+    """Load positional chunk data for highlighting evidence"""
+    positional_data = {
+        "chunks": {},
+        "chunk_to_positions": {},
+        "evidence_to_chunks": {}
+    }
+    
+    try:
+        # Check if positional chunking was used
+        if pipeline_results.get("positional_dir"):
+            positional_chunks_path = Path(pipeline_results["positional_dir"]) / "positional_chunks_v5.json"
+            if positional_chunks_path.exists():
+                with open(positional_chunks_path, 'r', encoding='utf-8') as f:
+                    chunks = json.load(f)
+                
+                # Create mapping from chunk ID to positions
+                for chunk in chunks:
+                    chunk_id = chunk['id']
+                    positional_data["chunks"][chunk_id] = {
+                        "text": chunk['text'],
+                        "tokens": chunk['tokens'],
+                        "pages": chunk['pages'],
+                        "positions": chunk['positions'],
+                        "spans_columns": chunk['spans_columns'],
+                        "spans_pages": chunk['spans_pages']
+                    }
+                    positional_data["chunk_to_positions"][chunk_id] = chunk['positions']
+                
+                logger.info(f"Loaded {len(chunks)} positional chunks for highlighting")
+            else:
+                logger.warning(f"Positional chunks file not found: {positional_chunks_path}")
+        else:
+            logger.info("Positional chunking not used - no highlighting data available")
+            
+    except Exception as e:
+        logger.error(f"Error loading positional data: {e}")
+    
+    return positional_data
+
+def create_highlighting_map(verification_data: List[Dict[str, Any]], positional_data: Dict[str, Any]) -> tuple[Dict[str, Any], List[Dict[str, Any]]]:
+    """Create efficient highlighting map with unique evidence registry and transform verification data"""
+    highlighting_map = {
+        "evidence_registry": {}  # evidence_id -> {text, positions, chunk_id}
+    }
+    transformed_verification_data = []
+    
+    try:
+        logger.info(f"Processing {len(verification_data)} verification entries")
+        logger.info(f"Positional data has {len(positional_data.get('chunks', {}))} chunks")
+        
+        if not verification_data or not positional_data.get("chunks"):
+            logger.warning("No verification data or positional chunks available")
+            return highlighting_map, verification_data
+        
+        evidence_text_to_id = {}  # text -> evidence_id
+        evidence_id_counter = 1
+        
+        # Process all evidence and create unique registry
+        for claim_data in verification_data:
+            if isinstance(claim_data, str):
+                continue
+                
+            claim_id = str(claim_data.get("claim_id", ""))
+            evidence_list = claim_data.get("evidence", [])
+            claim_evidence_ids = []
+            
+            for evidence in evidence_list:
+                # Handle both string and dict evidence formats
+                if isinstance(evidence, str):
+                    evidence_text = evidence
+                else:
+                    evidence_text = evidence.get("text", "")
+                
+                if not evidence_text.strip():
+                    continue
+                
+                # Check if we've already processed this evidence text
+                if evidence_text in evidence_text_to_id:
+                    evidence_id = evidence_text_to_id[evidence_text]
+                    claim_evidence_ids.append(evidence_id)
+                    continue
+                
+                # Check if evidence is already in the new format with chunk_id
+                if isinstance(evidence, dict) and "chunk_id" in evidence:
+                    # New format: evidence already has chunk_id
+                    matching_chunk_id = evidence["chunk_id"]
+                    best_match_score = 1.0
+                else:
+                    # Legacy format: find matching chunk using exact text matching
+                    matching_chunk_id = None
+                    best_match_score = 1.0  # Perfect match
+                    
+                    for chunk_id, chunk_data in positional_data["chunks"].items():
+                        chunk_text = chunk_data["text"]
+                        
+                        # Exact text match (most robust)
+                        if evidence_text.strip() == chunk_text.strip():
+                            matching_chunk_id = chunk_id
+                            best_match_score = 1.0
+                            break
+                        # Fallback: substring match for partial evidence
+                        elif evidence_text.strip() in chunk_text.strip():
+                            matching_chunk_id = chunk_id
+                            best_match_score = 0.9
+                            break
+                
+                if matching_chunk_id:
+                    evidence_id = f"ev_{evidence_id_counter}"
+                    evidence_id_counter += 1
+                    
+                    chunk_positions = positional_data["chunk_to_positions"].get(matching_chunk_id, [])
+                    
+                    # Store in registry
+                    highlighting_map["evidence_registry"][evidence_id] = {
+                        "text": evidence_text,
+                        "chunk_id": matching_chunk_id,
+                        "positions": chunk_positions,
+                        "match_type": "exact" if best_match_score == 1.0 else "substring"
+                    }
+                    
+                    evidence_text_to_id[evidence_text] = evidence_id
+                    claim_evidence_ids.append(evidence_id)
+                else:
+                    # If no exact match found, create evidence without positional data
+                    logger.warning(f"No matching chunk found for evidence: {evidence_text[:100]}...")
+                    evidence_id = f"ev_{evidence_id_counter}"
+                    evidence_id_counter += 1
+                    
+                    highlighting_map["evidence_registry"][evidence_id] = {
+                        "text": evidence_text,
+                        "chunk_id": None,
+                        "positions": [],
+                        "match_type": "no_match"
+                    }
+                    
+                    evidence_text_to_id[evidence_text] = evidence_id
+                    claim_evidence_ids.append(evidence_id)
+            
+            # Create transformed claim data with evidence IDs instead of text
+            transformed_claim = {
+                "claim_id": claim_data.get("claim_id"),
+                "claim": claim_data.get("claim", ""),
+                "evidence_ids": claim_evidence_ids,  # Replace evidence text with IDs
+                "verification": claim_data.get("verification", {}),
+                "review_id": claim_data.get("review_id", ""),
+                "reviewer": claim_data.get("reviewer", "")
+            }
+            transformed_verification_data.append(transformed_claim)
+        
+        logger.info(f"Created efficient highlighting map: {len(highlighting_map['evidence_registry'])} unique evidence, {len(transformed_verification_data)} claims")
+        
+    except Exception as e:
+        logger.error(f"Error creating highlighting map: {e}")
+    
+    return highlighting_map, transformed_verification_data
 
 @app.get("/", response_model=Dict[str, str])
 async def root():
@@ -178,30 +338,8 @@ async def process_paper(request: ProcessPaperRequest, background_tasks: Backgrou
     if request.config_overrides:
         config.update(request.config_overrides)
     
-    # Check cache first - look for existing cached results
-    cache_key = get_cache_key(str(request.openreview_url), config)
-    cache_file = CACHE_DIR / "results" / f"{cache_key}.json"
-    
-    if cache_file.exists():
-        logger.info(f"Serving cached result for {submission_id}")
-        with open(cache_file, 'r') as f:
-            cached_data = json.load(f)
-        
-        verification_data = cached_data.get("verification_data", [])
-        # Ensure it's a list if it's not already
-        if not isinstance(verification_data, list):
-            verification_data = [verification_data] if verification_data else []
-            
-        return ProcessPaperResponse(
-            submission_id=submission_id,
-            status="completed",
-            message="Paper processed successfully (cached)",
-            processing_time=0.0,  # Cached results have no processing time
-            results=verification_data,
-            pdf_url=f"/pdf/{submission_id}",
-            config_used=config,
-            cached=True
-        )
+    # Caching disabled for now - always process fresh
+    logger.info(f"Processing fresh (caching disabled) for {submission_id}")
     
     # Check if already processing
     if submission_id in processing_jobs:
@@ -231,16 +369,25 @@ async def process_paper(request: ProcessPaperRequest, background_tasks: Backgrou
         
         processing_time = (datetime.now() - start_time).total_seconds()
         
+        # Debug pipeline results
+        logger.info(f"Pipeline results keys: {list(pipeline_results.keys())}")
+        logger.info(f"Verification path: {pipeline_results.get('verification_path')}")
+        
         # Load verification results
         verification_data = []
         if pipeline_results.get("verification_path") and Path(pipeline_results["verification_path"]).exists():
-            with open(pipeline_results["verification_path"], 'r') as f:
-                verification_data = json.load(f)
-                # Ensure it's a list if it's not already
-                if not isinstance(verification_data, list):
-                    verification_data = [verification_data] if verification_data else []
+            try:
+                with open(pipeline_results["verification_path"], 'r') as f:
+                    verification_data = json.load(f)
+                    # Ensure it's a list if it's not already
+                    if not isinstance(verification_data, list):
+                        verification_data = [verification_data] if verification_data else []
+                logger.info(f"Successfully loaded {len(verification_data)} verification entries")
+            except Exception as e:
+                logger.error(f"Error loading verification data: {e}")
+                verification_data = []
         
-        # Copy PDF to cache directory
+        # Copy PDF to cache directory for serving
         original_pdf_path = Path(pipeline_results.get("pdf_path", ""))
         if original_pdf_path.exists():
             cached_pdf_path = CACHE_DIR / "pdfs" / f"{submission_id}.pdf"
@@ -248,20 +395,18 @@ async def process_paper(request: ProcessPaperRequest, background_tasks: Backgrou
             shutil.copy2(original_pdf_path, cached_pdf_path)
             logger.info(f"Copied PDF to cache: {cached_pdf_path}")
         
-        # Save results to cache
-        cache_data = {
-            "verification_data": verification_data,
-            "submission_id": submission_id,
-            "config_used": config,
-            "cached_at": datetime.now().isoformat(),
-            "processing_time": processing_time,
-            "original_results": pipeline_results
-        }
+        # Load positional chunks for highlighting data
+        positional_data = load_positional_data(pipeline_results, submission_id)
         
-        with open(cache_file, 'w') as f:
-            json.dump(cache_data, f, indent=2)
-        
-        logger.info(f"Cached results for {submission_id} at {cache_file}")
+        # Create highlighting map and transform verification data
+        logger.info(f"Creating highlighting map with {len(verification_data)} verification entries")
+        try:
+            highlighting_map, transformed_verification_data = create_highlighting_map(verification_data, positional_data)
+            logger.info(f"Created highlighting map with {len(highlighting_map.get('evidence_registry', {}))} evidence entries")
+        except Exception as e:
+            logger.error(f"Error creating highlighting map: {e}")
+            highlighting_map = {"evidence_registry": {}}
+            transformed_verification_data = verification_data
         
         # Update job status
         processing_jobs[submission_id].update({
@@ -276,10 +421,11 @@ async def process_paper(request: ProcessPaperRequest, background_tasks: Backgrou
             status="completed",
             message="Paper processed successfully",
             processing_time=processing_time,
-            results=verification_data,
+            results=transformed_verification_data,
             pdf_url=f"/pdf/{submission_id}",
             config_used=config,
-            cached=False
+            cached=False,
+            highlighting_map=highlighting_map
         )
         
     except Exception as e:
