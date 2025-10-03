@@ -1,5 +1,5 @@
 """
-FastAPI Application for Peeriscope.V2
+FastAPI Application for Peerispect
 REST API for OpenReview paper processing and claim verification
 """
 
@@ -51,7 +51,7 @@ logger = logging.getLogger(__name__)
 
 # Initialize FastAPI app
 app = FastAPI(
-    title="Peeriscope.V2 API",
+    title="Peerispect API",
     description="AI-powered OpenReview paper processing and claim verification system",
     version="2.0.0",
     docs_url="/docs",
@@ -156,6 +156,90 @@ def load_positional_data(pipeline_results: Dict[str, Any], submission_id: str) -
         logger.error(f"Error loading positional data: {e}")
     
     return positional_data
+
+def validate_cached_result(cached_data: Dict[str, Any]) -> bool:
+    """
+    Validate that cached result has all required data and is complete.
+    
+    Returns:
+        bool: True if valid and complete, False otherwise
+    """
+    try:
+        # Check required top-level fields
+        required_fields = ["submission_id", "status", "results", "highlighting_map"]
+        for field in required_fields:
+            if field not in cached_data:
+                logger.warning(f"Cached result missing required field: {field}")
+                return False
+        
+        # Check status is completed
+        if cached_data["status"] != "completed":
+            logger.warning(f"Cached result status is not completed: {cached_data['status']}")
+            return False
+        
+        # Check results is a non-empty list
+        results = cached_data.get("results", [])
+        if not isinstance(results, list) or len(results) == 0:
+            logger.warning(f"Cached result has no verification results: {len(results) if isinstance(results, list) else 'not a list'}")
+            return False
+        
+        # Check highlighting map structure
+        highlighting_map = cached_data.get("highlighting_map", {})
+        if not isinstance(highlighting_map, dict):
+            logger.warning("Cached result highlighting_map is not a dict")
+            return False
+        
+        evidence_registry = highlighting_map.get("evidence_registry", {})
+        if not isinstance(evidence_registry, dict) or len(evidence_registry) == 0:
+            logger.warning(f"Cached result has no evidence registry: {len(evidence_registry) if isinstance(evidence_registry, dict) else 'not a dict'}")
+            return False
+        
+        # Check each result has required fields
+        for i, result in enumerate(results):
+            if not isinstance(result, dict):
+                logger.warning(f"Result {i} is not a dict")
+                return False
+            
+            required_result_fields = ["claim_id", "claim", "evidence_ids", "verification"]
+            for field in required_result_fields:
+                if field not in result:
+                    logger.warning(f"Result {i} missing required field: {field}")
+                    return False
+            
+            # Check evidence_ids is a list
+            evidence_ids = result.get("evidence_ids", [])
+            if not isinstance(evidence_ids, list):
+                logger.warning(f"Result {i} evidence_ids is not a list")
+                return False
+            
+            # Check verification has required fields
+            verification = result.get("verification", {})
+            if not isinstance(verification, dict):
+                logger.warning(f"Result {i} verification is not a dict")
+                return False
+            
+            required_verification_fields = ["result", "confidence", "justification"]
+            for field in required_verification_fields:
+                if field not in verification:
+                    logger.warning(f"Result {i} verification missing field: {field}")
+                    return False
+        
+        # Check that all evidence_ids in results exist in evidence_registry
+        all_evidence_ids = set()
+        for result in results:
+            all_evidence_ids.update(result.get("evidence_ids", []))
+        
+        for evidence_id in all_evidence_ids:
+            if evidence_id not in evidence_registry:
+                logger.warning(f"Evidence ID {evidence_id} referenced in results but not in evidence_registry")
+                return False
+        
+        logger.info(f"Cached result validation passed: {len(results)} results, {len(evidence_registry)} evidence entries")
+        return True
+        
+    except Exception as e:
+        logger.error(f"Error validating cached result: {e}")
+        return False
 
 def create_highlighting_map(verification_data: List[Dict[str, Any]], positional_data: Dict[str, Any]) -> tuple[Dict[str, Any], List[Dict[str, Any]]]:
     """Create efficient highlighting map with unique evidence registry and transform verification data"""
@@ -278,7 +362,7 @@ def create_highlighting_map(verification_data: List[Dict[str, Any]], positional_
 async def root():
     """Root endpoint with API information"""
     return {
-        "message": "Peeriscope.V2 API",
+        "message": "Peerispect API",
         "version": "2.0.0",
         "docs": "/docs",
         "health": "/health"
@@ -338,8 +422,38 @@ async def process_paper(request: ProcessPaperRequest, background_tasks: Backgrou
     if request.config_overrides:
         config.update(request.config_overrides)
     
-    # Caching disabled for now - always process fresh
-    logger.info(f"Processing fresh (caching disabled) for {submission_id}")
+    # Check cache first
+    cache_key = get_cache_key(str(request.openreview_url), config)
+    cache_file = CACHE_DIR / "results" / f"{cache_key}.json"
+    
+    if cache_file.exists():
+        try:
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                cached_data = json.load(f)
+            
+            # Validate cached result
+            if validate_cached_result(cached_data):
+                logger.info(f"Serving valid cached result for {submission_id}")
+                return ProcessPaperResponse(
+                    submission_id=cached_data["submission_id"],
+                    status=cached_data["status"],
+                    message=cached_data["message"],
+                    processing_time=cached_data.get("processing_time"),
+                    results=cached_data["results"],
+                    pdf_url=cached_data.get("pdf_url"),
+                    config_used=cached_data.get("config_used"),
+                    cached=True,
+                    highlighting_map=cached_data["highlighting_map"]
+                )
+            else:
+                logger.warning(f"Cached result for {submission_id} failed validation, processing fresh")
+                # Remove invalid cache file
+                cache_file.unlink()
+        except Exception as e:
+            logger.error(f"Error loading cached result for {submission_id}: {e}")
+            # Remove corrupted cache file
+            if cache_file.exists():
+                cache_file.unlink()
     
     # Check if already processing
     if submission_id in processing_jobs:
@@ -416,17 +530,32 @@ async def process_paper(request: ProcessPaperRequest, background_tasks: Backgrou
             "results": pipeline_results
         })
         
-        return ProcessPaperResponse(
-            submission_id=submission_id,
-            status="completed",
-            message="Paper processed successfully",
-            processing_time=processing_time,
-            results=transformed_verification_data,
-            pdf_url=f"/pdf/{submission_id}",
-            config_used=config,
-            cached=False,
-            highlighting_map=highlighting_map
-        )
+        # Prepare response data
+        response_data = {
+            "submission_id": submission_id,
+            "status": "completed",
+            "message": "Paper processed successfully",
+            "processing_time": processing_time,
+            "results": transformed_verification_data,
+            "pdf_url": f"/pdf/{submission_id}",
+            "config_used": config,
+            "cached": False,
+            "highlighting_map": highlighting_map
+        }
+        
+        # Cache the result if validation passes
+        try:
+            # Validate the response before caching
+            if validate_cached_result(response_data):
+                with open(cache_file, 'w', encoding='utf-8') as f:
+                    json.dump(response_data, f, indent=2, ensure_ascii=False)
+                logger.info(f"Cached successful result for {submission_id}")
+            else:
+                logger.warning(f"Result validation failed, not caching {submission_id}")
+        except Exception as e:
+            logger.error(f"Error caching result for {submission_id}: {e}")
+        
+        return ProcessPaperResponse(**response_data)
         
     except Exception as e:
         logger.error(f"Error processing paper {submission_id}: {e}")
