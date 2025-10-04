@@ -37,6 +37,12 @@ class PositionalChunkerV5:
             el for el in self.docling_data.get('texts', [])
             if el.get('prov') and el.get('text', '').strip()
         ]
+        
+        # Add tables to elements
+        self.tables = [
+            table for table in self.docling_data.get('tables', [])
+            if table.get('prov') and self._extract_table_text(table).strip()
+        ]
 
         # Sort elements by page, then by reading order (top->bottom, left->right)
         self.elements.sort(key=lambda x: (
@@ -68,6 +74,45 @@ class PositionalChunkerV5:
 
         with open(self.docling_dict_output_path, 'r', encoding='utf-8') as f:
             return json.load(f)
+
+    def _extract_table_text(self, table: Dict[str, Any]) -> str:
+        """Extract text content from table structure."""
+        text_parts = []
+        
+        # Get table data
+        data = table.get('data', {})
+        if not data:
+            return ""
+        
+        # Extract text from table cells
+        table_cells = data.get('table_cells', [])
+        if not table_cells:
+            return ""
+        
+        # Group cells by row
+        rows = {}
+        for cell in table_cells:
+            row_idx = cell.get('start_row_offset_idx', 0)
+            if row_idx not in rows:
+                rows[row_idx] = []
+            rows[row_idx].append(cell)
+        
+        # Sort cells by column within each row
+        for row_idx in rows:
+            rows[row_idx].sort(key=lambda x: x.get('start_col_offset_idx', 0))
+        
+        # Build table text
+        for row_idx in sorted(rows.keys()):
+            row_cells = rows[row_idx]
+            row_text = []
+            for cell in row_cells:
+                cell_text = cell.get('text', '').strip()
+                if cell_text:
+                    row_text.append(cell_text)
+            if row_text:
+                text_parts.append(' | '.join(row_text))
+        
+        return '\n'.join(text_parts)
 
     def _get_element_all_bbox_info(self, element: Dict[str, Any]) -> List[Dict[str, Any]]:
         """Extract all bounding boxes for an element across its prov entries."""
@@ -124,6 +169,7 @@ class PositionalChunkerV5:
         """
         Create chunks by section headers while respecting column boundaries.
         Elements from different columns are not mixed in a single chunk.
+        Includes table processing.
         """
         chunks: List[Dict[str, Any]] = []
         current_section_name = "Introduction"
@@ -183,7 +229,122 @@ class PositionalChunkerV5:
                 chunk_id = f"{current_section_name}_{col}_{len(chunks)}"
                 chunks.append(self._create_chunk_with_all_positions(col_elements, chunk_id, "column_aware_section"))
 
+        # Process tables as separate chunks
+        table_chunk_id = 1000  # Start table chunks with higher ID
+        for table in self.tables:
+            table_text = self._extract_table_text(table)
+            if not table_text.strip():
+                continue
+            
+            bbox_infos = self._get_element_all_bbox_info(table)
+            if not bbox_infos:
+                continue
+            
+            # Create table chunk
+            chunk = {
+                'id': f'table_{table_chunk_id}',
+                'type': 'table',
+                'text': table_text,
+                'tokens': self._estimate_tokens(table_text),
+                'pages': sorted(list(set([bbox['page'] for bbox in bbox_infos]))),
+                'positions': bbox_infos,
+                'spans_columns': len(set([bbox['column'] for bbox in bbox_infos])) > 1,
+                'spans_pages': len(set([bbox['page'] for bbox in bbox_infos])) > 1,
+                'element_count': 1
+            }
+            
+            chunks.append(chunk)
+            table_chunk_id += 1
+
+        # Post-process: merge chunks that are too small (< 100 tokens)
+        chunks = self._merge_small_chunks(chunks, min_tokens=100)
+        
         return chunks
+
+    def _merge_small_chunks(self, chunks: List[Dict[str, Any]], min_tokens: int = 100) -> List[Dict[str, Any]]:
+        """
+        Merge chunks that are smaller than min_tokens with their neighbors.
+        Prefers merging with the shorter neighbor to balance chunk sizes.
+        """
+        if not chunks:
+            return chunks
+        
+        result = []
+        i = 0
+        
+        while i < len(chunks):
+            current_chunk = chunks[i]
+            
+            # If current chunk is large enough, keep it as is
+            if current_chunk.get('tokens', 0) >= min_tokens:
+                result.append(current_chunk)
+                i += 1
+                continue
+            
+            # Current chunk is too small, need to merge
+            # Find the best neighbor to merge with
+            prev_chunk = result[-1] if result else None
+            next_chunk = chunks[i + 1] if i + 1 < len(chunks) else None
+            
+            # Decide which neighbor to merge with
+            if prev_chunk is None and next_chunk is None:
+                # No neighbors, keep as is (shouldn't happen)
+                result.append(current_chunk)
+                i += 1
+            elif prev_chunk is None:
+                # Only next chunk available, merge forward
+                merged_chunk = self._merge_two_chunks(current_chunk, next_chunk)
+                result.append(merged_chunk)
+                i += 2  # Skip next chunk since we merged it
+            elif next_chunk is None:
+                # Only previous chunk available, merge backward
+                merged_chunk = self._merge_two_chunks(prev_chunk, current_chunk)
+                result[-1] = merged_chunk  # Replace the last chunk
+                i += 1
+            else:
+                # Both neighbors available, choose the shorter one
+                if prev_chunk.get('tokens', 0) <= next_chunk.get('tokens', 0):
+                    # Merge with previous chunk
+                    merged_chunk = self._merge_two_chunks(prev_chunk, current_chunk)
+                    result[-1] = merged_chunk  # Replace the last chunk
+                    i += 1
+                else:
+                    # Merge with next chunk
+                    merged_chunk = self._merge_two_chunks(current_chunk, next_chunk)
+                    result.append(merged_chunk)
+                    i += 2  # Skip next chunk since we merged it
+        
+        return result
+
+    def _merge_two_chunks(self, chunk1: Dict[str, Any], chunk2: Dict[str, Any]) -> Dict[str, Any]:
+        """Merge two chunks into one."""
+        # Combine text
+        combined_text = chunk1['text'] + '\n' + chunk2['text']
+        
+        # Combine positions
+        combined_positions = chunk1.get('positions', []) + chunk2.get('positions', [])
+        
+        # Combine pages
+        combined_pages = sorted(list(set(chunk1.get('pages', []) + chunk2.get('pages', []))))
+        
+        # Determine if spans columns/pages
+        spans_columns = len(set([pos.get('column', 'left') for pos in combined_positions])) > 1
+        spans_pages = len(combined_pages) > 1
+        
+        # Create merged chunk
+        merged_chunk = {
+            'id': f"{chunk1['id']}_merged_{chunk2['id']}",
+            'type': chunk1.get('type', 'text'),  # Use first chunk's type
+            'text': combined_text,
+            'tokens': self._estimate_tokens(combined_text),
+            'pages': combined_pages,
+            'positions': combined_positions,
+            'spans_columns': spans_columns,
+            'spans_pages': spans_pages,
+            'element_count': chunk1.get('element_count', 1) + chunk2.get('element_count', 1)
+        }
+        
+        return merged_chunk
 
 
 def chunk_positional(pdf_path: str, output_dir: str, max_tokens: int = 512, column_split_x: float = 300.0) -> Dict[str, Any]:
