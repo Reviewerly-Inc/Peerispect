@@ -593,11 +593,16 @@ async def get_job_status(job_id: str):
 
     job = processing_jobs[job_id]
     percent = _compute_completion_percent(job)
+    # Prefer human-readable progress message if available
+    progress_payload = job.get("progress") or {}
+    display_message = progress_payload.get("message") or job.get("message") or job.get("phase")
+
     response: Dict[str, Any] = {
         "job_id": job_id,
         "submission_id": job.get("submission_id"),
         "status": job.get("status", "unknown"),
         "phase": job.get("phase"),
+        "message": display_message,
         "percent": round(percent, 1),
         "started_at": job.get("start_time"),
         "ended_at": job.get("end_time")
@@ -638,14 +643,14 @@ def _compute_completion_percent(job: Dict[str, Any]) -> float:
         return 100.0
     # Phase weights (sum to 100)
     weights = {
-        "crawl": 5.0,
-        "parse_pdf": 10.0,
-        "clean_markdown": 5.0,
-        "chunk": 10.0,
-        "reviews": 10.0,
-        "claims": 15.0,
-        "evidence": 15.0,
-        "verify": 30.0,
+        "crawl": 2.0,
+        "parse_pdf": 20.0,
+        "clean_markdown": 3.0,
+        "chunk": 15.0,
+        "reviews": 5.0,
+        "claims": 5.0,
+        "evidence": 5.0,
+        "verify": 45.0,
         "done": 0.0
     }
     ordered = ["crawl","parse_pdf","clean_markdown","chunk","reviews","claims","evidence","verify","done"]
