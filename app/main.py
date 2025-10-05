@@ -333,14 +333,10 @@ class OpenReviewProcessor:
         step_results = {}
         
         try:
-            self._emit_progress({
-                'phase': 'start',
-                'status': 'running',
-                'message': 'Pipeline started'
-            })
+            self._emit_progress({'phase': 'start', 'status': 'running', 'message': 'Starting pipeline'})
             # Step 1: Crawl OpenReview URL
             logging.info("Step 1: Crawling OpenReview URL")
-            self._emit_progress({'phase': 'crawl', 'status': 'running', 'message': 'Crawling OpenReview', 'progress': 0})
+            self._emit_progress({'phase': 'crawl', 'status': 'running', 'message': 'Fetching submission and reviews', 'progress': 0})
             metadata = crawl_openreview_url(url, str(self.output_dir), username, password)
             results['submission_id'] = metadata.get('submission_id')
             results['pdf_path'] = metadata.get('pdf_local_path')
@@ -351,7 +347,7 @@ class OpenReviewProcessor:
                 'pdf_path': results['pdf_path'],
                 'metadata_keys': list(metadata.keys()) if metadata else []
             }
-            self._emit_progress({'phase': 'crawl', 'status': 'completed', 'submission_id': results['submission_id']})
+            self._emit_progress({'phase': 'crawl', 'status': 'completed', 'message': 'Fetched submission and reviews', 'submission_id': results['submission_id']})
             
             if not results['pdf_path']:
                 raise ValueError("No PDF found for this submission")
@@ -384,11 +380,11 @@ class OpenReviewProcessor:
                 'parser_kwargs': self.config.get("parser_kwargs", {}),
                 'markdown_path': str(md_path)
             }
-            self._emit_progress({'phase': 'parse_pdf', 'status': 'completed', 'actual_method': pdf_result['actual_method']})
+            self._emit_progress({'phase': 'parse_pdf', 'status': 'completed', 'message': f"Parsed PDF ({pdf_result['actual_method']})", 'actual_method': pdf_result['actual_method']})
             
             # Step 3: Clean Markdown
             logging.info("Step 3: Cleaning Markdown")
-            self._emit_progress({'phase': 'clean_markdown', 'status': 'running'})
+            self._emit_progress({'phase': 'clean_markdown', 'status': 'running', 'message': 'Cleaning parsed markdown'})
             cleaned_md_path = self.output_dir / "markdown" / f"{results['submission_id']}_cleaned.md"
             clean_markdown(
                 str(md_path),
@@ -404,13 +400,13 @@ class OpenReviewProcessor:
                 'status': 'completed',
                 'cleaned_markdown_path': str(cleaned_md_path)
             }
-            self._emit_progress({'phase': 'clean_markdown', 'status': 'completed'})
+            self._emit_progress({'phase': 'clean_markdown', 'status': 'completed', 'message': 'Cleaned markdown'})
             
             # Step 4: Chunking
             positional_enabled = bool(self.config.get("positional_chunking", False))
             if positional_enabled:
                 logging.info("Step 4: Positional chunking (V5 column-aware)")
-                self._emit_progress({'phase': 'chunk', 'status': 'running', 'mode': 'positional_v5'})
+                self._emit_progress({'phase': 'chunk', 'status': 'running', 'message': 'Generating positional chunks (column-aware)', 'mode': 'positional_v5'})
                 pos_dir = self.output_dir / "positional" / results['submission_id']
                 pos_dir.mkdir(parents=True, exist_ok=True)
                 pos_result = chunk_positional(
@@ -439,12 +435,12 @@ class OpenReviewProcessor:
                             _chunks = json.load(_f)
                             if isinstance(_chunks, list):
                                 num_chunks = len(_chunks)
-                    self._emit_progress({'phase': 'chunk', 'status': 'completed', 'num_chunks': num_chunks})
+                    self._emit_progress({'phase': 'chunk', 'status': 'completed', 'message': f'Generated positional chunks ({num_chunks})', 'num_chunks': num_chunks})
                 except Exception:
-                    self._emit_progress({'phase': 'chunk', 'status': 'completed'})
+                    self._emit_progress({'phase': 'chunk', 'status': 'completed', 'message': 'Generated positional chunks'})
             else:
                 logging.info("Step 4: Chunking Markdown (simple)")
-                self._emit_progress({'phase': 'chunk', 'status': 'running', 'mode': 'markdown_simple'})
+                self._emit_progress({'phase': 'chunk', 'status': 'running', 'message': 'Chunking cleaned markdown', 'mode': 'markdown_simple'})
                 chunks_path = self.output_dir / "chunks" / f"{results['submission_id']}_chunks.jsonl"
                 chunk_markdown(
                     str(cleaned_md_path),
@@ -459,11 +455,11 @@ class OpenReviewProcessor:
                     'chunk_size': self.config.get("chunk_size", 512),
                     'chunks_path': str(chunks_path)
                 }
-                self._emit_progress({'phase': 'chunk', 'status': 'completed'})
+                self._emit_progress({'phase': 'chunk', 'status': 'completed', 'message': 'Chunked cleaned markdown'})
             
             # Step 5: Extract Structured Reviews
             logging.info("Step 5: Extracting Structured Reviews")
-            self._emit_progress({'phase': 'reviews', 'status': 'running'})
+            self._emit_progress({'phase': 'reviews', 'status': 'running', 'message': 'Structuring and saving reviews'})
             metadata_path = self.output_dir / "pdfs" / f"{results['submission_id']}_metadata.json"
             reviews_path = self.output_dir / "reviews" / f"{results['submission_id']}_reviews.json"
             
@@ -539,7 +535,7 @@ class OpenReviewProcessor:
                 'num_reviews': len(reviews),
                 'review_ids': [r.get('review_id') for r in reviews] if reviews else []
             }
-            self._emit_progress({'phase': 'reviews', 'status': 'completed', 'num_reviews': len(reviews)})
+            self._emit_progress({'phase': 'reviews', 'status': 'completed', 'message': f'Structured {len(reviews)} reviews', 'num_reviews': len(reviews)})
             
             if not reviews:
                 logging.warning("No reviews found for this submission - skipping remaining steps")
@@ -553,7 +549,7 @@ class OpenReviewProcessor:
             
             # Step 6: Extract Claims from Reviews
             logging.info("Step 6: Extracting Claims from Reviews")
-            self._emit_progress({'phase': 'claims', 'status': 'running'})
+            self._emit_progress({'phase': 'claims', 'status': 'running', 'message': 'Extracting claims from reviews'})
             claims_path = self.output_dir / "claims" / f"{results['submission_id']}_claims.json"
             claims_result = extract_claims_from_reviews(
                 reviews,
@@ -584,7 +580,7 @@ class OpenReviewProcessor:
                         'review_id': review.get('review_id'),
                         'reviewer': review.get('reviewer')
                     })
-            self._emit_progress({'phase': 'claims', 'status': 'completed', 'num_claims': len(all_claims)})
+            self._emit_progress({'phase': 'claims', 'status': 'completed', 'message': f'Extracted {len(all_claims)} claims', 'num_claims': len(all_claims)})
             
             step_results['step_6_claim_extraction'] = {
                 'status': 'completed',
@@ -607,7 +603,7 @@ class OpenReviewProcessor:
             
             # Step 7: Retrieve Evidence for Claims
             logging.info("Step 7: Retrieving Evidence for Claims")
-            self._emit_progress({'phase': 'evidence', 'status': 'running', 'total_claims': len(all_claims), 'current': 0})
+            self._emit_progress({'phase': 'evidence', 'status': 'running', 'message': f'Retrieving evidence for {len(all_claims)} claims', 'total_claims': len(all_claims), 'current': 0})
             evidence_path = self.output_dir / "evidence" / f"{results['submission_id']}_evidence.json"
             
             # Load chunks - handle both positional and markdown chunking modes
@@ -644,7 +640,7 @@ class OpenReviewProcessor:
                     'review_id': claim_data['review_id'],
                     'reviewer': claim_data['reviewer']
                 })
-                self._emit_progress({'phase': 'evidence', 'status': 'running', 'total_claims': len(all_claims), 'current': i + 1})
+                self._emit_progress({'phase': 'evidence', 'status': 'running', 'message': f'Retrieving evidence ({i + 1}/{len(all_claims)})', 'total_claims': len(all_claims), 'current': i + 1})
             
             # Update actual method used in log
             self.run_logger.update_actual_method_used(
@@ -669,15 +665,15 @@ class OpenReviewProcessor:
                 'num_chunks': len(chunks),
                 'num_claims_with_evidence': len(claims_with_evidence)
             }
-            self._emit_progress({'phase': 'evidence', 'status': 'completed', 'num_claims': len(claims_with_evidence)})
+            self._emit_progress({'phase': 'evidence', 'status': 'completed', 'message': f'Retrieved evidence for {len(claims_with_evidence)} claims', 'num_claims': len(claims_with_evidence)})
             
             # Step 8: Verify Claims
             logging.info("Step 8: Verifying Claims")
-            self._emit_progress({'phase': 'verify', 'status': 'running', 'total_claims': len(claims_with_evidence), 'current': 0})
             verification_path = self.output_dir / "verification" / f"{results['submission_id']}_verification.json"
             report_path = self.output_dir / "verification" / f"{results['submission_id']}_report.md"
             
             verification_model = self.config.get("verification_model", "qwen3:8b")
+            self._emit_progress({'phase': 'verify', 'status': 'running', 'message': f"Verifying claims with model {verification_model}", 'total_claims': len(claims_with_evidence), 'current': 0})
             
             verifier = ClaimVerifier()
             # Wrap verification to emit progress after each claim
@@ -686,7 +682,7 @@ class OpenReviewProcessor:
                 single_result = verifier.verify_claims_batch([claim_payload], model=verification_model, delay=0.0)
                 if single_result:
                     verification_results.append(single_result[0])
-                self._emit_progress({'phase': 'verify', 'status': 'running', 'total_claims': len(claims_with_evidence), 'current': idx + 1})
+                self._emit_progress({'phase': 'verify', 'status': 'running', 'message': f"Verifying claims ({idx + 1}/{len(claims_with_evidence)})", 'total_claims': len(claims_with_evidence), 'current': idx + 1})
             
             # Update actual method used in log
             self.run_logger.update_actual_method_used(
@@ -719,7 +715,7 @@ class OpenReviewProcessor:
             self.run_logger.update_run_log(run_log_file, step_results)
             
             logging.info(f"Successfully processed submission {results['submission_id']}")
-            self._emit_progress({'phase': 'done', 'status': 'completed', 'submission_id': results['submission_id']})
+            self._emit_progress({'phase': 'done', 'status': 'completed', 'message': 'Pipeline completed', 'submission_id': results['submission_id']})
             
         except Exception as e:
             logging.error(f"Error processing URL {url}: {e}")
