@@ -8,7 +8,7 @@ import json
 import logging
 import asyncio
 from pathlib import Path
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List, Optional, Callable
 from datetime import datetime
 
 from fastapi import FastAPI, HTTPException, BackgroundTasks, Depends
@@ -18,6 +18,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, HttpUrl
 import uvicorn
 import hashlib
+import uuid
 
 # Import our existing pipeline modules
 import sys
@@ -95,7 +96,29 @@ class ConfigResponse(BaseModel):
     """Configuration response"""
     config: Dict[str, Any] = Field(..., description="Current configuration")
 
-# Global state for tracking processing jobs
+class JobCreateResponse(BaseModel):
+    job_id: str
+    status: str
+    submission_id: Optional[str] = None
+
+class JobStatusResponse(BaseModel):
+    job_id: str
+    submission_id: Optional[str] = None
+    status: str
+    started_at: Optional[datetime] = None
+    ended_at: Optional[datetime] = None
+    processing_time: Optional[float] = None
+    phase: Optional[str] = None
+    progress: Optional[Dict[str, Any]] = None
+    progress_history: Optional[List[Dict[str, Any]]] = None
+    message: Optional[str] = None
+    results: Optional[List[Dict[str, Any]]] = None
+    pdf_url: Optional[str] = None
+    config_used: Optional[Dict[str, Any]] = None
+    cached: Optional[bool] = None
+    highlighting_map: Optional[Dict[str, Any]] = None
+
+# Global state for tracking processing jobs (keyed by job_id)
 processing_jobs: Dict[str, Dict[str, Any]] = {}
 
 # Cache directory for API results
@@ -358,6 +381,116 @@ def create_highlighting_map(verification_data: List[Dict[str, Any]], positional_
     
     return highlighting_map, transformed_verification_data
 
+async def _run_processing_job(job_id: str, url: str, config: Dict[str, Any]) -> None:
+    """Execute the processing job in background and update job state with progress and results."""
+    start_time = datetime.now()
+    processing_jobs[job_id].update({
+        "status": "processing",
+        "start_time": start_time,
+        "phase": "start"
+    })
+
+    def progress_callback(payload: Dict[str, Any]) -> None:
+        # Attach timestamp and keep last progress payload + history (bounded)
+        payload_with_ts = {**payload, "timestamp": datetime.now().isoformat()}
+        job = processing_jobs.get(job_id)
+        if not job:
+            return
+        job["phase"] = payload.get("phase", job.get("phase"))
+        job["progress"] = payload
+        history: List[Dict[str, Any]] = job.setdefault("progress_history", [])
+        history.append(payload_with_ts)
+        # Keep last 200 entries to avoid unbounded growth
+        if len(history) > 200:
+            del history[: len(history) - 200]
+
+    try:
+        # Run the pipeline with progress reporting
+        processor = OpenReviewProcessor(config, progress_callback=progress_callback)
+        pipeline_results = await asyncio.to_thread(
+            processor.process_openreview_url,
+            url
+        )
+
+        # Prepare verification data if present
+        verification_data: List[Dict[str, Any]] = []
+        if pipeline_results.get("verification_path") and Path(pipeline_results["verification_path"]).exists():
+            try:
+                with open(pipeline_results["verification_path"], 'r') as f:
+                    verification_data = json.load(f)
+                if not isinstance(verification_data, list):
+                    verification_data = [verification_data] if verification_data else []
+            except Exception as e:
+                logger.error(f"Error loading verification data: {e}")
+                verification_data = []
+
+        submission_id = pipeline_results.get("submission_id") or get_submission_id_from_url(url)
+
+        # Copy PDF to cache (guard against missing path)
+        original_pdf = pipeline_results.get("pdf_path")
+        if original_pdf:
+            original_pdf_path = Path(original_pdf)
+            if original_pdf_path.exists():
+                cached_pdf_path = CACHE_DIR / "pdfs" / f"{submission_id}.pdf"
+                import shutil
+                shutil.copy2(original_pdf_path, cached_pdf_path)
+
+        # Positional highlighting
+        positional_data = load_positional_data(pipeline_results, submission_id)
+        try:
+            highlighting_map, transformed_verification_data = create_highlighting_map(verification_data, positional_data)
+        except Exception as e:
+            logger.error(f"Error creating highlighting map: {e}")
+            highlighting_map = {"evidence_registry": {}}
+            transformed_verification_data = verification_data
+
+        processing_time = (datetime.now() - start_time).total_seconds()
+
+        response_data = {
+            "submission_id": submission_id,
+            "status": "completed",
+            "message": "Paper processed successfully",
+            "processing_time": processing_time,
+            "results": transformed_verification_data,
+            "pdf_url": f"/pdf/{submission_id}",
+            "config_used": config,
+            "cached": False,
+            "highlighting_map": highlighting_map
+        }
+
+        # Cache the result if valid
+        cache_key = get_cache_key(str(url), config)
+        cache_file = CACHE_DIR / "results" / f"{cache_key}.json"
+        if validate_cached_result(response_data):
+            try:
+                with open(cache_file, 'w', encoding='utf-8') as f:
+                    json.dump(response_data, f, indent=2, ensure_ascii=False)
+            except Exception as e:
+                logger.error(f"Error caching result: {e}")
+
+        # Update job state
+        processing_jobs[job_id].update({
+            "status": "completed",
+            "end_time": datetime.now(),
+            "processing_time": processing_time,
+            "submission_id": submission_id,
+            "results": transformed_verification_data,
+            "pdf_url": f"/pdf/{submission_id}",
+            "config_used": config,
+            "cached": False,
+            "highlighting_map": highlighting_map,
+            "message": "completed"
+        })
+
+    except Exception as e:
+        logger.error(f"Background job error: {e}")
+        processing_jobs[job_id].update({
+            "status": "failed",
+            "end_time": datetime.now(),
+            "error": str(e),
+            "message": "failed"
+        })
+
 @app.get("/", response_model=Dict[str, str])
 async def root():
     """Root endpoint with API information"""
@@ -401,7 +534,7 @@ async def serve_pdf(submission_id: str):
         media_type="application/pdf"
     )
 
-@app.post("/process", response_model=ProcessPaperResponse)
+@app.post("/process", response_model=JobCreateResponse)
 async def process_paper(request: ProcessPaperRequest, background_tasks: BackgroundTasks):
     """
     Process an OpenReview paper through the complete pipeline
@@ -422,195 +555,141 @@ async def process_paper(request: ProcessPaperRequest, background_tasks: Backgrou
     if request.config_overrides:
         config.update(request.config_overrides)
     
-    # Check cache first
+    # Build cache key fingerprint for deduplication
     cache_key = get_cache_key(str(request.openreview_url), config)
-    cache_file = CACHE_DIR / "results" / f"{cache_key}.json"
-    
-    if cache_file.exists():
-        try:
-            with open(cache_file, 'r', encoding='utf-8') as f:
-                cached_data = json.load(f)
-            
-            # Validate cached result
-            if validate_cached_result(cached_data):
-                logger.info(f"Serving valid cached result for {submission_id}")
-                return ProcessPaperResponse(
-                    submission_id=cached_data["submission_id"],
-                    status=cached_data["status"],
-                    message=cached_data["message"],
-                    processing_time=cached_data.get("processing_time"),
-                    results=cached_data["results"],
-                    pdf_url=cached_data.get("pdf_url"),
-                    config_used=cached_data.get("config_used"),
-                    cached=True,
-                    highlighting_map=cached_data["highlighting_map"]
-                )
-            else:
-                logger.warning(f"Cached result for {submission_id} failed validation, processing fresh")
-                # Remove invalid cache file
-                cache_file.unlink()
-        except Exception as e:
-            logger.error(f"Error loading cached result for {submission_id}: {e}")
-            # Remove corrupted cache file
-            if cache_file.exists():
-                cache_file.unlink()
-    
-    # Check if already processing
-    if submission_id in processing_jobs:
-        return ProcessPaperResponse(
-            submission_id=submission_id,
-            status="already_processing",
-            message="Paper is already being processed"
-        )
-    
-    # Add to processing jobs
-    processing_jobs[submission_id] = {
-        "status": "processing",
-        "start_time": datetime.now(),
-        "url": str(request.openreview_url)
-    }
-    
-    try:
-        # Process the paper
-        start_time = datetime.now()
-        
-        # Create processor and run pipeline
-        processor = OpenReviewProcessor(config)
-        pipeline_results = await asyncio.to_thread(
-            processor.process_openreview_url,
-            str(request.openreview_url)
-        )
-        
-        processing_time = (datetime.now() - start_time).total_seconds()
-        
-        # Debug pipeline results
-        logger.info(f"Pipeline results keys: {list(pipeline_results.keys())}")
-        logger.info(f"Verification path: {pipeline_results.get('verification_path')}")
-        
-        # Load verification results
-        verification_data = []
-        if pipeline_results.get("verification_path") and Path(pipeline_results["verification_path"]).exists():
-            try:
-                with open(pipeline_results["verification_path"], 'r') as f:
-                    verification_data = json.load(f)
-                    # Ensure it's a list if it's not already
-                    if not isinstance(verification_data, list):
-                        verification_data = [verification_data] if verification_data else []
-                logger.info(f"Successfully loaded {len(verification_data)} verification entries")
-            except Exception as e:
-                logger.error(f"Error loading verification data: {e}")
-                verification_data = []
-        
-        # Copy PDF to cache directory for serving
-        original_pdf_path = Path(pipeline_results.get("pdf_path", ""))
-        if original_pdf_path.exists():
-            cached_pdf_path = CACHE_DIR / "pdfs" / f"{submission_id}.pdf"
-            import shutil
-            shutil.copy2(original_pdf_path, cached_pdf_path)
-            logger.info(f"Copied PDF to cache: {cached_pdf_path}")
-        
-        # Load positional chunks for highlighting data
-        positional_data = load_positional_data(pipeline_results, submission_id)
-        
-        # Create highlighting map and transform verification data
-        logger.info(f"Creating highlighting map with {len(verification_data)} verification entries")
-        try:
-            highlighting_map, transformed_verification_data = create_highlighting_map(verification_data, positional_data)
-            logger.info(f"Created highlighting map with {len(highlighting_map.get('evidence_registry', {}))} evidence entries")
-        except Exception as e:
-            logger.error(f"Error creating highlighting map: {e}")
-            highlighting_map = {"evidence_registry": {}}
-            transformed_verification_data = verification_data
-        
-        # Update job status
-        processing_jobs[submission_id].update({
-            "status": "completed",
-            "end_time": datetime.now(),
-            "processing_time": processing_time,
-            "results": pipeline_results
-        })
-        
-        # Prepare response data
-        response_data = {
-            "submission_id": submission_id,
-            "status": "completed",
-            "message": "Paper processed successfully",
-            "processing_time": processing_time,
-            "results": transformed_verification_data,
-            "pdf_url": f"/pdf/{submission_id}",
-            "config_used": config,
-            "cached": False,
-            "highlighting_map": highlighting_map
-        }
-        
-        # Cache the result if validation passes
-        try:
-            # Validate the response before caching
-            if validate_cached_result(response_data):
-                with open(cache_file, 'w', encoding='utf-8') as f:
-                    json.dump(response_data, f, indent=2, ensure_ascii=False)
-                logger.info(f"Cached successful result for {submission_id}")
-            else:
-                logger.warning(f"Result validation failed, not caching {submission_id}")
-        except Exception as e:
-            logger.error(f"Error caching result for {submission_id}: {e}")
-        
-        return ProcessPaperResponse(**response_data)
-        
-    except Exception as e:
-        logger.error(f"Error processing paper {submission_id}: {e}")
-        
-        # Update job status
-        processing_jobs[submission_id].update({
-            "status": "failed",
-            "end_time": datetime.now(),
-            "error": str(e)
-        })
-        
-        raise HTTPException(
-            status_code=500,
-            detail=f"Failed to process paper: {str(e)}"
-        )
 
-@app.get("/status/{submission_id}", response_model=Dict[str, Any])
-async def get_processing_status(submission_id: str):
-    """Get processing status for a specific submission"""
-    if submission_id not in processing_jobs:
-        raise HTTPException(status_code=404, detail="Submission not found")
-    
-    job = processing_jobs[submission_id]
-    return {
-        "submission_id": submission_id,
-        "status": job["status"],
-        "start_time": job["start_time"],
-        "end_time": job.get("end_time"),
-        "processing_time": job.get("processing_time"),
-        "error": job.get("error")
+    # If an identical job (same URL+config) exists, return its job_id
+    for existing_job_id, job in processing_jobs.items():
+        if job.get("cache_key") == cache_key and job.get("url") == str(request.openreview_url):
+            # Reuse even if completed, queued, or processing
+            return JobCreateResponse(
+                job_id=existing_job_id,
+                status=job.get("status", "unknown"),
+                submission_id=job.get("submission_id", submission_id)
+            )
+
+    # Create job
+    job_id = str(uuid.uuid4())
+    processing_jobs[job_id] = {
+        "status": "queued",
+        "start_time": datetime.now(),
+        "url": str(request.openreview_url),
+        "cache_key": cache_key,
+        "phase": "queued",
+        "progress": None,
+        "progress_history": []
     }
+
+    # Schedule background job
+    background_tasks.add_task(_run_processing_job, job_id, str(request.openreview_url), config)
+
+    return JobCreateResponse(job_id=job_id, status="queued", submission_id=submission_id)
+
+@app.get("/jobs/{job_id}", response_model=Dict[str, Any])
+async def get_job_status(job_id: str):
+    """Single job endpoint: returns status + percent; includes results when completed."""
+    if job_id not in processing_jobs:
+        raise HTTPException(status_code=404, detail="Job not found")
+
+    job = processing_jobs[job_id]
+    percent = _compute_completion_percent(job)
+    response: Dict[str, Any] = {
+        "job_id": job_id,
+        "submission_id": job.get("submission_id"),
+        "status": job.get("status", "unknown"),
+        "phase": job.get("phase"),
+        "percent": round(percent, 1),
+        "started_at": job.get("start_time"),
+        "ended_at": job.get("end_time")
+    }
+    if job.get("status") == "completed":
+        response.update({
+            "processing_time": job.get("processing_time"),
+            "results": job.get("results"),
+            "pdf_url": job.get("pdf_url"),
+            "highlighting_map": job.get("highlighting_map")
+        })
+    if job.get("status") == "failed":
+        response.update({"error": job.get("error")})
+    return response
 
 @app.get("/jobs", response_model=Dict[str, List[Dict[str, Any]]])
 async def list_processing_jobs():
     """List all processing jobs"""
-    return {
-        "jobs": [
+    jobs_list = [
             {
-                "submission_id": sid,
+            "job_id": jid,
+            "submission_id": job.get("submission_id"),
                 "status": job["status"],
                 "start_time": job["start_time"],
-                "url": job["url"]
-            }
-            for sid, job in processing_jobs.items()
-        ]
-    }
+            "url": job["url"],
+            "phase": job.get("phase")
+        }
+        for jid, job in processing_jobs.items()
+    ]
+    return {"jobs": jobs_list}
 
-@app.delete("/jobs/{submission_id}")
-async def clear_processing_job(submission_id: str):
-    """Clear a specific processing job from memory"""
-    if submission_id not in processing_jobs:
-        raise HTTPException(status_code=404, detail="Submission not found")
-    
-    del processing_jobs[submission_id]
-    return {"message": f"Job {submission_id} cleared"}
+def _compute_completion_percent(job: Dict[str, Any]) -> float:
+    """Compute a simple overall completion percentage based on phase and per-claim progress.
+    Weights can be tuned later.
+    """
+    status = job.get("status", "unknown")
+    if status == "completed":
+        return 100.0
+    # Phase weights (sum to 100)
+    weights = {
+        "crawl": 5.0,
+        "parse_pdf": 10.0,
+        "clean_markdown": 5.0,
+        "chunk": 10.0,
+        "reviews": 10.0,
+        "claims": 15.0,
+        "evidence": 15.0,
+        "verify": 30.0,
+        "done": 0.0
+    }
+    ordered = ["crawl","parse_pdf","clean_markdown","chunk","reviews","claims","evidence","verify","done"]
+    phase = job.get("phase", "crawl")
+    progress = job.get("progress") or {}
+
+    percent = 0.0
+    for ph in ordered:
+        if ph == phase:
+            # partial credit within current phase
+            if ph in ("evidence", "verify"):
+                total = progress.get("total_claims") or progress.get("num_claims") or 0
+                current = progress.get("current") or 0
+                frac = (float(current) / float(total)) if total else 0.0
+                percent += weights[ph] * max(0.0, min(1.0, frac))
+            else:
+                # If status completed, grant full weight; if running, grant half
+                st = progress.get("status") or job.get("status")
+                if st == "completed":
+                    percent += weights[ph]
+                else:
+                    percent += weights[ph] * 0.5
+            break
+        else:
+            percent += weights.get(ph, 0.0)
+            if ph == "verify":
+                # Should not reach here normally before break
+                pass
+        if ph == "done":
+            break
+    # Clamp
+    if status == "failed":
+        return max(0.0, min(99.0, percent))
+    return max(0.0, min(99.0, percent))
+
+# Note: The minimal progress is now served by GET /jobs/{job_id} directly.
+
+@app.delete("/jobs/{job_id}")
+async def clear_processing_job(job_id: str):
+    """Clear a specific processing job from memory by job_id"""
+    if job_id not in processing_jobs:
+        raise HTTPException(status_code=404, detail="Job not found")
+    del processing_jobs[job_id]
+    return {"message": f"Job {job_id} cleared"}
 
 @app.delete("/jobs")
 async def clear_all_jobs():
