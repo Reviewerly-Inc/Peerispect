@@ -140,6 +140,40 @@ def get_submission_id_from_url(url: str) -> str:
     else:
         return url.split("/")[-1]
 
+def load_cached_result(cache_key: str) -> Optional[Dict[str, Any]]:
+    """
+    Load and validate a cached result from the filesystem.
+    
+    Args:
+        cache_key: The cache key to look up
+        
+    Returns:
+        Dict containing the cached result if valid, None otherwise
+    """
+    cache_file = CACHE_DIR / "results" / f"{cache_key}.json"
+    
+    if not cache_file.exists():
+        logger.debug(f"No cached result found for key: {cache_key}")
+        return None
+    
+    try:
+        with open(cache_file, 'r', encoding='utf-8') as f:
+            cached_data = json.load(f)
+        
+        # Validate the cached result
+        if validate_cached_result(cached_data):
+            logger.info(f"Found valid cached result for key: {cache_key}")
+            # Mark as cached for response
+            cached_data["cached"] = True
+            return cached_data
+        else:
+            logger.warning(f"Cached result failed validation for key: {cache_key}")
+            return None
+            
+    except Exception as e:
+        logger.error(f"Error loading cached result for key {cache_key}: {e}")
+        return None
+
 def load_positional_data(pipeline_results: Dict[str, Any], submission_id: str) -> Dict[str, Any]:
     """Load positional chunk data for highlighting evidence"""
     positional_data = {
@@ -557,6 +591,32 @@ async def process_paper(request: ProcessPaperRequest, background_tasks: Backgrou
     
     # Build cache key fingerprint for deduplication
     cache_key = get_cache_key(str(request.openreview_url), config)
+
+    # Check for existing cached result first
+    cached_result = load_cached_result(cache_key)
+    if cached_result:
+        # Create a job entry for the cached result to maintain consistency
+        job_id = str(uuid.uuid4())
+        processing_jobs[job_id] = {
+            "status": "completed",
+            "start_time": datetime.now(),
+            "end_time": datetime.now(),
+            "url": str(request.openreview_url),
+            "cache_key": cache_key,
+            "submission_id": cached_result.get("submission_id", submission_id),
+            "results": cached_result.get("results", []),
+            "pdf_url": cached_result.get("pdf_url", f"/pdf/{submission_id}"),
+            "config_used": config,
+            "cached": True,
+            "highlighting_map": cached_result.get("highlighting_map", {}),
+            "processing_time": cached_result.get("processing_time", 0),
+            "message": "completed (cached)"
+        }
+        return JobCreateResponse(
+            job_id=job_id,
+            status="completed",
+            submission_id=cached_result.get("submission_id", submission_id)
+        )
 
     # If an identical job (same URL+config) exists, return its job_id
     for existing_job_id, job in processing_jobs.items():
