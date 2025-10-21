@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  peerispect:
+    build: .
+    restart: always
+    ports:
+      - "5015:5015"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    volumes:
+      - ./outputs:/app/outputs
+      - ./api_cache:/app/api_cache
+    runtime: nvidia
+    networks:
+      - openalex-network
+
+networks:
+  openalex-network:
+    external: true

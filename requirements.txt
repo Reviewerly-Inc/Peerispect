@@ -1,11 +1,15 @@
 # Core dependencies
-openreview
-requests
+openreview-py==1.52.1
+requests==2.32.5
 tiktoken
 tqdm
 
+# FastAPI and web server
+fastapi
+uvicorn[standard]
+
 # PDF processing
-docling
+docling==2.51.0
 pdf2image
 Pillow
 PyPDF2
@@ -37,9 +41,9 @@ chardet
 charset-normalizer
 click
 Deprecated
-docling-core
-docling-ibm-models
-docling-parse
+docling-core==2.48.0
+docling-ibm-models==3.9.1
+docling-parse==4.4.0
 easyocr
 et_xmlfile
 filelock

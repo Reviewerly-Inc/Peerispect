@@ -6,6 +6,8 @@
         "model": "0.1.0-small"
     },
     "chunk_size": 512,
+    "positional_chunking": true,
+    "column_split_x": 300.0,
     "claim_extraction": "auto",
     "evidence_retrieval": "auto",
     "verification_model": "qwen3:8b",
