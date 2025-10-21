@@ -8,4 +8,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 5015
 
-CMD ["python", "run_api.py"]
+CMD ["python", "webserver/main.py"]

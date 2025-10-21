@@ -24,9 +24,9 @@ import uuid
 import sys
 sys.path.append(str(Path(__file__).parent.parent))
 
-from app.main import OpenReviewProcessor
+from src.main import OpenReviewProcessor
 
-def load_config(config_path: str = "app/config.json") -> Dict[str, Any]:
+def load_config(config_path: str = "src/config.json") -> Dict[str, Any]:
     """Load configuration from JSON file with fallback to defaults"""
     if os.path.exists(config_path):
         with open(config_path, 'r') as f:
@@ -831,10 +831,4 @@ async def clear_cache_entry(submission_id: str):
     return {"message": f"Cache entries for {submission_id} cleared", "removed_count": removed_count}
 
 if __name__ == "__main__":
-    uvicorn.run(
-        "main:app",
-        host="0.0.0.0",
-        port=5015,
-        reload=True,
-        log_level="info"
-    )
+    uvicorn.run(host="0.0.0.0", port=5015)
