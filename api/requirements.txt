@@ -1,9 +1,0 @@
-# FastAPI and web server dependencies
-fastapi==0.116.1
-uvicorn[standard]==0.35.0
-python-multipart==0.0.20
-
-# Additional API dependencies
-pydantic==2.11.7
-python-jose[cryptography]==3.3.0  # For JWT tokens if needed
-passlib[bcrypt]==1.7.4  # For password hashing if needed
