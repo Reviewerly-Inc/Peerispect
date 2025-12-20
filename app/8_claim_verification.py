@@ -1,65 +1,80 @@
 """
 Claim Verification Module
-Verifies claims against evidence using Ollama LLM
+Verifies claims against evidence using vLLM (OpenAI-compatible API)
 """
 
 import json
 import logging
 import re
 import time
+import requests
 from typing import List, Dict, Any
 
-# Try to import Ollama
-try:
-    from ollama import chat
-    OLLAMA_AVAILABLE = True
-except ImportError:
-    OLLAMA_AVAILABLE = False
-    logging.warning("Ollama not available for claim verification.")
+# vLLM API configuration
+VLLM_API_URL = "http://localhost:11435/v1"
+VLLM_AVAILABLE = True  # Assume available, will check on first call
 
 class ClaimVerifier:
-    def __init__(self):
-        """Initialize claim verifier."""
-        if not OLLAMA_AVAILABLE:
-            logging.warning("Ollama not available. Claim verification will not work.")
-    
-    def verify_claim_with_ollama(self, claim: str, evidence: List[str], model: str = "qwen3:14b") -> Dict[str, Any]:
+    def __init__(self, api_url: str = None):
         """
-        Verify a claim against evidence using Ollama.
+        Initialize claim verifier.
+        
+        Args:
+            api_url (str): vLLM API URL (defaults to http://localhost:11435/v1)
+        """
+        self.api_url = api_url or VLLM_API_URL
+        self.chat_endpoint = f"{self.api_url}/chat/completions"
+    
+    def verify_claim_with_vllm(self, claim: str, evidence: List[str], model: str = "Qwen/Qwen3-4B-Instruct-2507-FP8") -> Dict[str, Any]:
+        """
+        Verify a claim against evidence using vLLM (OpenAI-compatible API).
         
         Args:
             claim (str): Claim to verify
             evidence (list): List of evidence texts
-            model (str): Ollama model name
+            model (str): vLLM model name
         
         Returns:
             dict: Verification result
         """
-        if not OLLAMA_AVAILABLE:
-            raise ImportError("Ollama not available")
-        
         prompt = self._create_verification_prompt(claim, evidence)
         
         try:
-            # Ollama options for inference
-            options = {
-                'temperature': 0.0,
-                'num_predict': 2048,
-                'top_k': 40,
-                'top_p': 0.9,
-                'repeat_penalty': 1.1,
-                'seed': 42,
+            # OpenAI-compatible API request
+            payload = {
+                "model": model,
+                "messages": [
+                    {"role": "user", "content": prompt}
+                ],
+                "temperature": 0.0,
+                "max_tokens": 2048,
+                "top_p": 0.9,
+                "seed": 42
             }
             
-            response = chat(model, messages=[{'role': 'user', 'content': prompt}], options=options)
-            output = response['message']['content']
+            response = requests.post(
+                self.chat_endpoint,
+                json=payload,
+                timeout=60
+            )
+            response.raise_for_status()
+            
+            result_data = response.json()
+            output = result_data['choices'][0]['message']['content']
             
             # Parse JSON response
             result = self._parse_verification_response(output)
             return result
             
+        except requests.exceptions.RequestException as e:
+            logging.error(f"Error in vLLM API request: {e}")
+            return {
+                'result': 'Error',
+                'justification': f'API request failed: {str(e)}',
+                'confidence': 0.0
+            }
         except Exception as e:
-            logging.error(f"Error in Ollama verification: {e}")
+            logging.error(f"Error in vLLM verification: {e}")
             return {
                 'result': 'Error',
                 'justification': f'Verification failed: {str(e)}',
@@ -68,7 +83,7 @@ class ClaimVerifier:
     
     def _create_verification_prompt(self, claim: str, evidence: List[str]) -> str:
         """
-        Create verification prompt for Ollama.
+        Create verification prompt for vLLM.
         
         Args:
             claim (str): Claim to verify
@@ -115,10 +130,10 @@ Return exactly:
     
     def _parse_verification_response(self, output: str) -> Dict[str, Any]:
         """
-        Parse verification response from Ollama.
+        Parse verification response from vLLM.
         
         Args:
-            output (str): Raw output from Ollama
+            output (str): Raw output from vLLM
         
         Returns:
             dict: Parsed verification result
@@ -162,13 +177,13 @@ Return exactly:
             }
     
     def verify_claims_batch(self, claims_with_evidence: List[Dict[str, Any]], 
-                          model: str = "qwen3:14b", delay: float = 1.0) -> List[Dict[str, Any]]:
+                          model: str = "Qwen/Qwen3-4B-Instruct-2507-FP8", delay: float = 1.0) -> List[Dict[str, Any]]:
         """
         Verify multiple claims with evidence.
         
         Args:
             claims_with_evidence (list): List of claims with evidence
-            model (str): Ollama model name
+            model (str): vLLM model name
             delay (float): Delay between requests in seconds
         
         Returns:
@@ -192,7 +207,7 @@ Return exactly:
             
             logging.info(f"Verifying claim {i+1}/{len(claims_with_evidence)}")
             
-            verification_result = self.verify_claim_with_ollama(claim, evidence_texts, model)
+            verification_result = self.verify_claim_with_vllm(claim, evidence_texts, model)
             
             # Combine claim data with verification result
             result = {
@@ -314,28 +329,28 @@ Return exactly:
         
         logging.info(f"Generated verification report: {output_path}")
 
-def verify_claim(claim, evidence, model="qwen3:14b"):
+def verify_claim(claim, evidence, model="Qwen/Qwen3-4B-Instruct-2507-FP8"):
     """
     Main function to verify a single claim.
     
     Args:
         claim (str): Claim text
         evidence (list): List of evidence texts
-        model (str): Ollama model name
+        model (str): vLLM model name
     
     Returns:
         dict: Verification result
     """
     verifier = ClaimVerifier()
-    return verifier.verify_claim_with_ollama(claim, evidence, model)
+    return verifier.verify_claim_with_vllm(claim, evidence, model)
 
-def verify_claims(claims_with_evidence, model="qwen3:14b", delay=1.0):
+def verify_claims(claims_with_evidence, model="Qwen/Qwen3-4B-Instruct-2507-FP8", delay=1.0):
     """
     Main function to verify multiple claims.
     
     Args:
         claims_with_evidence (list): List of claims with evidence
-        model (str): Ollama model name
+        model (str): vLLM model name
         delay (float): Delay between requests
     
     Returns:

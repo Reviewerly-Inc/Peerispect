@@ -41,7 +41,7 @@ def load_config(config_path: str = "app/config.json") -> Dict[str, Any]:
             "column_split_x": 300.0,
             "claim_extraction": "auto",
             "evidence_retrieval": "auto",
-            "verification_model": "qwen3:8b",
+            "verification_model": "Qwen/Qwen3-4B-Instruct-2507-FP8",
             "top_k": 4,
             "output_dir": "outputs"
         }

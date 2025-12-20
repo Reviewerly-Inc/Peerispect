@@ -27,8 +27,8 @@ nltk
 rank-bm25
 bm25s
 
-# Ollama for claim verification
-ollama
+# requests is used for vLLM API calls (claim verification)
+# requests should already be installed as a transitive dependency
 
 # Additional installed dependencies (transitive dependencies)
 accelerate
