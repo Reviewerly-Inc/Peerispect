@@ -140,10 +140,6 @@ urllib3
 wrapt
 xlsxwriter
 
-# Standard library dependencies (usually included with Python)
-# These are listed for completeness but don't need to be installed:
-# - json, os, sys, time, re, logging, argparse, pathlib, typing, urllib.parse, pickle
-
 # Additional dependencies that might be needed for specific models
 # HuggingFace models will be downloaded automatically when first used:
 # - Babelscape/t5-base-summarization-claim-extractor (FENICE)

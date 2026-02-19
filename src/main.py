@@ -11,12 +11,11 @@ import datetime
 import ssl
 from pathlib import Path
 from typing import Dict, Any, List, Callable, Optional
+import importlib.util
 
 # Fix SSL certificate verification issues
 ssl._create_default_https_context = ssl._create_unverified_context
 
-# Import all modules - using the correct module names with numbers
-import importlib.util
 
 # Load modules dynamically since they have numbers in their names
 def load_module(module_path, function_name=None, class_name=None):
@@ -428,7 +427,6 @@ class OpenReviewProcessor:
                     'chunks_path': pos_result['chunks_path']
                 }
                 try:
-                    import os
                     num_chunks = 0
                     if os.path.exists(pos_result['chunks_path']):
                         with open(pos_result['chunks_path'], 'r', encoding='utf-8') as _f:
@@ -478,7 +476,6 @@ class OpenReviewProcessor:
             # If no reviews in metadata, try loading from individual review files
             if not reviews and metadata.get('individual_review_files'):
                 logging.info("No reviews in metadata, trying individual review files")
-                from pathlib import Path
                 extractor_class = load_module("src/5_extract_structured_reviews.py", class_name="ReviewExtractor")
                 extractor = extractor_class()
                 reviews = extractor.load_individual_review_files(
