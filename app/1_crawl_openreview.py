@@ -154,14 +154,36 @@ class OpenReviewCrawler:
                             if isinstance(v, dict):
                                 return v.get('value', v)
                             return v or ''
-                        
+
+                        # Build combined text for claim extraction
+                        parts = []
+                        for fname in ('review', 'summary', 'strengths', 'weaknesses', 'questions', 'limitations'):
+                            v = get_value(fname)
+                            if v and isinstance(v, str) and v.strip():
+                                parts.append(v)
+                        # Older venues may use different field names; collect any text content
+                        if not parts and reply.content:
+                            for key, val in reply.content.items():
+                                if key in ('rating', 'confidence', 'flag_for_ethics_review'):
+                                    continue
+                                s = val.get('value', val) if isinstance(val, dict) else val
+                                if isinstance(s, str) and s.strip():
+                                    parts.append(s.strip())
+                        combined_review_text = '\n'.join(parts).strip()
+                        sigs = getattr(reply, 'signatures', []) or []
+                        inv = reply.invitation if hasattr(reply, 'invitation') else ''
+                        review_text = get_value('review')
+                        if not (review_text or '').strip() and combined_review_text:
+                            review_text = combined_review_text
                         review_info = {
                             'review_id': reply.id,
-                            'reviewer': reply.signatures[0] if hasattr(reply, 'signatures') and reply.signatures else 'Anonymous',
-                            'invitation': reply.invitation if hasattr(reply, 'invitation') else '',
+                            'reviewer': sigs[0].split('/')[-1] if sigs else 'Anonymous',
+                            'invitation': inv,
+                            'invitations': [inv] if inv else [],
+                            'signatures': sigs,
                             'rating': get_value('rating'),
                             'confidence': get_value('confidence'),
-                            'review_text': get_value('review'),
+                            'review_text': review_text,
                             'summary': get_value('summary'),
                             'strengths': get_value('strengths'),
                             'weaknesses': get_value('weaknesses'),
@@ -171,7 +193,8 @@ class OpenReviewCrawler:
                             'presentation': get_value('presentation'),
                             'contribution': get_value('contribution'),
                             'flag_for_ethics_review': get_value('flag_for_ethics_review'),
-                            'details_of_ethics_concerns': get_value('details_of_ethics_concerns')
+                            'details_of_ethics_concerns': get_value('details_of_ethics_concerns'),
+                            'combined_review_text': combined_review_text,
                         }
                         reviews.append(review_info)
                 
@@ -325,6 +348,21 @@ class OpenReviewCrawler:
                 else:
                     # Log non-review replies for debugging
                     logging.debug(f"Non-review reply {reply.get('id')} with invitations: {invitations}")
+            
+            # If details replies had no content (e.g. v1 API returns stubs), fetch full notes
+            has_any_content = any(
+                (r.get('combined_review_text') or '').strip() or (r.get('review_text') or '').strip()
+                for r in pdf_info['reviews']
+            )
+            if pdf_info['reviews'] and not has_any_content:
+                logging.warning("Review content empty from details; fetching full notes via API...")
+                try:
+                    reviews = self.get_reviews_for_submission(submission.id)
+                    if reviews:
+                        pdf_info['reviews'] = reviews
+                        logging.info(f"Replaced with {len(reviews)} reviews with content from API")
+                except Exception as e:
+                    logging.warning(f"Fallback fetch of full notes failed: {e}")
             
             logging.info(f"Successfully extracted {len(pdf_info['reviews'])} reviews for submission {submission.id}")
         else:

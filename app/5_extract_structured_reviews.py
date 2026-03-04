@@ -111,7 +111,12 @@ class ReviewExtractor:
             if review.get('details_of_ethics_concerns'):
                 sections.append(f"Ethics Concerns: {review['details_of_ethics_concerns']}")
         
-        return '\n\n'.join(sections)
+        if sections:
+            return '\n\n'.join(sections)
+        # Fallback for older venues where content came only as combined_review_text
+        if review.get('combined_review_text', '').strip():
+            return review['combined_review_text'].strip()
+        return ''
     
     def save_structured_reviews(self, reviews: List[Dict[str, Any]], output_path: str):
         """
