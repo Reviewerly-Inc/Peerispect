@@ -7,10 +7,11 @@ services:
     ports:
       - "5015:5015"
     environment:
-      - VLLM_API_URL=http://localhost:11435/v1
+      # Use the shared vLLM service on the openalex-network
+      - VLLM_API_URL=http://vllm:8000/v1
       - PYTHONPATH=/app
       - PYTHONUNBUFFERED=1
-      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_VISIBLE_DEVICES=1
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
     volumes:
       - ./outputs:/src/outputs

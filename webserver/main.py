@@ -829,4 +829,5 @@ async def clear_cache_entry(submission_id: str):
     return {"message": f"Cache entries for {submission_id} cleared", "removed_count": removed_count}
 
 if __name__ == "__main__":
-    uvicorn.run(host="0.0.0.0", port=5015)
+    # Run the FastAPI app when executed directly
+    uvicorn.run(app, host="0.0.0.0", port=5015)

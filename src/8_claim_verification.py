@@ -5,13 +5,15 @@ Verifies claims against evidence using vLLM (OpenAI-compatible API)
 
 import json
 import logging
+import os
 import re
 import time
 import requests
 from typing import List, Dict, Any
 
 # vLLM API configuration
-VLLM_API_URL = "http://localhost:11435/v1"
+# Default to localhost, but allow override via VLLM_API_URL env var (used in Docker)
+VLLM_API_URL = os.getenv("VLLM_API_URL", "http://localhost:11435/v1")
 VLLM_AVAILABLE = True  # Assume available, will check on first call
 
 class ClaimVerifier:
