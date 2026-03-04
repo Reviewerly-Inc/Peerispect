@@ -11,12 +11,11 @@ import datetime
 import ssl
 from pathlib import Path
 from typing import Dict, Any, List, Callable, Optional
+import importlib.util
 
 # Fix SSL certificate verification issues
 ssl._create_default_https_context = ssl._create_unverified_context
 
-# Import all modules - using the correct module names with numbers
-import importlib.util
 
 # Load modules dynamically since they have numbers in their names
 def load_module(module_path, function_name=None, class_name=None):
@@ -30,15 +29,15 @@ def load_module(module_path, function_name=None, class_name=None):
     return module
 
 # Load functions and classes
-crawl_openreview_url = load_module("app/1_crawl_openreview.py", "crawl_openreview_url")
-parse_pdf_to_markdown = load_module("app/2_parse_pdf.py", "parse_pdf_to_markdown")
-clean_markdown = load_module("app/3_clean_markdown.py", "clean_markdown")
-chunk_markdown = load_module("app/4_chunk_markdown.py", "chunk_markdown")
-chunk_positional = load_module("app/4a_chunk_positional.py", "chunk_positional")
-extract_reviews_from_metadata = load_module("app/5_extract_structured_reviews.py", "extract_reviews_from_metadata")
-extract_claims_from_reviews = load_module("app/6_claim_extraction.py", "extract_claims_from_reviews")
-EvidenceRetriever = load_module("app/7_evidence_retrieval.py", class_name="EvidenceRetriever")
-ClaimVerifier = load_module("app/8_claim_verification.py", class_name="ClaimVerifier")
+crawl_openreview_url = load_module("src/1_crawl_openreview.py", "crawl_openreview_url")
+parse_pdf_to_markdown = load_module("src/2_parse_pdf.py", "parse_pdf_to_markdown")
+clean_markdown = load_module("src/3_clean_markdown.py", "clean_markdown")
+chunk_markdown = load_module("src/4_chunk_markdown.py", "chunk_markdown")
+chunk_positional = load_module("src/4a_chunk_positional.py", "chunk_positional")
+extract_reviews_from_metadata = load_module("src/5_extract_structured_reviews.py", "extract_reviews_from_metadata")
+extract_claims_from_reviews = load_module("src/6_claim_extraction.py", "extract_claims_from_reviews")
+EvidenceRetriever = load_module("src/7_evidence_retrieval.py", class_name="EvidenceRetriever")
+ClaimVerifier = load_module("src/8_claim_verification.py", class_name="ClaimVerifier")
 
 # Setup logging
 logging.basicConfig(
@@ -428,7 +427,6 @@ class OpenReviewProcessor:
                     'chunks_path': pos_result['chunks_path']
                 }
                 try:
-                    import os
                     num_chunks = 0
                     if os.path.exists(pos_result['chunks_path']):
                         with open(pos_result['chunks_path'], 'r', encoding='utf-8') as _f:
@@ -478,8 +476,7 @@ class OpenReviewProcessor:
             # If no reviews in metadata, try loading from individual review files
             if not reviews and metadata.get('individual_review_files'):
                 logging.info("No reviews in metadata, trying individual review files")
-                from pathlib import Path
-                extractor_class = load_module("app/5_extract_structured_reviews.py", class_name="ReviewExtractor")
+                extractor_class = load_module("src/5_extract_structured_reviews.py", class_name="ReviewExtractor")
                 extractor = extractor_class()
                 reviews = extractor.load_individual_review_files(
                     str(self.output_dir / "reviews"), 
@@ -489,7 +486,7 @@ class OpenReviewProcessor:
             # If still no reviews, try loading from all_reviews.json
             if not reviews and metadata.get('all_reviews_path'):
                 logging.info("Trying to load from all_reviews.json")
-                extractor_class = load_module("app/5_extract_structured_reviews.py", class_name="ReviewExtractor")
+                extractor_class = load_module("src/5_extract_structured_reviews.py", class_name="ReviewExtractor")
                 extractor = extractor_class()
                 all_reviews = extractor.load_reviews_from_json(metadata['all_reviews_path'])
                 if all_reviews:
@@ -504,7 +501,7 @@ class OpenReviewProcessor:
             # If still no reviews, try loading from pickle backup
             if not reviews and metadata.get('all_reviews_pickle_path'):
                 logging.info("Trying to load from pickle backup")
-                extractor_class = load_module("app/5_extract_structured_reviews.py", class_name="ReviewExtractor")
+                extractor_class = load_module("src/5_extract_structured_reviews.py", class_name="ReviewExtractor")
                 extractor = extractor_class()
                 all_reviews = extractor.load_reviews_from_pickle(metadata['all_reviews_pickle_path'])
                 if all_reviews:

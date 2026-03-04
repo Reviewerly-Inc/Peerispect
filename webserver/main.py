@@ -8,25 +8,25 @@ import json
 import logging
 import asyncio
 from pathlib import Path
-from typing import Dict, Any, List, Optional, Callable
+from typing import Dict, Any, List, Optional
 from datetime import datetime
 
-from fastapi import FastAPI, HTTPException, BackgroundTasks, Depends
+from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, FileResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field, HttpUrl
 import uvicorn
 import hashlib
 import uuid
+import shutil
 
 # Import our existing pipeline modules
 import sys
 sys.path.append(str(Path(__file__).parent.parent))
 
-from app.main import OpenReviewProcessor
+from src.main import OpenReviewProcessor
 
-def load_config(config_path: str = "app/config.json") -> Dict[str, Any]:
+def load_config(config_path: str = "src/config.json") -> Dict[str, Any]:
     """Load configuration from JSON file with fallback to defaults"""
     if os.path.exists(config_path):
         with open(config_path, 'r') as f:
@@ -466,7 +466,6 @@ async def _run_processing_job(job_id: str, url: str, config: Dict[str, Any]) -> 
             original_pdf_path = Path(original_pdf)
             if original_pdf_path.exists():
                 cached_pdf_path = CACHE_DIR / "pdfs" / f"{submission_id}.pdf"
-                import shutil
                 shutil.copy2(original_pdf_path, cached_pdf_path)
 
         # Positional highlighting
@@ -794,7 +793,6 @@ async def get_cache_info():
 @app.delete("/cache")
 async def clear_cache():
     """Clear all cached results and PDFs"""
-    import shutil
     
     if CACHE_DIR.exists():
         shutil.rmtree(CACHE_DIR)
@@ -831,10 +829,4 @@ async def clear_cache_entry(submission_id: str):
     return {"message": f"Cache entries for {submission_id} cleared", "removed_count": removed_count}
 
 if __name__ == "__main__":
-    uvicorn.run(
-        "main:app",
-        host="0.0.0.0",
-        port=5015,
-        reload=True,
-        log_level="info"
-    )
+    uvicorn.run(host="0.0.0.0", port=5015)

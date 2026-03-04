@@ -13,8 +13,8 @@ services:
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
     volumes:
-      - ./outputs:/app/outputs
-      - ./api_cache:/app/api_cache
+      - ./outputs:/src/outputs
+      - ./api_cache:/src/api_cache
     runtime: nvidia
     networks:
       - openalex-network
