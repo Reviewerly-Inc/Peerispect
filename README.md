@@ -75,7 +75,7 @@ The app uses a JSON configuration file (`config.json`) with the following option
     "chunk_size": 512,
     "claim_extraction": "auto",
     "evidence_retrieval": "auto",
-    "verification_model": "qwen3:14b",
+    "verification_model": "Qwen/Qwen3-4B-Instruct-2507-FP8",
     "top_k": 4,
     "output_dir": "outputs"
 }
@@ -88,7 +88,7 @@ The app uses a JSON configuration file (`config.json`) with the following option
 - **chunk_size**: Maximum tokens per chunk (default: 512)
 - **claim_extraction**: Claim extraction method (`"auto"`, `"fenice"`, `"rule_based"`)
 - **evidence_retrieval**: Evidence retrieval method (`"auto"`, `"tfidf"`, `"bm25"`, `"sbert"`)
-- **verification_model**: Ollama model for claim verification
+- **verification_model**: vLLM model for claim verification (default: Qwen/Qwen3-4B-Instruct-2507-FP8)
 - **top_k**: Number of evidence chunks per claim (default: 4)
 - **output_dir**: Output directory (default: "outputs")
 
@@ -161,7 +161,8 @@ outputs/
 - **SBERT**: Semantic similarity using sentence transformers
 
 ### Claim Verification
-- **Ollama Models**: Any Ollama-compatible model (e.g., qwen3:14b, llama3.1:8b)
+- **vLLM**: Uses vLLM with OpenAI-compatible API (default: Qwen/Qwen3-4B-Instruct-2507-FP8)
+- **API URL**: http://localhost:11435/v1
 
 ## Dependencies
 
@@ -173,7 +174,7 @@ The app gracefully handles missing dependencies by falling back to available met
 - `scikit-learn`: For TF-IDF retrieval
 - `rank-bm25`: For BM25 retrieval
 - `sentence-transformers`: For SBERT retrieval
-- `ollama`: For claim verification
+- `requests`: For vLLM API calls (claim verification)
 - `tiktoken`: For text tokenization
 
 ## Troubleshooting
@@ -187,7 +188,7 @@ The app gracefully handles missing dependencies by falling back to available met
    - Check individual review files in `outputs/reviews/` directory
 3. **No Claims Extracted**: Check if reviews contain claim-like statements
 4. **Evidence Retrieval Empty**: Verify paper chunks were created successfully
-5. **Ollama Connection Error**: Ensure Ollama is running and model is available
+5. **vLLM Connection Error**: Ensure vLLM is running at http://localhost:11435/v1 and model is available
 
 ### Review Processing Issues
 

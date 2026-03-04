@@ -22,11 +22,28 @@ logging.basicConfig(
 class OpenReviewCrawler:
     def __init__(self, username=None, password=None):
         """Initialize OpenReview client."""
+        # Primary client: v2 API (api2.openreview.net)
         self.client = api.OpenReviewClient(
             baseurl='https://api2.openreview.net',
             username=username,
             password=password
         )
+        # v1 client for older papers (will be initialized on demand)
+        self.client_v1 = None
+        self.username = username
+        self.password = password
+        # Track which API version is being used for current submission
+        self.current_api_version = 'v2'
+    
+    def _get_v1_client(self):
+        """Initialize and return v1 client for older papers."""
+        if self.client_v1 is None:
+            self.client_v1 = openreview.Client(
+                baseurl='https://api.openreview.net',
+                username=self.username,
+                password=self.password
+            )
+        return self.client_v1
     
     def extract_submission_id_from_url(self, url):
         """Extract submission ID from OpenReview URL."""
@@ -38,26 +55,68 @@ class OpenReviewCrawler:
         else:
             raise ValueError("Could not extract submission ID from URL")
     
-    def get_submission_data(self, submission_id, retries=5):
-        """Fetch submission data with retry mechanism using details=all."""
+    def get_submission_data(self, submission_id, retries=5, api_version='v2'):
+        """
+        Fetch submission data with retry mechanism using details=all.
+        Tries v2 first, then falls back to v1 if NotFoundError.
+        
+        Args:
+            submission_id: The submission ID to fetch
+            retries: Number of retry attempts
+            api_version: API version to use ('v2', 'v1', or 'auto' for auto-fallback)
+        
+        Returns:
+            Submission object or None if not found
+        """
+        # Select client based on API version
+        if api_version == 'v1':
+            client = self._get_v1_client()
+        else:
+            client = self.client
+        
         for attempt in range(retries):
             try:
-                logging.info(f"Fetching submission: {submission_id} (Attempt {attempt + 1}/{retries})")
+                logging.info(f"Fetching submission: {submission_id} using {api_version} API (Attempt {attempt + 1}/{retries})")
                 # Use get_all_notes with details='all' to get complete data including reviews
-                submissions = self.client.get_all_notes(
+                submissions = client.get_all_notes(
                     id=submission_id,
                     details='all'
                 )
                 if submissions:
+                    logging.info(f"Successfully fetched submission from {api_version} API")
                     return submissions[0]  # Return the first (and should be only) submission
                 else:
                     logging.warning(f"No submission found with ID: {submission_id}")
                     return None
             except openreview.OpenReviewException as e:
-                if "RateLimitError" in str(e):
+                error_str = str(e)
+                if "RateLimitError" in error_str:
                     retry_after = 30
                     logging.warning(f"Rate limit reached. Retrying in {retry_after} seconds...")
                     time.sleep(retry_after)
+                elif "NotFoundError" in error_str or "'name': 'NotFoundError'" in error_str or '404' in error_str:
+                    # Not found in current API, try fallback if using v2
+                    if api_version == 'v2':
+                        logging.warning(f"Submission not found in v2 API, trying v1 API fallback...")
+                        try:
+                            client_v1 = self._get_v1_client()
+                            submissions = client_v1.get_all_notes(
+                                id=submission_id,
+                                details='all'
+                            )
+                            if submissions:
+                                logging.info(f"Successfully fetched submission from v1 API fallback")
+                                self.current_api_version = 'v1'  # Track that we're using v1
+                                return submissions[0]
+                            else:
+                                logging.warning(f"No submission found with ID: {submission_id} in either API")
+                                return None
+                        except Exception as e_fallback:
+                            logging.error(f"Fallback to v1 also failed: {e_fallback}")
+                            return None
+                    else:
+                        logging.error(f"NotFoundError: {e}")
+                        return None
                 else:
                     logging.error(f"OpenReviewException: {e}")
                     raise
@@ -69,12 +128,15 @@ class OpenReviewCrawler:
     
     def get_reviews_for_submission(self, submission_id, retries=5):
         """Fetch all reviews for a submission using the OpenReview API."""
+        # Select the appropriate client based on current API version
+        client = self._get_v1_client() if self.current_api_version == 'v1' else self.client
+        
         for attempt in range(retries):
             try:
-                logging.info(f"Fetching reviews for submission: {submission_id} (Attempt {attempt + 1}/{retries})")
+                logging.info(f"Fetching reviews for submission: {submission_id} using {self.current_api_version} API (Attempt {attempt + 1}/{retries})")
                 
                 # Get all notes that are replies to this submission
-                replies = self.client.get_all_notes(forum=submission_id)
+                replies = client.get_all_notes(forum=submission_id)
                 
                 reviews = []
                 for reply in replies:
@@ -92,14 +154,36 @@ class OpenReviewCrawler:
                             if isinstance(v, dict):
                                 return v.get('value', v)
                             return v or ''
-                        
+
+                        # Build combined text for claim extraction
+                        parts = []
+                        for fname in ('review', 'summary', 'strengths', 'weaknesses', 'questions', 'limitations'):
+                            v = get_value(fname)
+                            if v and isinstance(v, str) and v.strip():
+                                parts.append(v)
+                        # Older venues may use different field names; collect any text content
+                        if not parts and reply.content:
+                            for key, val in reply.content.items():
+                                if key in ('rating', 'confidence', 'flag_for_ethics_review'):
+                                    continue
+                                s = val.get('value', val) if isinstance(val, dict) else val
+                                if isinstance(s, str) and s.strip():
+                                    parts.append(s.strip())
+                        combined_review_text = '\n'.join(parts).strip()
+                        sigs = getattr(reply, 'signatures', []) or []
+                        inv = reply.invitation if hasattr(reply, 'invitation') else ''
+                        review_text = get_value('review')
+                        if not (review_text or '').strip() and combined_review_text:
+                            review_text = combined_review_text
                         review_info = {
                             'review_id': reply.id,
-                            'reviewer': reply.signatures[0] if hasattr(reply, 'signatures') and reply.signatures else 'Anonymous',
-                            'invitation': reply.invitation if hasattr(reply, 'invitation') else '',
+                            'reviewer': sigs[0].split('/')[-1] if sigs else 'Anonymous',
+                            'invitation': inv,
+                            'invitations': [inv] if inv else [],
+                            'signatures': sigs,
                             'rating': get_value('rating'),
                             'confidence': get_value('confidence'),
-                            'review_text': get_value('review'),
+                            'review_text': review_text,
                             'summary': get_value('summary'),
                             'strengths': get_value('strengths'),
                             'weaknesses': get_value('weaknesses'),
@@ -109,7 +193,8 @@ class OpenReviewCrawler:
                             'presentation': get_value('presentation'),
                             'contribution': get_value('contribution'),
                             'flag_for_ethics_review': get_value('flag_for_ethics_review'),
-                            'details_of_ethics_concerns': get_value('details_of_ethics_concerns')
+                            'details_of_ethics_concerns': get_value('details_of_ethics_concerns'),
+                            'combined_review_text': combined_review_text,
                         }
                         reviews.append(review_info)
                 
@@ -194,12 +279,22 @@ class OpenReviewCrawler:
             # Filter for official reviews using the proven logic
             for reply in replies:
                 # Check if this is an official review
-                invitations = reply.get('invitations', [])
+                # v2 API uses 'invitations' (plural list), v1 API uses 'invitation' (singular string)
+                invitations_raw = reply.get('invitations', []) or []
+                invitation_singular = reply.get('invitation', '')
+                
                 signatures = reply.get('signatures', [])
                 
-                # Check if any invitation contains 'Review' and signature contains 'Reviewer_'
-                is_review = any('Review' in inv for inv in invitations)
-                is_from_reviewer = any('Reviewer_' in sig for sig in signatures)
+                # Collect all invitations (handle both v1 and v2 formats)
+                invitations = list(invitations_raw) if invitations_raw else []
+                if invitation_singular:
+                    invitations.append(invitation_singular)
+                
+                # Check if any invitation contains 'Review' (works for both v1 and v2)
+                is_review = any('Review' in inv for inv in invitations) if invitations else False
+                
+                # Check if signature indicates reviewer (v2 uses 'Reviewer_', v1 uses full path)
+                is_from_reviewer = any('Reviewer' in sig or 'AnonReviewer' in sig for sig in signatures)
                 
                 if is_review and is_from_reviewer:
                     logging.info(f"Found official review: {reply.get('id')} with invitations: {invitations}")
@@ -230,7 +325,7 @@ class OpenReviewCrawler:
                     review_info = {
                         'review_id': reply.get('id'),
                         'reviewer': reviewer,
-                        'invitation': invitations[0] if invitations else '',
+                        'invitation': invitations[0] if invitations else invitation_singular,
                         'invitations': invitations,
                         'signatures': signatures,
                         'rating': reply_get_value('rating'),
@@ -254,6 +349,21 @@ class OpenReviewCrawler:
                     # Log non-review replies for debugging
                     logging.debug(f"Non-review reply {reply.get('id')} with invitations: {invitations}")
             
+            # If details replies had no content (e.g. v1 API returns stubs), fetch full notes
+            has_any_content = any(
+                (r.get('combined_review_text') or '').strip() or (r.get('review_text') or '').strip()
+                for r in pdf_info['reviews']
+            )
+            if pdf_info['reviews'] and not has_any_content:
+                logging.warning("Review content empty from details; fetching full notes via API...")
+                try:
+                    reviews = self.get_reviews_for_submission(submission.id)
+                    if reviews:
+                        pdf_info['reviews'] = reviews
+                        logging.info(f"Replaced with {len(reviews)} reviews with content from API")
+                except Exception as e:
+                    logging.warning(f"Fallback fetch of full notes failed: {e}")
+            
             logging.info(f"Successfully extracted {len(pdf_info['reviews'])} reviews for submission {submission.id}")
         else:
             logging.warning(f"No replies found in submission.details for {submission.id}")
@@ -272,6 +382,9 @@ class OpenReviewCrawler:
     
     def process_single_url(self, url, output_dir="outputs"):
         """Process a single OpenReview URL to extract paper and reviews."""
+        # Reset API version to v2 for new submission
+        self.current_api_version = 'v2'
+        
         os.makedirs(output_dir, exist_ok=True)
         
         # Create subdirectories
@@ -291,6 +404,10 @@ class OpenReviewCrawler:
         
         # Extract PDF info
         pdf_info = self.extract_pdf_info(submission)
+        
+        # Add API version info to metadata
+        pdf_info['api_version_used'] = self.current_api_version
+        logging.info(f"Using {self.current_api_version} API for this submission")
         
         # Download PDF if available
         if pdf_info['pdf_url']:

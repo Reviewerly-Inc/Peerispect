@@ -105,7 +105,7 @@ class RunLogger:
                     "description": "Method used to retrieve evidence for claims"
                 },
                 "claim_verification": {
-                    "model": config.get("verification_model", "qwen3:8b"),
+                    "model": config.get("verification_model", "Qwen/Qwen3-4B-Instruct-2507-FP8"),
                     "temperature": 0.0,
                     "num_predict": 2048,
                     "top_k": 40,
@@ -136,7 +136,7 @@ class RunLogger:
                     "description": "Actual method used after fallback resolution"
                 },
                 "claim_verification": {
-                    "configured_model": config.get("verification_model", "qwen3:8b"),
+                    "configured_model": config.get("verification_model", "Qwen/Qwen3-4B-Instruct-2507-FP8"),
                     "actual_model": None,
                     "description": "Actual model used for verification"
                 }
@@ -669,7 +669,7 @@ class OpenReviewProcessor:
             verification_path = self.output_dir / "verification" / f"{results['submission_id']}_verification.json"
             report_path = self.output_dir / "verification" / f"{results['submission_id']}_report.md"
             
-            verification_model = self.config.get("verification_model", "qwen3:8b")
+            verification_model = self.config.get("verification_model", "Qwen/Qwen3-4B-Instruct-2507-FP8")
             self._emit_progress({'phase': 'verify', 'status': 'running', 'message': f"Verifying claims with model {verification_model}", 'total_claims': len(claims_with_evidence), 'current': 0})
             
             verifier = ClaimVerifier()
@@ -698,7 +698,7 @@ class OpenReviewProcessor:
             
             step_results['step_8_claim_verification'] = {
                 'status': 'completed',
-                'configured_model': self.config.get("verification_model", "qwen3:8b"),
+                'configured_model': self.config.get("verification_model", "Qwen/Qwen3-4B-Instruct-2507-FP8"),
                 'actual_model': verification_model,
                 'temperature': 0.0,
                 'verification_path': str(verification_path),
@@ -754,7 +754,7 @@ def main():
             "column_split_x": 300.0,
             "claim_extraction": "auto",
             "evidence_retrieval": "auto",
-            "verification_model": "qwen3:8b",
+            "verification_model": "Qwen/Qwen3-4B-Instruct-2507-FP8",
             "top_k": 4,
             "output_dir": "outputs"
         }
@@ -787,7 +787,7 @@ def main():
             print(f"   • Column Split X: {config.get('column_split_x', 300.0)}")
         print(f"   • Claim Extraction: {config.get('claim_extraction', 'auto')}")
         print(f"   • Evidence Retrieval: {config.get('evidence_retrieval', 'auto')}")
-        print(f"   • Verification Model: {config.get('verification_model', 'qwen3:8b')}")
+        print(f"   • Verification Model: {config.get('verification_model', 'Qwen/Qwen3-4B-Instruct-2507-FP8')}")
         print(f"   • Chunk Size: {config.get('chunk_size', 512)}")
         print(f"   • Top-K Evidence: {config.get('top_k', 4)}")
         

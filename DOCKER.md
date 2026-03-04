@@ -38,10 +38,10 @@ This document explains how to run Peerispect using Docker.
 - **Documentation:** http://localhost:5015/docs
 - **Health Check:** http://localhost:5015/health
 
-### Ollama
-- **Port:** 11434
-- **URL:** http://localhost:11434
-- **Models:** Will be downloaded automatically when first used
+### vLLM
+- **Port:** 11435
+- **URL:** http://localhost:11435/v1
+- **Model:** Qwen/Qwen3-4B-Instruct-2507-FP8
 
 ## Configuration
 
@@ -51,17 +51,17 @@ The Docker setup uses the following configuration:
 - **Volumes:** 
   - `./outputs` - For debugging (mounted to container)
   - `./api_cache` - For API caching (mounted to container)
-  - `ollama_data` - For Ollama model storage (Docker volume)
+  - vLLM should be running separately on the host at http://localhost:11435/v1
 
 ## Environment Variables
 
-- `OLLAMA_HOST=http://ollama:11434` - Ollama service URL
+- `VLLM_API_URL=http://localhost:11435/v1` - vLLM API URL
 - `PYTHONPATH=/app` - Python path
 - `PYTHONUNBUFFERED=1` - Python output buffering
 
 ## Integration with Existing Setup
 
-This Docker setup is designed to work alongside your existing server setup. The Ollama service will be available at `http://localhost:11434` and can be used by other applications on the same network.
+This Docker setup is designed to work alongside your existing server setup. The vLLM service should be running at `http://localhost:11435/v1` and can be used by other applications on the same network.
 
 ## Troubleshooting
 
@@ -77,9 +77,9 @@ This Docker setup is designed to work alongside your existing server setup. The 
    - Ensure Docker has proper permissions
    - Run with `sudo` if needed
 
-4. **Ollama models not loading:**
-   - Check Ollama logs: `docker-compose logs ollama`
-   - Pull models manually: `docker-compose exec ollama ollama pull qwen3:8b`
+4. **vLLM not responding:**
+   - Ensure vLLM is running on the host at http://localhost:11435/v1
+   - Check vLLM logs and ensure the model Qwen/Qwen3-4B-Instruct-2507-FP8 is loaded
 
 ## Development
 

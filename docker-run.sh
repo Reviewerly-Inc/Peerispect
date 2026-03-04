@@ -40,7 +40,7 @@ start_services() {
     echo ""
     echo "📋 Service URLs:"
     echo "  - Peerispect API: http://localhost:5015"
-    echo "  - Ollama API: http://localhost:11434"
+    echo "  - vLLM API: http://localhost:11435/v1"
     echo "  - API Documentation: http://localhost:5015/docs"
     echo ""
     echo "📊 Check status with: $0 status"
@@ -89,10 +89,10 @@ show_status() {
         echo "❌ Peerispect API is not responding"
     fi
     
-    if curl -s http://localhost:11434/api/tags > /dev/null 2>&1; then
-        echo "✅ Ollama API is healthy"
+    if curl -s http://localhost:11435/v1/models > /dev/null 2>&1; then
+        echo "✅ vLLM API is healthy"
     else
-        echo "❌ Ollama API is not responding"
+        echo "❌ vLLM API is not responding"
     fi
 }
 
