@@ -1,5 +1,8 @@
 # PEERISPECT: Claim Verification in Scientific Peer Reviews
 
+Quick links: 💻 [Demo](https://app.reviewer.ly/app/peerispect)
+
+
 A modular system that extracts check-worthy claims from peer reviews, retrieves relevant evidence from manuscripts, and verifies claims through natural language inference to assess whether review statements are supported, partially supported, contradicted, or undetermined by the paper content.
 
 ## Features
